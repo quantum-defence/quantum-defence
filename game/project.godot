@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="Tower Defence"
+run/main_scene="res://src/map/Map.tscn"
+config/icon="res://assets/img/wip-logo.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/always_on_top=true
+
+[gdnative]
+
+singletons=[  ]
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="projectile"
+
+[physics]
+
+common/enable_pause_aware_picking=true
