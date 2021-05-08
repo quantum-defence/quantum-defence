@@ -40,6 +40,10 @@ window/size/always_on_top=true
 
 singletons=[  ]
 
+[global]
+
+font=false
+
 [layer_names]
 
 2d_physics/layer_1="world"
