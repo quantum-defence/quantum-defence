@@ -12,14 +12,14 @@ radius = 128.0
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "alive",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "alive",
 "speed": 5.0
 } ]
 
@@ -42,7 +42,5 @@ position = Vector2( 0, 0.0967237 )
 scale = Vector2( 0.211515, 0.210878 )
 frames = SubResource( 3 )
 animation = "alive"
-
-[node name="Line2D" type="Line2D" parent="."]
 
 [connection signal="area_entered" from="Range" to="." method="_on_Range_area_entered"]
