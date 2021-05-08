@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "EnemyWeapon",
+"language": "GDScript",
+"path": "res://src/enemy/EnemyWeapon.gd"
+}, {
+"base": "Area2D",
+"class": "Home",
+"language": "GDScript",
+"path": "res://src/map/Home.gd"
+} ]
+_global_script_class_icons={
+"EnemyWeapon": "",
+"Home": ""
+}
+
 [application]
 
 config/name="Tower Defence"

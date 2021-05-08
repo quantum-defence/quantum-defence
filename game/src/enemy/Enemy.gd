@@ -63,8 +63,7 @@ func set_target(target : Vector2):
 	var nav : Navigation2D
 	nav = get_parent().get_node("Navigator")
 	path = nav.get_simple_path(global_position, target, true)
-	$Line2D.points = path
 	
 func _on_Range_area_entered(area: Area2D) -> void:
-	if area.name == "Home":
+	if area is Home:
 		_is_reached = true
