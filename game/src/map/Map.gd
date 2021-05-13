@@ -15,6 +15,8 @@ func get_contents_at(x: int, y : int) -> void:
 	# Check for path
 	return
 
+
+#for item drops
 func is_valid_turret_drop(x: int, y: int) -> bool:
 	# for now all values return true
 	return true

@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Enemy
 
 onready var RAND_EFFECT := 2.0
 
@@ -8,6 +9,7 @@ export var _rate_of_fire := 2.0
 var _health := 100.0
 var _target : Vector2
 var _last_fire := 0.0
+var alive = true
 
 var path := PoolVector2Array()
 var _is_reached := false
@@ -56,6 +58,7 @@ func fire() -> void:
 	weapon.fire(global_position, _target)
 
 func kill() -> void:
+	alive = false
 	$Sprite.set_animation("dead")
 
 func set_target(target : Vector2):
