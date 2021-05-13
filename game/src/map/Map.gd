@@ -3,12 +3,15 @@ extends Node2D
 const TILE_SIZE = 128.0
 enum tile_content {ROAD, EMPTY_PLOT, TURRET, BASE, INVALID}
 
+# dummy function to show use of selector
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			var x = round(event.position.x / TILE_SIZE)
 			var y = round(event.position.y / TILE_SIZE)
 			$Selector.select(x, y)
+
+## Following have not been implemented:
 
 func get_contents_at(x: int, y : int) -> void:
 	# Check for turrets

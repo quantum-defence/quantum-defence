@@ -1,6 +1,9 @@
 extends Area2D
 
+# constants
 export var spawn_rate := 0.04
+
+# hidden state variables
 var _last_spawn := 0.0
 
 func _process(delta: float) -> void:
