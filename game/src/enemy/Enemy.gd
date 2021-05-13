@@ -12,6 +12,8 @@ var _last_fire := 0.0
 var path := PoolVector2Array()
 var _is_reached := false
 
+signal enemy_dead
+
 func _physics_process(delta: float) -> void:
 	if _is_reached:
 		if _last_fire > 1.0 / _rate_of_fire:
@@ -57,6 +59,7 @@ func fire() -> void:
 
 func kill() -> void:
 	$Sprite.set_animation("dead")
+	emit_signal("enemy_dead")
 
 func set_target(target : Vector2):
 	_target = target
