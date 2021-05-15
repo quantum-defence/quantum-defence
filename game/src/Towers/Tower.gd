@@ -18,6 +18,7 @@ func _ready():
 
 
 func _fire():
+	print("fire is being called")
 	#Not sure how to make this part of the design ngl
 	var weapon = preload("res://src/enemy/EnemyWeapon.tscn").instance()
 	get_parent().add_child(weapon)
@@ -26,31 +27,21 @@ func _fire():
 
 func _process(delta):
 	# If their are enemies in range
+	
 	if enemiesInRange.size() != 0:
-		print("process called if")
 	# If no target is assigned put it as the first enemy in the list
 		if target == null:
 			target = enemiesInRange[0]
-		print("timer called")
-		print(target)
-		timer.start()
 		
-
 	else:
-			print("process called else")
 			target = null
-			
+	
+	if (target != null and timer.is_stopped()):
+		timer.start()
 
-func _on_Range_area_entered(area):
-	# Tests if they are an enemy
-	print("on Range area entered called")
-	if area.get_parent() is Enemy:
-		# If no target has been selected asign this one
-		if not target:
-			target = area
 
-		# Add the enemy to the list
-		enemiesInRange.append(area)
 
-func _on_Range_area_exited(area):
-	enemiesInRange.erase(area)
+func _on_Range_body_entered(body):
+	print(body)
+	if body is KinematicBody2D:
+		enemiesInRange.append(body)

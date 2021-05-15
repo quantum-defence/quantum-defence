@@ -375,9 +375,7 @@ spawn_rate = 0.8
 position = Vector2( 110.948, 638.687 )
 
 [node name="Selector" parent="." instance=ExtResource( 5 )]
-<<<<<<< HEAD
-position = Vector2( -166, -167 )
+position = Vector2( -190.663, -292.601 )
 
 [node name="BasicTower" parent="." instance=ExtResource( 6 )]
-position = Vector2( 163.48, 191.943 )
-position = Vector2( -180.138, 0.573608 )
+position = Vector2( 150.218, 179.91 )

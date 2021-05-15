@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Home",
 "language": "GDScript",
 "path": "res://src/map/Home.gd"
+}, {
+"base": "Node2D",
+"class": "Smth",
+"language": "GDScript",
+"path": "res://Smth.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
 "EnemyWeapon": "",
-"Home": ""
+"Home": "",
+"Smth": ""
 }
 
 [application]

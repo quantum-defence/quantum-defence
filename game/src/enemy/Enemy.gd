@@ -13,11 +13,8 @@ export var _rate_of_fire := 2.0
 var _health := 100.0
 var _target : Vector2
 var _last_fire := 0.0
-<<<<<<< HEAD
 var alive = true
 
-=======
->>>>>>> main
 var path := PoolVector2Array()
 var _is_reached := false
 
