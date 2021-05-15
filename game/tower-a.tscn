@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tower-a.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 5.0
+
+[node name="TowerA" type="RigidBody2D"]
+mode = 3
+contacts_reported = 5
+contact_monitor = true
+script = ExtResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+
+[node name="FireRange" type="Sprite" parent="."]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="."]
+hframes = 16
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 20, 20 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_body_enter"]
+[connection signal="body_exited" from="." to="." method="_on_body_exit"]
