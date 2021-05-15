@@ -43,5 +43,5 @@ func _process(delta):
 
 func _on_Range_body_entered(body):
 	print(body)
-	if body is KinematicBody2D:
+	if body is Enemy:
 		enemiesInRange.append(body)
