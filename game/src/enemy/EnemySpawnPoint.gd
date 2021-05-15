@@ -1,4 +1,5 @@
 extends Area2D
+class_name EnemySpawnPoint
 
 # constants
 export var spawn_rate := 0.04
