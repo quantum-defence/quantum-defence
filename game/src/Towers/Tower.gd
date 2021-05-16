@@ -1,7 +1,7 @@
 extends Node2D
 
 const _projectile := preload("res://Projectile.tscn")
-const FIRING_INTERVAL := 1.0
+var firing_interval := 0.2
 #External properties
 #Enemy Related
 onready var _target : Enemy = null
@@ -9,7 +9,7 @@ onready var _enemiesInRange := []
 onready var _timer : Timer = $Timer
 
 func _ready() -> void:
-	_timer.set_wait_time(1)
+	_timer.set_wait_time(firing_interval)
 	_timer.connect("timeout", self, "_fire")
 
 func _fire() -> void:

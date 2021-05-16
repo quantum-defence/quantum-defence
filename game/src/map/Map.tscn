@@ -369,7 +369,7 @@ tile_data = PoolIntArray( 0, 0, 0, 2, 0, 0, 4, 0, 0, 6, 0, 0, 8, 0, 0, 10, 1, 0,
 [node name="EnemySpawnPoint" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 487.273, 204.633 )
-spawn_rate = 0.8
+spawn_rate = 2.0
 
 [node name="Home" parent="." instance=ExtResource( 2 )]
 position = Vector2( 110.948, 638.687 )
@@ -378,4 +378,4 @@ position = Vector2( 110.948, 638.687 )
 position = Vector2( -190.663, -292.601 )
 
 [node name="BasicTower" parent="." instance=ExtResource( 6 )]
-position = Vector2( 150.218, 179.91 )
+position = Vector2( 192, 192 )

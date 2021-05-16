@@ -7,8 +7,8 @@ enum tile_content {ROAD, EMPTY_PLOT, TURRET, BASE, INVALID}
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			var x = round(event.position.x / TILE_SIZE)
-			var y = round(event.position.y / TILE_SIZE)
+			var x = floor(event.position.x / TILE_SIZE)
+			var y = floor(event.position.y / TILE_SIZE)
 			$Selector.select(x, y)
 
 ## Following have not been implemented:
