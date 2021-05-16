@@ -17,4 +17,4 @@ func spawn() -> void:
 	var enemy = preload("res://src/enemy/Enemy.tscn").instance()
 	get_parent().add_child(enemy)
 	enemy.global_position = self.global_position
-	enemy.set_target(get_parent().get_node("Home").global_position)
+	enemy.set_target(get_parent().get_node("Home"))

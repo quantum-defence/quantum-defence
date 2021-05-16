@@ -40,8 +40,8 @@ position = Vector2( -0.0672836, 0 )
 shape = SubResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 0.0967237 )
-scale = Vector2( 0.211515, 0.210878 )
+position = Vector2( 0, 0 )
+scale = Vector2( 0.106, 0.106 )
 frames = SubResource( 3 )
 animation = "alive"
 
