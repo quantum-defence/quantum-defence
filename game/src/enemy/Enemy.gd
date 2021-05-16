@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		fire()
 	else:
 		_last_fire += delta
-
+	
 func move_along_path(distance : float) -> void:
 	var start_point := position
 	for _i in range(path.size()):
@@ -64,8 +64,9 @@ func set_path(value : PoolVector2Array) -> void:
 # fire weapon at home
 func fire() -> void:
 	var weapon = preload("res://src/enemy/EnemyWeapon.tscn").instance()
-	get_parent().add_child(weapon)
 	weapon.fire(global_position, _target)
+	get_parent().add_child(weapon)
+
 
 # to be run when health reaches 0
 func kill() -> void:
@@ -85,3 +86,7 @@ func set_target(target : Home):
 func _on_Range_area_entered(area: Area2D) -> void:
 	if area is Home:
 		_is_reached = true
+
+func _on_body_entering_vitals(body: Node) -> void:
+	if body is EnemyWeapon:
+		body.inflict_damage(self)
