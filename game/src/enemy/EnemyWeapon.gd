@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends RigidBody2D
 class_name EnemyWeapon
 
 export var speed := 200.0

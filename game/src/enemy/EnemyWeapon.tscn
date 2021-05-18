@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 4 )
 
-[node name="EnemyWeapon" type="KinematicBody2D"]
+[node name="EnemyWeapon" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 2 )
@@ -15,6 +15,6 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="towerDefense_tile297" type="Sprite" parent="."]
-rotation = 4.71239
+rotation = -1.5708
 scale = Vector2( 0.375, 0.375 )
 texture = ExtResource( 1 )

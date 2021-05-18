@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/enemy/EnemySpawnPoint.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "RigidBody2D",
 "class": "EnemyWeapon",
 "language": "GDScript",
 "path": "res://src/enemy/EnemyWeapon.gd"
@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Tower Defence"
-run/main_scene="res://src/map/Map.tscn"
+run/main_scene="res://src/BuildTool/BuildToolSideBar.tscn"
 config/icon="res://assets/img/wip-logo.png"
 
 [display]

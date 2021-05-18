@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/Towers/d_attack_1.png" type="Texture" id=2]
 [ext_resource path="res://src/Towers/Tower.tscn" type="PackedScene" id=3]
 
 [node name="BasicTower" instance=ExtResource( 3 )]
@@ -8,9 +7,6 @@
 [node name="CollisionShape2D" parent="RigidBody2D" index="0"]
 one_way_collision_margin = 0.0
 
-[node name="BasicTowerSprite" type="Sprite" parent="." index="2"]
-position = Vector2( -24.8804, -38.6262 )
-scale = Vector2( 0.173251, 0.229731 )
-texture = ExtResource( 2 )
-
-[node name="Timer" type="Timer" parent="." index="3"]
+[node name="TileMap" parent="." index="3"]
+position = Vector2( -13, -30 )
+tile_data = PoolIntArray( -65538, 0, 0 )

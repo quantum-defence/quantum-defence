@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/BuildTool/Buttons/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade C.png" type="Texture" id=2]
+[ext_resource path="res://src/BuildTool/Buttons/FastestTower.gd" type="Script" id=3]
+
+[node name="FastestTower" instance=ExtResource( 1 )]
+margin_left = -0.667419
+margin_top = 1.33484
+margin_right = -0.66748
+margin_bottom = 1.33484
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2( 33.378, 29.7906 )
+scale = Vector2( 0.443414, 0.417723 )
+texture = ExtResource( 2 )
+
+[node name="TileMap" parent="." index="2"]
+tile_data = PoolIntArray( -65534, 7, 0, 1, 2, 0, 65538, 7, 0 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
