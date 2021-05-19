@@ -1,7 +1,8 @@
 extends KinematicBody2D
+class_name Enemy
 
-# Random movement to avoid the 'queue' clustering effect'
-onready var RAND_EFFECT := 2.0
+# % of random movement to avoid the 'queue' clustering effect'
+const RAND_WALK_EFFECT := 50
 
 # enemy body specific constants
 export var speed := 400.0
@@ -9,15 +10,26 @@ export var _corpse_timer := 5.0
 export var _rate_of_fire := 2.0
 
 # enemy state variables
-var _health := 100.0
-var _target : Vector2
+var health := 100.0
+var _target : Home
 var _last_fire := 0.0
+var alive = true
+
 var path := PoolVector2Array()
 var _is_reached := false
 
 signal enemy_dead
 
 func _physics_process(delta: float) -> void:
+	if _corpse_timer <= 0.0:
+		queue_free()
+		return
+		
+	if health <= 0.0:
+		kill()
+		_corpse_timer -= delta
+		return
+		
 	if not _is_reached:
 		move_along_path(delta * speed)
 	elif _last_fire > 1.0 / _rate_of_fire:
@@ -25,12 +37,6 @@ func _physics_process(delta: float) -> void:
 		fire()
 	else:
 		_last_fire += delta
-
-	if _health <= 0.0:
-		kill()
-		_corpse_timer -= delta
-	if _corpse_timer <= 0.0:
-		queue_free()
 	
 func move_along_path(distance : float) -> void:
 	var start_point := position
@@ -39,10 +45,9 @@ func move_along_path(distance : float) -> void:
 		if distance <= distance_to_next and distance >= 0.0:
 			var next_position := start_point.linear_interpolate(
 				path[0], distance / distance_to_next)
-			var randVect := Vector2(randf()-0.5, randf()-0.5) 
-			randVect = randVect * distance
-			randVect = randVect * RAND_EFFECT
-			move_and_collide(next_position - position + randVect)
+			var randVect := Vector2(randf()-0.5, randf()-0.5) / 100
+			randVect = Vector2(1, 1) + randVect * RAND_WALK_EFFECT
+			move_and_collide((next_position - position) * randVect)
 			break
 		elif distance < 0.0:
 			_is_reached = true
@@ -59,24 +64,29 @@ func set_path(value : PoolVector2Array) -> void:
 # fire weapon at home
 func fire() -> void:
 	var weapon = preload("res://src/enemy/EnemyWeapon.tscn").instance()
-	get_parent().add_child(weapon)
 	weapon.fire(global_position, _target)
+	get_parent().add_child(weapon)
+
 
 # to be run when health reaches 0
 func kill() -> void:
-	_health = 0.0
+	health = 0.0
 	$Sprite.set_animation("dead")
 	emit_signal("enemy_dead")
 
 # refresh home location
 # currently not in use, safe to delete
-func set_target(target : Vector2):
+func set_target(target : Home):
 	_target = target
 	var nav : Navigation2D
 	nav = get_parent().get_node("Navigator")
-	path = nav.get_simple_path(global_position, target, true)
+	path = nav.get_simple_path(global_position, target.global_position, true)
 
 # registers when home has been encountered
 func _on_Range_area_entered(area: Area2D) -> void:
 	if area is Home:
 		_is_reached = true
+
+func _on_body_entering_vitals(body: Node) -> void:
+	if body is EnemyWeapon:
+		body.inflict_damage(self)

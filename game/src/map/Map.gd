@@ -7,8 +7,8 @@ enum tile_content {ROAD, EMPTY_PLOT, TURRET, BASE, INVALID}
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			var x = round(event.position.x / TILE_SIZE)
-			var y = round(event.position.y / TILE_SIZE)
+			var x = floor(event.position.x / TILE_SIZE)
+			var y = floor(event.position.y / TILE_SIZE)
 			$Selector.select(x, y)
 
 ## Following have not been implemented:
@@ -18,6 +18,8 @@ func get_contents_at(x: int, y : int) -> void:
 	# Check for path
 	return
 
+
+#for item drops
 func is_valid_turret_drop(x: int, y: int) -> bool:
 	# for now all values return true
 	return true
