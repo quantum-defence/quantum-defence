@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tanks.png-bd44a2d61ceee77d741c78aeba72188c.stex"
+path="res://.import/Tanks.png-8ddc73f0191095c0e404ef392df7cafa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Towers/Tanks/Tanks.png"
-dest_files=[ "res://.import/Tanks.png-bd44a2d61ceee77d741c78aeba72188c.stex" ]
+source_file="res://assets/img/tanks-tee-chin-towers/Tanks/Tanks.png"
+dest_files=[ "res://.import/Tanks.png-8ddc73f0191095c0e404ef392df7cafa.stex" ]
 
 [params]
 
