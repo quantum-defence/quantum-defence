@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/attack2_4.png-6834c480c4a5d9fe047986a4dccb13d6.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://assets/img/pack-burning-demon/monsters/demon_claw/demon_claw_orange/attack2_4.png"
+dest_files=[ "res://.import/attack2_4.png-6834c480c4a5d9fe047986a4dccb13d6.stex" ]
+
 [params]
 
 compress/mode=0

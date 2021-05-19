@@ -1,15 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/Towers/Tower.gd" type="Script" id=1]
+[ext_resource path="res://src/ui/gameplay/build-tool/TowerTileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://src/environment/towers/core/Tower.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 128, 128 )
+extents = Vector2( 88.8022, 115.172 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 512.0
+radius = 555.486
 
 [node name="Tower" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 collision_layer = 8
@@ -24,6 +25,14 @@ collision_mask = 2
 
 [node name="RangeRadius" type="CollisionShape2D" parent="Range"]
 shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -13, -10 )
+scale = Vector2( 0.2, 0.2 )
+tile_set = ExtResource( 1 )
+format = 1
 
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]

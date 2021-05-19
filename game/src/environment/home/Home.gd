@@ -9,7 +9,8 @@ func _ready() -> void:
 
 # Watches for enemy weapon hits
 func _on_Base_body_entered(body: Node) -> void:
-	if body is EnemyWeapon:
+	print("smth")
+	if body is Projectile:
 		body.inflict_damage(self)
 		$MarginContainer/HBoxContainer/HealthVal.set_text(str(health))
 		emit_signal("take_damage", body.damage, health)

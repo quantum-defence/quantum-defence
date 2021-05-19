@@ -1,7 +1,7 @@
 extends Node2D
+class_name Tower
 
-const _projectile := preload("res://Projectile.tscn")
-var firing_interval := 0.2
+# var firing_interval := 0.2
 #External properties
 #Enemy Related
 onready var _target : Enemy = null
@@ -9,11 +9,11 @@ onready var _enemiesInRange := []
 onready var _timer : Timer = $Timer
 
 func _ready() -> void:
-	_timer.set_wait_time(firing_interval)
+	#_timer.set_wait_time(firing_interval)
 	_timer.connect("timeout", self, "_fire")
 
 func _fire() -> void:
-	var weapon = preload("res://src/enemy/EnemyWeapon.tscn").instance()
+	var weapon = preload("res://src/projectile/core/Projectile.tscn").instance()
 	weapon.fire(global_position, _target)
 	get_parent().add_child(weapon)
 
