@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass-tile.png-fc1daead94e2f3f46dd69cde66a9a10f.stex"
+path="res://.import/map-tile-smaller.png-d723b7bc81f3f201b5c4656624dd498c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/grass-tile.png"
-dest_files=[ "res://.import/grass-tile.png-fc1daead94e2f3f46dd69cde66a9a10f.stex" ]
+source_file="res://assets/img/coloured-squares/map-tile-smaller.png"
+dest_files=[ "res://.import/map-tile-smaller.png-d723b7bc81f3f201b5c4656624dd498c.stex" ]
 
 [params]
 

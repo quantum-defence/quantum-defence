@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wip-logo.png-3a34a145fbd573518d035e49d99d135d.stex"
+path="res://.import/enemy-alive.png-3bc53f2b7a1a4f391db1bb911d35a4fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/wip-logo.png"
-dest_files=[ "res://.import/wip-logo.png-3a34a145fbd573518d035e49d99d135d.stex" ]
+source_file="res://assets/img/coloured-squares/enemy-alive.png"
+dest_files=[ "res://.import/enemy-alive.png-3bc53f2b7a1a4f391db1bb911d35a4fb.stex" ]
 
 [params]
 

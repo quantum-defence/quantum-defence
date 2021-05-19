@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bullet.png-3356f270ce3f04bca4c953a1f57e4fea.stex"
+path="res://.import/wip-logo.png-f1d13d0d8c752705b7d6a94241baec64.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/bullet.png"
-dest_files=[ "res://.import/bullet.png-3356f270ce3f04bca4c953a1f57e4fea.stex" ]
+source_file="res://assets/img/coloured-squares/wip-logo.png"
+dest_files=[ "res://.import/wip-logo.png-f1d13d0d8c752705b7d6a94241baec64.stex" ]
 
 [params]
 

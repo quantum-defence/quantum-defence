@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/map-tile-smaller.png-8cfe1b3adb323902bd1b8675e880d516.stex"
+path="res://.import/map-tiles.png-bdea94af492d8dd38aa579a05ed304d6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/map-tile-smaller.png"
-dest_files=[ "res://.import/map-tile-smaller.png-8cfe1b3adb323902bd1b8675e880d516.stex" ]
+source_file="res://assets/img/coloured-squares/map-tiles.png"
+dest_files=[ "res://.import/map-tiles.png-bdea94af492d8dd38aa579a05ed304d6.stex" ]
 
 [params]
 

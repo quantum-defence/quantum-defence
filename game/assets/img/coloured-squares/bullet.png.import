@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy-alive.png-d517aa3ef844dca184b1d79f8206f703.stex"
+path="res://.import/bullet.png-7ef767bd399ef65712180cee1b5013d7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/enemy-alive.png"
-dest_files=[ "res://.import/enemy-alive.png-d517aa3ef844dca184b1d79f8206f703.stex" ]
+source_file="res://assets/img/coloured-squares/bullet.png"
+dest_files=[ "res://.import/bullet.png-7ef767bd399ef65712180cee1b5013d7.stex" ]
 
 [params]
 

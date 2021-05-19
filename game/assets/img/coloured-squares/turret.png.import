@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gold-tile.png-2a4d4c1b7a8e489881278c4f7687071b.stex"
+path="res://.import/turret.png-075b3b41e095daab2697e197bb141d3a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/gold-tile.png"
-dest_files=[ "res://.import/gold-tile.png-2a4d4c1b7a8e489881278c4f7687071b.stex" ]
+source_file="res://assets/img/coloured-squares/turret.png"
+dest_files=[ "res://.import/turret.png-075b3b41e095daab2697e197bb141d3a.stex" ]
 
 [params]
 
