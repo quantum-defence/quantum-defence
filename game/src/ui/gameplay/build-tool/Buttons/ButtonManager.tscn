@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui/gameplay/build-tool/TowerTileSet.tres" type="TileSet" id=1]
+
+[node name="ButtonManager" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
