@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/Towers/d_attack_1.png" type="Texture" id=2]
-[ext_resource path="res://src/Towers/Tower.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/environment/towers/core/Tower.tscn" type="PackedScene" id=3]
 
 [node name="BasicTower" instance=ExtResource( 3 )]
 

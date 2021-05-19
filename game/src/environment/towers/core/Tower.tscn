@@ -1,6 +1,8 @@
-extends Node2D
+[gd_scene load_steps=4 format=2]
 
-const _projectile := preload("res://Projectile.tscn")
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
 var firing_interval := 0.2
 #External properties
 #Enemy Related
@@ -10,10 +12,10 @@ onready var _timer : Timer = $Timer
 
 func _ready() -> void:
 	_timer.set_wait_time(firing_interval)
-	_timer.connect("timeout", self, "_fire")
+	_timer.connect(\"timeout\", self, \"_fire\")
 
 func _fire() -> void:
-	var weapon = preload("res://src/enemy/EnemyWeapon.tscn").instance()
+	var weapon = preload(\"res://src/projectile/core/Projectile.tscn\").instance()
 	weapon.fire(global_position, _target)
 	get_parent().add_child(weapon)
 
@@ -52,3 +54,30 @@ func _on_Range_body_entered(body) -> void:
 func _on_Range_body_exited(body: Node) -> void:
 	if body is Enemy:
 		_forget_out_of_range(body)
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 128, 128 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 512.0
+
+[node name="Tower" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 2 )
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="RangeRadius" type="CollisionShape2D" parent="Range"]
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]

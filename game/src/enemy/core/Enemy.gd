@@ -20,6 +20,9 @@ var _is_reached := false
 
 signal enemy_dead
 
+func _ready() -> void:
+	self.add_to_group("enemies")
+
 func _physics_process(delta: float) -> void:
 	if _corpse_timer <= 0.0:
 		queue_free()
@@ -63,7 +66,7 @@ func set_path(value : PoolVector2Array) -> void:
 
 # fire weapon at home
 func fire() -> void:
-	var weapon = preload("res://src/enemy/EnemyWeapon.tscn").instance()
+	var weapon = preload("res://src/projectile/enemy-weapon/EnemyWeapon.tscn").instance()
 	weapon.fire(global_position, _target)
 	get_parent().add_child(weapon)
 
@@ -88,5 +91,5 @@ func _on_Range_area_entered(area: Area2D) -> void:
 		_is_reached = true
 
 func _on_body_entering_vitals(body: Node) -> void:
-	if body is EnemyWeapon:
+	if body is Projectile:
 		body.inflict_damage(self)
