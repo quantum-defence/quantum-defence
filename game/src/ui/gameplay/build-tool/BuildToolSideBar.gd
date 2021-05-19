@@ -10,11 +10,11 @@ export (Color, RGBA) var yellow
 var currentColor = yellow
 
 #All the Towers
-var firstTower = preload("res://src/Towers/BasicTower.tscn")
-var secondTower = preload("res://src/Towers/RepeaterTower.tscn")
-var thirdTower = preload("res://src/Towers/FastestTower.tscn")
-var forthTower = preload("res://src/Towers/ShotGunTower.tscn")
-var fifthTower = preload("res://src/Towers/UltimateTower.tscn")
+# var firstTower = preload("res://src/environment/towers/BasicTower.tscn")
+var secondTower = preload("res://src/environment/towers/RepeaterTower.tscn")
+var thirdTower = preload("res://src/environment/towers/FastestTower.tscn")
+var forthTower = preload("res://src/environment/towers/ShotGunTower.tscn")
+var fifthTower = preload("res://src/environment/towers/UltimateTower.tscn")
 
 
 func _ready():
