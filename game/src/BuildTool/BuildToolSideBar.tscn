@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/BuildTool/Buttons/FastestTower.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/Cartoon GUI/PNG/Buttons/Text/Cartoon RPG UI_Button Text - Gray.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/Cartoon GUI/PNG/Buttons/Text/Cartoon RPG UI_Button Text - Gray.png" type="Texture" id=2]
 [ext_resource path="res://src/BuildTool/Buttons/BasicTower.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/BuildTool/Buttons/ShotGun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/BuildTool/BuildToolSideBar.gd" type="Script" id=5]
