@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stand_up_3.png-3e43481dcc9d48fb77dda93fdda1ddeb.stex"
+path="res://.import/stand_up_3.png-8ad0716bd0d85f5b112dcd32131e31ed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/pack-burning-demon/monsters/demon_claw-burning_demon_pack/demon_claw_green/stand_up_3.png"
-dest_files=[ "res://.import/stand_up_3.png-3e43481dcc9d48fb77dda93fdda1ddeb.stex" ]
+source_file="res://assets/img/pack-burning-demon/monsters/demon_claw/demon_claw_green/stand_up_3.png"
+dest_files=[ "res://.import/stand_up_3.png-8ad0716bd0d85f5b112dcd32131e31ed.stex" ]
 
 [params]
 

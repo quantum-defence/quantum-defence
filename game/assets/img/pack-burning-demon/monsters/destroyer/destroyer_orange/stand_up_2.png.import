@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stand_up_2.png-78e8c6d7de3453605b71ae98d767c540.stex"
+path="res://.import/stand_up_2.png-a8f4cefc1a2147a76c23e0b0b84ddcb8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/pack-burning-demon/monsters/destroyer-burning_demon_pack/destroyer_orange/stand_up_2.png"
-dest_files=[ "res://.import/stand_up_2.png-78e8c6d7de3453605b71ae98d767c540.stex" ]
+source_file="res://assets/img/pack-burning-demon/monsters/destroyer/destroyer_orange/stand_up_2.png"
+dest_files=[ "res://.import/stand_up_2.png-a8f4cefc1a2147a76c23e0b0b84ddcb8.stex" ]
 
 [params]
 

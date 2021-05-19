@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fall_back_4.png-d9e96c7beb1b4a4f4b1372804ae87053.stex"
+path="res://.import/fall_back_4.png-fc55b2da35da54e6a458040f15c7977c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/pack-burning-demon/monsters/destroyer-burning_demon_pack/destroyer_yellow/fall_back_4.png"
-dest_files=[ "res://.import/fall_back_4.png-d9e96c7beb1b4a4f4b1372804ae87053.stex" ]
+source_file="res://assets/img/pack-burning-demon/monsters/destroyer/destroyer_yellow/fall_back_4.png"
+dest_files=[ "res://.import/fall_back_4.png-fc55b2da35da54e6a458040f15c7977c.stex" ]
 
 [params]
 

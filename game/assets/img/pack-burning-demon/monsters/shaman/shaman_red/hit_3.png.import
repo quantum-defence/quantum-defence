@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hit_3.png-2cbe8d226f2b100bbde627f5127fa179.stex"
+path="res://.import/hit_3.png-f02a7b63ba82b1d837e8b0f784c89ed4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/pack-burning-demon/monsters/shaman-burning_demon_pack/shaman_red/hit_3.png"
-dest_files=[ "res://.import/hit_3.png-2cbe8d226f2b100bbde627f5127fa179.stex" ]
+source_file="res://assets/img/pack-burning-demon/monsters/shaman/shaman_red/hit_3.png"
+dest_files=[ "res://.import/hit_3.png-f02a7b63ba82b1d837e8b0f784c89ed4.stex" ]
 
 [params]
 

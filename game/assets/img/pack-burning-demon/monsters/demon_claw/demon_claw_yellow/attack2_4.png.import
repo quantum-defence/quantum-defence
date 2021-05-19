@@ -6,7 +6,7 @@ valid=false
 
 [deps]
 
-source_file="res://assets/img/pack-burning-demon/monsters/demon_claw-burning_demon_pack/demon_claw_yellow/attack2_4.png"
+source_file="res://assets/img/pack-burning-demon/monsters/demon_claw/demon_claw_yellow/attack2_4.png"
 [params]
 
 compress/mode=0

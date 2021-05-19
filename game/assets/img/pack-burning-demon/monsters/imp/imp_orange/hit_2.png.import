@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hit_2.png-a3c4a7b6bd676b7c7eaabe40b7a82c50.stex"
+path="res://.import/hit_2.png-9d0be69f37b3290d21d39086c96a5ce2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/pack-burning-demon/monsters/imp-burning_demon_pack/imp_orange/hit_2.png"
-dest_files=[ "res://.import/hit_2.png-a3c4a7b6bd676b7c7eaabe40b7a82c50.stex" ]
+source_file="res://assets/img/pack-burning-demon/monsters/imp/imp_orange/hit_2.png"
+dest_files=[ "res://.import/hit_2.png-9d0be69f37b3290d21d39086c96a5ce2.stex" ]
 
 [params]
 
