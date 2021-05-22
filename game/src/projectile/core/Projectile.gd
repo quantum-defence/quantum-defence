@@ -37,8 +37,6 @@ func _stop() -> void:
 	queue_free()
 
 func inflict_damage(body : Node2D) -> void:
-	if body.health > 0.0:
-		body.health -= damage
-		self.queue_free()
-	elif body == target:
+	if body == target:
+		body.take_damage(damage)
 		self.queue_free()

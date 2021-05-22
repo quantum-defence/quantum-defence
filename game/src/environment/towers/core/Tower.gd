@@ -26,7 +26,7 @@ func _choose_enemy() -> Enemy:
 	var chosen_enemy : Enemy = _enemiesInRange[0]
 	var min_dist := self.position.distance_squared_to(chosen_enemy.position)
 	for enemy in _enemiesInRange:
-		if enemy.health <= 0.0:
+		if enemy.action == Enemy.ACTION.DIE:
 			_forget_out_of_range(enemy)
 		var new_dist := self.position.distance_squared_to(enemy.position)
 		if min_dist > new_dist:

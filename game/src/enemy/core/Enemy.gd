@@ -1,19 +1,23 @@
 extends KinematicBody2D
 class_name Enemy
 
+enum ACTION { IDLE, MOVE, ATTACK, TAKE_DAMAGE, DIE }
+
 # % of random movement to avoid the 'queue' clustering effect'
 const RAND_WALK_EFFECT := 50
 
-# enemy body specific constants
-export var speed := 400.0
-export var _corpse_timer := 5.0
-export var _rate_of_fire := 2.0
-
-# enemy state variables
-var health := 100.0
+# enemy variables
+var _speed := 200.0
+var _health := 100.0
 var _target : Home
 var _last_fire := 0.0
-var alive = true
+
+# enemy animation and behaviour switch logic
+var action
+
+var damage_taken_time := 0.5 # seconds to freeze on damage taken
+var death_rattle_time := 2.0 # replaces corpse timer
+var attack_time := 2.0
 
 var path := PoolVector2Array()
 var _is_reached := false
@@ -21,27 +25,24 @@ var _is_reached := false
 signal enemy_dead
 
 func _ready() -> void:
+	action = self.ACTION.IDLE
+	$Sprite.play("idle")
 	self.add_to_group("enemies")
 
 func _physics_process(delta: float) -> void:
-	if _corpse_timer <= 0.0:
-		queue_free()
+	if self.action == ACTION.DIE:
 		return
-		
-	if health <= 0.0:
-		kill()
-		_corpse_timer -= delta
+	elif !$DamageTakenTimer.is_stopped():
 		return
-		
-	if not _is_reached:
-		move_along_path(delta * speed)
-	elif _last_fire > 1.0 / _rate_of_fire:
-		_last_fire = 0.0
-		fire()
+	elif not _is_reached:
+		_move_along_path(delta * _speed)
 	else:
-		_last_fire += delta
-	
-func move_along_path(distance : float) -> void:
+		attack()
+
+func _move_along_path(distance: float) -> void:
+	action = self.ACTION.MOVE
+	if $Sprite.get_animation() != "move":
+		$Sprite.play("move")
 	var start_point := position
 	for _i in range(path.size()):
 		var distance_to_next := start_point.distance_to(path[0])
@@ -52,10 +53,7 @@ func move_along_path(distance : float) -> void:
 			randVect = Vector2(1, 1) + randVect * RAND_WALK_EFFECT
 			move_and_collide((next_position - position) * randVect)
 			break
-		elif distance < 0.0:
-			_is_reached = true
-			move_and_collide(path[0] - position)
-			break
+
 		distance -= distance_to_next
 		start_point = path[0]
 		path.remove(0)
@@ -65,17 +63,34 @@ func set_path(value : PoolVector2Array) -> void:
 	_is_reached = false
 
 # fire weapon at home
-func fire() -> void:
+func attack() -> void:
+	if !$AttackTimer.is_stopped():
+		return
+	action = self.ACTION.ATTACK
+	$Sprite.play("attack")
+	$AttackTimer.start()
 	var weapon = preload("res://src/projectile/enemy-weapon/EnemyWeapon.tscn").instance()
 	weapon.fire(global_position, _target)
 	get_parent().add_child(weapon)
 
+# take damage
+func take_damage(damage_taken: float) -> void:
+	_health -= damage_taken
+	print(_health)
+	if _health <= 0.0:
+		_kill()
+		return
+	
+	$DamageTakenTimer.start(damage_taken_time)
+	if self.action != ACTION.TAKE_DAMAGE:
+		$Sprite.play("take_damage")
+		self.action = ACTION.TAKE_DAMAGE
 
-# to be run when health reaches 0
-func kill() -> void:
-	health = 0.0
-	$Sprite.set_animation("dead")
-	emit_signal("enemy_dead")
+func _kill() -> void:
+	self.action = ACTION.DIE
+	$DamageTakenTimer.start(death_rattle_time)
+	$Sprite.play("die")
+	$DamageTakenTimer.connect("timeout", self, "queue_free")
 
 # refresh home location
 # currently not in use, safe to delete
