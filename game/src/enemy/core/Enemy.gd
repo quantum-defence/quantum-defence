@@ -21,17 +21,20 @@ var attack_time := 2.0
 var path := PoolVector2Array()
 var _is_reached := false
 
-signal enemy_dead
+onready var sprite : AnimatedSprite = $Sprite
+onready var damage_taken_timer : Timer = $DamageTakenTimer
+onready var attack_timer : Timer = $AttackTimer
+
 
 func _ready() -> void:
 	action = self.ACTION.IDLE
-	$Sprite.play("idle")
+	self.sprite.play("idle")
 	self.add_to_group("enemies")
 
 func _physics_process(delta: float) -> void:
-	if self.action == ACTION.DIE:
+	if action == ACTION.DIE:
 		return
-	elif !$DamageTakenTimer.is_stopped():
+	elif !damage_taken_timer.is_stopped():
 		return
 	elif not _is_reached:
 		_move_along_path(delta * _speed)
@@ -40,8 +43,8 @@ func _physics_process(delta: float) -> void:
 
 func _move_along_path(distance: float) -> void:
 	action = self.ACTION.MOVE
-	if $Sprite.get_animation() != "move":
-		$Sprite.play("move")
+	if sprite.get_animation() != "move":
+		sprite.play("move")
 	var start_point := position
 	for _i in range(path.size()):
 		var distance_to_next := start_point.distance_to(path[0])
@@ -50,6 +53,7 @@ func _move_along_path(distance: float) -> void:
 				path[0], distance / distance_to_next)
 			var randVect := Vector2(randf()-0.5, randf()-0.5) / 100
 			randVect = Vector2(1, 1) + randVect * RAND_WALK_EFFECT
+			# warning-ignore:return_value_discarded
 			move_and_collide((next_position - position) * randVect)
 			break
 
@@ -63,11 +67,11 @@ func set_path(value : PoolVector2Array) -> void:
 
 # fire weapon at home
 func attack() -> void:
-	if !$AttackTimer.is_stopped():
+	if !attack_timer.is_stopped():
 		return
 	action = self.ACTION.ATTACK
-	$Sprite.play("attack")
-	$AttackTimer.start()
+	sprite.play("attack")
+	attack_timer.start()
 	var weapon = preload("res://src/projectile/enemy-weapon/EnemyWeapon.tscn").instance()
 	weapon.fire(global_position, _target)
 	get_parent().add_child(weapon)
@@ -75,21 +79,21 @@ func attack() -> void:
 # take damage
 func take_damage(damage_taken: float) -> void:
 	_health -= damage_taken
-	print(_health)
 	if _health <= 0.0:
 		_kill()
 		return
 	
-	$DamageTakenTimer.start(damage_taken_time)
-	if self.action != ACTION.TAKE_DAMAGE:
-		$Sprite.play("take_damage")
-		self.action = ACTION.TAKE_DAMAGE
+	damage_taken_timer.start(damage_taken_time)
+	if action != ACTION.TAKE_DAMAGE:
+		sprite.play("take_damage")
+		action = ACTION.TAKE_DAMAGE
 
 func _kill() -> void:
-	self.action = ACTION.DIE
-	$DamageTakenTimer.start(death_rattle_time)
-	$Sprite.play("die")
-	$DamageTakenTimer.connect("timeout", self, "queue_free")
+	action = ACTION.DIE
+	damage_taken_timer.start(death_rattle_time)
+	sprite.play("die")
+	# warning-ignore:return_value_discarded
+	damage_taken_timer.connect("timeout", self, "queue_free")
 
 # refresh home location
 # currently not in use, safe to delete
@@ -106,4 +110,5 @@ func _on_Range_area_entered(area: Area2D) -> void:
 
 func _on_body_entering_vitals(body: Node) -> void:
 	if body is Projectile:
+		# warning-ignore:unsafe_method_access
 		body.inflict_damage(self)
