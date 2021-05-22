@@ -1,22 +1,21 @@
 extends KinematicBody2D
 class_name Enemy
 
-enum ACTION { IDLE, MOVE, ATTACK, TAKE_DAMAGE, DIE }
-
 # % of random movement to avoid the 'queue' clustering effect'
 const RAND_WALK_EFFECT := 50
 
-# enemy variables
+# basic enemy variables
 var _speed := 200.0
 var _health := 100.0
 var _target : Home
-var _last_fire := 0.0
 
-# enemy animation and behaviour switch logic
+# current enemy behaviour
 var action
+enum ACTION { IDLE, MOVE, ATTACK, TAKE_DAMAGE, DIE }
 
-var damage_taken_time := 0.5 # seconds to freeze on damage taken
-var death_rattle_time := 2.0 # replaces corpse timer
+# durations for freezing in a certain behaviour
+var damage_taken_time := 0.5
+var death_rattle_time := 2.0
 var attack_time := 2.0
 
 var path := PoolVector2Array()
