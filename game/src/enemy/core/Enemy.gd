@@ -3,6 +3,7 @@ class_name Enemy
 
 # % of random movement to avoid the 'queue' clustering effect'
 const RAND_WALK_EFFECT := 50
+const RANDOM_WALK_DIST := 128.0 * 0.4
 
 # basic enemy variables
 var _speed := 200.0
@@ -24,12 +25,13 @@ var _is_reached := false
 onready var sprite : AnimatedSprite = $Sprite
 onready var damage_taken_timer : Timer = $DamageTakenTimer
 onready var attack_timer : Timer = $AttackTimer
-
+onready var collision_timer : Timer = $CollisionTimer
 
 func _ready() -> void:
 	action = self.ACTION.IDLE
 	self.sprite.play("idle")
 	self.add_to_group("enemies")
+	collision_timer.set_paused(true)
 
 func _physics_process(delta: float) -> void:
 	if action == ACTION.DIE:
@@ -37,7 +39,16 @@ func _physics_process(delta: float) -> void:
 	elif !damage_taken_timer.is_stopped():
 		return
 	elif not _is_reached:
-		_move_along_path(delta * _speed)
+		if collision_timer.is_paused():
+			if not _target: 
+				_set_new_random_walk()
+			_move_along_path(delta * _speed)
+		elif collision_timer.is_stopped() or path.size() == 0:
+			collision_timer.set_paused(true)
+			if _target: 
+				set_target(_target)
+		else:
+			_move_along_path(delta * _speed)
 	else:
 		attack()
 
@@ -45,25 +56,37 @@ func _move_along_path(distance: float) -> void:
 	action = self.ACTION.MOVE
 	if sprite.get_animation() != "move":
 		sprite.play("move")
+	
 	var start_point := position
-	for _i in range(path.size()):
-		var distance_to_next := start_point.distance_to(path[0])
-		if distance <= distance_to_next and distance >= 0.0:
-			var next_position := start_point.linear_interpolate(
-				path[0], distance / distance_to_next)
-			var randVect := Vector2(randf()-0.5, randf()-0.5) / 100
-			randVect = Vector2(1, 1) + randVect * RAND_WALK_EFFECT
-			# warning-ignore:return_value_discarded
-			move_and_collide((next_position - position) * randVect)
-			break
-
+	
+	if path.size() == 0:
+		return
+	var distance_to_next := start_point.distance_to(path[0])
+	if  distance_to_next == 0:
+		path.remove(0)
+		return
+	if distance > distance_to_next or distance < 0.0:
 		distance -= distance_to_next
 		start_point = path[0]
 		path.remove(0)
+		_move_along_path(distance)
+		return
 	
-func set_path(value : PoolVector2Array) -> void:
-	path = value
-	_is_reached = false
+	var next_position := start_point.linear_interpolate(
+		path[0], distance / distance_to_next)
+	var randVect := Vector2(randf()-0.5, randf()-0.5) / 100
+	randVect = Vector2(1, 1) + randVect * RAND_WALK_EFFECT
+	var move_vector := (next_position - position) * randVect
+	var collision = move_and_collide(move_vector)
+	if collision:
+		_set_new_random_walk()
+		collision_timer.set_paused(false)
+		collision_timer.start()
+
+
+func _set_new_random_walk() -> void:
+	var new_target := Vector2(randf() - 0.5, randf() - 0.5).normalized() * RANDOM_WALK_DIST
+	path = _set_target(new_target)
 
 # fire weapon at home
 func attack() -> void:
@@ -95,13 +118,14 @@ func _kill() -> void:
 	# warning-ignore:return_value_discarded
 	damage_taken_timer.connect("timeout", self, "queue_free")
 
-# refresh home location
-# currently not in use, safe to delete
-func set_target(target : Home):
+func set_target(target : Home) -> void:
 	_target = target
+	path = _set_target(target.global_position - self.global_position)
+
+func _set_target(relative_position_target : Vector2) -> PoolVector2Array:
 	var nav : Navigation2D
 	nav = get_parent().get_node("Navigator")
-	path = nav.get_simple_path(global_position, target.global_position, true)
+	return nav.get_simple_path(global_position, global_position + relative_position_target, true)
 
 # registers when home has been encountered
 func _on_Range_area_entered(area: Area2D) -> void:
