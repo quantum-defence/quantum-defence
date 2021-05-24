@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Tower Defence"
-run/main_scene="res://src/ui/gameplay/build-tool/BuildToolSideBar.tscn"
+run/main_scene="res://BuildUI.tscn"
 config/icon="res://assets/img/coloured-squares/wip-logo.png"
 
 [debug]
