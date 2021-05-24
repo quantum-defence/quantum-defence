@@ -12,41 +12,62 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://src/enemy/Enemy.gd"
+"path": "res://src/enemy/core/Enemy.gd"
 }, {
 "base": "Area2D",
 "class": "EnemySpawnPoint",
 "language": "GDScript",
-"path": "res://src/enemy/EnemySpawnPoint.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "EnemyWeapon",
-"language": "GDScript",
-"path": "res://src/enemy/EnemyWeapon.gd"
+"path": "res://src/environment/spawn-point/core/EnemySpawnPoint.gd"
 }, {
 "base": "Area2D",
 "class": "Home",
 "language": "GDScript",
-"path": "res://src/map/Home.gd"
+"path": "res://src/environment/home/Home.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://src/projectile/core/Projectile.gd"
+}, {
+"base": "Area2D",
+"class": "TileSelector",
+"language": "GDScript",
+"path": "res://src/ui/gameplay/tile-selector/TileSelector.gd"
+}, {
+"base": "Node2D",
+"class": "Tower",
+"language": "GDScript",
+"path": "res://src/environment/towers/core/Tower.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
 "EnemySpawnPoint": "",
-"EnemyWeapon": "",
-"Home": ""
+"Home": "",
+"Projectile": "",
+"TileSelector": "",
+"Tower": ""
 }
 
 [application]
 
 config/name="Tower Defence"
-run/main_scene="res://src/map/Map.tscn"
-config/icon="res://assets/img/wip-logo.png"
+run/main_scene="res://src/environment/map/Map.tscn"
+config/icon="res://assets/img/coloured-squares/wip-logo.png"
+
+[debug]
+
+gdscript/warnings/unsafe_property_access=true
+gdscript/warnings/unsafe_method_access=true
+gdscript/warnings/unsafe_cast=true
+gdscript/warnings/unsafe_call_argument=true
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
 window/size/always_on_top=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [gdnative]
 

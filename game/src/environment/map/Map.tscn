@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/ui/gameplay/tile-selector/TileSelector.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/environment/map/Map.gd" type="Script" id=2]
+[ext_resource path="res://src/environment/spawn-point/core/EnemySpawnPoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/environment/map/ground_tile_set.tres" type="TileSet" id=5]
+[ext_resource path="res://src/environment/towers/RepeaterTower.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/environment/home/Home.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/environment/towers/ShotGunTower.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/environment/towers/FastestTower.tscn" type="PackedScene" id=9]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 912, 232, 1008, 152, 1008, 240, 896, 256, 896, 128, 1024, 128, 1280, -24, 1280, 128, 1056, 112, -24, -24, 872, 120, 1048, 272, 1792, 256, 1792, 384, 1664, 384, 1488, 368, 1664, 512, 1944, 512, 1944, 768, 896, 768, 896, 640, 768, 640, 768, 768, 512, 768, 512, 640, 384, 896, 640, 896, 640, 1040, 256, 1040, 256, 896, 384, 808, 256, 768, 128, 896, 240, 744, 128, 512, 240, 664, 256, 640, 288, 624, 1536, 512, 480, 624, 1552, 480, 1552, 416, 1536, 384, 0, 368, -32, 352, 512, 128, 496, 152, 1024, 256, 872, 272, 536, 120, 496, 240, 512, 256, 536, 272 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 1, 0, 4, 5 ), PoolIntArray( 6, 7, 8, 9 ), PoolIntArray( 9, 8, 5, 10 ), PoolIntArray( 11, 12, 13, 14, 15 ), PoolIntArray( 16, 17, 18, 19, 20 ), PoolIntArray( 21, 22, 23, 24 ), PoolIntArray( 25, 26, 27, 28 ), PoolIntArray( 25, 28, 29, 30 ), PoolIntArray( 31, 30, 29, 32 ), PoolIntArray( 33, 31, 32 ), PoolIntArray( 33, 32, 34, 35 ), PoolIntArray( 36, 35, 34 ), PoolIntArray( 37, 36, 34 ), PoolIntArray( 37, 34, 38, 39 ), PoolIntArray( 24, 39, 38, 21 ), PoolIntArray( 20, 21, 38, 16 ), PoolIntArray( 16, 38, 40, 14 ), PoolIntArray( 14, 40, 41 ), PoolIntArray( 14, 41, 42 ), PoolIntArray( 43, 44, 9, 45, 46 ), PoolIntArray( 3, 2, 47, 48 ), PoolIntArray( 48, 47, 11 ), PoolIntArray( 5, 4, 10 ), PoolIntArray( 9, 10, 49 ), PoolIntArray( 9, 49, 45 ), PoolIntArray( 43, 46, 50 ), PoolIntArray( 43, 50, 51 ), PoolIntArray( 43, 51, 52 ), PoolIntArray( 15, 43, 52, 48 ), PoolIntArray( 15, 48, 11 ), PoolIntArray( 15, 14, 42 ) ]
+outlines = [ PoolVector2Array( -32, 352, 0, 368, 1488, 368, 1536, 384, 1552, 416, 1552, 480, 1536, 512, 128, 512, 128, 896, 256, 896, 256, 1040, 640, 1040, 640, 896, 384, 896, 384, 808, 256, 768, 240, 744, 240, 664, 256, 640, 288, 624, 480, 624, 512, 640, 512, 768, 768, 768, 768, 640, 896, 640, 896, 768, 1944, 768, 1944, 512, 1664, 512, 1664, 384, 1792, 384, 1792, 256, 1048, 272, 1024, 256, 1008, 240, 1008, 152, 1024, 128, 1056, 112, 1280, 128, 1280, -24, -24, -24 ), PoolVector2Array( 896, 256, 912, 232, 896, 128, 872, 120, 536, 120, 512, 128, 496, 152, 496, 240, 512, 256, 536, 272, 872, 272 ) ]
+
+[node name="Map" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 0, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 1, 0, 131581, 0, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196620, 0, 0, 196621, 1, 0, 196622, 1, 0, 262144, 1, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 327680, 1, 0, 327681, 0, 0, 327682, 1, 0, 327683, 1, 0, 327684, 0, 0, 327685, 0, 0, 327686, 1, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 393216, 1, 0, 393217, 0, 0, 393218, 0, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0 )
+
+[node name="Navigator" type="Navigation2D" parent="."]
+
+[node name="NavPolyInstance" type="NavigationPolygonInstance" parent="Navigator"]
+modulate = Color( 0.87451, 0, 1, 0.380392 )
+navpoly = SubResource( 1 )
+
+[node name="ShotGunTower" parent="Navigator" instance=ExtResource( 8 )]
+position = Vector2( 824, 200 )
+
+[node name="FastestTower" parent="Navigator" instance=ExtResource( 9 )]
+position = Vector2( 1600, 824 )
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource( 4 )]
+position = Vector2( 192, 192 )
+spawn_rate = 2.0
+
+[node name="Selector" parent="." instance=ExtResource( 1 )]
+position = Vector2( -190.663, -292.601 )
+
+[node name="Home" parent="." instance=ExtResource( 7 )]
+position = Vector2( 320, 834.256 )
+
+[node name="RepeaterTower" parent="." instance=ExtResource( 6 )]
+position = Vector2( 856, 712 )
