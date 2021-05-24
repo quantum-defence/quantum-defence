@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tanks.png-8ddc73f0191095c0e404ef392df7cafa.stex"
+path="res://.import/Obelysk_with_souls.png-08664c58d9717194e2a1e7dbfd32bf9c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tanks-tee-chin-towers/Tanks/Tanks.png"
-dest_files=[ "res://.import/Tanks.png-8ddc73f0191095c0e404ef392df7cafa.stex" ]
+source_file="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelysk_with_souls.png"
+dest_files=[ "res://.import/Obelysk_with_souls.png-08664c58d9717194e2a1e7dbfd32bf9c.stex" ]
 
 [params]
 
