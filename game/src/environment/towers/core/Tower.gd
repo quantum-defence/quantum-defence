@@ -1,9 +1,10 @@
-extends Node2D
+extends KinematicBody2D
 class_name Tower
 
 # var firing_interval := 0.2
 #External properties
 #Enemy Related
+onready var isPlacing : bool = true
 onready var _target : Enemy = null
 onready var _enemiesInRange := []
 onready var _timer : Timer = $Timer
@@ -33,11 +34,23 @@ func _choose_enemy() -> Enemy:
 			chosen_enemy = enemy
 	return chosen_enemy
 
-func _process(delta: float) -> void:
-	_target = _choose_enemy()
-	if (_target != null and _timer.is_stopped()):
-		_timer.start()
-		_fire()
+func _physics_process(delta) -> void:
+	
+	if (isPlacing): 
+		var t := Transform2D.IDENTITY
+		t.origin = get_global_mouse_position()
+		var colliding = test_move(t, Vector2.ZERO)
+		position = t.origin
+		modulate = Color.red if colliding else Color.yellow
+		modulate.a = 0.75 
+		if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
+			isPlacing = false 
+	else:
+		modulate = Color.white
+		_target = _choose_enemy()
+		if (_target != null and _timer.is_stopped()):
+			_timer.start()
+			_fire()
 
 func _add_new_in_range(enemy: Enemy) -> void:
 	_enemiesInRange.append(enemy)

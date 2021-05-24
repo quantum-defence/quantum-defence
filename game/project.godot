@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/ui/gameplay/tile-selector/TileSelector.gd"
 }, {
-"base": "Node2D",
+"base": "KinematicBody2D",
 "class": "Tower",
 "language": "GDScript",
 "path": "res://src/environment/towers/core/Tower.gd"
@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Tower Defence"
-run/main_scene="res://BuildUI.tscn"
+run/main_scene="res://src/environment/map/Map.tscn"
 config/icon="res://assets/img/coloured-squares/wip-logo.png"
 
 [debug]
