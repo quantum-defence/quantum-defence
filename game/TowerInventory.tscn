@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Avatar.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/02. Static Papyrus/Papyrus Paper 1.png" type="Texture" id=2]
+[ext_resource path="res://Panel.gd" type="Script" id=3]
+[ext_resource path="res://TowerInventory.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 160, 160 )
+margin_left = 13.2964
+margin_right = 12.1884
+margin_top = 13.5051
+margin_bottom = 14.4044
+
+[node name="TowerInventory" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 696.0
+margin_top = 200.0
+margin_right = 1153.0
+margin_bottom = 748.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect"]
+margin_left = 264.0
+margin_top = 360.0
+margin_right = 412.0
+margin_bottom = 520.0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="TextureRect/GridContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Panel2" type="Panel" parent="TextureRect/GridContainer"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Panel3" type="Panel" parent="TextureRect/GridContainer"]
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Panel4" type="Panel" parent="TextureRect/GridContainer"]
+margin_left = 68.0
+margin_top = 68.0
+margin_right = 132.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]

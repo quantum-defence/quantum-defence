@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/ui/gameplay/tile-selector/TileSelector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/map/Map.gd" type="Script" id=2]
+[ext_resource path="res://BuildUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/environment/spawn-point/core/EnemySpawnPoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/environment/map/ground_tile_set.tres" type="TileSet" id=5]
+[ext_resource path="res://src/environment/towers/pixelTowers/demonStatue/DemonStatue.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/environment/home/Home.tscn" type="PackedScene" id=7]
 
 [sub_resource type="NavigationPolygon" id=1]
@@ -24,7 +26,11 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 
 [node name="NavPolyInstance" type="NavigationPolygonInstance" parent="Navigator"]
 modulate = Color( 0.87451, 0, 1, 0.380392 )
+position = Vector2( -0.445465, 0 )
 navpoly = SubResource( 1 )
+
+[node name="Tower" parent="Navigator/NavPolyInstance" instance=ExtResource( 6 )]
+position = Vector2( 474.915, 403.186 )
 
 [node name="EnemySpawnPoint" parent="." instance=ExtResource( 4 )]
 position = Vector2( 192, 192 )
@@ -35,3 +41,5 @@ position = Vector2( -190.663, -292.601 )
 
 [node name="Home" parent="." instance=ExtResource( 7 )]
 position = Vector2( 320, 834.256 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 3 )]

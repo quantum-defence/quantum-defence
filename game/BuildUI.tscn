@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/img/BuildToolUIBackground.png" type="Texture" id=1]
-[ext_resource path="res://assets/img/Cartoon GUI/PNG/Buttons/Normal/Buttons_Button Normal - Increase.png" type="Texture" id=2]
-[ext_resource path="res://assets/img/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Increase.png" type="Texture" id=3]
-[ext_resource path="res://assets/img/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Info.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/UI/BuildToolUIBackground.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Normal/Buttons_Button Normal - Increase.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Increase.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Info.png" type="Texture" id=4]
+[ext_resource path="res://BuildUI.gd" type="Script" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -12,10 +13,13 @@ content_margin_top = 60.0
 content_margin_bottom = 60.0
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 5 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -2.24493
+margin_right = -2.24487
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -51,20 +55,21 @@ custom_styles/panel = SubResource( 2 )
 margin_top = 60.0
 margin_right = 1920.0
 margin_bottom = 220.0
-alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BuildMode" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
-margin_left = 798.0
-margin_right = 958.0
+margin_right = 160.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
 
 [node name="InspectMode" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
-margin_left = 962.0
-margin_right = 1122.0
+margin_left = 164.0
+margin_right = 324.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 4 )
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/BuildMode" to="." method="_on_BuildMode_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/InspectMode" to="." method="_on_InspectMode_pressed"]

@@ -2,19 +2,25 @@ extends KinematicBody2D
 class_name Tower
 
 # var firing_interval := 0.2
-#External properties
-#Enemy Related
-onready var isPlacing : bool = true
+
+
+var ItemClass = preload("res://src/items/core/Item.tscn")
 onready var _target : Enemy = null
 onready var _enemiesInRange := []
 onready var _timer : Timer = $Timer
+onready var itemsHeld = []
+var weapon 
+
+
 
 func _ready() -> void:
 	#_timer.set_wait_time(firing_interval)
 	_timer.connect("timeout", self, "_fire")
 
 func _fire() -> void:
-	var weapon = preload("res://src/projectile/core/Projectile.tscn").instance()
+	weapon = preload("res://src/projectile/core/Projectile.tscn").instance()
+	var axe = preload("res://src/items/otherItems/Axe.tscn")
+	self._equip_item(axe.instance())
 	weapon.fire(global_position, _target)
 	get_parent().add_child(weapon)
 
@@ -35,22 +41,10 @@ func _choose_enemy() -> Enemy:
 	return chosen_enemy
 
 func _physics_process(delta) -> void:
-	
-	if (isPlacing): 
-		var t := Transform2D.IDENTITY
-		t.origin = get_global_mouse_position()
-		var colliding = test_move(t, Vector2.ZERO)
-		position = t.origin
-		modulate = Color.red if colliding else Color.yellow
-		modulate.a = 0.75 
-		if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
-			isPlacing = false 
-	else:
-		modulate = Color.white
-		_target = _choose_enemy()
-		if (_target != null and _timer.is_stopped()):
-			_timer.start()
-			_fire()
+	_target = _choose_enemy()
+	if (_target != null and _timer.is_stopped()):
+		_timer.start()
+		_fire()
 
 func _add_new_in_range(enemy: Enemy) -> void:
 	_enemiesInRange.append(enemy)
@@ -65,3 +59,25 @@ func _on_Range_body_entered(body) -> void:
 func _on_Range_body_exited(body: Node) -> void:
 	if body is Enemy:
 		_forget_out_of_range(body)
+
+func _equip_item(item):
+	# All the current stats of the tower
+	var rangeRadius = $Range/RangeRadius.shape.radius
+	var towerDamage = weapon.damage
+	var projectileSpeed = weapon.speed
+	var towerAttackSpeed = $Timer.get_wait_time()
+	print(towerAttackSpeed)
+	
+	if (itemsHeld.size() < 4):
+		itemsHeld.append(item)
+		print("item is appended")
+		#Check for all the stats
+		if (item.damageIncrease != 0):
+			weapon.damage = towerDamage + item.damageIncrease
+		if (item.attackSpeedIncrease != 0):
+			var newTowerAttackSpeed = towerAttackSpeed * 100/(100 + item.attackSpeedIncrease)
+			$Timer.set_wait_time(newTowerAttackSpeed)
+		if (item.rangeIncrease != 0):
+			$Range/RangeRadius.set_radius(rangeRadius + item.rangeIncrease)
+		if (item.projectileSpeed != 0):
+			weapon.speed += item.projectileSpeed
