@@ -18,7 +18,6 @@ func select(x : int, y : int) -> void:
 	_x = x
 	_y = y
 	position = Vector2(x,y) * TILE_SIZE
-	print(_is_valid_tile())
 
 # if action == ACTION.BUILDING, type must be of Tower.TYPE
 # likewise if action == ACTION.DROPPING, type must be of Item.TYPE
@@ -31,7 +30,6 @@ func _process(delta: float) -> void:
 	
 func _is_valid_tile() -> bool:
 	var tile = arena.get_contents_at(_x, _y)
-	print(tile)
 	match (_action):
 		ACTION.DROPPING:
 			return tile == TILE_CONTENTS.EMPTY
