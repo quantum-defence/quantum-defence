@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/img/UI/BuildToolUIBackground.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Normal/Buttons_Button Normal - Increase.png" type="Texture" id=2]
@@ -12,21 +12,12 @@
 [ext_resource path="res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_blue_sheet.png" type="Texture" id=10]
 [ext_resource path="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png" type="Texture" id=11]
 [ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/LoRTowerV2_blue_no_soul_no_fire-Sheet.png" type="Texture" id=12]
-[ext_resource path="res://Panel.gd" type="Script" id=13]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 content_margin_top = 60.0
 content_margin_bottom = 60.0
-
-[sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 7 )
-region_rect = Rect2( 0, 0, 160, 160 )
-margin_left = 13.2964
-margin_right = 12.1884
-margin_top = 13.5051
-margin_bottom = 14.4044
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 5 )
@@ -172,70 +163,6 @@ position = Vector2( 81.796, 67.7196 )
 scale = Vector2( 1.78694, 1.62277 )
 texture = ExtResource( 12 )
 hframes = 14
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PanelContainer"]
-margin_top = 60.0
-margin_right = 1920.0
-margin_bottom = 220.0
-
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PanelContainer/TextureRect"]
-margin_left = 1600.0
-margin_top = -1.18921
-margin_right = 1732.0
-margin_bottom = 198.811
-columns = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Slot" type="Panel" parent="VBoxContainer/PanelContainer/PanelContainer/TextureRect/GridContainer"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 3 )
-script = ExtResource( 13 )
-
-[node name="Slot2" type="Panel" parent="VBoxContainer/PanelContainer/PanelContainer/TextureRect/GridContainer"]
-margin_left = 68.0
-margin_right = 132.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 3 )
-script = ExtResource( 13 )
-
-[node name="Slot3" type="Panel" parent="VBoxContainer/PanelContainer/PanelContainer/TextureRect/GridContainer"]
-margin_left = 136.0
-margin_right = 200.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 3 )
-script = ExtResource( 13 )
-
-[node name="Slot4" type="Panel" parent="VBoxContainer/PanelContainer/PanelContainer/TextureRect/GridContainer"]
-margin_top = 68.0
-margin_right = 64.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 3 )
-script = ExtResource( 13 )
-
-[node name="Slot5" type="Panel" parent="VBoxContainer/PanelContainer/PanelContainer/TextureRect/GridContainer"]
-margin_left = 68.0
-margin_top = 68.0
-margin_right = 132.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 3 )
-script = ExtResource( 13 )
-
-[node name="Slot6" type="Panel" parent="VBoxContainer/PanelContainer/PanelContainer/TextureRect/GridContainer"]
-margin_left = 136.0
-margin_top = 68.0
-margin_right = 200.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 3 )
-script = ExtResource( 13 )
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Mode)/BuildMode" to="." method="_on_BuildMode_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Mode)/InspectMode" to="." method="_on_InspectMode_pressed"]

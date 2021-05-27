@@ -72,6 +72,3 @@ margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="TextureRect"]
-z_index = 1
