@@ -1,13 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/ui/gameplay/tile-selector/TileSelector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/map/Map.gd" type="Script" id=2]
 [ext_resource path="res://src/environment/spawn-point/core/EnemySpawnPoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/environment/map/ground_tile_set.tres" type="TileSet" id=5]
-[ext_resource path="res://src/environment/towers/RepeaterTower.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/environment/home/Home.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/environment/towers/ShotGunTower.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/environment/towers/FastestTower.tscn" type="PackedScene" id=9]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 912, 232, 1008, 152, 1008, 240, 896, 256, 896, 128, 1024, 128, 1280, -24, 1280, 128, 1056, 112, -24, -24, 872, 120, 1048, 272, 1792, 256, 1792, 384, 1664, 384, 1488, 368, 1664, 512, 1944, 512, 1944, 768, 896, 768, 896, 640, 768, 640, 768, 768, 512, 768, 512, 640, 384, 896, 640, 896, 640, 1040, 256, 1040, 256, 896, 384, 808, 256, 768, 128, 896, 240, 744, 128, 512, 240, 664, 256, 640, 288, 624, 1536, 512, 480, 624, 1552, 480, 1552, 416, 1536, 384, 0, 368, -32, 352, 512, 128, 496, 152, 1024, 256, 872, 272, 536, 120, 496, 240, 512, 256, 536, 272 )
@@ -29,12 +26,6 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 modulate = Color( 0.87451, 0, 1, 0.380392 )
 navpoly = SubResource( 1 )
 
-[node name="ShotGunTower" parent="Navigator" instance=ExtResource( 8 )]
-position = Vector2( 824, 200 )
-
-[node name="FastestTower" parent="Navigator" instance=ExtResource( 9 )]
-position = Vector2( 1600, 824 )
-
 [node name="EnemySpawnPoint" parent="." instance=ExtResource( 4 )]
 position = Vector2( 192, 192 )
 spawn_rate = 2.0
@@ -44,6 +35,3 @@ position = Vector2( -190.663, -292.601 )
 
 [node name="Home" parent="." instance=ExtResource( 7 )]
 position = Vector2( 320, 834.256 )
-
-[node name="RepeaterTower" parent="." instance=ExtResource( 6 )]
-position = Vector2( 856, 712 )
