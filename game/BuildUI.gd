@@ -25,6 +25,8 @@ var tileIndicator  = preload("res://TileIndicator.tscn")
 var tileIndicatorInstance
 
 var tower_to_be_built : int
+var item_held
+
 
 #reference to the map that its on
 onready var currentMap = self.get_parent()
@@ -32,6 +34,7 @@ onready var currentMap = self.get_parent()
 # Called when the node enters the scene tree for the first time.
 
 func _on_BuildMode_pressed():
+	print("buildMode pressed")
 	buildMode = true
 
 func _on_InspectMode_pressed():

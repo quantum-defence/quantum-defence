@@ -6,20 +6,26 @@ extends Panel
 # var b = "text"
 
 var ItemClass = preload("res://src/items/core/Item.tscn")
+var axeClass = preload("res://src/items/otherItems/Axe.tscn")
+
 var item = null
+var off_handitem = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if (randi() % 2 == 0):
-		item = ItemClass.instance()
+		item = axeClass.instance() 
 		add_child(item)
 		
 
+#Returns the item taken from the slot
 func pickFromSlot():
+	off_handitem = item
 	remove_child(item)
-	find_parent("TowerInventory").add_child(item)
 	item = null
+	return off_handitem
 
+#Doesnt return anything
 func putIntoSlot(newItem):
 	item = newItem
 	item.position = Vector2.ZERO

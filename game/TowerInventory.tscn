@@ -14,7 +14,6 @@ margin_top = 13.5051
 margin_bottom = 14.4044
 
 [node name="TowerInventory" type="Node2D"]
-scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -38,14 +37,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="TextureRect/GridContainer"]
+[node name="Slot" type="Panel" parent="TextureRect/GridContainer"]
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 
-[node name="Panel2" type="Panel" parent="TextureRect/GridContainer"]
+[node name="Slot2" type="Panel" parent="TextureRect/GridContainer"]
 margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
@@ -57,7 +56,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Panel3" type="Panel" parent="TextureRect/GridContainer"]
+[node name="Slot3" type="Panel" parent="TextureRect/GridContainer"]
 margin_top = 68.0
 margin_right = 64.0
 margin_bottom = 132.0
@@ -65,7 +64,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 
-[node name="Panel4" type="Panel" parent="TextureRect/GridContainer"]
+[node name="Slot4" type="Panel" parent="TextureRect/GridContainer"]
 margin_left = 68.0
 margin_top = 68.0
 margin_right = 132.0
@@ -74,4 +73,5 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="TextureRect"]
+z_index = 1

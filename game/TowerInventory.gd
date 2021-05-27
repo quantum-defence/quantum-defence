@@ -3,31 +3,44 @@ extends Node2D
 const slotClass = preload("res://Panel.gd")
 onready var inventorySlots = $TextureRect/GridContainer
 
-var holdingItem 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var item_held  = null
 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	for slot in $TextureRect/GridContainer.get_children():
+		slot.connect("gui_input", self, "slot_gui_input", [slot])
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-func slot_gui_input(event:InputEvent, slot:SlotClass):
+func slot_gui_input(event:InputEvent, slot:slotClass):
 	if (event is InputEventMouseButton):
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			if holdingItem != null:
-				if slot.item
+			print("signal triggered and is left mouse presed")
+			if item_held != null:
+				if slot.item == null:
+					slot.putIntoSlot(item_held)
+					item_held = null
+				else:
+					var temp_item = slot.item
+					slot.pickFromSlot()
+					temp_item.global_position = event.global_position
+					print("shud be following mouse now")
+					slot.putIntoSlot(item_held)
+					item_held = temp_item
+			else:
+				if slot.item != null:
+					item_held = slot.pickFromSlot()
+					item_held.global_position = get_global_mouse_position()
+					print("shud be following mouse now")
 
-
-
+var counter = 0
+func _process(delta):
+	counter += 1
+	if (item_held != null and counter >= 60):
+		counter = 0
+		print(item_held)
+		print(item_held.global_position)
 
 func _input(event):
-	if (holdingItem != null):
-		holdingItem.global_position = get_global_mouse_position()
+	if item_held != null:
+		item_held.global_position = get_global_mouse_position()
