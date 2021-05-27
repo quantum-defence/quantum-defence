@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Arena",
+"language": "GDScript",
+"path": "res://src/environment/map/Map.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -45,6 +50,7 @@ _global_script_classes=[ {
 "path": "res://src/environment/towers/core/Tower.gd"
 } ]
 _global_script_class_icons={
+"Arena": "",
 "Enemy": "",
 "EnemySpawnPoint": "",
 "Home": "",

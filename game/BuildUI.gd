@@ -1,31 +1,43 @@
 extends CanvasLayer
 
+
+#Have yet to add angel tower
+enum TowerTypes {
+	OBELISK = 0,
+	FLYINGOBELISK = 1, 
+	LIGHTNINGTOTEM = 2, 
+	DEMONSTATUE = 3,
+	MOONTOWER = 4,
+	EYETOWER = 5
+}
+
 #Preload all the tower scenes to build
-var obelisk = preload("res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn")
-var flyingObelisk = preload("res://src/environment/towers/pixelTowers/flyingObelisk/flyingObelisk.tscn")
-var lightningTotem = preload("res://src/environment/towers/pixelTowers/lightningTotem/LightningTotem.tscn")
-var demonStatue = preload("res://src/environment/towers/pixelTowers/demonStatue/DemonStatue.tscn")
-var moonTower = preload("res://src/environment/towers/pixelTowers/moonTower/MoonTower.tscn")
-var eyeTower = preload("res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn")
+const RESOURCE = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn",
+"res://src/environment/towers/pixelTowers/flyingObelisk/flyingObelisk.tscn",
+"res://src/environment/towers/pixelTowers/lightningTotem/LightningTotem.tscn",
+"res://src/environment/towers/pixelTowers/demonStatue/DemonStatue.tscn",
+"res://src/environment/towers/pixelTowers/moonTower/MoonTower.tscn",
+"res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn"]
 
 #if buildMode is not true, then it is in normal mode
 var buildMode : bool = false
 var tileIndicator  = preload("res://TileIndicator.tscn")
-var tileIndicatorInstance 
+var tileIndicatorInstance
+
+var tower_to_be_built : int
+
 #reference to the map that its on
 onready var currentMap = self.get_parent()
 
 # Called when the node enters the scene tree for the first time.
 
 func _on_BuildMode_pressed():
-	print(buildMode)
 	buildMode = true
-	print("Mouse shud be chagned")
-	print(buildMode)
 
 func _on_InspectMode_pressed():
 	print(buildMode)
 	buildMode = false
+	
 	print(buildMode)
 
 func _process(delta):	
@@ -58,3 +70,39 @@ func _input(event):
 #			isPlacing = false 
 #	else:
 #		modulate = Color.white
+
+
+func _on_ObeliskTower_pressed():
+	print("ObeliskTowerSelected")
+	tower_to_be_built = TowerTypes.OBELISK
+	pass
+
+
+func _on_FlyingObelisk_pressed():
+	print("FlyingObeliskTowerSelected")
+	tower_to_be_built = TowerTypes.FLYINGOBELISK
+	pass # Replace with function body.
+
+
+func _on_LightningTotem_pressed():
+	print("LightningTotem Selected")
+	tower_to_be_built = TowerTypes.LIGHTNINGTOTEM
+	pass # Replace with function body.
+
+
+func _on_DemonStatue_pressed():
+	print("DemonStatue selected")
+	tower_to_be_built = TowerTypes.DEMONSTATUE
+	pass # Replace with function body.
+
+
+func _on_MoonTower_pressed():
+	print("MoonTower selected")
+	tower_to_be_built = TowerTypes.MOONTOWER
+	pass # Replace with function body.
+
+
+func _on_EyeTower_pressed():
+	print("EyeTower selected")
+	tower_to_be_built = TowerTypes.EYETOWER	
+	pass # Replace with function body.
