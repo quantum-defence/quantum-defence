@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "TileSelector",
 "language": "GDScript",
-"path": "res://src/ui/gameplay/tile-selector/TileSelector.gd"
+"path": "res://src/environment/map/tile-selector/TileSelector.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Tower",
