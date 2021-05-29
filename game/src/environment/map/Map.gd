@@ -2,12 +2,12 @@ extends Node2D
 class_name Arena
 
 # DUPLICATE CODE: must also modify at tile selector
-const TILE_SIZE = 128.0
+const TILE_SIZE = 64.0
 enum TILE_CONTENTS { PATH, EMPTY, TOWER, HOME, INVALID = -1 }
 enum ACTION { BUILDING, DISMANTLING, DROPPING, INSPECTING }
 
 onready var tile_selector := $Selector
-onready var tile_map : TileMap = $TileMap
+onready var tile_map : TileMap = $TileMapSkeleton
 onready var home : Home = $Home
 var tile_at
 var tower_at

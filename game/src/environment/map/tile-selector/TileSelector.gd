@@ -2,7 +2,7 @@ extends Area2D
 class_name TileSelector
 
 # DUPLICATE CODE: must also modify at map
-const TILE_SIZE = 128.0
+const TILE_SIZE = 64.0
 enum TILE_CONTENTS { PATH, EMPTY, TOWER, HOME, INVALID = -1 }
 enum ACTION { BUILDING, DISMANTLING, DROPPING, INSPECTING }
 

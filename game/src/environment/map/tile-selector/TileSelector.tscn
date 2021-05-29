@@ -4,17 +4,17 @@
 [ext_resource path="res://src/environment/map/tile-selector/TileSelector.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 64, 64 )
+extents = Vector2( 32, 32 )
 
 [node name="TileSelector" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 64, 64 )
+position = Vector2( 32, 32 )
 shape = SubResource( 1 )
 
 [node name="wip-logo" type="Sprite" parent="."]
-position = Vector2( 64, 64 )
-scale = Vector2( 0.236162, 0.236162 )
+position = Vector2( 32, 32 )
+scale = Vector2( 0.118081, 0.118081 )
 texture = ExtResource( 1 )
