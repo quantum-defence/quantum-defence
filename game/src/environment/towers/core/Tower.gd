@@ -115,3 +115,6 @@ func _equip_item(item):
 		if (item.projectileSpeed != 0):
 			weapon.speed += item.projectileSpeed
 			print(weapon.speed)
+
+func _play_build_tower_animation():
+	pass

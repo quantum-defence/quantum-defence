@@ -78,11 +78,11 @@ animations = [ {
 
 [node name="FlyingObelisk" instance=ExtResource( 1 )]
 
-[node name="AnimatedSprite" parent="." index="3"]
+[node name="AnimatedSprite" parent="." index="4"]
 position = Vector2( -1.13687e-13, -8 )
 scale = Vector2( 0.47, 0.365 )
 frames = SubResource( 14 )
 animation = "Idle"
-frame = 2
+frame = 12
 speed_scale = 0.5
 playing = true

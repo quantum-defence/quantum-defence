@@ -91,8 +91,8 @@ func dismantle_tower(x: int, y: int) -> bool:
 	return true
 
 func build_turret_at(x: int, y: int) -> void:
-	#var turret = preload(...).instance()
-	#add_child(turret)
-	# turret.position(Vector2(x,y) * TILE_SIZE)
-	return
+	var turret = load($BuildUI.tower_to_be_built)
+	add_child(turret)
+	turret.position(Vector2(x,y) * TILE_SIZE)
+	pass 
 	

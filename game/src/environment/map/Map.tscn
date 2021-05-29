@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/environment/map/tile-selector/TileSelector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/map/Map.gd" type="Script" id=2]
+[ext_resource path="res://src/ui/gameplay/buildUI(new)/BuildUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/environment/spawn-point/core/EnemySpawnPoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/environment/map/ground_tile_set.tres" type="TileSet" id=5]
 [ext_resource path="res://src/environment/home/Home.tscn" type="PackedScene" id=7]
@@ -36,3 +37,5 @@ position = Vector2( -190.663, -292.601 )
 
 [node name="Home" parent="." instance=ExtResource( 7 )]
 position = Vector2( 320, 834.256 )
+
+[node name="BuildUI" parent="." instance=ExtResource( 3 )]
