@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/img/coloured-squares/turret.png" type="Texture" id=1]
+[ext_resource path="res://src/ui/gameplay/buildUI(new)/TileIndicator.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 64 )
+
+[node name="TileIndicator" type="KinematicBody2D"]
+modulate = Color( 1, 1, 1, 0.360784 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="WhiteSquare" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.443137 )
+position = Vector2( 3.57628e-07, -2.38419e-06 )
+scale = Vector2( 0.421053, 0.421053 )
+texture = ExtResource( 1 )
+
+[connection signal="input_event" from="." to="." method="_on_TileIndicator_input_event"]

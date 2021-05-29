@@ -1,0 +1,174 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://src/ui/gameplay/buildUI(new)/BuildUI.gd" type="Script" id=1]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Increase.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png" type="Texture" id=3]
+[ext_resource path="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Avatar.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelysk_souls_no_letter_light.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Normal/Buttons_Button Normal - Increase.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_blue_sheet.png" type="Texture" id=9]
+[ext_resource path="res://assets/img/UI/BuildToolUIBackground.png" type="Texture" id=10]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Info.png" type="Texture" id=11]
+[ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/LoRTowerV2_blue_no_soul_no_fire-Sheet.png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+content_margin_top = 60.0
+content_margin_bottom = 60.0
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.24493
+margin_top = 1.18921
+margin_right = -2.24487
+margin_bottom = 1.18921
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+margin_top = 800.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/PanelContainer"]
+self_modulate = Color( 1, 1, 1, 0.611765 )
+margin_right = 1920.0
+margin_bottom = 280.0
+texture = ExtResource( 10 )
+patch_margin_left = 40
+patch_margin_right = 120
+axis_stretch_horizontal = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer"]
+margin_right = 1920.0
+margin_bottom = 280.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="HBoxContainer(Mode)" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PanelContainer"]
+margin_top = 60.0
+margin_right = 1920.0
+margin_bottom = 220.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuildMode" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Mode)"]
+margin_right = 160.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 7 )
+
+[node name="InspectMode" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Mode)"]
+margin_left = 164.0
+margin_right = 324.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 11 )
+
+[node name="HBoxContainer(Tower)" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PanelContainer"]
+margin_top = 60.0
+margin_right = 1920.0
+margin_bottom = 220.0
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ObeliskTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)"]
+margin_left = 430.0
+margin_right = 590.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/ObeliskTower"]
+position = Vector2( 79.6768, 38.0546 )
+scale = Vector2( 0.81223, 0.605684 )
+texture = ExtResource( 6 )
+hframes = 14
+
+[node name="FlyingObelisk" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)"]
+margin_left = 610.0
+margin_right = 770.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/FlyingObelisk"]
+position = Vector2( 74.6506, 69.8009 )
+scale = Vector2( 0.677756, 0.412511 )
+texture = ExtResource( 4 )
+hframes = 14
+
+[node name="LightningTotem" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)"]
+margin_left = 790.0
+margin_right = 950.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/LightningTotem"]
+position = Vector2( 82.8553, 37.525 )
+scale = Vector2( 1.59623, 1.57333 )
+texture = ExtResource( 8 )
+hframes = 16
+vframes = 5
+
+[node name="DemonStatue" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)"]
+margin_left = 970.0
+margin_right = 1130.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/DemonStatue"]
+position = Vector2( 84.4443, 54.4763 )
+scale = Vector2( 1.58211, 1.12533 )
+texture = ExtResource( 9 )
+hframes = 31
+vframes = 2
+
+[node name="MoonTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)"]
+margin_left = 1150.0
+margin_right = 1310.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/MoonTower"]
+position = Vector2( 81.2661, 59.7736 )
+scale = Vector2( 1.73396, 1.26406 )
+texture = ExtResource( 3 )
+hframes = 11
+
+[node name="EyeTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)"]
+margin_left = 1330.0
+margin_right = 1490.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/EyeTower"]
+position = Vector2( 81.796, 67.7196 )
+scale = Vector2( 1.78694, 1.62277 )
+texture = ExtResource( 12 )
+hframes = 14
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Mode)/BuildMode" to="." method="_on_BuildMode_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Mode)/InspectMode" to="." method="_on_InspectMode_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/ObeliskTower" to="." method="_on_ObeliskTower_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/FlyingObelisk" to="." method="_on_FlyingObelisk_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/LightningTotem" to="." method="_on_LightningTotem_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/DemonStatue" to="." method="_on_DemonStatue_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/MoonTower" to="." method="_on_MoonTower_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer(Tower)/EyeTower" to="." method="_on_EyeTower_pressed"]

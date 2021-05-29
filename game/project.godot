@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/environment/home/Home.gd"
 }, {
+"base": "Node2D",
+"class": "Item",
+"language": "GDScript",
+"path": "res://src/items/core/Item.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Projectile",
 "language": "GDScript",
@@ -37,7 +42,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "TileSelector",
 "language": "GDScript",
-"path": "res://src/ui/gameplay/tile-selector/TileSelector.gd"
+"path": "res://src/environment/map/tile-selector/TileSelector.gd"
 }, {
 "base": "Node2D",
 "class": "Tower",
@@ -49,6 +54,7 @@ _global_script_class_icons={
 "Enemy": "",
 "EnemySpawnPoint": "",
 "Home": "",
+"Item": "",
 "Projectile": "",
 "TileSelector": "",
 "Tower": ""

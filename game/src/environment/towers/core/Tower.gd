@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 class_name Tower
 enum TYPES { 
 	FASTEST = 0,
@@ -14,11 +14,14 @@ const RESOURCE = [
 ]
 
 # var firing_interval := 0.2
-#External properties
-#Enemy Related
+
+
+var ItemClass = preload("res://src/items/core/Item.tscn")
 onready var _target : Enemy = null
 onready var _enemiesInRange := []
 onready var _timer : Timer = $Timer
+onready var itemsHeld = []
+var weapon 
 onready var _attributes := [0, 0, 0, 0] # assuming 4 attributes
 
 func _ready() -> void:
@@ -46,7 +49,10 @@ func upgrade_with(item_type: int) -> bool:
 	
 
 func _fire() -> void:
-	var weapon = preload("res://src/projectile/core/Projectile.tscn").instance()
+	weapon = preload("res://src/projectile/core/Projectile.tscn").instance()
+	var axe = preload("res://src/items/otherItems/Axe.tscn")
+	var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn")
+	self._equip_item(emerald_staff.instance())
 	weapon.fire(global_position, _target)
 	get_parent().add_child(weapon)
 
@@ -66,7 +72,6 @@ func _choose_enemy() -> Enemy:
 			chosen_enemy = enemy
 	return chosen_enemy
 
-# warning-ignore:unused_argument
 func _process(delta: float) -> void:
 	_target = _choose_enemy()
 	if (_target != null and _timer.is_stopped()):
@@ -86,3 +91,27 @@ func _on_Range_body_entered(body) -> void:
 func _on_Range_body_exited(body: Node) -> void:
 	if body is Enemy:
 		_forget_out_of_range(body)
+
+func _equip_item(item):
+	# All the current stats of the tower
+	var rangeRadius = $Range/RangeRadius.shape.radius
+	var towerDamage = weapon.damage
+	var projectileSpeed = weapon.speed
+	var towerAttackSpeed = $Timer.get_wait_time()
+	print(towerAttackSpeed)
+	
+	if (itemsHeld.size() < 4):
+		itemsHeld.append(item)
+		print("item is appended")
+		print(weapon.speed)
+		#Check for all the stats
+		if (item.damageIncrease != 0):
+			weapon.damage = towerDamage + item.damageIncrease
+		if (item.attackSpeedIncrease != 0):
+			var newTowerAttackSpeed = towerAttackSpeed * 100/(100 + item.attackSpeedIncrease)
+			$Timer.set_wait_time(newTowerAttackSpeed)
+		if (item.rangeIncrease != 0):
+			$Range/RangeRadius.set_radius(rangeRadius + item.rangeIncrease)
+		if (item.projectileSpeed != 0):
+			weapon.speed += item.projectileSpeed
+			print(weapon.speed)

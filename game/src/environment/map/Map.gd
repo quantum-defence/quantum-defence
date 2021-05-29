@@ -90,4 +90,9 @@ func dismantle_tower(x: int, y: int) -> bool:
 	tile_at[x][y] = TILE_CONTENTS.EMPTY
 	return true
 
+func build_turret_at(x: int, y: int) -> void:
+	#var turret = preload(...).instance()
+	#add_child(turret)
+	# turret.position(Vector2(x,y) * TILE_SIZE)
+	return
 	
