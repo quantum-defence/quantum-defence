@@ -4,7 +4,7 @@ class_name Arena
 # DUPLICATE CODE: must also modify at tile selector
 const TILE_SIZE = 64.0
 enum TILE_CONTENTS { PATH, EMPTY, TOWER, HOME, INVALID = -1 }
-enum ACTION { BUILDING, DISMANTLING, DROPPING, INSPECTING }
+enum ACTION { BUILDING, INSPECTING }
 
 onready var tile_selector := $Selector
 onready var tile_map : TileMap = $TileMapSkeleton
@@ -13,24 +13,25 @@ var tile_at
 var tower_at
 
 func _ready() -> void:
+	tile_selector.set_action(ACTION.INSPECTING, "")
 	tile_at = []
-	tile_at.resize(40)
-	for i in range(40):
+	tile_at.resize(90)
+	for i in range(90):
 		tile_at[i] = []
-		tile_at[i].resize(40)
-		for j in range(40):
+		tile_at[i].resize(90)
+		for j in range(90):
 			tile_at[i][j] = tile_map.get_cell(i, j)
 	tile_at[home.position.x / TILE_SIZE][home.position.y / TILE_SIZE] = TILE_CONTENTS.HOME
 	tower_at = []
-	tower_at.resize(40)
-	for i in range(40):
+	tower_at.resize(90)
+	for i in range(90):
 		tower_at[i] = []
-		tower_at[i].resize(40)
-		for j in range(40):
+		tower_at[i].resize(90)
+		for j in range(90):
 			tower_at[i][j] = tile_map.get_cell(i, j)
 
 # dummy function to show use of selector
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		var e : InputEventMouseButton = event
 		if e.button_index == BUTTON_LEFT and e.pressed:
@@ -63,11 +64,11 @@ func is_valid_tower_drop(x: int, y: int) -> bool:
 func is_valid_item_drop(x: int, y: int) -> bool:
 	return tile_at[x][y] == TILE_CONTENTS.TOWER
 
-func build_tower(x: int, y: int, tower_type: int) -> bool:
+func build_tower(x: int, y: int, tower_type: String) -> bool:
 	if tile_at[x][y] != TILE_CONTENTS.EMPTY:
 		return false
 	# warning-ignore:unsafe_method_access
-	var tower : Tower = load(Tower.RESOURCE[tower_type]).instance()
+	var tower : Tower = load(tower_type).instance()
 	add_child(tower)
 	tower.build_at(Vector2(x + 0.5, y + 0.5) * TILE_SIZE)
 	tower_at[x][y] = weakref(tower)

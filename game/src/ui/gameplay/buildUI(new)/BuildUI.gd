@@ -53,49 +53,47 @@ func _on_InspectMode_pressed():
 #	else:
 #		modulate = Color.white
 
-
 func _on_ObeliskTower_pressed():
 	print("ObeliskTowerSelected")
 	if (buildMode):
 		print("Called tile selector in UI")
-		tileSelector.set_action(TileSelector.ACTION.BUILDING, TOWERTYPES.OBELISK)
+		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.OBELISK])
 	pass
 
 
 func _on_FlyingObelisk_pressed():
 	print("FlyingObeliskTowerSelected")
 	if (buildMode):
-		tileSelector.set_action(TileSelector.ACTION, TOWERTYPES.FLYINGOBELISK)
+		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.FLYINGOBELISK])
 	pass # Replace with function body.
 
 
 func _on_LightningTotem_pressed():
 	print("LightningTotem Selected")
 	if (buildMode):
-		tileSelector.set_action(TileSelector.ACTION, TOWERTYPES.LIGHTNINGTOTEM)
+		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.LIGHTNINGTOTEM])
 	pass # Replace with function body.
 
 
 func _on_DemonStatue_pressed():
 	print("DemonStatue selected")
 	if (buildMode):
-		tileSelector.set_action(TileSelector.ACTION, TOWERTYPES.DEMONSTATUE)
+		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.DEMONSTATUE])
 	pass # Replace with function body.
 
 
 func _on_MoonTower_pressed():
 	print("MoonTower selected")
 	if (buildMode):
-		tileSelector.set_action(TileSelector.ACTION, TOWERTYPES.MOONTOWER)
+		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.MOONTOWER])
 	pass # Replace with function body.
 
 
 func _on_EyeTower_pressed():
 	print("EyeTower selected")
 	if (buildMode):
-		tileSelector.set_action(TileSelector.ACTION, TOWERTYPES.EYETOWER)	
+		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.EYETOWER])
 	pass # Replace with function body.
-
 
 const slotClass = preload("res://src/ui/gameplay/buildUI(new)/Panel.gd")
 onready var inventorySlots = $VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer

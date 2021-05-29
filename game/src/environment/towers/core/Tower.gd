@@ -31,6 +31,7 @@ func _ready() -> void:
 
 func build_at(position: Vector2) -> void:
 	self.position = position
+	# _play_build_tower_animation()
 	# show animation
 
 func dismantle() -> Array:
@@ -112,12 +113,10 @@ func _equip_item(item):
 			$Timer.set_wait_time(newTowerAttackSpeed)
 		if (item.rangeIncrease != 0):
 			$Range/RangeRadius.set_radius(rangeRadius + item.rangeIncrease)
-		if (item.projectileSpeed != 0):
-			weapon.speed += item.projectileSpeed
-			print(weapon.speed)
+
 
 func _play_build_tower_animation():
 	$BuildAnimation.visible = true
 	$BuildAnimation.play("Build", false)
-	$BuildAnimation.visible = false
+	# $BuildAnimation.visible = false
 	pass

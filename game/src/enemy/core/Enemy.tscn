@@ -31,10 +31,10 @@ shape = SubResource( 2 )
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
-position = Vector2( -0.0672836, 0 )
 shape = SubResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -4 )
 frames = ExtResource( 1 )
 animation = "take_damage"
 frame = 1

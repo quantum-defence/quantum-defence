@@ -100,7 +100,7 @@ region = Rect2( 3104, 0, 194, 276 )
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), null ],
 "loop": false,
 "name": "Build",
 "speed": 5.0
@@ -138,7 +138,7 @@ frames = SubResource( 3 )
 [node name="BuildAnimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 21 )
 animation = "Build"
-frame = 16
+frame = 17
 playing = true
 
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
