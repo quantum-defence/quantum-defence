@@ -2,7 +2,7 @@ extends CanvasLayer
 
 
 #Have yet to add angel tower
-enum TowerTypes {
+enum TOWERTYPES {
 	OBELISK = 0,
 	FLYINGOBELISK = 1, 
 	LIGHTNINGTOTEM = 2, 
@@ -21,10 +21,11 @@ const RESOURCE = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn
 
 #if buildMode is not true, then it is in normal mode
 var buildMode : bool = false
+
 var tileIndicator  = preload("res://src/ui/gameplay/buildUI(new)/TileIndicator.tscn")
 var tileIndicatorInstance
-
-var tower_to_be_built : int
+onready var tileSelector = find_parent("Map").get_node("Selector")
+var tower_to_be_built : String
 var item_held
 
 
@@ -40,26 +41,7 @@ func _on_BuildMode_pressed():
 func _on_InspectMode_pressed():
 	print(buildMode)
 	buildMode = false
-	
 	print(buildMode)
-
-func _process(delta):	
-	if (buildMode and tileIndicatorInstance == null):
-		print("reached here")
-		tileIndicatorInstance = tileIndicator.instance()
-		add_child(tileIndicatorInstance)
-		print("tileIndicatorInstance is init")
-		
-	
-func _input(event):
-	if (buildMode):
-		if (event is InputEventMouseButton):
-			if event.pressed and Input.is_action_pressed("buildClick"):
-				print("Clicker is working")
-				var mouse_pos = get_viewport().get_mouse_position()
-				print(self.get_parent())
-				print(currentMap)
-				currentMap.build_turret_at(mouse_pos)
 
 				
 #	if (isPlacing): 
@@ -77,35 +59,73 @@ func _input(event):
 
 func _on_ObeliskTower_pressed():
 	print("ObeliskTowerSelected")
-	tower_to_be_built = TowerTypes.OBELISK
+	if (buildMode):
+		print("Called tile selector in UI")
+		tileSelector.set_action(TileSelector.ACTION.BUILDING, TOWERTYPES.OBELISK)
 	pass
 
 
 func _on_FlyingObelisk_pressed():
 	print("FlyingObeliskTowerSelected")
-	tower_to_be_built = TowerTypes.FLYINGOBELISK
+	if (buildMode):
+		tileSelector.set_action(TileSelector.ACTION, TOWERTYPES.FLYINGOBELISK)
 	pass # Replace with function body.
 
 
 func _on_LightningTotem_pressed():
 	print("LightningTotem Selected")
-	tower_to_be_built = TowerTypes.LIGHTNINGTOTEM
+	if (buildMode):
+		tileSelector.set_action(TileSelector.ACTION, TOWERTYPES.LIGHTNINGTOTEM)
 	pass # Replace with function body.
 
 
 func _on_DemonStatue_pressed():
 	print("DemonStatue selected")
-	tower_to_be_built = TowerTypes.DEMONSTATUE
+	if (buildMode):
+		tileSelector.set_action(TileSelector.ACTION, TOWERTYPES.DEMONSTATUE)
 	pass # Replace with function body.
 
 
 func _on_MoonTower_pressed():
 	print("MoonTower selected")
-	tower_to_be_built = TowerTypes.MOONTOWER
+	if (buildMode):
+		tileSelector.set_action(TileSelector.ACTION, TOWERTYPES.MOONTOWER)
 	pass # Replace with function body.
 
 
 func _on_EyeTower_pressed():
 	print("EyeTower selected")
-	tower_to_be_built = TowerTypes.EYETOWER	
+	if (buildMode):
+		tileSelector.set_action(TileSelector.ACTION, TOWERTYPES.EYETOWER)	
 	pass # Replace with function body.
+
+
+const slotClass = preload("res://src/ui/gameplay/buildUI(new)/Panel.gd")
+onready var inventorySlots = $VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer
+
+
+func _ready():
+	for slot in inventorySlots.get_children():
+		slot.connect("gui_input", self, "slot_gui_input", [slot])
+
+
+#func slot_gui_input(event:InputEvent, slot:slotClass):
+#	if (event is InputEventMouseButton):
+#		if event.button_index == BUTTON_LEFT and event.pressed:
+#			print("signal triggered and is left mouse presed")\
+#			#Does the swapping for the item 
+#			if item_held != null:
+#				if slot.item == null:
+#					slot.putIntoSlot(item_held)
+#					item_held = null
+#				else:
+#					var temp_item = slot.item
+#					slot.pickFromSlot()
+#					temp_item.global_position = event.global_position
+#					print("shud be following mouse now")
+#					slot.putIntoSlot(item_held)
+#					item_held = temp_item
+#			else:
+#				if slot.item != null:
+#					item_held = slot.pickFromSlot()
+#					print("shud be following mouse now")

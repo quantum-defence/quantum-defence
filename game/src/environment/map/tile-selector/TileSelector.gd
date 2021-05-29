@@ -22,6 +22,7 @@ func select(x : int, y : int) -> void:
 # if action == ACTION.BUILDING, type must be of Tower.TYPE
 # likewise if action == ACTION.DROPPING, type must be of Item.TYPE
 func set_action(action : int, type : int) -> void:
+	print("set action called in tileSelector")
 	_action = action
 	_type = type
 
