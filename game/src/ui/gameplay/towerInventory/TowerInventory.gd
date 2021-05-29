@@ -5,7 +5,7 @@ onready var inventorySlots = $TextureRect/GridContainer
 
 var item_held  = null
 var items_equiped = {}
-
+var tower_to_be_built : Tower
 
 #func _ready():
 #	for slot in $TextureRect/GridContainer.get_children():
