@@ -117,4 +117,7 @@ func _equip_item(item):
 			print(weapon.speed)
 
 func _play_build_tower_animation():
+	$BuildAnimation.visible = true
+	$BuildAnimation.play("Build", false)
+	$BuildAnimation.visible = false
 	pass
