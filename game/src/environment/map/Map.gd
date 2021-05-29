@@ -38,9 +38,9 @@ func _input(event: InputEvent) -> void:
 			tile_selector.take_action()
 		elif e.button_index == BUTTON_RIGHT and e.pressed:
 			if tile_selector._action == ACTION.BUILDING:
-				tile_selector.set_action(ACTION.DISMANTLING, 0)
+				tile_selector.set_action(ACTION.INSPECTING, "")
 			else:
-				tile_selector.set_action(ACTION.BUILDING, Tower.TYPES.REPEATER)
+				tile_selector.set_action(ACTION.BUILDING, BuildUI.RESOURCE[BuildUI.TowerTypes.DEMONSTATUE])
 	elif event is InputEventMouseMotion:
 		var e : InputEventMouseMotion = event
 		select_using_position(e.position)
@@ -55,6 +55,12 @@ func select_tile(x: int, y: int) -> void:
 
 func get_contents_at(x: int, y: int) -> int:
 	return tile_at[x][y]
+
+
+func get_tower_at(x: int, y: int) -> WeakRef:
+	if tile_at[x][y] != TILE_CONTENTS.TOWER:
+		return null
+	return tower_at[x][y]
 
 #for building tower
 func is_valid_tower_drop(x: int, y: int) -> bool:

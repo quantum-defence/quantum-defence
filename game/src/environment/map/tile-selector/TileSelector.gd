@@ -9,7 +9,7 @@ enum ACTION { BUILDING, INSPECTING }
 var _x : int
 var _y : int
 var _action : int
-var _type : String
+var _type : String # resource to instance from
 var _valid_tile : bool
 
 onready var arena : Arena = get_parent()
@@ -21,12 +21,11 @@ func select(x : int, y : int) -> void:
 
 # if action == ACTION.BUILDING, type must be of Tower.TYPE
 # likewise if action == ACTION.DROPPING, type must be of Item.TYPE
-func set_action(action : int, type : String) -> void:
-	print("set action called in tileSelector")
+func set_action(action : int, type_resource_string : String) -> void:
 	_action = action
-	_type = type
+	_type = type_resource_string
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	self.modulate = Color(0, 1, 0) if _is_valid_tile() else Color(1, 0, 0)
 	
 func _is_valid_tile() -> bool:

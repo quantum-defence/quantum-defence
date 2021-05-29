@@ -1,5 +1,5 @@
 extends CanvasLayer
-
+class_name BuildUI
 
 #Have yet to add angel tower
 enum TOWERTYPES {
