@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/ui/gameplay/ResetExit/HBoxContainer.gd" type="Script" id=1]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Normal/Buttons_Button Normal - Close.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Reload.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Normal/Buttons_Button Normal - Reload.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Close.png" type="Texture" id=5]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -324.0
+margin_bottom = 160.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="TextureButton" parent="."]
+margin_right = 160.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+
+[node name="ExitButton" type="TextureButton" parent="."]
+margin_left = 164.0
+margin_right = 324.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 2 )
+
+[connection signal="pressed" from="ResetButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]

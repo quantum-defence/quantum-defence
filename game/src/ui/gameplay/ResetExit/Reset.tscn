@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui/gameplay/ResetExit/HBoxContainer.tscn" type="PackedScene" id=1]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+scale = Vector2( 0.5, 0.5 )
+transform = Transform2D( 0.5, 0, 0, 0.5, 0, 0 )
+
+[node name="HBoxContainer" parent="." instance=ExtResource( 1 )]
+margin_left = -333.514
+margin_top = 2.37839
+margin_right = -9.51367
+margin_bottom = 162.378
