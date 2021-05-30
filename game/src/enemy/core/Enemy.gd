@@ -10,6 +10,11 @@ var _speed := 200.0
 var _health := 100.0
 var _target : Home
 
+enum Q_STATE { SUPERPOSITION, RED, BLUE }
+var qubit := Vector2()
+var qubit_state : int = Q_STATE.SUPERPOSITION
+var http_request : HTTPRequest = null
+
 # current enemy behaviour
 var action
 enum ACTION { IDLE, MOVE, ATTACK, TAKE_DAMAGE, DIE }
@@ -101,6 +106,11 @@ func attack() -> void:
 
 # take damage
 func take_damage(damage_taken: float) -> void:
+	if qubit_state == Q_STATE.SUPERPOSITION:
+		http_request = HTTPRequest.new()
+		add_child(http_request)
+		http_request.connect("request_completed", self, "_on_HTTPRequest_request_completed")
+		http_request.request("https://tower-defence-qiskit-api.herokuapp.com/test-enemy-gen")
 	_health -= damage_taken
 	if _health <= 0.0:
 		_kill()
@@ -110,6 +120,26 @@ func take_damage(damage_taken: float) -> void:
 	if action != ACTION.TAKE_DAMAGE:
 		sprite.play("take_damage")
 		action = ACTION.TAKE_DAMAGE
+
+func _on_HTTPRequest_request_completed( result, response_code, headers, body ):
+	var json = JSON.parse(body.get_string_from_utf8())
+	http_request.queue_free()
+	http_request = null
+	if json.result == 0:
+		change_look(Q_STATE.RED)
+	else:
+		change_look(Q_STATE.BLUE)
+
+func change_look(new_state: int) -> void:
+	qubit_state = new_state
+	match new_state:
+		Q_STATE.SUPERPOSITION:
+			modulate = Color.white
+		Q_STATE.RED:
+			modulate = Color.red
+		Q_STATE.BLUE:
+			modulate = Color.blue
+	
 
 func _kill() -> void:
 	action = ACTION.DIE
