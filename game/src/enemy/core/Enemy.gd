@@ -132,6 +132,8 @@ func _on_HTTPRequest_request_completed( result, response_code, headers, body ):
 		change_look(Q_STATE.BLUE)
 
 func change_look(new_state: int) -> void:
+	if qubit_state != Q_STATE.SUPERPOSITION:
+		return
 	qubit_state = new_state
 	match new_state:
 		Q_STATE.SUPERPOSITION:
