@@ -22,10 +22,7 @@ const RESOURCE = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn
 #if buildMode is not true, then it is in normal mode
 var buildMode : bool = false
 
-var tileIndicator  = preload("res://src/ui/gameplay/buildUI(new)/TileIndicator.tscn")
-var tileIndicatorInstance
 onready var tileSelector = find_parent("Map").get_node("Selector")
-var tower_to_be_built : String
 var item_held
 
 
