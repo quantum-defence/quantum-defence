@@ -123,7 +123,8 @@ func take_damage(damage_taken: float) -> void:
 
 func _on_HTTPRequest_request_completed( result, response_code, headers, body ):
 	var json = JSON.parse(body.get_string_from_utf8())
-	http_request.queue_free()
+	if http_request != null:
+		http_request.queue_free()
 	http_request = null
 	if json.result == 0:
 		change_look(Q_STATE.RED)

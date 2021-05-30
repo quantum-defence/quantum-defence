@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/ui/gameplay/buildUI(new)/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Increase.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://src/ui/gameplay/buildUI(new)/buildUISlot.gd" type="Script" id=13]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Equipment/Bag.png" type="Texture" id=15]
+[ext_resource path="res://src/ui/gameplay/buildUI(new)/tower-builds.gd" type="Script" id=16]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -92,11 +93,14 @@ margin_right = 345.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 11 )
 
-[node name="ObeliskTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
+[node name="ObeliskTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
+"tower_builds",
+]]
 margin_left = 370.0
 margin_right = 530.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
+script = ExtResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/ObeliskTower"]
 position = Vector2( 79.6768, 38.0546 )
@@ -104,11 +108,14 @@ scale = Vector2( 0.81223, 0.605684 )
 texture = ExtResource( 6 )
 hframes = 14
 
-[node name="FlyingObelisk" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
+[node name="FlyingObelisk" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
+"tower_builds",
+]]
 margin_left = 555.0
 margin_right = 715.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
+script = ExtResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/FlyingObelisk"]
 position = Vector2( 74.6506, 69.8009 )
@@ -116,11 +123,14 @@ scale = Vector2( 0.677756, 0.412511 )
 texture = ExtResource( 4 )
 hframes = 14
 
-[node name="LightningTotem" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
+[node name="LightningTotem" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
+"tower_builds",
+]]
 margin_left = 740.0
 margin_right = 900.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
+script = ExtResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/LightningTotem"]
 position = Vector2( 82.8553, 37.525 )
@@ -129,11 +139,14 @@ texture = ExtResource( 8 )
 hframes = 16
 vframes = 5
 
-[node name="DemonStatue" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
+[node name="DemonStatue" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
+"tower_builds",
+]]
 margin_left = 925.0
 margin_right = 1085.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
+script = ExtResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/DemonStatue"]
 position = Vector2( 84.4443, 54.4763 )
@@ -142,11 +155,14 @@ texture = ExtResource( 9 )
 hframes = 31
 vframes = 2
 
-[node name="MoonTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
+[node name="MoonTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
+"tower_builds",
+]]
 margin_left = 1110.0
 margin_right = 1270.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
+script = ExtResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/MoonTower"]
 position = Vector2( 81.2661, 59.7736 )
@@ -154,11 +170,14 @@ scale = Vector2( 1.73396, 1.26406 )
 texture = ExtResource( 3 )
 hframes = 11
 
-[node name="EyeTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
+[node name="EyeTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
+"tower_builds",
+]]
 margin_left = 1295.0
 margin_right = 1455.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
+script = ExtResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/EyeTower"]
 position = Vector2( 81.796, 67.7196 )
@@ -167,6 +186,7 @@ texture = ExtResource( 12 )
 hframes = 14
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
+visible = false
 margin_left = 1480.0
 margin_right = 1816.0
 margin_bottom = 160.0
@@ -272,6 +292,7 @@ __meta__ = {
 }
 
 [node name="TowerInventory" parent="." instance=ExtResource( 14 )]
+visible = false
 position = Vector2( 773.408, -112.303 )
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/BuildMode" to="." method="_on_BuildMode_pressed"]

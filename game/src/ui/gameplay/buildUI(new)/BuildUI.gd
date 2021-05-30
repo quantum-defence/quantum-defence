@@ -24,20 +24,22 @@ var buildMode : bool = false
 
 onready var tileSelector = find_parent("Map").get_node("Selector")
 var item_held
-
-
-#reference to the map that its on
 onready var currentMap = self.get_parent()
 
-# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	get_tree().call_group("tower_builds", "change_visibility", false)
+	# for slot in inventorySlots.get_children():
+		# slot.connect("gui_input", self, "slot_gui_input", [slot])
 
 func _on_BuildMode_pressed():
 	print("buildMode pressed")
+	get_tree().call_group("tower_builds", "change_visibility", true)
 	buildMode = true
 
 func _on_InspectMode_pressed():
 	print(buildMode)
 	buildMode = false
+	get_tree().call_group("tower_builds", "change_visibility", false)
 	print(buildMode)
 
 				
@@ -99,9 +101,6 @@ const slotClass = preload("res://src/ui/gameplay/buildUI(new)/Panel.gd")
 onready var inventorySlots = $VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer
 
 
-func _ready():
-	for slot in inventorySlots.get_children():
-		slot.connect("gui_input", self, "slot_gui_input", [slot])
 
 
 #func slot_gui_input(event:InputEvent, slot:slotClass):
