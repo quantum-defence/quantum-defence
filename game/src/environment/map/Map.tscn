@@ -52,7 +52,7 @@ spawn_rate = 2.0
 position = Vector2( -190.663, -292.601 )
 
 [node name="Home" parent="." instance=ExtResource( 7 )]
-position = Vector2( 320, 834.256 )
+position = Vector2( 304, 781 )
 
 [node name="BuildUI" parent="." instance=ExtResource( 8 )]
 

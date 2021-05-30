@@ -37,6 +37,7 @@ shape = SubResource( 3 )
 position = Vector2( 0, -4 )
 frames = ExtResource( 1 )
 animation = "take_damage"
+frame = 1
 playing = true
 offset = Vector2( 26, -10 )
 __meta__ = {

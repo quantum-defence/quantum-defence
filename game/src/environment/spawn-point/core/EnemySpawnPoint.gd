@@ -8,12 +8,39 @@ onready var ENEMY_TYPES = {
 
 # constants
 export var spawn_rate := 1.0
+export var on_off_interval := [6,4]
 
 # hidden state variables
 var _last_spawn := 0.0
+var is_spawning : bool = true
+var cooldown_timer : Timer
+var spawn_timer : Timer
+
+func _ready() -> void:
+	cooldown_timer = Timer.new()
+	spawn_timer = Timer.new()
+	cooldown_timer.wait_time = on_off_interval[1]
+	spawn_timer.wait_time = on_off_interval[0]
+	cooldown_timer.autostart = false
+	spawn_timer.autostart = false
+	cooldown_timer.one_shot = true
+	spawn_timer.one_shot = true
+	add_child(cooldown_timer)
+	add_child(spawn_timer)
+	spawn_timer.start()
 
 func _process(delta: float) -> void:
-	if _last_spawn > 1.0 / spawn_rate:
+	if is_spawning:
+		if spawn_timer.is_stopped():
+			cooldown_timer.start()
+			is_spawning = false
+	else: 
+		if cooldown_timer.is_stopped():
+			spawn_timer.start()
+			is_spawning = true
+	if !is_spawning:
+		return
+	elif _last_spawn > 1.0 / spawn_rate:
 		_last_spawn = 0.0
 		spawn()
 	_last_spawn += delta
