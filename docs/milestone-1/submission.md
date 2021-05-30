@@ -17,12 +17,32 @@ Some of the structures and game mechanics will be simplifications of techniques 
 
 # Project Log
 
-| Start Date  | End Date    | Member    | Task                                      | Comments                                    | Hours |
-| :--------:  | :--------:  | :------:  | :---------------------------------------- | :------------------------------------------ | :---: |
-| 2021-05-01  | 2021-05-10  | Tee Chin  | Learning godot and game design principles | Made a Pong clone                           | 12    |
-| 2021-05-01  | 2021-05-10  | Bharath   | Learning godot and game design principles | Made a Pong clone                           | 12    |
-| 2021-05-10  | 2021-05-14  | Bharath   | Make Basic TD Mechanics                   | TileMap Home and Enemy behaviour and state  | 8     |
-| 2021-05-10  | 2021-05-14  | Tee Chin  | Make Basic TD Mechanics                   | Turrets Timers Homing Projectiles           | 8     |
+| Start Date  | End Date    | Member    | Task                                      | Comments                                        | Hours |
+| :--------:  | :--------:  | :------:  | :---------------------------------------- | :-----------------------------------------------| :---: |
+| 2021-05-01  | 2021-05-10  | Tee Chin  | Learning godot and game design principles | Made a Pong clone                               | 12    |
+| 2021-05-10  | 2021-05-14  | Tee Chin  | Make Basic TD Mechanics                   | Turrets Timers Homing Projectiles               | 4     |
+| 2021-05-01  | 2021-05-10  | Bharath   | Learning godot and game design principles | Made a Pong clone                               | 12    |
+| 2021-05-10  | 2021-05-14  | Bharath   | Make Basic TD Mechanics                   | TileMap Home and Enemy behaviour and state      | 4     |
+| 2021-05-14  | 2021-05-15  | Bharath   | Make Basic TD Mechanics                   | Enemy Spawning and Spawn Points                 | 3     |
+| 2021-05-14  | 2021-05-16  | Bharath   | Make Basic TD Mechanics                   | Physics Layer and enemy path testing            | 7     |
+| 2021-05-17  | 2021-05-17  | Bharath   | Team meeting                              | Discussing how to integrate or split            | 2     |
+| 2021-05-18  | 2021-05-19  | Bharath   | Managing new assets and reorganising work | Bulk of time on learning dev practices          | 3     |
+| 2021-05-19  | 2021-05-22  | Bharath   | Enemy collision (Attempt 1)               | Rolled back commits entirely, unusable here     | 4     |
+| 2021-05-19  | 2021-05-22  | Bharath   | Enemy collision and pathfinding mechanics | Bulk on time on learning godot physics          | 6     |
+| 2021-05-23  | 2021-05-29  | Bharath   | Tile Selector (UI for Maps)               | Detecting tile content & displaying overlay     | 4     |
+| 2021-05-23  | 2021-05-29  | Bharath   | Working on PR and Merges and cleaning up  | And integrating tee chin UI work to main        | 1     |
+| 2021-05-29  | 2021-05-30  | Bharath   | Create new tile map (lava world)          | Some code logic, mostly design work             | 4     |
+| 2021-05-29  | 2021-05-30  | Bharath   | Make basic API on localhost               | Build basic Express app to return 0 or 1        | 3     |
+| 2021-05-29  | 2021-05-30  | Bharath   | Deploy API on heroku                      | Use Heroku documentation                        | 2     |
+| 2021-05-29  | 2021-05-30  | Bharath   | Connecting Enemy to the API               | On taking damage, choose red / blue             | 2     |
+| 2021-05-29  | 2021-05-30  | Bharath   | Personal Milestone 1 Tasks                | Meeting, Documentation, Exporting               | 3     |
+| 2021-05-31  | 2021-05-31  | Bharath   | Milestone 1 Team Meeting and Submission   | Submission Documents                            | 2     |
+| 2021-05-31  | 2021-05-31  | Tee Chin  | Milestone 1 Team Meeting and Submission   | Submission Documents                            | 2     |
+
+| Member    | Hours |
+| :------:  | :---: |
+| Bharath   |  62   |
+| Tee Chin  |       |
 
 # Video Link
 
