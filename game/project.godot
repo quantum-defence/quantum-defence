@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/environment/map/Map.gd"
 }, {
-"base": "CanvasLayer",
-"class": "BuildUI",
-"language": "GDScript",
-"path": "res://src/ui/gameplay/buildUI(new)/BuildUI.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -56,7 +51,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Arena": "",
-"BuildUI": "",
 "Enemy": "",
 "EnemySpawnPoint": "",
 "Home": "",

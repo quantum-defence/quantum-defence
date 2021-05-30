@@ -36,11 +36,6 @@ func _input(event: InputEvent) -> void:
 		var e : InputEventMouseButton = event
 		if e.button_index == BUTTON_LEFT and e.pressed:
 			tile_selector.take_action()
-		elif e.button_index == BUTTON_RIGHT and e.pressed:
-			if tile_selector._action == ACTION.BUILDING:
-				tile_selector.set_action(ACTION.INSPECTING, "")
-			else:
-				tile_selector.set_action(ACTION.BUILDING, BuildUI.RESOURCE[BuildUI.TowerTypes.DEMONSTATUE])
 	elif event is InputEventMouseMotion:
 		var e : InputEventMouseMotion = event
 		select_using_position(e.position)
