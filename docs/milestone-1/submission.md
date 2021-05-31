@@ -46,7 +46,7 @@ This is the broad overview of how we see users employing our game:
     - Each 'quantum powered' item / projectile / game mechanic must refer to only a single real life quantum principle, mechanism, effect or concept.
   - User Story 1.2: I want to have educational resources within reach
     - Each 'quantum powered' item / projectile / game mechanic could have some sort of 'Read More' button to show more information on how this parallels quantum circuitry in real life.
-    - Good documentation for those with a more technical background to be able to understand or use our work if they wish (MIT LICENSE)
+    - Good documentation for those with a more technical background to be able to understand or use our work if they wish 
 
 - Epic 2: As a gamer, I can enjoy a different take on a tower defence game. A new element that has yet to exist in any other commercial game in the market.
 
