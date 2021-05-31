@@ -1,5 +1,9 @@
 # Milestone 1 README
 
+Try out the current version of "The Architect" v0.7 alpha at this link below! Comments and feedback are welcomed and much appreciated.
+[https://github.com/bharathcs/quantum-defence/releases/tag/v0.7-alpha](https://github.com/bharathcs/quantum-defence/releases/tag/v0.7-alpha)
+
+
 ## Motivation:
 
 From Google’s claim of already achieving quantum supremacy to IBM’s Qiskit offering to one day give companies API access to their own quantum computing runtimes, there is a lot of exciting news and headlines that still seems almost mystical. However, a lot of the material online is either difficult to digest and not for those without a physics background or they are fluffy pop science articles. We want to take the time to really understand how this works, and try our hand at some quantum computing concepts.
@@ -32,14 +36,13 @@ Some of the structures and game mechanics will be simplifications of techniques 
 
 
 # UserStories
-US01 : As a student interested in learning the basics of quantum mechanics and quantum computing, I can play the game and understand how concepts such as superposition and quantum computing or entanglement work. These concepts would also be more digestable as they are intrinsic in the gameplay of the game.
+Epic 01 : As a student interested in learning the basics of quantum mechanics and quantum computing, I can play the game and understand how concepts such as superposition and quantum computing or entanglement work. These concepts would also be more digestable as they are intrinsic in the gameplay of the game.
+  US01(User Story): As a student interested in learning quantum mechanics, I want to be able to see the quantum aspect of the game and understand how it works. E.g click on some button and find out how the game parallels quantum processes in real life.
 
-US02 : As a teacher that wants to teach the bare minimum of quantum mechanics, he can introduce the game as a teaser for students to have a first taste of quantum mechanics
-
-US03 : As a gamer, I can enjoy a different take on a tower defence game. A new element that has yet to exist in any other commercial game in the market.
-
-US04 : As a speed runner of games, I can track the time it takes to complete the entire game and compete with others if a leadership board is implemented.
-
+Epic 02: As a gamer, I can enjoy a different take on a tower defence game. A new element that has yet to exist in any other commercial game in the market.
+  
+Epic 03 : As a speed runner of games, I can track the time it takes to complete the entire game and compete with others if a leadership board is implemented.
+  US02: I want to be able to record the score of the game or somehow keep track of all the achievements etc. E.g a personal high score record.
 
 
 # Project Log
