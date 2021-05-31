@@ -52,7 +52,7 @@ Some of the structures and game mechanics will be simplifications of techniques 
 
 # Video Link
 
-[https://bit.ly/3hvXUXV](https://bit.ly/3hvXUXV)
+[https://bit.ly/3hvXUXV](https://bit.ly/3i31g5d)
 
 # Poster Link
 
