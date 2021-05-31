@@ -31,7 +31,6 @@ Some of the structures and game mechanics will be simplifications of techniques 
 
 
 
-
 # UserStories
 US01 : As a student interested in learning the basics of quantum mechanics and quantum computing, I can play the game and understand how concepts such as superposition and quantum computing or entanglement work. These concepts would also be more digestable as they are intrinsic in the gameplay of the game.
 
