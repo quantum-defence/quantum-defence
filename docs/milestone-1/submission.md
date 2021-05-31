@@ -15,6 +15,34 @@ Towers need to be upgradeable, and can potentially be imbued with quantum logic 
 
 Some of the structures and game mechanics will be simplifications of techniques used in real life quantum computing, such as entanglement and quantum state manipulation (e.g. with Hadamard gates). Over the course of the gameplay, gamers should be able to learn these concepts and be more comfortable with them, even if they do not understand quantum mechanics. This may involve additional educational info in pop ups.
 
+
+# Features
+
+|   Features  |  Release date  | Comments     | 
+| :--------:  |   :--------:   | :--------:   | 
+| TensorProjectiles | 2021-06-7 | :--------:  |
+| Items and Inventory | 2021-06-7 | :--------:  |
+| Enemy waves and kill counter | 2021-06-12| :--------:  |
+| Resource class for towers | 2021-06-12 | Resource class will be implemented and integrated into tower building |
+| Quantum backend funcitons | 2021-06-19 | :--------:  |
+| Music and sound effects   | 2021-06-23 | :--------:  |
+| HomeScreen  | 2021-06-23 | :--------:  |
+| Prep for release of official alpha | 2021-06-23 | :--------:  |
+
+
+
+
+# UserStories
+US01 : As a student interested in learning the basics of quantum mechanics and quantum computing, I can play the game and understand how concepts such as superposition and quantum computing or entanglement work. These concepts would also be more digestable as they are intrinsic in the gameplay of the game.
+
+US02 : As a teacher that wants to teach the bare minimum of quantum mechanics, he can introduce the game as a teaser for students to have a first taste of quantum mechanics
+
+US03 : As a gamer, I can enjoy a different take on a tower defence game. A new element that has yet to exist in any other commercial game in the market.
+
+US04 : As a speed runner of games, I can track the time it takes to complete the entire game and compete with others if a leadership board is implemented.
+
+
+
 # Project Log
 
 | Start Date  | End Date    | Member    | Task                                      | Comments                                        | Hours |
