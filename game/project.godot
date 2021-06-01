@@ -53,6 +53,11 @@ _global_script_classes=[ {
 "class": "Tower",
 "language": "GDScript",
 "path": "res://src/environment/towers/core/Tower.gd"
+}, {
+"base": "CanvasLayer",
+"class": "TowerInventory",
+"language": "GDScript",
+"path": "res://src/ui/gameplay/towerInventory/TowerInventory.gd"
 } ]
 _global_script_class_icons={
 "Arena": "",
@@ -63,13 +68,14 @@ _global_script_class_icons={
 "Item": "",
 "Projectile": "",
 "TileSelector": "",
-"Tower": ""
+"Tower": "",
+"TowerInventory": ""
 }
 
 [application]
 
 config/name="Tower Defence"
-run/main_scene="res://src/environment/map/Map.tscn"
+run/main_scene="res://src/environment/map/TempMap.tscn"
 config/icon="res://assets/img/coloured-squares/wip-logo.png"
 
 [debug]

@@ -2,7 +2,6 @@ extends Node2D
 
 class_name Item
 
-
 #export all the stats so that can apply to the tower later on
 export var damageIncrease: int
 export var attackSpeedIncrease: int

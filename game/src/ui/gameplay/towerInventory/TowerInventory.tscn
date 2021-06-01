@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Avatar.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/02. Static Papyrus/Papyrus Paper 1.png" type="Texture" id=2]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventorySlot.gd" type="Script" id=3]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=4]
+[ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Equipment/Bag.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -13,8 +14,7 @@ margin_right = 12.1884
 margin_top = 13.5051
 margin_bottom = 14.4044
 
-[node name="TowerInventory" type="Node2D"]
-position = Vector2( -921.221, -468.162 )
+[node name="TowerInventory" type="CanvasLayer"]
 script = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -47,36 +47,12 @@ custom_styles/panel = SubResource( 1 )
 [node name="TextureRect" type="TextureRect" parent="TextureRect/GridContainer/Slot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Slot3" type="Panel" parent="TextureRect/GridContainer"]
-margin_left = 68.0
-margin_right = 132.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/GridContainer/Slot3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Slot4" type="Panel" parent="TextureRect/GridContainer"]
-margin_top = 68.0
-margin_right = 64.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/GridContainer/Slot4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_left = 10.409
+margin_top = 10.2728
+margin_right = -9.59103
+margin_bottom = -10.7272
+texture = ExtResource( 5 )
+expand = true
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -84,19 +60,61 @@ __meta__ = {
 
 [node name="Slot2" type="Panel" parent="TextureRect/GridContainer"]
 margin_left = 68.0
-margin_top = 68.0
 margin_right = 132.0
-margin_bottom = 132.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect/GridContainer/Slot2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.36737
-margin_top = 2.24493
-margin_right = 3.36737
-margin_bottom = 2.24493
+margin_left = 10.409
+margin_top = 10.2728
+margin_right = -9.59103
+margin_bottom = -10.7272
+expand = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot3" type="Panel" parent="TextureRect/GridContainer"]
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/GridContainer/Slot3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.409
+margin_top = 10.2728
+margin_right = -9.59103
+margin_bottom = -10.7272
+expand = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot4" type="Panel" parent="TextureRect/GridContainer"]
+margin_left = 68.0
+margin_top = 68.0
+margin_right = 132.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/GridContainer/Slot4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.409
+margin_top = 10.2728
+margin_right = -9.59103
+margin_bottom = -10.7272
+texture = ExtResource( 5 )
+expand = true
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
