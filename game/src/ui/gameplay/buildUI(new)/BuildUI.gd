@@ -30,7 +30,7 @@ var build_UI_items_held  = {
 	"Slot4" : null,
 	"Slot5" : null,
 	"Slot6" : null,
-	"Slot7" : null,
+	"Slot7" : emerald_staff,
 	"Slot8" : null,
 	"Slot9" : null,
 	"Slot10" : bag_item
