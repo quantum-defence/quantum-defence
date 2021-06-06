@@ -7,7 +7,7 @@
 [ext_resource path="res://src/environment/map/ground_tile_set.tres" type="TileSet" id=5]
 [ext_resource path="res://src/environment/map/lava-tiles-32.tres" type="TileSet" id=6]
 [ext_resource path="res://src/environment/home/Home.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/ui/gameplay/buildUI(new)/BuildUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/ui/gameplay/UI/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/ui/gameplay/ResetExit/Reset.tscn" type="PackedScene" id=9]
 
 [sub_resource type="NavigationPolygon" id=1]
@@ -54,6 +54,6 @@ position = Vector2( -190.663, -292.601 )
 [node name="Home" parent="." instance=ExtResource( 7 )]
 position = Vector2( 304, 781 )
 
-[node name="BuildUI" parent="." instance=ExtResource( 8 )]
+[node name="UI" parent="." instance=ExtResource( 8 )]
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 9 )]
+[node name="ResetExit" parent="." instance=ExtResource( 9 )]
