@@ -2,19 +2,44 @@ extends Node
 
 const r2 = 0.70710678118
 
-# func superpose(x, y):
-# 	return [r2*(x[j]+y[j]) for j in range(2)], [r2*(x[j]-y[j])for j in range(2)]
-# func turn(x, y, theta):
-# 	theta = float(theta)
-# 	return [x[0]*cos(theta/2)+y[1]*sin(theta/2), x[1]*cos(theta/2)-y[0]*sin(theta/2)], [y[0]*cos(theta/2)+x[1]*sin(theta/2), y[1]*cos(theta/2)-x[0]*sin(theta/2)]
-# func phaseturn(x, y, theta):
-# 	 theta = float(theta)
-# 	 return [[x[0]*cos(theta/2) - x[1]*sin(-theta/2), x[1]*cos(theta/2) + x[0]*sin(-theta/2)], [y[0]*cos(theta/2) - y[1]*sin(+theta/2), y[1]*cos(theta/2) + y[0]*sin(+theta/2)]]	 
+func superpose(v1: Vector2, v2: Vector2) -> PoolVector2Array:
+	var x := PoolVector2Array()
+	x.append(Vector2(r2*(v1.x + v2.x), r2*(v1.y + v2.y)))
+	x.append(Vector2(r2*(v1.x - v2.x), r2*(v1.y - v2.y)))
+	return x;
+func turn(v1: Vector2, v2: Vector2, theta: float) -> PoolVector2Array:
+	theta = float(theta)
+	var x := PoolVector2Array()
+	x.append(Vector2(v1.x * cos(theta/2) + v2.y * sin(theta/2), v1.y * cos(theta/2) - v2.x * sin(theta/2)))
+	x.append(Vector2(v2.x * cos(theta/2) + v1.y * sin(theta/2), v2.y * cos(theta/2) - v1.x * sin(theta/2)))
+	return x
+func phaseturn(v1: Vector2, v2: Vector2, theta: float):
+	theta = float(theta)
+	var x := PoolVector2Array()
+	x.append(Vector2(v1.x * cos(theta/2) - v1.y * sin(-theta/2), v1.y * cos(theta/2) + v1.x * sin(-theta/2)))
+	x.append(Vector2(v2.x * cos(theta/2) - v2.y * sin(+theta/2), v2.y * cos(theta/2) + v2.x * sin(+theta/2)))
+	return x
+
+# Takes in a decimal value (int) and returns the binary value (int)
+# & is bitwise AND, >> is bitwise shift
+# binary e.g.: abc & 010 = 0b0, abc >> 2 = a
+func dec2bin(decimal_value: int, max_bits: int):
+	var binary_string := "" 
+	var temp : int
+	var count := max_bits
+	while(count >= 0):
+			temp = decimal_value >> count 
+			if(temp & 1):
+					binary_string = binary_string + "1"
+			else:
+					binary_string = binary_string + "0"
+			count -= 1
+	return binary_string
 
 func simulate(qc: QuantumCircuit, config={}):
 	var shots : int = (1024 if not config.has('shots') else config['shots'])
-	var get : string = ('counts' if not config.has('get') else config['get'])
-	var noise_model = ([] if not config.has('noise_model') else config['noise_model'])
+	var get : String = ('counts' if not config.has('get') else config['get'])
+	var noise_model : Array = ([] if not config.has('noise_model') else config['noise_model'])
 	var k := PoolVector2Array()
 	k.resize(pow(2, qc.num_qubits));
 	k[0] = Vector2(1.0, 0.0)
@@ -22,7 +47,8 @@ func simulate(qc: QuantumCircuit, config={}):
 	if noise_model.size() > 0:
 		# noise_model = [noise_model]*qc.num_qubits
 		var temp_arr = noise_model;
-		noise_model = [].resize(qc.num_qubits);
+		noise_model = []
+		noise_model.resize(qc.num_qubits);
 		for i in range(qc.num_qubits):
 			noise_model[i] = [].resize(temp_arr.size())
 			for j in range(temp_arr.size()):
@@ -31,88 +57,123 @@ func simulate(qc: QuantumCircuit, config={}):
 	var outputnum_clbitsap = {}
 	for gate in qc.data:
 		if gate[0]=='init': 
-			if type(gate[1][0])==list:
-				k = [e for e in gate[1]]
+			if typeof(gate[1][0]) == TYPE_VECTOR2:
+				k = PoolVector2Array()
+				k.resize(gate[1].size())
+				for i in range(gate[1].size()):
+					k[i] = gate[1][i]
 			else: 
-				k = [[e, 0] for e in gate[1]]
+				k = PoolVector2Array()
+				k.resize(gate[1].size())
+				for i in range(gate[1].size()):
+					k[i] = Vector2(gate[1][i], 0)
 		elif gate[0]=='m': 
 			outputnum_clbitsap[gate[2]] = gate[1]
-		elif gate[0] in ['x', 'h', 'rx', 'rz']: 
-			j = gate[-1] 
-			for i0 in range(2**j):
-				for i1 in range(2**(qc.num_qubits-j-1)):
-					b0=i0+2**(j+1)*i1 
-					b1=b0+2**j 
-					if gate[0]=='x': 
-						k[b0], k[b1]=k[b1], k[b0]
-					elif gate[0]=='h': 
-						k[b0], k[b1]=superpose(k[b0], k[b1])
+		elif ['x', 'h', 'rx', 'rz'].has(gate[0]): 
+			var j = gate[-1] 
+			for i0 in range(pow(2, j)):
+				for i1 in range(pow(2, qc.num_qubits-j-1)):
+					var b0 = i0 + pow(2, (j+1)) * i1 
+					var b1 = b0 + pow(2, j)
+					if gate[0] == 'x': 
+						var temp_arr = k[b0]
+						k[b0] = k[b1]
+						k[b1] = temp_arr
+					elif gate[0] == 'h': 
+						var temp_arr = superpose(k[b0], k[b1])
+						k[b0] = temp_arr[0]
+						k[b1] = temp_arr[1]
 					elif gate[0]=='rx': 
-						theta = gate[1]
-						k[b0], k[b1]=turn(k[b0], k[b1], theta)
+						var temp_arr = turn(k[b0], k[b1], float(gate[1]))
+						k[b0] = temp_arr[0]
+						k[b1] = temp_arr[1]
 					elif gate[0]=='rz': 
-						theta = gate[1]
-						k[b0], k[b1]=phaseturn(k[b0], k[b1], theta) 
-		elif gate[0] in ['cx', 'crx']: 
+						var temp_arr = phaseturn(k[b0], k[b1], float(gate[1])) 
+						k[b0] = temp_arr[0]
+						k[b1] = temp_arr[1]
+		elif ['cx', 'crx'].has(gate[0]): 
+			var s : float
+			var t : float
+			var theta : float
 			if gate[0]=='cx': 
-				[s, t] = gate[1:]
+				s = gate[1]
+				t = gate[2]
 			else:
-				theta = gate[1]
-				[s, t] = gate[2:]
-				[l, h] = sorted([s, t])
-			for i0 in range(2**l):
-				for i1 in range(2**(h-l-1)):
-					for i2 in range(2**(qc.num_qubits-h-1)):
-						b0=i0+2**(l+1)*i1+2**(h+1)*i2+2**s 
-						b1=b0+2**t	
-						if gate[0]=='cx':
-							k[b0], k[b1]=k[b1], k[b0] 
+				theta = float(gate[1])
+				s = gate[2]
+				t = gate[3]
+			var l := min(s, t)
+			var h := max(s, t)
+			for i0 in range(pow(2, l)):
+				for i1 in range(pow(2, (h-l-1))):
+					for i2 in range(pow(2, (qc.num_qubits-h-1))):
+						var b0 := i0 + pow(2, (l+1)) * i1+ pow(2, (h+1)) * i2 + pow(2, s)
+						var b1 := b0 + pow(2, t)
+						if (gate[0] == 'cx') :
+							var temp_arr = k[b0] 
+							k[b0] = k[b1] 
+							k[b1] = temp_arr
 						else:
-							k[b0], k[b1]=turn(k[b0], k[b1], theta) 
+							var temp_arr := turn(k[b0], k[b1], theta) 
+							k[b0] = temp_arr[0]
+							k[b1] = temp_arr[1]
 	if get=='statevector':
 		return k
 	else:
-		probs = [e[0]**2+e[1]**2 for e in k]
-		if noise_model:
+		var probs = [].resize(k.size())
+		for i in range(k.size()):
+			probs[i] = pow(k[i].x, 2) + pow(k[i].y, 2)
+		if noise_model.size() > 0:
 			for j in range(qc.num_qubits):
-				p_meas = noise_model[j]
-				for i0 in range(2**j):
-					for i1 in range(2**(qc.num_qubits-j-1)):
-						b0=i0+2**(j+1)*i1 
-						b1=b0+2**j 
-						p0 = probs[b0]
-						p1 = probs[b1]
-						probs[b0] = (1-p_meas)*p0 + p_meas*p1
-						probs[b1] = (1-p_meas)*p1 + p_meas*p0
+				var p_meas = noise_model[j]
+				for i0 in range(pow(2, j)):
+					for i1 in range(pow(2, (qc.num_qubits-j-1))):
+						var b0 = i0 + pow(2, (j+1)) * i1 
+						var b1 = b0 + pow(2, j) 
+						var p0 = probs[b0]
+						var p1 = probs[b1]
+						probs[b0] = (1 - p_meas) * p0 + p_meas * p1
+						probs[b1] = (1 - p_meas) * p1 + p_meas * p0
 		if get=='probabilities_dict':
-			return {('{0:0'+str(qc.num_qubits)+'b}').format(j):p for j, p in enumerate(probs)}
-		elif get in ['counts',	'memory']:
-			m = [False for _ in range(qc.num_qubits)]
+			var probs_dict = {};
+			for i in range(probs.size()):
+				probs_dict[dec2bin(i, qc.num_qubits)] = probs[i]
+		elif ['counts',	'memory'].has(get):
+			var m := []
+			for i in range(qc.num_qubits):
+				m[i] = false
 			for gate in qc.data:
 				for j in range(qc.num_qubits):
-					assert	not ((gate[-1]==j) and m[j]),	'Incorrect or missing measure command.'
-					m[j] = (gate==('m', j, j))
-			m=[]
-			for _ in range(shots):
-				cumu=0
-				un=True
-				r=random.random()
-				for j, p in enumerate(probs):
+					assert(not(gate[-1] == j and m[j]), 'Incorrect or missing measure command.')
+					m[j] = gate.size() >= 3 and gate[0]=='m' and gate[1] == j and gate[2] == j
+			m = []
+			for _i in range(shots):
+				var cumu: float = 0
+				var un = true
+				var rand_float := randf()
+				for j in range(probs.size()):
+					var p = probs[j]
 					cumu += p
-					if r<cumu and un:		
-						raw_out=('{0:0'+str(qc.num_qubits)+'b}').format(j)
-						out_list = ['0']*qc.num_clbits
+					var raw_out := ""
+					var out_list := []
+					if rand_float < cumu and un:		
+						raw_out =  dec2bin(j, qc.num_qubits)
+						out_list.resize(qc.num_clbits)
+						for clbitPos in range(qc.num_clbits):
+							out_list[clbitPos] = "0"
 					for bit in outputnum_clbitsap:
-						out_list[qc.num_clbits-1-bit] = raw_out[qc.num_qubits-1-outputnum_clbitsap[bit]]
-					out = ''.join(out_list)
+						out_list[qc.num_clbits - 1 - int(bit)] = raw_out[qc.num_qubits - 1 - outputnum_clbitsap[bit]]
+					var out = ''
+					for val in out_list:
+						out += str(val)
 					m.append(out)
-					un=False
+					un = false
 			if get=='memory':
 				return m
 			else:
-				counts = {}
+				var counts = {}
 				for out in m:
-					if out in counts:
+					if counts.has(out):
 						counts[out] += 1
 					else:
 						counts[out] = 1
