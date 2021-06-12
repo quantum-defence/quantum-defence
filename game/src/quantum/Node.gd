@@ -13,7 +13,7 @@ func turn(v1: Vector2, v2: Vector2, theta: float) -> PoolVector2Array:
 	x.append(Vector2(v1.x * cos(theta/2) + v2.y * sin(theta/2), v1.y * cos(theta/2) - v2.x * sin(theta/2)))
 	x.append(Vector2(v2.x * cos(theta/2) + v1.y * sin(theta/2), v2.y * cos(theta/2) - v1.x * sin(theta/2)))
 	return x
-func phaseturn(v1: Vector2, v2: Vector2, theta: float):
+func phaseturn(v1: Vector2, v2: Vector2, theta: float) -> PoolVector2Array:
 	theta = float(theta)
 	var x := PoolVector2Array()
 	x.append(Vector2(v1.x * cos(theta/2) - v1.y * sin(-theta/2), v1.y * cos(theta/2) + v1.x * sin(-theta/2)))
@@ -46,15 +46,16 @@ func simulate(qc: QuantumCircuit, config={}):
 	# if noise_model:
 	if noise_model.size() > 0:
 		# noise_model = [noise_model]*qc.num_qubits
-		var temp_arr = noise_model;
+		var temp_arr := noise_model;
 		noise_model = []
 		noise_model.resize(qc.num_qubits);
 		for i in range(qc.num_qubits):
-			noise_model[i] = [].resize(temp_arr.size())
+			noise_model[i] = []
+			noise_model[i].resize(temp_arr.size())
 			for j in range(temp_arr.size()):
 				noise_model[i][j] = temp_arr[j]
 
-	var outputnum_clbitsap = {}
+	var outputnum_clbitsap : Dictionary = {}
 	for gate in qc.data:
 		if gate[0]=='init': 
 			if typeof(gate[1][0]) == TYPE_VECTOR2:
@@ -70,49 +71,49 @@ func simulate(qc: QuantumCircuit, config={}):
 		elif gate[0]=='m': 
 			outputnum_clbitsap[gate[2]] = gate[1]
 		elif ['x', 'h', 'rx', 'rz'].has(gate[0]): 
-			var j = gate[-1] 
+			var j : int = gate[-1] 
 			for i0 in range(pow(2, j)):
 				for i1 in range(pow(2, qc.num_qubits-j-1)):
-					var b0 = i0 + pow(2, (j+1)) * i1 
-					var b1 = b0 + pow(2, j)
+					var b0 : int = i0 + int(pow(2, (j+1))) * i1 
+					var b1 : int = b0 + int(pow(2, j))
 					if gate[0] == 'x': 
-						var temp_arr = k[b0]
+						var temp := k[b0]
 						k[b0] = k[b1]
-						k[b1] = temp_arr
+						k[b1] = temp
 					elif gate[0] == 'h': 
-						var temp_arr = superpose(k[b0], k[b1])
+						var temp_arr := superpose(k[b0], k[b1])
 						k[b0] = temp_arr[0]
 						k[b1] = temp_arr[1]
 					elif gate[0]=='rx': 
-						var temp_arr = turn(k[b0], k[b1], float(gate[1]))
+						var temp_arr := turn(k[b0], k[b1], float(gate[1]))
 						k[b0] = temp_arr[0]
 						k[b1] = temp_arr[1]
 					elif gate[0]=='rz': 
-						var temp_arr = phaseturn(k[b0], k[b1], float(gate[1])) 
+						var temp_arr := phaseturn(k[b0], k[b1], float(gate[1])) 
 						k[b0] = temp_arr[0]
 						k[b1] = temp_arr[1]
 		elif ['cx', 'crx'].has(gate[0]): 
-			var s : float
-			var t : float
+			var s_gate_var : int
+			var t_gate_var : int
 			var theta : float
 			if gate[0]=='cx': 
-				s = gate[1]
-				t = gate[2]
+				s_gate_var = gate[1]
+				t_gate_var = gate[2]
 			else:
 				theta = float(gate[1])
-				s = gate[2]
-				t = gate[3]
-			var l := min(s, t)
-			var h := max(s, t)
-			for i0 in range(pow(2, l)):
-				for i1 in range(pow(2, (h-l-1))):
-					for i2 in range(pow(2, (qc.num_qubits-h-1))):
-						var b0 := i0 + pow(2, (l+1)) * i1+ pow(2, (h+1)) * i2 + pow(2, s)
-						var b1 := b0 + pow(2, t)
+				s_gate_var = gate[2]
+				t_gate_var = gate[3]
+			var l_gate_var := int(min(s_gate_var, t_gate_var))
+			var h_gate_var := int(max(s_gate_var, t_gate_var))
+			for i0 in range(pow(2, l_gate_var)):
+				for i1 in range(pow(2, (h_gate_var-l_gate_var-1))):
+					for i2 in range(pow(2, (qc.num_qubits-h_gate_var-1))):
+						var b0: int = i0 + int(pow(2, (l_gate_var+1))) * i1+ int(pow(2, (h_gate_var+1))) * i2 + int(pow(2, s_gate_var))
+						var b1: int = b0 + int(pow(2, t_gate_var))
 						if (gate[0] == 'cx') :
-							var temp_arr = k[b0] 
+							var temp := k[b0] 
 							k[b0] = k[b1] 
-							k[b1] = temp_arr
+							k[b1] = temp
 						else:
 							var temp_arr := turn(k[b0], k[b1], theta) 
 							k[b0] = temp_arr[0]
@@ -120,22 +121,23 @@ func simulate(qc: QuantumCircuit, config={}):
 	if get=='statevector':
 		return k
 	else:
-		var probs = [].resize(k.size())
+		var probs := [] # Array of floats
+		probs.resize(k.size())
 		for i in range(k.size()):
 			probs[i] = pow(k[i].x, 2) + pow(k[i].y, 2)
 		if noise_model.size() > 0:
 			for j in range(qc.num_qubits):
-				var p_meas = noise_model[j]
+				var p_meas := noise_model[j]
 				for i0 in range(pow(2, j)):
 					for i1 in range(pow(2, (qc.num_qubits-j-1))):
-						var b0 = i0 + pow(2, (j+1)) * i1 
-						var b1 = b0 + pow(2, j) 
-						var p0 = probs[b0]
-						var p1 = probs[b1]
+						var b0 : int = i0 + int(pow(2, (j+1))) * i1 
+						var b1 : int = b0 + int(pow(2, j)) 
+						var p0 : float = probs[b0]
+						var p1 : float = probs[b1]
 						probs[b0] = (1 - p_meas) * p0 + p_meas * p1
 						probs[b1] = (1 - p_meas) * p1 + p_meas * p0
 		if get=='probabilities_dict':
-			var probs_dict = {};
+			var probs_dict : Dictionary = {};
 			for i in range(probs.size()):
 				probs_dict[dec2bin(i, qc.num_qubits)] = probs[i]
 		elif ['counts',	'memory'].has(get):
@@ -149,21 +151,21 @@ func simulate(qc: QuantumCircuit, config={}):
 			m = []
 			for _i in range(shots):
 				var cumu: float = 0
-				var un = true
+				var un : bool = true
 				var rand_float := randf()
 				for j in range(probs.size()):
-					var p = probs[j]
+					var p : float = probs[j]
 					cumu += p
-					var raw_out := ""
-					var out_list := []
+					var raw_out : String = ""
+					var out_list : Array = [] # Array of strings
 					if rand_float < cumu and un:		
-						raw_out =  dec2bin(j, qc.num_qubits)
+						raw_out = dec2bin(j, qc.num_qubits)
 						out_list.resize(qc.num_clbits)
 						for clbitPos in range(qc.num_clbits):
 							out_list[clbitPos] = "0"
 					for bit in outputnum_clbitsap:
 						out_list[qc.num_clbits - 1 - int(bit)] = raw_out[qc.num_qubits - 1 - outputnum_clbitsap[bit]]
-					var out = ''
+					var out : String = ''
 					for val in out_list:
 						out += str(val)
 					m.append(out)
@@ -171,7 +173,7 @@ func simulate(qc: QuantumCircuit, config={}):
 			if get=='memory':
 				return m
 			else:
-				var counts = {}
+				var counts : Dictionary = {}
 				for out in m:
 					if counts.has(out):
 						counts[out] += 1
