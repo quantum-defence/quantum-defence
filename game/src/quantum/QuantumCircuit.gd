@@ -2,10 +2,10 @@ extends Node
 
 class_name QuantumCircuit
 
-var num_qubits : int
-var num_clbits : int
-var circuit_name : String 
-var circuit_data
+var num_qubits : int = 0
+var num_clbits : int = 0
+var circuit_name : String
+var circuit_data : Array
 var pi = VisualScriptMathConstant.MATH_CONSTANT_PI
 
 func _ready():
@@ -14,69 +14,79 @@ func _ready():
 	self.circuit_name = ""
 	self.circuit_data = []
 
-func _set_circuit(number_of_qubits: int, number_of_clbits: int):
+func set_circuit(number_of_qubits: int, number_of_clbits: int):
   self.num_qubits = number_of_qubits
   self.num_clbits = number_of_clbits
   self.circuit_data = []
 
-func _name_circuit(circuit_name: String):
-  self.circuit_name = circuit_name
+func name_circuit(new_name: String):
+  self.circuit_name = new_name
 
-func __add__(otherQuantumCircuit: QuantumCircuit):
-  var new_quantum_circuit = QuantumCircuit.instance()
+func add(otherQuantumCircuit: QuantumCircuit) -> QuantumCircuit:
+  var new_quantum_circuit: QuantumCircuit = get_script().new()
   var max_qubits = max(self.num_qubits, otherQuantumCircuit.num_qubits)
   var max_clbits = max(self.num_clbits, otherQuantumCircuit.num_clbits)
-  new_quantum_circuit._set_circuit(max_qubits, max_clbits)
-  new_quantum_circuit.circuit_data= self.circuit_data.append_array((otherQuantumCircuit.data))
+  new_quantum_circuit.set_circuit(max_qubits, max_clbits)
+  new_quantum_circuit.circuit_data = self.circuit_data
+  new_quantum_circuit.circuit_data .append_array((otherQuantumCircuit.circuit_data))
   new_quantum_circuit.circuit_name = self.circuit_name
   return new_quantum_circuit
 
-#Not sure what this function is for
-# func initialize(k):
-#   self.circuit_data= [] 
-#   self.circuit_data.append(('init',[e for e in k])) 
+# Not sure what this function is for
+# same tbh, not in the test also leh...
+func initialize(k: Array) -> QuantumCircuit:
+  var arr : Array = []
+  arr.resize(k.size())
+  for i in range(k.size()):
+	arr[i] = k[i + 1]
+  arr.append(['init', arr]) 
+  self.circuit_data = arr 
+  return self
 
-func x(q):
+func x(q: int) -> QuantumCircuit:
   var temp = ['x', q]
   self.circuit_data.append(temp)
+  return self
 
-func rx(theta,q):
+func rx(theta: float, q: int) -> QuantumCircuit:
   var temp = ['rx', theta, q]
   self.circuit_data.append(temp)
+  return self
 
-func rz(theta,q):
+func rz(theta: float, q: int) -> QuantumCircuit:
   var temp = ['rz', theta, q]
   self.circuit_data.append(temp)
+  return self
 
-func h(q):
+func h(q: int) -> QuantumCircuit:
   var temp = ['h', q]
   self.circuit_data.append(temp)
+  return self
 
-func cx(s,t):
+func cx(s: int, t: int) -> QuantumCircuit:
   var temp = ['cx', s, t]
   self.circuit_data.append(temp)
+  return self
 
-func crx(theta,s,t):
-  var temp = ['cx', s, t]
+func crx(theta: float, s: int,t: int) -> QuantumCircuit:
+  var temp = ['cx', theta, s, t]
   self.circuit_data.append(temp)
+  return self
 
-
-func measure(q,b):
-	if (b < self.num_clbit):
+func measure(q: int, b: int) -> QuantumCircuit:
+	if (b < self.num_clbits):
 		print("Index for bits out of range")
 	elif (q < self. num_qubits):
 		print("Index for qubit out of range.")
 	var temp = ['m', q, b]
 	self.circuit_data.append(temp)
+	return self;
 
-func ry(theta,q):
-  self.rx(pi/2,q)
-  self.rz(theta,q)
-  self.rx(-pi/2,q)
+func ry(theta,q) -> QuantumCircuit:
+  return self.rx(pi/2,q).rz(theta,q).rx(-pi/2,q)
 
-func z(q):
-  self.rz(pi,q)
+func z(q) -> QuantumCircuit:
+  return self.rz(pi,q)
 
-func y(q):
-  self.rz(pi,q)
-  self.x(q)
+func y(q) -> QuantumCircuit:
+  return self.rz(pi,q).x(q)

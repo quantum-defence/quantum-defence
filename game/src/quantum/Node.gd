@@ -127,7 +127,7 @@ func simulate(qc: QuantumCircuit, config={}):
 			probs[i] = pow(k[i].x, 2) + pow(k[i].y, 2)
 		if noise_model.size() > 0:
 			for j in range(qc.num_qubits):
-				var p_meas := noise_model[j]
+				var p_meas : float = noise_model[j]
 				for i0 in range(pow(2, j)):
 					for i1 in range(pow(2, (qc.num_qubits-j-1))):
 						var b0 : int = i0 + int(pow(2, (j+1))) * i1 
