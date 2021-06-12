@@ -56,7 +56,7 @@ func simulate(qc: QuantumCircuit, config={}):
 				noise_model[i][j] = temp_arr[j]
 
 	var outputnum_clbitsap : Dictionary = {}
-	for gate in qc.data:
+	for gate in qc.circuit_data:
 		if gate[0]=='init': 
 			if typeof(gate[1][0]) == TYPE_VECTOR2:
 				k = PoolVector2Array()
@@ -144,7 +144,7 @@ func simulate(qc: QuantumCircuit, config={}):
 			var m := []
 			for i in range(qc.num_qubits):
 				m[i] = false
-			for gate in qc.data:
+			for gate in qc.circuit_data:
 				for j in range(qc.num_qubits):
 					assert(not(gate[-1] == j and m[j]), 'Incorrect or missing measure command.')
 					m[j] = gate.size() >= 3 and gate[0]=='m' and gate[1] == j and gate[2] == j
