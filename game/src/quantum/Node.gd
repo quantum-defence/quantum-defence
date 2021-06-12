@@ -41,7 +41,7 @@ func simulate(qc: QuantumCircuit, config={}):
 	var get : String = ('counts' if not config.has('get') else config['get'])
 	var noise_model : Array = ([] if not config.has('noise_model') else config['noise_model'])
 	var k := PoolVector2Array()
-	k.resize(pow(2, qc.num_qubits));
+	k.resize(int(pow(2, qc.num_qubits)));
 	k[0] = Vector2(1.0, 0.0)
 	# if noise_model:
 	if noise_model.size() > 0:
