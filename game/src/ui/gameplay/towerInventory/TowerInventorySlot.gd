@@ -1,5 +1,6 @@
 extends TextureRect
 
+class_name TowerInventorySlot
 
 onready var build_UI = self.find_parent("Control").get_node("BuildUI")
 onready var tower_inventory = self.find_parent("TowerInventory")
@@ -95,3 +96,7 @@ func drop_data(position, data):
 	print("Build UI Inventory is")
 	print(build_UI.build_UI_items_held)
 	print("====================================================================")		
+
+
+
+

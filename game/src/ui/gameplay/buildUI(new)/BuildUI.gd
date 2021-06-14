@@ -19,8 +19,10 @@ const RESOURCE = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn
 "res://src/environment/towers/pixelTowers/moonTower/MoonTower.tscn",
 "res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn"]
 
-var bag_item = "res://src/items/otherItems/Axe.tscn"
-var emerald_staff = "res://src/items/otherItems/EmeraldStaff.tscn"
+var bag_item = preload("res://src/items/otherItems/Axe.tscn")
+var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn")
+onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer")
+
 #if buildMode is not true, then it is in normal mode
 var buildMode : bool = false
 var build_UI_items_held  = {
@@ -57,6 +59,9 @@ func _on_BuildMode_pressed():
 func _on_InspectMode_pressed():
 	print(buildMode)
 	buildMode = false
+	var tower_inventory = get_parent().get_node("TowerInventory")
+	#Toggle tower inventory visiblity
+	tower_inventory.toggle_tower_inventory_visible()
 	get_tree().call_group("tower_builds", "change_visibility", false)
 	print(buildMode)
 
@@ -103,5 +108,20 @@ func _on_EyeTower_pressed():
 		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.EYETOWER])
 	pass # Replace with function body.
 
+func _pick_up_item(item: Item) -> void:
+	#Equip the item
+	var slot
+	for slots in build_UI_items_held:
+		print(slots)
+		if (build_UI_items_held[slots] == null):
+			slot = slots
+			build_UI_items_held[slots] = item
+			break
 
+	#Get reference to the slot that an item was eqipped to update texture
+	print(slot)
+	var current_slot = all_inventories_slots.get_node(slot).get_node("TextureRect")
+	current_slot.texture = item.get_node("TextureRect").texture
+	print(current_slot)		
+	print(build_UI_items_held)		
 

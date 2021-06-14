@@ -16,7 +16,7 @@
 [ext_resource path="res://src/ui/gameplay/buildUI(new)/buildUISlot.gd" type="Script" id=14]
 [ext_resource path="res://src/ui/gameplay/buildUI(new)/tower-builds.gd" type="Script" id=16]
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 content_margin_top = 60.0
@@ -45,7 +45,7 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 margin_right = 1920.0
 margin_bottom = 280.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -186,7 +186,7 @@ margin_right = 1816.0
 margin_bottom = 160.0
 columns = 5
 
-[node name="Slot" type="Panel" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
+[node name="Slot1" type="Panel" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
 "BuildUISlots",
 ]]
 margin_right = 64.0
@@ -194,7 +194,7 @@ margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 3 )
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
