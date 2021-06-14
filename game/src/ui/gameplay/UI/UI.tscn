@@ -4,7 +4,7 @@
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventorySlot.gd" type="Script" id=3]
 [ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/02. Static Papyrus/Papyrus Paper 1.png" type="Texture" id=4]
-[ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Equipment/Bag.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Weapon & Tool/Axe.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Avatar.png" type="Texture" id=6]
 [ext_resource path="res://src/ui/gameplay/buildUI(new)/buildUISlot.gd" type="Script" id=7]
 [ext_resource path="res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_blue_sheet.png" type="Texture" id=8]

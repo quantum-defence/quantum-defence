@@ -19,8 +19,8 @@ const RESOURCE = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn
 "res://src/environment/towers/pixelTowers/moonTower/MoonTower.tscn",
 "res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn"]
 
-var bag_item = preload("res://src/items/otherItems/Axe.tscn")
-var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn")
+var bag_item = preload("res://src/items/otherItems/Axe.tscn").instance()
+var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn").instance()
 onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer")
 
 #if buildMode is not true, then it is in normal mode

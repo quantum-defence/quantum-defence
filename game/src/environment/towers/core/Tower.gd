@@ -14,8 +14,8 @@ const RESOURCE = [
 	'res://src/environment/towers/UltimateTower.tscn'
 ]
 
-var bag_item = "res://src/items/otherItems/Axe.tscn"
-var emerald_staff = "res://src/items/otherItems/EmeraldStaff.tscn"
+var bag_item = preload("res://src/items/otherItems/Axe.tscn").instance()
+var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn").instance()
 
 var tower_items_held  = {
 	"Slot1" : bag_item,

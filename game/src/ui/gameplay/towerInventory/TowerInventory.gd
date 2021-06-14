@@ -50,13 +50,15 @@ func slot_gui_input(event: InputEvent, binds)-> void:
 			print("=========================")
 			print(item_dropped)
 			print("=========================")
+			build_ui._pick_up_item(item_dropped)
 			
 
-func drop_item(slot):
+func drop_item(slot: Tower_Inventory_Slot) -> Item:
 	print(tower_to_be_built.tower_items_held)
 	var slot_name = slot.get_parent().get_name()
 	var item_dropped = tower_to_be_built._drop_item(slot_name)
 	print(tower_to_be_built.tower_items_held)
+	slot.texture = null
 	return item_dropped
 
 #func slot_gui_input(event:InputEvent, slot:slotClass):
