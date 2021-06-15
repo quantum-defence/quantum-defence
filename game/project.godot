@@ -49,6 +49,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/quantum/QuantumCircuit.gd"
 }, {
+"base": "Node",
+"class": "QuantumNode",
+"language": "GDScript",
+"path": "res://src/quantum/QuantumNode.gd"
+}, {
+"base": "Node",
+"class": "QuantumSimulator",
+"language": "GDScript",
+"path": "res://src/quantum/Simulator.gd"
+}, {
 "base": "Area2D",
 "class": "TileSelector",
 "language": "GDScript",
@@ -68,6 +78,8 @@ _global_script_class_icons={
 "Item": "",
 "Projectile": "",
 "QuantumCircuit": "",
+"QuantumNode": "",
+"QuantumSimulator": "",
 "TileSelector": "",
 "Tower": ""
 }

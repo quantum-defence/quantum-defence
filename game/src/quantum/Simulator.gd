@@ -1,5 +1,7 @@
 extends Node
 
+class_name QuantumSimulator
+
 const r2 = 0.70710678118
 
 func superpose(v1: Vector2, v2: Vector2) -> PoolVector2Array:
