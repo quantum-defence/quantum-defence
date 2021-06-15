@@ -6,6 +6,7 @@ onready var inventorySlots = $TextureRect/GridContainer
 
 
 #Tower to be built shud be an instance of tower. Each tower may have different items equipped
+var is_visible = false
 var tower_to_be_built : Tower =  preload("res://src/environment/towers/pixelTowers/demonStatue/DemonStatue.tscn").instance()
 onready var tower_inventory_items_held
 onready var build_ui = get_parent().get_node("BuildUI")
@@ -21,6 +22,13 @@ func check_all_items_attributes():
 func change_tower_to_be_build(tower: Tower):
 	tower_to_be_built = tower
 	check_all_items_attributes()
+	var animated_sprite = tower_to_be_built.get_node("AnimatedSprite")
+	animated_sprite.play("Idle")
+	animated_sprite.playing = true
+	print(animated_sprite.get_parent())
+	self.add_child(animated_sprite)
+
+	print("Animated sprite added to tower inventory")
 
 	
 #Function to make tower visible/invisible. Realised that 
@@ -30,8 +38,10 @@ func change_tower_to_be_build(tower: Tower):
 func toggle_tower_inventory_visible():
 	if (self.scale == Vector2(1,1)):
 		self.scale = Vector2.ZERO
+		is_visible = false
 	else:
 		self.scale = Vector2(1,1)	
+		is_visible = true
 
 		
 func _ready():

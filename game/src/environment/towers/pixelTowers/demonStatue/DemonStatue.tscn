@@ -173,8 +173,5 @@ position = Vector2( 9.53674e-07, -22.4062 )
 scale = Vector2( 0.999167, 0.853274 )
 frames = SubResource( 32 )
 animation = "Idle"
-frame = 3
+frame = 9
 speed_scale = 0.5
-
-[node name="AnimatedSprite2" parent="." index="5"]
-frame = 16

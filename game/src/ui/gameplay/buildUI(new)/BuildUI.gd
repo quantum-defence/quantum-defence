@@ -59,9 +59,8 @@ func _on_BuildMode_pressed():
 func _on_InspectMode_pressed():
 	print(buildMode)
 	buildMode = false
+	tileSelector.set_action(TileSelector.ACTION.INSPECTING, "smth")
 	var tower_inventory = get_parent().get_node("TowerInventory")
-	#Toggle tower inventory visiblity
-	tower_inventory.toggle_tower_inventory_visible()
 	get_tree().call_group("tower_builds", "change_visibility", false)
 	print(buildMode)
 
