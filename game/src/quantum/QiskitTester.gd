@@ -96,37 +96,29 @@ func test_comparisons():
 		
 func test_x():
 	var qc: QuantumCircuit
-	qc = newQC(1)
-	qc.x(0)
+	qc = newQC(1).x(0)
 	assert(compare_arrays(
 		simulate_and_get_statevector(qc, { "shots": shots }), 
 		[Vector2(0.0, 0.0), Vector2(1.0, 0.0)]))
-	qc = newQC(2)
-	qc.x(1)
+	qc = newQC(2).x(1)
 	assert(compare_arrays(
 		simulate_and_get_statevector(qc, { "shots": shots }),
 		[Vector2(0.0, 0.0), Vector2(0.0, 0.0), Vector2(1.0, 0.0), Vector2(0.0, 0.0)]))
-	qc = newQC(2)
-	qc.x(0)
-	qc.x(1)
+	qc = newQC(2).x(0).x(1)
 	assert(compare_arrays(
 		simulate_and_get_statevector(qc, { "shots": shots }),
 		[Vector2(0.0, 0.0), Vector2(0.0, 0.0), Vector2(0.0, 0.0), Vector2(1.0, 0.0)]))
 	
 func test_h():
-	var qc := newQC(2)
-	qc.h(0)
+	var qc := newQC(2).h(0)
 	assert(compare_arrays(
 		simulate_and_get_statevector(qc, { "shots": shots }),
 		[Vector2(0.70710678118, 0.0), Vector2(0.70710678118, 0.0), Vector2(0.0, 0.0), Vector2(0.0, 0.0)]))
-	qc = newQC(2)
-	qc.h(1)
+	qc = newQC(2).h(1)
 	assert( compare_arrays(
 		simulate_and_get_statevector(qc, { "shots": shots }),
 		[Vector2(0.70710678118, 0.0), Vector2(0.0, 0.0), Vector2(0.70710678118, 0.0), Vector2(0.0, 0.0)]))
-	qc = newQC(2)
-	qc.h(0)
-	qc.h(1)
+	qc = newQC(2).h(0).h(1)
 	assert( compare_arrays(
 		simulate_and_get_statevector(qc, { "shots": shots }),
 		[
@@ -135,22 +127,18 @@ func test_h():
 		]))
 		
 func test_rx():
-	var qc := newQC(1)
-	qc.rx(PI/4, 0)
+	var qc := newQC(1).rx(PI/4, 0)
 	assert( compare_arrays(
 		simulate_and_get_statevector(qc),
 		[Vector2(0.9238795325112867, 0.0), Vector2(0.0, -0.3826834323650898)]))
-	qc = newQC(2)
-	qc.rx(PI/4, 0)
-	qc.rx(PI/8, 1)
+	qc = newQC(2).rx(PI/4, 0).rx(PI/8, 1)
 	assert( compare_arrays(
 		simulate_and_get_statevector(qc),
 		[
 			Vector2(0.9061274463528878, 0.0), Vector2(0.0, -0.37533027751786524),
 			Vector2(0.0, -0.18023995550173696), Vector2(-0.0746578340503426, 0.0)
 		]))
-	qc.h(0)
-	qc.h(1)
+	qc = qc.h(0).h(1)
 	assert( compare_arrays(
 		simulate_and_get_statevector(qc),
 		[
@@ -165,18 +153,11 @@ func test_rz():
 	var tz := 0.5589019778800038
 
 	# an rz rotatation using h*rx*h
-	var qcx := newQC(1)
-	qcx.rx(tx, 0)
-	qcx.h(0)
-	qcx.rx(tz, 0)
-	qcx.h(0)
+	var qcx := newQC(1).rx(tx, 0).h(0).rx(tz, 0).h(0)
 	var ketx =  simulate_and_get_statevector(qcx)
 
 	# a plain rz rotation
-	var qcz := newQC(1)
-	qcz.rx(tx, 0)
-	qcz.rz(tz, 0)
-	simulate_and_get_statevector(qcz)
+	var qcz := newQC(1).rx(tx, 0).rz(tz, 0)
 	var ketz =  simulate_and_get_statevector(qcz)
 	
 	# check they are the same
@@ -185,43 +166,30 @@ func test_rz():
 			assert (round(ketx[j][k] * 1000) == round(ketz[j][k] * 1000))
 				
 func test_ry():
-	var qc := newQC(1)
-	qc.ry(PI/8, 0)
+	var qc := newQC(1).ry(PI/8, 0)
 	assert( compare_arrays(
 		simulate_and_get_statevector(qc),
 		[Vector2(0.9807852803850672, -6.938893903907228 * pow(10,-17)), Vector2(0.19509032201251536, 0.0)]))
 	
 func test_cx():
-	var qc := newQC(2)
-	qc.h(0)
-	qc.cx(0, 1)
+	var qc := newQC(2).h(0).cx(0, 1)
 	assert( compare_arrays(
 		simulate_and_get_statevector(qc, { "shots": shots }),
 		[Vector2(0.70710678118, 0.0), Vector2(0.0, 0.0), Vector2(0.0, 0.0), Vector2(0.70710678118, 0.0)]))
-	qc = newQC(2)
-	qc.x(0)
-	qc.cx(0, 1)
-	qc.cx(1, 0)
-	qc.cx(0, 1)
+	qc = newQC(2).x(0).cx(0, 1).cx(1, 0).cx(0, 1)
 	assert( compare_arrays(
 		simulate_and_get_statevector(qc, { "shots": shots }),
 		[Vector2(0.0, 0.0), Vector2(0.0, 0.0), Vector2(1.0, 0.0), Vector2(0.0, 0.0)] ))
 
 func test_memory():
-	var qc := newQC(2, 2)
-	qc.h(0)
-	qc.h(1)
-	qc.measure(0, 0)
-	qc.measure(1, 1)
+	var qc := newQC(2, 2).h(0).h(1).measure(0, 0).measure(1, 1)
 	var m := simulate_and_get_memory(qc, { "shots": shots })
 	assert( len(m) == shots )
 	var p00 = 0
 	for out in m:
 		p00 += round(out == '00')/shots
 	assert( round(p00 * 100) == 25 )
-	qc = newQC(1, 1)
-	qc.h(0)
-	qc.measure(0, 0)
+	qc = newQC(1, 1).h(0).measure(0, 0)
 	m = simulate_and_get_memory(qc, { "shots": shots })
 	assert( len(m) == shots )
 	var p0 = 0
@@ -230,20 +198,14 @@ func test_memory():
 	assert( round(p0 * 10) == 5 )
 
 func test_counts():
-	var qc := newQC(2, 2)
-	qc.h(0)
-	qc.h(1)
-	qc.measure(0, 0)
-	qc.measure(1, 1)
+	var qc := newQC(2, 2).h(0).h(1).measure(0, 0).measure(1, 1)
 	var c := simulate_and_get_counts(qc, { "shots": shots })
 	for out in c:
 		var p = float(c[out])/shots
 		assert( round(p * 100) == 0.25 )
 		
 func test_probs():
-	var qc := newQC(2, 2)
-	qc.h(0)
-	qc.h(1)
+	var qc := newQC(2, 2).h(0).h(1)
 	var p := simulate_and_get_probabilities_dict(qc, { "shots": shots })
 	for out in p:
 		assert( round(p[out] * 100) == 25 )
@@ -253,29 +215,22 @@ func test_add():
 		var qc := newQC(n, n)
 		var meas := newQC(n, n)
 		for j in range(n):
-			qc.h(j)
-			meas.measure(j, j)
+			qc = qc.h(j)
+			meas = meas.measure(j, j)
 		var c := simulate_and_get_counts(qc.add(meas), {"shots": shots })
 		for out in c:
 			var p = float(c[out])/shots
 			assert( round(p * 100) == round(1.0/ pow(2, n) * 100) )
 
 func test_multiqubit():
-	var qc := newQC(7, 7)
-	qc.h(0)
-	qc.cx(0, 2)
-	qc.cx(2, 1)
-	qc.h(5)
-	qc.cx(5, 3)
-	qc.cx(3, 4)
-	qc.cx(3, 6)
+	var qc := newQC(7, 7).h(0).cx(0, 2).cx(2, 1).h(5).cx(5, 3).cx(3, 4).cx(3, 6)
 	var ket =  simulate_and_get_statevector(qc, { "get": 'statevector' })
 	var check = true
 	for string in ['0000000', '0000111', '1111000', '1111111']:
 		check = check and (round(ket[binary_to_decimal(int(string))][0] * 100) == 50)
 	assert( check )
 	for j in range(7):
-		qc.measure(j, j)
+		qc = qc.measure(j, j)
 	var counts := simulate_and_get_counts(qc, { "shots": shots })
 	check = true
 	for string in ['0000000', '0000111', '1111000', '1111111']:
@@ -284,20 +239,10 @@ func test_multiqubit():
 	assert( check )
 		
 func test_reorder ():
-	var qc := newQC(2, 2)
-	qc.x(0)
-	qc.measure(0, 1)
-	qc.measure(1, 0)
+	var qc := newQC(2, 2).x(0).measure(0, 1).measure(1, 0)
 	var counts := simulate_and_get_counts(qc, { "shots": shots })
 	assert (counts['01'] == shots)
-	qc = newQC(5, 4)
-	qc.x(1)
-	qc.x(3)
-	qc.x(4)
-	qc.measure(1, 0)
-	qc.measure(3, 1)
-	qc.measure(4, 2)
-	qc.measure(0, 3)
+	qc = newQC(5, 4).x(1).x(3).x(4).measure(1, 0).measure(3, 1).measure(4, 2).measure(0, 3)
 	counts = simulate_and_get_counts(qc, { "shots": shots })
 	assert (counts['0111'] == shots)
 	
