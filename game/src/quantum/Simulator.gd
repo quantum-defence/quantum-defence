@@ -25,7 +25,7 @@ func phaseturn(v1: Vector2, v2: Vector2, theta: float) -> PoolVector2Array:
 # Takes in a decimal value (int) and returns the binary value (int)
 # & is bitwise AND, >> is bitwise shift
 # binary e.g.: abc & 010 = 0b0, abc >> 2 = a
-func dec2bin(decimal_value: int, max_bits: int):
+func dec2bin(decimal_value: int, max_bits: int) -> String:
 	var binary_string := "" 
 	var temp : int
 	var count := max_bits

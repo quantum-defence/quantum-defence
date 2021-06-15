@@ -5,6 +5,25 @@ const shots = int(pow(10, 6))
 onready var sim: QuantumSimulator = $Simulator
 onready var QCircuit = preload('res://src/quantum/QuantumCircuit.gd')
 
+# returns array of strings 
+func simulate_and_get_memory(qc: QuantumCircuit, config={}) -> Array:
+	config['get'] = 'memory';
+	return sim.simulate(qc, config)
+
+# returns dictionary: binary_repr: string => : int
+func simulate_and_get_counts(qc: QuantumCircuit, config={}) -> Dictionary:
+	config['get'] = 'counts';
+	return sim.simulate(qc, config)
+
+# returns dictionary: binary_repr: string => : float
+func simulate_and_get_probabilities_dict(qc: QuantumCircuit, config={}) -> Dictionary:
+	config['get'] = 'probabilities_dict';
+	return sim.simulate(qc, config)
+
+func simulate_and_get_statevector(qc: QuantumCircuit, config={}) -> PoolVector2Array:
+	config['get'] = 'statevector';
+	return sim.simulate(qc, config)
+
 func _ready() -> void:
 	print('try0')
 	test_trig();
@@ -49,38 +68,38 @@ func test_x():
 	var qc: QuantumCircuit
 	qc = newQC(1)
 	qc.x(0)
-	assert( sim.simulate(qc, { "shots": shots, "get": 'statevector'}) == [[0.0, 0.0], [1.0, 0.0]] )
+	assert( simulate_and_get_statevector(qc, { "shots": shots }) == [[0.0, 0.0], [1.0, 0.0]] )
 	qc = newQC(2)
 	qc.x(1)
-	assert( sim.simulate(qc, { "shots": shots, "get": 'statevector'}) == [[0.0, 0.0], [0.0, 0.0], [1.0, 0.0], [0.0, 0.0]] )
+	assert( simulate_and_get_statevector(qc, { "shots": shots }) == [[0.0, 0.0], [0.0, 0.0], [1.0, 0.0], [0.0, 0.0]] )
 	qc = newQC(2)
 	qc.x(0)
 	qc.x(1)
-	assert( sim.simulate(qc, { "shots": shots, "get": 'statevector'}) == [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0], [1.0, 0.0]] ) 
+	assert( simulate_and_get_statevector(qc, { "shots": shots }) == [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0], [1.0, 0.0]] ) 
 	
 func test_h():
 	var qc := newQC(2)
 	qc.h(0)
-	assert( sim.simulate(qc, { "shots": shots, "get": 'statevector'}) == [[0.70710678118, 0.0], [0.70710678118, 0.0], [0.0, 0.0], [0.0, 0.0]] )
+	assert( simulate_and_get_statevector(qc, { "shots": shots }) == [[0.70710678118, 0.0], [0.70710678118, 0.0], [0.0, 0.0], [0.0, 0.0]] )
 	qc = newQC(2)
 	qc.h(1)
-	assert( sim.simulate(qc, { "shots": shots, "get": 'statevector'}) == [[0.70710678118, 0.0], [0.0, 0.0], [0.70710678118, 0.0], [0.0, 0.0]] )
+	assert( simulate_and_get_statevector(qc, { "shots": shots }) == [[0.70710678118, 0.0], [0.0, 0.0], [0.70710678118, 0.0], [0.0, 0.0]] )
 	qc = newQC(2)
 	qc.h(0)
 	qc.h(1)
-	assert( sim.simulate(qc, { "shots": shots, "get": 'statevector'}) == [[0.49999999999074046, 0.0], [0.49999999999074046, 0.0], [0.49999999999074046, 0.0], [0.49999999999074046, 0.0]] )
+	assert( simulate_and_get_statevector(qc, { "shots": shots }) == [[0.49999999999074046, 0.0], [0.49999999999074046, 0.0], [0.49999999999074046, 0.0], [0.49999999999074046, 0.0]] )
 		
 func test_rx():
 	var qc := newQC(1)
 	qc.rx(PI/4, 0)
-	assert( sim.simulate(qc, { "get" : 'statevector' }) == [[0.9238795325112867, 0.0], [0.0, -0.3826834323650898]])
+	assert( simulate_and_get_statevector(qc) == [[0.9238795325112867, 0.0], [0.0, -0.3826834323650898]])
 	qc = newQC(2)
 	qc.rx(PI/4, 0)
 	qc.rx(PI/8, 1)
-	assert( sim.simulate(qc, { "get" : 'statevector' }) == [[0.9061274463528878, 0.0], [0.0, -0.37533027751786524], [0.0, -0.18023995550173696], [-0.0746578340503426, 0.0]])
+	assert( simulate_and_get_statevector(qc) == [[0.9061274463528878, 0.0], [0.0, -0.37533027751786524], [0.0, -0.18023995550173696], [-0.0746578340503426, 0.0]])
 	qc.h(0)
 	qc.h(1)
-	assert( sim.simulate(qc, { "get" : 'statevector' }) == [[0.4157348061435736, -0.27778511650465676], [0.4903926401925336, 0.0975451610062577], [0.4903926401925336, -0.0975451610062577], [0.4157348061435736, 0.27778511650465676]])
+	assert( simulate_and_get_statevector(qc) == [[0.4157348061435736, -0.27778511650465676], [0.4903926401925336, 0.0975451610062577], [0.4903926401925336, -0.0975451610062577], [0.4157348061435736, 0.27778511650465676]])
 	
 func test_rz():
 	
@@ -94,14 +113,14 @@ func test_rz():
 	qcx.h(0)
 	qcx.rx(tz, 0)
 	qcx.h(0)
-	var ketx =  sim.simulate(qcx, { "get" : 'statevector' })
+	var ketx =  simulate_and_get_statevector(qcx)
 
 	# a plain rz rotation
 	var qcz := newQC(1)
 	qcz.rx(tx, 0)
 	qcz.rz(tz, 0)
-	sim.simulate(qcz, { "get" : 'statevector' })
-	var ketz =  sim.simulate(qcz, { "get" : 'statevector' })
+	simulate_and_get_statevector(qcz)
+	var ketz =  simulate_and_get_statevector(qcz)
 	
 	# check they are the same
 	for j in range(2):
@@ -111,19 +130,19 @@ func test_rz():
 func test_ry():
 	var qc := newQC(1)
 	qc.ry(PI/8, 0)
-	assert( sim.simulate(qc, { "get": 'statevector' }) == [[0.9807852803850672, -6.938893903907228 * pow(10,-17)], [0.19509032201251536, 0.0]])
+	assert( simulate_and_get_statevector(qc) == [[0.9807852803850672, -6.938893903907228 * pow(10,-17)], [0.19509032201251536, 0.0]])
 	
 func test_cx():
 	var qc := newQC(2)
 	qc.h(0)
 	qc.cx(0, 1)
-	assert( sim.simulate(qc, { "shots": shots, "get": 'statevector'}) == [[0.70710678118, 0.0], [0.0, 0.0], [0.0, 0.0], [0.70710678118, 0.0]] )
+	assert( simulate_and_get_statevector(qc, { "shots": shots }) == [[0.70710678118, 0.0], [0.0, 0.0], [0.0, 0.0], [0.70710678118, 0.0]] )
 	qc = newQC(2)
 	qc.x(0)
 	qc.cx(0, 1)
 	qc.cx(1, 0)
 	qc.cx(0, 1)
-	assert( sim.simulate(qc, { "shots": shots, "get": 'statevector'}) == [[0.0, 0.0], [0.0, 0.0], [1.0, 0.0], [0.0, 0.0]] )
+	assert( simulate_and_get_statevector(qc, { "shots": shots }) == [[0.0, 0.0], [0.0, 0.0], [1.0, 0.0], [0.0, 0.0]] )
 
 func test_memory():
 	var qc := newQC(2, 2)
@@ -131,7 +150,7 @@ func test_memory():
 	qc.h(1)
 	qc.measure(0, 0)
 	qc.measure(1, 1)
-	var m = sim.simulate(qc, { "shots": shots, "get": 'memory'})
+	var m = simulate_and_get_memory(qc, { "shots": shots })
 	assert( len(m) == shots )
 	var p00 = 0
 	for out in m:
@@ -140,7 +159,7 @@ func test_memory():
 	qc = newQC(1, 1)
 	qc.h(0)
 	qc.measure(0, 0)
-	m = sim.simulate(qc, { "shots": shots, "get": 'memory'})
+	m = simulate_and_get_memory(qc, { "shots": shots })
 	assert( len(m) == shots )
 	var p0 = 0
 	for out in m:
@@ -153,7 +172,7 @@ func test_counts():
 	qc.h(1)
 	qc.measure(0, 0)
 	qc.measure(1, 1)
-	var c = sim.simulate(qc, { "shots": shots, "get": 'counts'})
+	var c = simulate_and_get_counts(qc, { "shots": shots })
 	for out in c:
 		var p = float(c[out])/shots
 		assert( round(p * 100) == 0.25 )
@@ -162,7 +181,7 @@ func test_probs():
 	var qc := newQC(2, 2)
 	qc.h(0)
 	qc.h(1)
-	var p = sim.simulate(qc, { "shots": shots, "get": 'probabilities_dict'})
+	var p = simulate_and_get_probabilities_dict(qc, { "shots": shots })
 	for out in p:
 		assert( round(p[out] * 100) == 25 )
 		
@@ -173,7 +192,7 @@ func test_add():
 		for j in range(n):
 			qc.h(j)
 			meas.measure(j, j)
-		var c = sim.simulate(qc.add(meas), {"shots": shots, "get": 'counts'})
+		var c = simulate_and_get_counts(qc.add(meas), {"shots": shots })
 		for out in c:
 			var p = float(c[out])/shots
 			assert( round(p * 100) == round(1.0/ pow(2, n) * 100) )
@@ -187,14 +206,14 @@ func test_multiqubit():
 	qc.cx(5, 3)
 	qc.cx(3, 4)
 	qc.cx(3, 6)
-	var ket =  sim.simulate(qc, { "get": 'statevector' })
+	var ket =  simulate_and_get_statevector(qc, { "get": 'statevector' })
 	var check = true
 	for string in ['0000000', '0000111', '1111000', '1111111']:
 		check = check and (round(ket[binary_to_decimal(int(string))][0] * 100) == 50)
 	assert( check )
 	for j in range(7):
 		qc.measure(j, j)
-	var counts = sim.simulate(qc, { "shots": shots, "get": 'counts'})
+	var counts = simulate_and_get_counts(qc, { "shots": shots })
 	check = true
 	for string in ['0000000', '0000111', '1111000', '1111111']:
 		var p = float(counts[string])/shots
@@ -206,7 +225,7 @@ func test_reorder ():
 	qc.x(0)
 	qc.measure(0, 1)
 	qc.measure(1, 0)
-	var counts = sim.simulate(qc, { "shots": shots, "get": 'counts'})
+	var counts = simulate_and_get_counts(qc, { "shots": shots })
 	assert (counts['01'] == shots)
 	qc = newQC(5, 4)
 	qc.x(1)
@@ -216,12 +235,12 @@ func test_reorder ():
 	qc.measure(3, 1)
 	qc.measure(4, 2)
 	qc.measure(0, 3)
-	counts = sim.simulate(qc, { "shots": shots, "get": 'counts'})
+	counts = simulate_and_get_counts(qc, { "shots": shots })
 	assert (counts['0111'] == shots)
 	
 func test_noise ():
 	var qc := newQC(2, 2)
-	var p = sim.simulate(qc, { "get": 'probabilities_dict', "noise_model": [0.1, 0.2]})
+	var p = simulate_and_get_probabilities_dict(qc, { "noise_model": [0.1, 0.2]})
 	var correct_p = {'00': 0.7200000000000001, '01': 0.08000000000000002, '10': 0.18000000000000002, '11': 0.020000000000000004}
 	for out in correct_p:
 		assert (p[out] == correct_p[out])
