@@ -45,17 +45,6 @@ func simulate(qc: QuantumCircuit, config={}):
 	var k := PoolVector2Array()
 	k.resize(int(pow(2, qc.num_qubits)));
 	k[0] = Vector2(1.0, 0.0)
-	# if noise_model:
-	if noise_model.size() > 0:
-		# noise_model = [noise_model]*qc.num_qubits
-		var temp_arr := noise_model;
-		noise_model = []
-		noise_model.resize(qc.num_qubits);
-		for i in range(qc.num_qubits):
-			noise_model[i] = []
-			noise_model[i].resize(temp_arr.size())
-			for j in range(temp_arr.size()):
-				noise_model[i][j] = temp_arr[j]
 
 	var outputnum_clbitsap : Dictionary = {}
 	for gate in qc.circuit_data:
@@ -144,6 +133,7 @@ func simulate(qc: QuantumCircuit, config={}):
 				probs_dict[dec2bin(i, qc.num_qubits)] = probs[i]
 		elif ['counts',	'memory'].has(get):
 			var m := []
+			m.resize(qc.num_qubits)
 			for i in range(qc.num_qubits):
 				m[i] = false
 			for gate in qc.circuit_data:
@@ -160,13 +150,14 @@ func simulate(qc: QuantumCircuit, config={}):
 					cumu += p
 					var raw_out : String = ""
 					var out_list : Array = [] # Array of strings
+					out_list.resize(qc.num_clbits)
 					if rand_float < cumu and un:		
 						raw_out = dec2bin(j, qc.num_qubits)
 						out_list.resize(qc.num_clbits)
 						for clbitPos in range(qc.num_clbits):
 							out_list[clbitPos] = "0"
 					for bit in outputnum_clbitsap:
-						out_list[qc.num_clbits - 1 - int(bit)] = raw_out[qc.num_qubits - 1 - outputnum_clbitsap[bit]]
+						out_list[qc.num_clbits - 1 - int(bit)] = raw_out.substr(qc.num_qubits - 1 - outputnum_clbitsap[bit],1)
 					var out : String = ''
 					for val in out_list:
 						out += str(val)

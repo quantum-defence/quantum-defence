@@ -1,7 +1,7 @@
 extends Node
 
 # First we strip comments and blank lines from the top-level version of MicroQiskit.py 
-const shots = int(pow(10, 6))
+const shots = int(pow(10, 5))
 onready var sim: QuantumSimulator = $Simulator
 onready var QCircuit = preload('res://src/quantum/QuantumCircuit.gd')
 
@@ -65,6 +65,10 @@ func compare_dicts(dict1: Dictionary, dict2: Dictionary) -> bool:
 		return false
 	for i in dict1.keys():
 		if dict1[i] != dict2[i]:
+			print('assert fail')
+			print(i)
+			print(dict1)
+			print(dict2)
 			return false;
 	return true
 
@@ -72,8 +76,14 @@ func compare_arrays(arr1: Array, arr2: Array) -> bool:
 	if (arr1.size() != arr2.size()):
 		return false
 	for i in range(arr1.size()):
-		if arr1[i] != arr2[i]:
-			return false;
+		var v1 : Vector2 = arr1[i]
+		var v2 : Vector2 = arr2[i]
+		if v1.distance_to(v2) > 0.001:
+			print('assert fail')
+			print(i)
+			print(arr1)
+			print(arr2)
+			return false
 	return true
 
 func test_trig():
