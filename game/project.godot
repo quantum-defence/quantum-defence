@@ -60,7 +60,7 @@ _global_script_classes=[ {
 "path": "res://src/ui/gameplay/towerInventory/TowerInventory.gd"
 }, {
 "base": "TextureRect",
-"class": "Tower_Inventory_Slot",
+"class": "TowerInventorySlot",
 "language": "GDScript",
 "path": "res://src/ui/gameplay/towerInventory/TowerInventorySlot.gd"
 } ]
@@ -75,7 +75,7 @@ _global_script_class_icons={
 "TileSelector": "",
 "Tower": "",
 "TowerInventory": "",
-"Tower_Inventory_Slot": ""
+"TowerInventorySlot": ""
 }
 
 [application]
