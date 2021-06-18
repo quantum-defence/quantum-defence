@@ -6,7 +6,6 @@ var num_qubits : int = 0
 var num_clbits : int = 0
 var circuit_name : String
 var circuit_data : Array
-var pi = VisualScriptMathConstant.MATH_CONSTANT_PI
 
 func _ready():
 	self.num_qubits = 0
@@ -83,10 +82,13 @@ func measure(q: int, b: int) -> QuantumCircuit:
 	return self;
 
 func ry(theta,q) -> QuantumCircuit:
-	return self.rx(pi/2,q).rz(theta,q).rx(-pi/2,q)
+	return self.rx(PI/2,q).rz(theta,q).rx(-PI/2,q)
+
+func print_data():
+	print(self.circuit_data)
 
 func z(q) -> QuantumCircuit:
-	return self.rz(pi,q)
+	return self.rz(PI,q)
 
 func y(q) -> QuantumCircuit:
-	return self.rz(pi,q).x(q)
+	return self.rz(PI,q).x(q)

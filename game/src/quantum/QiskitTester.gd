@@ -25,7 +25,17 @@ func simulate_and_get_statevector(qc: QuantumCircuit, config={}) -> PoolVector2A
 	return sim.simulate(qc, config)
 
 func _ready() -> void:
+	# test_memory()
+	#test_rx()
+	#test_rz()
+	# print('foo')
+	var qc:= newQC(1).rx(PI/2, 0).rz(PI/8, 0).rx(-PI/2, 0)
+	qc.print_data()
+	print(simulate_and_get_statevector(qc))
+	test_ry()
+	
 	print('try0')
+	test_probs()
 	test_trig();
 	print('try1')
 	print( sim.simulate(newQC(1), { "shots": shots, "get": 'statevector'}))
@@ -138,10 +148,17 @@ func test_h():
 		
 func test_rx():
 	var qc := newQC(1).rx(PI/4, 0)
+	print(simulate_and_get_statevector(qc))
+	print([Vector2(0.9238795325112867, 0.0), Vector2(0.0, -0.3826834323650898)])
 	assert( compare_arrays(
 		simulate_and_get_statevector(qc),
 		[Vector2(0.9238795325112867, 0.0), Vector2(0.0, -0.3826834323650898)]))
 	qc = newQC(2).rx(PI/4, 0).rx(PI/8, 1)
+	print(simulate_and_get_statevector(qc))
+	print([
+			Vector2(0.9061274463528878, 0.0), Vector2(0.0, -0.37533027751786524),
+			Vector2(0.0, -0.18023995550173696), Vector2(-0.0746578340503426, 0.0)
+		])
 	assert( compare_arrays(
 		simulate_and_get_statevector(qc),
 		[
@@ -165,11 +182,12 @@ func test_rz():
 	# an rz rotatation using h*rx*h
 	var qcx := newQC(1).rx(tx, 0).h(0).rx(tz, 0).h(0)
 	var ketx =  simulate_and_get_statevector(qcx)
-
+	print(ketx)
+	
 	# a plain rz rotation
 	var qcz := newQC(1).rx(tx, 0).rz(tz, 0)
 	var ketz =  simulate_and_get_statevector(qcz)
-	
+	print(ketz)
 	# check they are the same
 	for j in range(2):
 		for k in range(2):
@@ -177,6 +195,9 @@ func test_rz():
 				
 func test_ry():
 	var qc := newQC(1).ry(PI/8, 0)
+	qc.print_data()
+	print(simulate_and_get_statevector(qc))
+	print(([Vector2(0.9807852803850672, -6.938893903907228 * pow(10,-17)), Vector2(0.19509032201251536, 0.0)]))
 	assert( compare_arrays(
 		simulate_and_get_statevector(qc),
 		[Vector2(0.9807852803850672, -6.938893903907228 * pow(10,-17)), Vector2(0.19509032201251536, 0.0)]))
@@ -197,14 +218,14 @@ func test_memory():
 	assert( len(m) == shots )
 	var p00 = 0
 	for out in m:
-		p00 += round(out == '00')/shots
+		p00 += round(1.0 if out == '00' else 0.0)/shots
 	assert( round(p00 * 100) == 25 )
 	qc = newQC(1, 1).h(0).measure(0, 0)
 	m = simulate_and_get_memory(qc, { "shots": shots })
 	assert( len(m) == shots )
 	var p0 = 0
 	for out in m:
-		p0 += round(out == '0')/shots
+		p0 += round(1.0 if out == '0' else 0.0)/shots
 	assert( round(p0 * 10) == 5 )
 
 func test_counts():
@@ -212,7 +233,7 @@ func test_counts():
 	var c := simulate_and_get_counts(qc, { "shots": shots })
 	for out in c:
 		var p = float(c[out])/shots
-		assert( round(p * 100) == 0.25 )
+		assert( round(p * 100) == 25 )
 		
 func test_probs():
 	var qc := newQC(2, 2).h(0).h(1)
@@ -261,4 +282,4 @@ func test_noise ():
 	var p := simulate_and_get_probabilities_dict(qc, { "noise_model": [0.1, 0.2]})
 	var correct_p = {'00': 0.7200000000000001, '01': 0.08000000000000002, '10': 0.18000000000000002, '11': 0.020000000000000004}
 	for out in correct_p:
-		assert (p[out] == correct_p[out])
+		assert (round(p[out] * 10000) == round(correct_p[out] * 10000))

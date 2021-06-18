@@ -28,7 +28,7 @@ func phaseturn(v1: Vector2, v2: Vector2, theta: float) -> PoolVector2Array:
 func dec2bin(decimal_value: int, max_bits: int) -> String:
 	var binary_string := "" 
 	var temp : int
-	var count := max_bits
+	var count := max_bits - 1
 	while(count >= 0):
 			temp = decimal_value >> count 
 			if(temp & 1):
@@ -129,9 +129,11 @@ func simulate(qc: QuantumCircuit, config={}):
 						probs[b1] = (1 - p_meas) * p1 + p_meas * p0
 		if get=='probabilities_dict':
 			var probs_dict : Dictionary = {};
+			print(probs_dict)
 			for i in range(probs.size()):
 				probs_dict[dec2bin(i, qc.num_qubits)] = probs[i]
-		elif ['counts',	'memory'].has(get):
+			return probs_dict
+		elif ['counts', 'memory'].has(get):
 			var m := []
 			m.resize(qc.num_qubits)
 			for i in range(qc.num_qubits):
@@ -151,18 +153,18 @@ func simulate(qc: QuantumCircuit, config={}):
 					var raw_out : String = ""
 					var out_list : Array = [] # Array of strings
 					out_list.resize(qc.num_clbits)
-					if rand_float < cumu and un:		
+					if rand_float < cumu and un:
 						raw_out = dec2bin(j, qc.num_qubits)
 						out_list.resize(qc.num_clbits)
 						for clbitPos in range(qc.num_clbits):
 							out_list[clbitPos] = "0"
-					for bit in outputnum_clbitsap:
-						out_list[qc.num_clbits - 1 - int(bit)] = raw_out.substr(qc.num_qubits - 1 - outputnum_clbitsap[bit],1)
-					var out : String = ''
-					for val in out_list:
-						out += str(val)
-					m.append(out)
-					un = false
+						for bit in outputnum_clbitsap:
+							out_list[qc.num_clbits - 1 - int(bit)] = raw_out.substr(qc.num_qubits - 1 - outputnum_clbitsap[bit],1)
+						var out : String = ''
+						for val in out_list:
+							out += str(val)
+						m.append(out)
+						un = false
 			if get=='memory':
 				return m
 			else:
