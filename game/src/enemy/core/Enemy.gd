@@ -39,6 +39,7 @@ func _ready() -> void:
 	collision_timer.set_paused(true)
 
 func _physics_process(delta: float) -> void:
+	self.z_index = self.global_position.y / 10.0
 	if action == ACTION.DIE:
 		return
 	elif !damage_taken_timer.is_stopped():

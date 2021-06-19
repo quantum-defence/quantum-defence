@@ -72,6 +72,7 @@ func build_tower(x: int, y: int, tower_type: String) -> bool:
 	var tower : Tower = load(tower_type).instance()
 	add_child(tower)
 	tower.build_at(Vector2(x + 0.5, y + 0.5) * TILE_SIZE)
+	tower.z_index = tower.global_position.y / 10.0
 	tower_at[x][y] = weakref(tower)
 	tile_at[x][y] = TILE_CONTENTS.TOWER
 	return true
@@ -91,10 +92,3 @@ func dismantle_tower(x: int, y: int) -> bool:
 	tower_at[x][y] = null
 	tile_at[x][y] = TILE_CONTENTS.EMPTY
 	return true
-
-func build_turret_at(x: int, y: int) -> void:
-#	var turret = load($BuildUI.tower_to_be_built)
-#	add_child(turret)
-#	turret.position(Vector2(x,y) * TILE_SIZE)
-	pass 
-	
