@@ -54,6 +54,10 @@ func _ready() -> void:
 func _on_BuildMode_pressed():
 	print("buildMode pressed")
 	get_tree().call_group("tower_builds", "change_visibility", true)
+	
+	var tower_inventory = get_parent().get_node("TowerInventory")
+	if (tower_inventory.is_visible == true):
+		tower_inventory.toggle_tower_inventory_visible()
 	buildMode = true
 
 func _on_InspectMode_pressed():

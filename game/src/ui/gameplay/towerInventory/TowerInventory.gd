@@ -4,12 +4,12 @@ class_name TowerInventory
 
 onready var inventorySlots = $TextureRect/GridContainer
 
-
 #Tower to be built shud be an instance of tower. Each tower may have different items equipped
 var is_visible = false
 var tower_to_be_built : Tower =  preload("res://src/environment/towers/pixelTowers/demonStatue/DemonStatue.tscn").instance()
 onready var tower_inventory_items_held
 onready var build_ui = get_parent().get_node("BuildUI")
+var tower_display_reference = Vector2(1690,275)
 
 func _equip_item(slotNumber: String, item: Item ):
 	tower_inventory_items_held[slotNumber] = item
@@ -22,11 +22,18 @@ func check_all_items_attributes():
 func change_tower_to_be_build(tower: Tower):
 	tower_to_be_built = tower
 	check_all_items_attributes()
+
+	print(tower_to_be_built)
 	var animated_sprite = tower_to_be_built.get_node("AnimatedSprite")
-	animated_sprite.play("Idle")
-	animated_sprite.playing = true
-	print(animated_sprite.get_parent())
-	self.add_child(animated_sprite)
+	print("+++++++++++++++++++++++=")
+	print("Animated sprite has been taken")
+	print(animated_sprite)
+	print(animated_sprite.playing)
+	animated_sprite.z_index = 1
+	var other_animated_sprite = animated_sprite.duplicate()
+	other_animated_sprite.position = tower_display_reference
+	self.add_child(other_animated_sprite)
+	print(self.get_children())
 
 	print("Animated sprite added to tower inventory")
 

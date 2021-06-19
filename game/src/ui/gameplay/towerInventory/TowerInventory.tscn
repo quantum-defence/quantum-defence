@@ -133,6 +133,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PanelContainer" type="PanelContainer" parent="TextureRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -77.6748
+margin_top = 62.1118
+margin_right = 81.3252
+margin_bottom = 217.112
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="gui_input" from="TextureRect/GridContainer/Slot1/TextureRect" to="." method="_on_TextureRect_gui_input"]
 [connection signal="mouse_entered" from="TextureRect/GridContainer/Slot1/TextureRect" to="." method="_on_TextureRect_mouse_entered"]
 [connection signal="gui_input" from="TextureRect/GridContainer/Slot2/TextureRect" to="." method="_on_TextureRect_gui_input"]
