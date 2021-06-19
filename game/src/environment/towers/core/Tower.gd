@@ -1,5 +1,6 @@
 extends KinematicBody2D
 class_name Tower
+
 enum TYPES { 
 	FASTEST = 0,
 	REPEATER = 1, 

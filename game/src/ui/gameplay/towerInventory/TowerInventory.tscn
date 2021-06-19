@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Avatar.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/02. Static Papyrus/Papyrus Paper 1.png" type="Texture" id=2]
@@ -13,6 +13,13 @@ margin_left = 13.2964
 margin_right = 12.1884
 margin_top = 13.5051
 margin_bottom = 14.4044
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="AnimatedTexture" id=4]
+pause = true
 
 [node name="TowerInventory" type="CanvasLayer"]
 script = ExtResource( 4 )
@@ -137,9 +144,24 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -77.6748
-margin_top = 62.1118
+margin_top = 63.6992
 margin_right = 81.3252
-margin_bottom = 217.112
+margin_bottom = 218.699
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TowerInspected" type="Panel" parent="TextureRect/PanelContainer"]
+margin_right = 159.0
+margin_bottom = 155.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/PanelContainer/TowerInspected"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 4 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
