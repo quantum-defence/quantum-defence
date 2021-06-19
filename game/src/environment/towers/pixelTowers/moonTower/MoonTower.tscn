@@ -72,6 +72,8 @@ animations = [ {
 wait_time = 0.5
 
 [node name="AnimatedSprite" parent="." index="4"]
+position = Vector2( 0, -80 )
+scale = Vector2( 1.37, 1.485 )
 frames = SubResource( 12 )
 animation = "Idle"
 frame = 10

@@ -116,6 +116,7 @@ scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
 [node name="mainlevbuild" type="Sprite" parent="."]
+
 position = Vector2( 0.318726, 43 )
 scale = Vector2( 0.63745, 0.414063 )
 texture = ExtResource( 1 )
@@ -126,6 +127,7 @@ frame = 21
 [node name="mainlevbuild2" type="Sprite" parent="mainlevbuild"]
 position = Vector2( 11.8752, 12.0736 )
 scale = Vector2( 0.710373, 0.948716 )
+
 texture = ExtResource( 1 )
 hframes = 7
 vframes = 4
