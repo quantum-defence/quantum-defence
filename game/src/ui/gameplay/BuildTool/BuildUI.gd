@@ -19,41 +19,55 @@ const RESOURCE = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn
 "res://src/environment/towers/pixelTowers/moonTower/MoonTower.tscn",
 "res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn"]
 
+var bag_item = preload("res://src/items/otherItems/Axe.tscn").instance()
+var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn").instance()
+onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer")
+
 #if buildMode is not true, then it is in normal mode
 var buildMode : bool = false
+var build_UI_items_held  = {
+	"Slot1" : null,
+	"Slot2" : null,
+	"Slot3" : bag_item,
+	"Slot4" : null,
+	"Slot5" : null,
+	"Slot6" : null,
+	"Slot7" : emerald_staff,
+	"Slot8" : null,
+	"Slot9" : null,
+	"Slot10" : bag_item
+}
+
+
 
 onready var tileSelector = find_parent("Map").get_node("Selector")
-var item_held
 onready var currentMap = self.get_parent()
+
+
 
 func _ready() -> void:
 	get_tree().call_group("tower_builds", "change_visibility", false)
 	# for slot in inventorySlots.get_children():
 		# slot.connect("gui_input", self, "slot_gui_input", [slot])
 
+	
 func _on_BuildMode_pressed():
 	print("buildMode pressed")
 	get_tree().call_group("tower_builds", "change_visibility", true)
+	
+	var tower_inventory = get_parent().get_node("TowerInventory")
+	if (tower_inventory.is_visible == true):
+		tower_inventory.toggle_tower_inventory_visible()
 	buildMode = true
 
 func _on_InspectMode_pressed():
 	print(buildMode)
 	buildMode = false
+	tileSelector.set_action(TileSelector.ACTION.INSPECTING, "smth")
+	var tower_inventory = get_parent().get_node("TowerInventory")
 	get_tree().call_group("tower_builds", "change_visibility", false)
 	print(buildMode)
 
-				
-#	if (isPlacing): 
-#		var t := Transform2D.IDENTITY
-#		t.origin = get_global_mouse_position()
-#		var colliding = test_move(t, Vector2.ZERO)
-#		position = t.origin
-#		modulate = Color.red if colliding else Color.yellow
-#		modulate.a = 0.75 
-#		if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
-#			isPlacing = false 
-#	else:
-#		modulate = Color.white
 
 func _on_ObeliskTower_pressed():
 	print("ObeliskTowerSelected")
@@ -97,29 +111,20 @@ func _on_EyeTower_pressed():
 		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.EYETOWER])
 	pass # Replace with function body.
 
-const slotClass = preload("res://src/ui/gameplay/buildUI(new)/Panel.gd")
-onready var inventorySlots = $VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer
+func _pick_up_item(item: Item) -> void:
+	#Equip the item
+	var slot
+	for slots in build_UI_items_held:
+		print(slots)
+		if (build_UI_items_held[slots] == null):
+			slot = slots
+			build_UI_items_held[slots] = item
+			break
 
+	#Get reference to the slot that an item was eqipped to update texture
+	print(slot)
+	var current_slot = all_inventories_slots.get_node(slot).get_node("TextureRect")
+	current_slot.texture = item.get_node("TextureRect").texture
+	print(current_slot)		
+	print(build_UI_items_held)		
 
-
-
-#func slot_gui_input(event:InputEvent, slot:slotClass):
-#	if (event is InputEventMouseButton):
-#		if event.button_index == BUTTON_LEFT and event.pressed:
-#			print("signal triggered and is left mouse presed")\
-#			#Does the swapping for the item 
-#			if item_held != null:
-#				if slot.item == null:
-#					slot.putIntoSlot(item_held)
-#					item_held = null
-#				else:
-#					var temp_item = slot.item
-#					slot.pickFromSlot()
-#					temp_item.global_position = event.global_position
-#					print("shud be following mouse now")
-#					slot.putIntoSlot(item_held)
-#					item_held = temp_item
-#			else:
-#				if slot.item != null:
-#					item_held = slot.pickFromSlot()
-#					print("shud be following mouse now")

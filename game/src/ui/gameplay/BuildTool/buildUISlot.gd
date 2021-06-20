@@ -1,23 +1,17 @@
 extends TextureRect
 
-class_name TowerInventorySlot
-
-onready var build_UI = self.find_parent("Control").get_node("BuildUI")
-onready var tower_inventory = self.find_parent("TowerInventory")
-
-func _process(delta):
-	pass
+onready var build_UI: BuildUI = find_parent("BuildUI")
+onready var tower_inventory: TowerInventory = find_parent("UI").get_child(0).get_node("TowerInventory")
 
 func get_drag_data(position): 
-	var tower_inventory_name = get_parent().get_name()
-	var tower_inventory_slot = self
-	
+	var build_UI_slot_name = get_parent().get_name()
+	var build_UI_slot = self
 	var data = {}
 	data["origin_texture"] = texture
-	data["origin_panel"] = "TowerInventory"
-	data["origin_item"] = tower_inventory.tower_inventory_items_held[tower_inventory_name]
-	data["origin_slot_name"] = tower_inventory_name
-	data["origin_slot"] = tower_inventory_slot
+	data["origin_panel"] = "BuildUI"
+	data["origin_item"] = build_UI.build_UI_items_held[build_UI_slot_name]
+	data["origin_slot_name"] = build_UI_slot_name
+	data["origin_slot"] = build_UI_slot
 	var drag_texture = TextureRect.new()
 	drag_texture.expand = true
 	drag_texture.texture = texture
@@ -37,8 +31,8 @@ func can_drop_data(position, data):
 func drop_data(position, data):
 	var target_slot_name : String = get_parent().get_name()
 	var target_slot = get_parent()
-	var target_slot_item = tower_inventory.tower_inventory_items_held[target_slot_name]
-	
+	var target_slot_item = build_UI.build_UI_items_held[target_slot_name]
+
 	var origin_slot_name = data["origin_slot_name"]
 	var origin_slot = data["origin_slot"].get_parent()
 	var origin_slot_item = data["origin_item"]
@@ -49,18 +43,19 @@ func drop_data(position, data):
 		if (origin_slot.is_in_group("BuildUISlots")):
 			data["target_item"] = null
 			data["target_texture"] = null
-			tower_inventory.tower_inventory_items_held[target_slot_name] = data["origin_item"]
+			build_UI.build_UI_items_held[target_slot_name] = data["origin_item"]
 			build_UI.build_UI_items_held[origin_slot_name] = null
 			texture = data["origin_texture"]
 			
+			
 		#If target slot belongs to Tower inventory. E.g equipping item
-		elif (origin_slot.is_in_group("TowerInventorySlots")):
+		if (origin_slot.is_in_group("TowerInventorySlots")):
 			data["target_item"] = null
 			data["target_texture"] = null
-			tower_inventory.tower_inventory_items_held[target_slot_name] = data["origin_item"]
+			build_UI.build_UI_items_held[target_slot_name] = data["origin_item"]
 			tower_inventory.tower_inventory_items_held[origin_slot_name] = null
 			texture = data["origin_texture"]
-
+	
 	#Swapping between items 
 	else: 
 		#If the item swap is within buildUI
@@ -70,23 +65,23 @@ func drop_data(position, data):
 			#Swap for textures
 			data["origin_slot"].texture = target_slot.get_child(0).texture
 			texture = data["origin_texture"]
-			
-			#Swap for actual info
-			var temp_item_for_swap = target_slot_item
-			tower_inventory.tower_inventory_items_held[target_slot_name] = origin_slot_item
-			build_UI.build_UI_items_held[origin_slot_name] = temp_item_for_swap
 
-		elif (target_slot.is_in_group("TowerInventorySlots")):
+			#for actual info swap
+			var temp_item_for_swap = target_slot_item
+			build_UI.build_UI_items_held[target_slot_name] = origin_slot_item
+			build_UI.build_UI_items_held[origin_slot_name] = temp_item_for_swap
+		
+		elif (origin_slot.is_in_group("TowerInventorySlots")):
 			data["target_item"] = target_slot_item
-			
+
 			#Swap for textures
 			data["origin_slot"].texture = target_slot.get_child(0).texture
 			texture = data["origin_texture"]
 
-			#Swap for actual info
+			#For actual Info Swap
 			var temp_item_for_swap = target_slot_item
-			tower_inventory.tower_inventory_items_held[target_slot_name] = origin_slot_item
-			tower_inventory.tower_inventory_items_held[origin_slot_name] = temp_item_for_swap
+			build_UI.build_UI_items_held[target_slot_name] = origin_slot_item
+			tower_inventory.tower_inventory_items_held[origin_slot_name] = temp_item_for_swap			
 
 
 	print("________________________")
@@ -96,7 +91,6 @@ func drop_data(position, data):
 	print("Build UI Inventory is")
 	print(build_UI.build_UI_items_held)
 	print("====================================================================")		
-
-
+	tower_inventory.check_all_items_attributes()		
 
 

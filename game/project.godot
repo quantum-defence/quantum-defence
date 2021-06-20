@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "CanvasLayer",
 "class": "BuildUI",
 "language": "GDScript",
-"path": "res://src/ui/gameplay/buildUI(new)/BuildUI.gd"
+"path": "res://src/ui/gameplay/BuildTool/BuildUI.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",
@@ -68,6 +68,16 @@ _global_script_classes=[ {
 "class": "Tower",
 "language": "GDScript",
 "path": "res://src/environment/towers/core/Tower.gd"
+}, {
+"base": "CanvasLayer",
+"class": "TowerInventory",
+"language": "GDScript",
+"path": "res://src/ui/gameplay/towerInventory/TowerInventory.gd"
+}, {
+"base": "TextureRect",
+"class": "TowerInventorySlot",
+"language": "GDScript",
+"path": "res://src/ui/gameplay/towerInventory/TowerInventorySlot.gd"
 } ]
 _global_script_class_icons={
 "Arena": "",
@@ -81,7 +91,9 @@ _global_script_class_icons={
 "QuantumNode": "",
 "QuantumSimulator": "",
 "TileSelector": "",
-"Tower": ""
+"Tower": "",
+"TowerInventory": "",
+"TowerInventorySlot": ""
 }
 
 [application]
@@ -89,6 +101,10 @@ _global_script_class_icons={
 config/name="Tower Defence"
 run/main_scene="res://src/environment/map/Map.tscn"
 config/icon="res://assets/img/coloured-squares/wip-logo.png"
+
+[autoload]
+
+ItemManager="*res://src/items/core/ItemManager.gd"
 
 [debug]
 

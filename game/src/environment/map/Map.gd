@@ -33,7 +33,7 @@ func _ready() -> void:
 			tower_at[i][j] = tile_map.get_cell(i, j)
 
 # dummy function to show use of selector
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		var e : InputEventMouseButton = event
 		if e.button_index == BUTTON_LEFT and e.pressed:

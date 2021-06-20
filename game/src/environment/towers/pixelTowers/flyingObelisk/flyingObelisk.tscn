@@ -2,90 +2,83 @@
 
 [ext_resource path="res://src/environment/towers/core/Tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png" type="Texture" id=2]
+[ext_resource path="res://src/environment/towers/pixelTowers/flyingObelisk/flyingObelisk.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 200, 400 )
+region = Rect2( 200, 0, 200, 400 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 200, 0, 200, 400 )
+region = Rect2( 400, 0, 200, 400 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 400, 0, 200, 400 )
+region = Rect2( 600, 0, 200, 400 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 600, 0, 200, 400 )
+region = Rect2( 800, 0, 200, 400 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 800, 0, 200, 400 )
+region = Rect2( 1000, 0, 200, 400 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1000, 0, 200, 400 )
+region = Rect2( 1200, 0, 200, 400 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1200, 0, 200, 400 )
+region = Rect2( 1400, 0, 200, 400 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1400, 0, 200, 400 )
+region = Rect2( 1600, 0, 200, 400 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1600, 0, 200, 400 )
+region = Rect2( 1800, 0, 200, 400 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1800, 0, 200, 400 )
+region = Rect2( 2000, 0, 200, 400 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 2000, 0, 200, 400 )
+region = Rect2( 2200, 0, 200, 400 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 2200, 0, 200, 400 )
-
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
-atlas = ExtResource( 2 )
 region = Rect2( 2400, 0, 200, 400 )
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 13.0
 } ]
 
 [node name="FlyingObelisk" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 
 [node name="AnimatedSprite" parent="." index="4"]
-position = Vector2( 0, -128 )
-scale = Vector2( 0.979375, 0.760578 )
-frames = SubResource( 14 )
+position = Vector2( 0, -80 )
+scale = Vector2( 0.83, 0.7 )
+frames = SubResource( 13 )
 animation = "Idle"
-frame = 7
+frame = 4
 speed_scale = 0.5
-playing = true
-
-[node name="BuildAnimation" parent="." index="5"]
-visible = false

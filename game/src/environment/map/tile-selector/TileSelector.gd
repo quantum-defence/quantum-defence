@@ -45,7 +45,17 @@ func take_action():
 		ACTION.BUILDING:
 			return arena.build_tower(_x, _y, _type)
 		ACTION.INSPECTING:
-			return arena.tower_at[_x][_y].get_ref()
+			print("inspecting tower")	
+			var inspected_tower = arena.get_tower_at(_x, _y).get_ref()
+			if (inspected_tower == null):
+				return 0
+			else:
+				var tower_inventory = find_parent("Map").get_node("UI/Control/TowerInventory")
+				tower_inventory.change_tower_to_be_build(inspected_tower)
+				if (tower_inventory.is_visible == false):
+					tower_inventory.toggle_tower_inventory_visible()
+				return 0
+			#return arena.tower_at[_x][_y].get_ref()
 		_: # INSPECTING
 			# idk maybe show a pop up for towers to inspect?
 			return 0

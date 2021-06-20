@@ -1,11 +1,13 @@
 extends KinematicBody2D
 class_name Tower
+
 enum TYPES { 
 	FASTEST = 0,
 	REPEATER = 1, 
 	SHOTGUN = 2, 
 	ULTIMATE = 3,
 }
+
 const RESOURCE = [
 	'res://src/environment/towers/FastestTower.tscn',
 	'res://src/environment/towers/RepeaterTower.tscn',
@@ -13,10 +15,16 @@ const RESOURCE = [
 	'res://src/environment/towers/UltimateTower.tscn'
 ]
 
-# var firing_interval := 0.2
+var bag_item = preload("res://src/items/otherItems/Axe.tscn").instance()
+var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn").instance()
 
+var tower_items_held  = {
+	"Slot1" : bag_item,
+	"Slot2" : null,
+	"Slot3" : null,
+	"Slot4" : bag_item
+}
 
-var ItemClass = preload("res://src/items/core/Item.tscn")
 onready var _target : Enemy = null
 onready var _enemiesInRange := []
 onready var _timer : Timer = $Timer
@@ -51,9 +59,6 @@ func upgrade_with(item_type: int) -> bool:
 
 func _fire() -> void:
 	weapon = preload("res://src/projectile/core/Projectile.tscn").instance()
-	var axe = preload("res://src/items/otherItems/Axe.tscn")
-	var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn")
-	self._equip_item(emerald_staff.instance())
 	weapon.fire(global_position, _target)
 	get_parent().add_child(weapon)
 
@@ -115,8 +120,13 @@ func _equip_item(item):
 			$Range/RangeRadius.set_radius(rangeRadius + item.rangeIncrease)
 
 
-func _play_build_tower_animation():
-	$BuildAnimation.visible = true
-	$BuildAnimation.play("Build", false)
-	# $BuildAnimation.visible = false
-	pass
+#func _play_build_tower_animation():
+#	$BuildAnimation.visible = true
+#	$BuildAnimation.play("Build", false)
+#	# $BuildAnimation.visible = false
+#	pass
+
+func _drop_item(slot:String):
+	var temp = tower_items_held[slot]
+	tower_items_held[slot] = null
+	return temp
