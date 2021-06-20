@@ -1,6 +1,6 @@
 extends Node
 
-enum ITEMSNAME {
+enum ITEM_NAMES {
 	AXE,
 	EMERALDSTAFF,
 	IRONBOOT
