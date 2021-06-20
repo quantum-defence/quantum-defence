@@ -129,10 +129,10 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = -190.0
-margin_right = 250.0
-margin_bottom = -50.0
+margin_left = 108.0
+margin_top = -463.0
+margin_right = 340.0
+margin_bottom = -291.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -153,6 +153,19 @@ __meta__ = {
 margin_right = 159.0
 margin_bottom = 155.0
 custom_styles/panel = SubResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.306
+anchor_top = 0.141
+anchor_right = 0.306
+anchor_bottom = 0.141
+margin_left = 1020.48
+margin_top = -40.28
+margin_right = 1188.48
+margin_bottom = 135.72
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="gui_input" from="TextureRect/GridContainer/Slot1/TextureRect" to="." method="_on_TextureRect_gui_input"]
 [connection signal="mouse_entered" from="TextureRect/GridContainer/Slot1/TextureRect" to="." method="_on_TextureRect_mouse_entered"]
