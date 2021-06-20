@@ -8,7 +8,8 @@ enum ACTION { BUILDING, INSPECTING }
 
 onready var tile_selector := $Selector
 onready var tile_map : TileMap = $TileMapSkeleton
-onready var home : Home = $Home
+onready var blue_home : Home = $BlueHome
+onready var red_home : Home = $RedHome
 var tile_at
 var tower_at
 
@@ -21,7 +22,8 @@ func _ready() -> void:
 		tile_at[i].resize(90)
 		for j in range(90):
 			tile_at[i][j] = tile_map.get_cell(i, j)
-	tile_at[home.position.x / TILE_SIZE][home.position.y / TILE_SIZE] = TILE_CONTENTS.HOME
+	tile_at[red_home.position.x / TILE_SIZE][red_home.position.y / TILE_SIZE] = TILE_CONTENTS.HOME
+	tile_at[blue_home.position.x / TILE_SIZE][blue_home.position.y / TILE_SIZE] = TILE_CONTENTS.HOME
 	tower_at = []
 	tower_at.resize(90)
 	for i in range(90):

@@ -9,11 +9,12 @@ const RANDOM_WALK_DIST := 128.0 * 0.4
 var _speed := 200.0
 var _health := 100.0
 var _target : Home
+var _red_target : Home
+var _blue_target : Home
 
 enum Q_STATE { SUPERPOSITION, RED, BLUE }
 var qubit := Vector2()
 var qubit_state : int = Q_STATE.SUPERPOSITION
-var http_request : HTTPRequest = null
 
 # current enemy behaviour
 var action
@@ -37,6 +38,19 @@ func _ready() -> void:
 	self.sprite.play("idle")
 	self.add_to_group("enemies")
 	collision_timer.set_paused(true)
+
+func set_up(
+		global_pos: Vector2,
+		red_target: Home,
+		blue_target: Home
+	):
+	self.global_position = global_pos
+	_red_target = red_target
+	_blue_target = blue_target
+	if (randf() >= 0.5):
+		change_state(Q_STATE.RED)
+	else:
+		change_state(Q_STATE.BLUE)
 
 func _physics_process(delta: float) -> void:
 	self.z_index = self.global_position.y / 10.0
@@ -106,43 +120,33 @@ func attack() -> void:
 	get_parent().add_child(weapon)
 
 # take damage
-func take_damage(damage_taken: float) -> void:
-	if qubit_state == Q_STATE.SUPERPOSITION:
-		http_request = HTTPRequest.new()
-		add_child(http_request)
-		http_request.connect("request_completed", self, "_on_HTTPRequest_request_completed")
-		http_request.request("https://tower-defence-qiskit-api.herokuapp.com/test-enemy-gen")
+func take_damage(damage_taken: float, flip_state: bool = false) -> void:
 	_health -= damage_taken
 	if _health <= 0.0:
 		_kill()
 		return
+	
+	if flip_state:
+		if qubit_state == Q_STATE.RED:
+			change_state(Q_STATE.BLUE)
+		elif qubit_state == Q_STATE.BLUE:
+			change_state(Q_STATE.RED)
 	
 	damage_taken_timer.start(damage_taken_time)
 	if action != ACTION.TAKE_DAMAGE:
 		sprite.play("take_damage")
 		action = ACTION.TAKE_DAMAGE
 
-func _on_HTTPRequest_request_completed( result, response_code, headers, body ):
-	var json = JSON.parse(body.get_string_from_utf8())
-	if http_request != null:
-		http_request.queue_free()
-	http_request = null
-	if json.result == 0:
-		change_look(Q_STATE.RED)
-	else:
-		change_look(Q_STATE.BLUE)
-
-func change_look(new_state: int) -> void:
-	if qubit_state != Q_STATE.SUPERPOSITION:
-		return
+func change_state(new_state: int) -> void:
 	qubit_state = new_state
 	match new_state:
-		Q_STATE.SUPERPOSITION:
-			modulate = Color.white
 		Q_STATE.RED:
 			modulate = Color.red
+			_target = _red_target
 		Q_STATE.BLUE:
 			modulate = Color.blue
+			_target = _blue_target
+	set_target(_target)
 	
 
 func _kill() -> void:
@@ -164,7 +168,13 @@ func _set_target(relative_position_target : Vector2) -> PoolVector2Array:
 # registers when home has been encountered
 func _on_Range_area_entered(area: Area2D) -> void:
 	if area is Home:
-		_is_reached = true
+		var ar : Home = area
+		if ar.isRed and qubit_state == Q_STATE.RED:
+			_is_reached = true
+		if qubit_state == Q_STATE.BLUE and not (ar.isRed):
+			_is_reached = true
+	return
+
 
 func _on_body_entering_vitals(body: Node) -> void:
 	if body is Projectile:

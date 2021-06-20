@@ -48,5 +48,7 @@ func _process(delta: float) -> void:
 func spawn() -> void:
 	var enemy = ENEMY_TYPES.SABRE.instance()
 	get_parent().add_child_below_node(self, enemy)
-	enemy.global_position = self.global_position
-	enemy.set_target(get_parent().get_node("Home"))
+	enemy.set_up(
+		self.global_position, 
+		get_parent().get_node("RedHome"),
+		get_parent().get_node("BlueHome"))
