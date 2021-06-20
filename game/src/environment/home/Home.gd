@@ -4,6 +4,7 @@ class_name Home
 onready var health := 100.0
 onready var sprite : AnimatedSprite = $AnimatedSprite
 onready var damage_taken_timer : Timer = $Timer
+export var isRed : bool = false
 const damage_taken_time = 0.2
 
 func _ready() -> void:
