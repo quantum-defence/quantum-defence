@@ -1,4 +1,7 @@
-[gd_resource type="ImageTexture" format=2]
+[gd_resource type="AnimatedTexture" load_steps=2 format=2]
+
+[ext_resource path="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_Destruction.png" type="Texture" id=1]
 
 [resource]
-lossy_quality = 1.0
+flags = 4
+frame_0/texture = ExtResource( 1 )
