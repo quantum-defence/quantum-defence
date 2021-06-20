@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "CanvasLayer",
 "class": "BuildUI",
 "language": "GDScript",
-"path": "res://src/ui/gameplay/buildUI(new)/BuildUI.gd"
+"path": "res://src/ui/gameplay/BuildTool/BuildUI.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",

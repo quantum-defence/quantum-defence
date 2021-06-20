@@ -84,7 +84,7 @@ animations = [ {
 [node name="Tower" instance=ExtResource( 2 )]
 
 [node name="AnimatedSprite" parent="." index="4"]
-position = Vector2( 6, -134 )
+position = Vector2( 6, -102 )
 scale = Vector2( 1.05789, 0.9045 )
 frames = SubResource( 15 )
 animation = "Idle"

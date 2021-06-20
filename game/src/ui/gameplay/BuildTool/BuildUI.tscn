@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://src/ui/gameplay/buildUI(new)/BuildUI.gd" type="Script" id=1]
+[ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Increase.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png" type="Texture" id=3]
 [ext_resource path="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png" type="Texture" id=4]
@@ -13,8 +13,8 @@
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Info.png" type="Texture" id=11]
 [ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/LoRTowerV2_blue_no_soul_no_fire-Sheet.png" type="Texture" id=12]
 [ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Equipment/Bag.png" type="Texture" id=13]
-[ext_resource path="res://src/ui/gameplay/buildUI(new)/buildUISlot.gd" type="Script" id=14]
-[ext_resource path="res://src/ui/gameplay/buildUI(new)/tower-builds.gd" type="Script" id=16]
+[ext_resource path="res://src/ui/gameplay/BuildTool/buildUISlot.gd" type="Script" id=14]
+[ext_resource path="res://src/ui/gameplay/BuildTool/tower-builds.gd" type="Script" id=16]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
