@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation(Blue).png" type="Texture" id=10]
 [ext_resource path="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png" type="Texture" id=11]
 [ext_resource path="res://assets/img/UI/BuildToolUIBackground.png" type="Texture" id=12]
-[ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Blue Level 2).png" type="Texture" id=13]
+[ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Blue Level 1).png" type="Texture" id=13]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Normal/Buttons_Button Normal - Increase.png" type="Texture" id=14]
 [ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 1).png" type="Texture" id=15]
 [ext_resource path="res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet.png" type="Texture" id=16]
@@ -293,7 +293,7 @@ texture_normal = ExtResource( 6 )
 script = ExtResource( 18 )
 
 [node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/ObeliskTower"]
-position = Vector2( 79.6768, 38.0546 )
+position = Vector2( 81.5646, 77.6973 )
 scale = Vector2( 0.81223, 0.605684 )
 texture = ExtResource( 13 )
 hframes = 14
