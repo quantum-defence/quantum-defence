@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LoRTowerV1_red_with_soul_with_fire-Sheet.png-42a3edadc46c10701a10c7e1e140bda6.stex"
+path="res://.import/FlyingObelisk_Destruction(Red).png-4bc388f0b8671a83e7c06a395c47727e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/towers/pixelTowers/LoRTower_Full/LoRTowerV1_red_with_soul_with_fire-Sheet.png"
-dest_files=[ "res://.import/LoRTowerV1_red_with_soul_with_fire-Sheet.png-42a3edadc46c10701a10c7e1e140bda6.stex" ]
+source_file="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_Destruction(Red).png"
+dest_files=[ "res://.import/FlyingObelisk_Destruction(Red).png-4bc388f0b8671a83e7c06a395c47727e.stex" ]
 
 [params]
 

@@ -23,6 +23,12 @@ var bag_item = preload("res://src/items/otherItems/Axe.tscn").instance()
 var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn").instance()
 onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer")
 
+
+var isRed = true
+var redTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png")
+var blueTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade C.png")
+
+
 #if buildMode is not true, then it is in normal mode
 var buildMode : bool = false
 var build_UI_items_held  = {
@@ -127,4 +133,13 @@ func _pick_up_item(item: Item) -> void:
 	current_slot.texture = item.get_node("TextureRect").texture
 	print(current_slot)		
 	print(build_UI_items_held)		
+
+
+func _on_TextureButton_pressed():
+	print("Called")
+	if (isRed):
+		isRed = false
+	else:
+		isRed = true	
+
 

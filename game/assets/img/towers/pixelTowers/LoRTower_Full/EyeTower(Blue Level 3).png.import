@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Obelisk_Full_File-Sheet.png-4dbfc8213d08abbf657ce4efbaaac3f7.stex"
+path="res://.import/EyeTower(Blue Level 3).png-ec1f77b35513b246d3d6023342f46791.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk_Full_File-Sheet.png"
-dest_files=[ "res://.import/Obelisk_Full_File-Sheet.png-4dbfc8213d08abbf657ce4efbaaac3f7.stex" ]
+source_file="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 3).png"
+dest_files=[ "res://.import/EyeTower(Blue Level 3).png-ec1f77b35513b246d3d6023342f46791.stex" ]
 
 [params]
 

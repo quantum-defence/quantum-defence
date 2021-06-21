@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LoRTowerV2_blue_no_soul_with_fire-Sheet.png-bb7989ef1dfc6921f0daeb891aff45af.stex"
+path="res://.import/RedMoonTower_charge_end(Blue).png-bc7a33fcaa0c68191e9c13867973282b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/towers/pixelTowers/LoRTower_Full/LoRTowerV2_blue_no_soul_with_fire-Sheet.png"
-dest_files=[ "res://.import/LoRTowerV2_blue_no_soul_with_fire-Sheet.png-bb7989ef1dfc6921f0daeb891aff45af.stex" ]
+source_file="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_charge_end(Blue).png"
+dest_files=[ "res://.import/RedMoonTower_charge_end(Blue).png-bc7a33fcaa0c68191e9c13867973282b.stex" ]
 
 [params]
 

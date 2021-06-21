@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/environment/towers/core/Tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/towers/pixelTowers/eyeTower/eyeTower.gd" type="Script" id=2]
-[ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/LoRTowerV2_blue_with_soul_with_fire-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 3).png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4

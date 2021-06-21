@@ -43,6 +43,7 @@ func take_action():
 		return null
 	match (_action):
 		ACTION.BUILDING:
+			print("tower build from tile selector")
 			return arena.build_tower(_x, _y, _type)
 		ACTION.INSPECTING:
 			print("inspecting tower")	

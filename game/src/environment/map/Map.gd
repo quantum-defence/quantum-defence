@@ -72,6 +72,15 @@ func build_tower(x: int, y: int, tower_type: String) -> bool:
 		return false
 	# warning-ignore:unsafe_method_access
 	var tower : Tower = load(tower_type).instance()
+	var build_UI = self.get_node("UI/Control/BuildUI")
+	
+	#Check and change the universe of the towers
+
+	if (build_UI.isRed):
+		pass
+	else:
+		tower.isRed = false
+	
 	add_child(tower)
 	tower.build_at(Vector2(x + 0.5, y + 0.5) * TILE_SIZE)
 	tower.z_index = tower.global_position.y / 10.0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LoRTowerV1_red_no_soul_with_fire-Sheet.png-6a9e7d5f9b66c0eea0a0c774f3639ee3.stex"
+path="res://.import/Obelisk(Red Level 2 Alternate).png-3f7ad2b01d9ec92ead0181662738cf98.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/towers/pixelTowers/LoRTower_Full/LoRTowerV1_red_no_soul_with_fire-Sheet.png"
-dest_files=[ "res://.import/LoRTowerV1_red_no_soul_with_fire-Sheet.png-6a9e7d5f9b66c0eea0a0c774f3639ee3.stex" ]
+source_file="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 2 Alternate).png"
+dest_files=[ "res://.import/Obelisk(Red Level 2 Alternate).png-3f7ad2b01d9ec92ead0181662738cf98.stex" ]
 
 [params]
 
