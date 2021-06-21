@@ -32,8 +32,23 @@ func _ready() -> void:
 		for j in range(90):
 			tower_at[i][j] = tile_map.get_cell(i, j)
 
+func _process(delta):
+	var viewport: Viewport = $CanvasLayer/Viewport
+	viewport.size = $CanvasLayer/TextureRect.rect_size
+
 # dummy function to show use of selector
 func _unhandled_input(event: InputEvent) -> void:
+	var viewport: Viewport = $CanvasLayer/Viewport
+	var event2 = event.duplicate()
+	# TODO: Mouse is offset
+	#if event is InputEventMouse:
+	#	print(event.position)
+	viewport.set_meta("ignore_input", false)
+	viewport.input(event2)
+	if viewport.is_input_handled() and not viewport.get_meta("ignore_input"):
+		get_viewport().set_input_as_handled()
+		return
+	
 	if event is InputEventMouseButton:
 		var e : InputEventMouseButton = event
 		if e.button_index == BUTTON_LEFT and e.pressed:
@@ -72,7 +87,7 @@ func build_tower(x: int, y: int, tower_type: String) -> bool:
 		return false
 	# warning-ignore:unsafe_method_access
 	var tower : Tower = load(tower_type).instance()
-	var build_UI = self.get_node("UI/Control/BuildUI")
+	var build_UI = self.get_node("CanvasLayer/Viewport/UI/Control/BuildUI")
 	
 	#Check and change the universe of the towers
 

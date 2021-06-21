@@ -51,7 +51,7 @@ func take_action():
 			if (inspected_tower == null):
 				return 0
 			else:
-				var tower_inventory = find_parent("Map").get_node("UI/Control/TowerInventory")
+				var tower_inventory = find_parent("Map").get_node("CanvasLayer/Viewport/UI/Control/TowerInventory")
 				tower_inventory.change_tower_to_be_build(inspected_tower)
 				if (tower_inventory.is_visible == false):
 					tower_inventory.toggle_tower_inventory_visible()

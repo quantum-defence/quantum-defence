@@ -232,6 +232,7 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 800.0
+mouse_filter = 2
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -240,7 +241,7 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="Control/BuildUI/VBoxContainer"]
 margin_right = 1920.0
 margin_bottom = 280.0
-mouse_filter = 1
+mouse_filter = 2
 custom_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -261,12 +262,14 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer"]
 margin_right = 1920.0
 margin_bottom = 280.0
+mouse_filter = 2
 custom_styles/panel = SubResource( 5 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer"]
 margin_top = 60.0
 margin_right = 1920.0
 margin_bottom = 220.0
+mouse_filter = 2
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
@@ -380,6 +383,7 @@ hframes = 14
 margin_left = 1360.0
 margin_right = 1696.0
 margin_bottom = 160.0
+mouse_filter = 2
 columns = 5
 
 [node name="Slot1" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
@@ -388,6 +392,7 @@ columns = 5
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot1"]
@@ -410,6 +415,7 @@ margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot2"]
@@ -432,6 +438,7 @@ margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot3"]
@@ -455,6 +462,7 @@ margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot4"]
@@ -477,6 +485,7 @@ margin_left = 272.0
 margin_right = 336.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot5"]
@@ -499,6 +508,7 @@ margin_top = 68.0
 margin_right = 64.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot6"]
@@ -522,6 +532,7 @@ margin_top = 68.0
 margin_right = 132.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot7"]
@@ -545,6 +556,7 @@ margin_top = 68.0
 margin_right = 200.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot8"]
@@ -568,6 +580,7 @@ margin_top = 68.0
 margin_right = 268.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot9"]
@@ -591,6 +604,7 @@ margin_top = 68.0
 margin_right = 336.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot10"]
@@ -628,6 +642,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="gui_input" from="Control" to="Control" method="_on_Control_gui_input"]
 [connection signal="gui_input" from="Control/TowerInventory/TextureRect/GridContainer/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
 [connection signal="mouse_entered" from="Control/TowerInventory/TextureRect/GridContainer/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_mouse_entered"]
 [connection signal="gui_input" from="Control/TowerInventory/TextureRect/GridContainer/Slot2/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]

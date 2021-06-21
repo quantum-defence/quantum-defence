@@ -12,3 +12,6 @@ func drop_data(position, data):
 	data["target_slot"] = data["origin_slot"]
 	data["target_item"] = data["origin_item"]
 	data["origin_slot"].texture = data["origin_texture"]
+
+func _on_Control_gui_input(event):
+	get_viewport().set_meta("ignore_input", true)
