@@ -40,9 +40,6 @@ func _process(delta):
 func _unhandled_input(event: InputEvent) -> void:
 	var viewport: Viewport = $CanvasLayer/Viewport
 	var event2 = event.duplicate()
-	# TODO: Mouse is offset
-	#if event is InputEventMouse:
-	#	print(event.position)
 	viewport.set_meta("ignore_input", false)
 	viewport.input(event2)
 	if viewport.is_input_handled() and not viewport.get_meta("ignore_input"):
@@ -66,6 +63,10 @@ func select_tile(x: int, y: int) -> void:
 	tile_selector.select(x, y)
 
 func get_contents_at(x: int, y: int) -> int:
+	if x < 0 or x >= tile_at.size():
+		return 0
+	if y < 0 or y >= tile_at[x].size():
+		return 0
 	return tile_at[x][y]
 
 
