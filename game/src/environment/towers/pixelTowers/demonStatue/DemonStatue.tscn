@@ -336,5 +336,4 @@ position = Vector2( 0, -112 )
 scale = Vector2( 1.7249, 1.47304 )
 frames = SubResource( 63 )
 animation = "IdleBlue"
-frame = 18
 speed_scale = 0.5
