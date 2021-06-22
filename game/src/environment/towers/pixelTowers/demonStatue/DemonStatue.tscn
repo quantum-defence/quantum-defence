@@ -172,11 +172,11 @@ animations = [ {
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" parent="." index="4"]
-position = Vector2( 0, -112 )
+position = Vector2( 0, -64 )
 scale = Vector2( 1.7249, 1.47304 )
 frames = SubResource( 32 )
 animation = "idle"
-frame = 4
+frame = 7
 speed_scale = 0.5
 
 [node name="QuantumNode" type="Node" parent="." index="6"]
