@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Increase.png" type="Texture" id=2]
@@ -31,25 +31,6 @@ margin_left = 13.2964
 margin_right = 12.1884
 margin_top = 13.5051
 margin_bottom = 14.4044
-
-[sub_resource type="GDScript" id=4]
-script/source = "extends TextureButton
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-"
 
 [node name="BuildUI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -439,7 +420,6 @@ margin_bottom = 160.0
 toggle_mode = true
 texture_normal = ExtResource( 15 )
 texture_pressed = ExtResource( 17 )
-script = SubResource( 4 )
 __meta__ = {
 "_editor_description_": ""
 }

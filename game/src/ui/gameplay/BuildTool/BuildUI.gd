@@ -58,7 +58,6 @@ func _ready() -> void:
 
 	
 func _on_BuildMode_pressed():
-	print("buildMode pressed")
 	get_tree().call_group("tower_builds", "change_visibility", true)
 	
 	var tower_inventory = get_parent().get_node("TowerInventory")
@@ -67,52 +66,43 @@ func _on_BuildMode_pressed():
 	buildMode = true
 
 func _on_InspectMode_pressed():
-	print(buildMode)
 	buildMode = false
 	tileSelector.set_action(TileSelector.ACTION.INSPECTING, "smth")
 	var tower_inventory = get_parent().get_node("TowerInventory")
 	get_tree().call_group("tower_builds", "change_visibility", false)
-	print(buildMode)
 
 
 func _on_ObeliskTower_pressed():
-	print("ObeliskTowerSelected")
 	if (buildMode):
-		print("Called tile selector in UI")
 		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.OBELISK])
 	pass
 
 
 func _on_FlyingObelisk_pressed():
-	print("FlyingObeliskTowerSelected")
 	if (buildMode):
 		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.FLYINGOBELISK])
 	pass # Replace with function body.
 
 
 func _on_LightningTotem_pressed():
-	print("LightningTotem Selected")
 	if (buildMode):
 		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.LIGHTNINGTOTEM])
 	pass # Replace with function body.
 
 
 func _on_DemonStatue_pressed():
-	print("DemonStatue selected")
 	if (buildMode):
 		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.DEMONSTATUE])
 	pass # Replace with function body.
 
 
 func _on_MoonTower_pressed():
-	print("MoonTower selected")
 	if (buildMode):
 		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.MOONTOWER])
 	pass # Replace with function body.
 
 
 func _on_EyeTower_pressed():
-	print("EyeTower selected")
 	if (buildMode):
 		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.EYETOWER])
 	pass # Replace with function body.
@@ -121,22 +111,17 @@ func _pick_up_item(item: Item) -> void:
 	#Equip the item
 	var slot
 	for slots in build_UI_items_held:
-		print(slots)
 		if (build_UI_items_held[slots] == null):
 			slot = slots
 			build_UI_items_held[slots] = item
 			break
 
 	#Get reference to the slot that an item was eqipped to update texture
-	print(slot)
 	var current_slot = all_inventories_slots.get_node(slot).get_node("TextureRect")
 	current_slot.texture = item.get_node("TextureRect").texture
-	print(current_slot)		
-	print(build_UI_items_held)		
 
 
 func _on_TextureButton_pressed():
-	print("Called")
 	if (isRed):
 		isRed = false
 	else:

@@ -25,10 +25,6 @@ func simulate_and_get_statevector(qc: QuantumCircuit, config={}) -> PoolVector2A
 	return sim.simulate(qc, config)
 
 func _ready() -> void:
-	# test_memory()
-	#test_rx()
-	#test_rz()
-	# print('foo')
 	var qc:= newQC(1).rx(PI/2, 0).rz(PI/8, 0).rx(-PI/2, 0)
 	qc.print_data()
 	print(simulate_and_get_statevector(qc))
