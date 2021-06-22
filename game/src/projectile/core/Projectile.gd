@@ -48,8 +48,6 @@ func inflict_damage(body : Node2D) -> void:
 	if body == target:
 		if isTensor:
 			flip_state = true
-			print('foof')
-			print(_probs["1"])
 			isRed = randf() > _probs["1"]
 		body.take_damage(damage, flip_state, isRed)
 		self.queue_free()

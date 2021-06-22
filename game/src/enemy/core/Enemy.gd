@@ -12,7 +12,7 @@ var _target : Home
 var _red_target : Home
 var _blue_target : Home
 
-enum Q_STATE { SUPERPOSITION, RED, BLUE }
+enum Q_STATE { SUPERPOSITION = 0, RED = 1, BLUE = 2 }
 var qubit := Vector2()
 var qubit_state : int = Q_STATE.SUPERPOSITION
 
@@ -127,10 +127,10 @@ func take_damage(damage_taken: float, isFlip: bool = false, isRed: bool = false)
 		return
 	
 	if isFlip:
-		if qubit_state == Q_STATE.RED:
-			change_state(Q_STATE.BLUE)
-		elif qubit_state == Q_STATE.BLUE:
+		if isRed:
 			change_state(Q_STATE.RED)
+		else:
+			change_state(Q_STATE.BLUE)
 	
 	damage_taken_timer.start(damage_taken_time)
 	if action != ACTION.TAKE_DAMAGE:

@@ -32,7 +32,8 @@ onready var itemsHeld = []
 var weapon 
 onready var _attributes := [0, 0, 0, 0] # assuming 4 attributes
 
-export var isRed = true
+export var isRed := true
+export var isTensor := false
 
 func _ready() -> void:
 	#_timer.set_wait_time(firing_interval)
@@ -63,6 +64,8 @@ func _fire():
 	weapon = preload("res://src/projectile/core/Projectile.tscn").instance()
 	weapon.fire(global_position, _target)
 	get_parent().add_child(weapon)
+	if (isTensor):
+		_forget_enemy(_target)
 	return weapon
 
 
@@ -71,14 +74,17 @@ func _choose_enemy() -> Enemy:
 	if _enemiesInRange.size() == 0:
 		return null
 	
-	var chosen_enemy : Enemy = _enemiesInRange[0]
-	var min_dist := self.position.distance_squared_to(chosen_enemy.position)
+	var chosen_enemy : Enemy = null
+	var min_dist := 999999999999
 	for enemy in _enemiesInRange:
 		if enemy.action == Enemy.ACTION.DIE:
 			_forget_enemy(enemy)
-		var new_dist := self.position.distance_squared_to(enemy.position)
-		if min_dist > new_dist:
-			chosen_enemy = enemy
+		if enemy.qubit_state == (1 if self.isRed else 2):
+			var new_dist := self.position.distance_squared_to(enemy.position)
+			if min_dist > new_dist:
+				chosen_enemy = enemy
+	if chosen_enemy == null or (chosen_enemy.qubit_state != (1 if self.isRed else 2)):
+		return null
 	return chosen_enemy
 
 func _process(delta: float) -> void:
@@ -88,10 +94,7 @@ func _process(delta: float) -> void:
 		_fire()
 
 func _add_enemy(enemy: Enemy) -> void:
-	if (enemy.qubit_state == 1 and isRed):
-		_enemiesInRange.append(enemy)
-	elif (enemy.qubit_state == 2 and !isRed):
-		_enemiesInRange.append(enemy)
+	_enemiesInRange.append(enemy)
 	
 func _forget_enemy(enemy: Enemy) -> void:
 	_enemiesInRange.erase(enemy)
