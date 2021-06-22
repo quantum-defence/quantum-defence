@@ -1,9 +1,9 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://src/environment/towers/core/Tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_blue_sheet.png" type="Texture" id=2]
 [ext_resource path="res://src/environment/towers/pixelTowers/demonStatue/DemonStatueScript.gd" type="Script" id=3]
-[ext_resource path="res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_red_sheet.png" type="Texture" id=4]
+[ext_resource path="res://src/quantum/QuantumNode.gd" type="Script" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -319,13 +319,8 @@ region = Rect2( 4500, 0, 150, 210 )
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
-"name": "IdleBlue",
-"speed": 31.0
-}, {
-"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ) ],
-"loop": true,
-"name": "IdleRed",
-"speed": 31.0
+"name": "idle",
+"speed": 15.0
 } ]
 
 [node name="Tower" instance=ExtResource( 1 )]
@@ -334,7 +329,10 @@ script = ExtResource( 3 )
 [node name="AnimatedSprite" parent="." index="4"]
 position = Vector2( 0, -112 )
 scale = Vector2( 1.7249, 1.47304 )
-frames = SubResource( 63 )
-animation = "IdleBlue"
-frame = 18
+frames = SubResource( 32 )
+animation = "idle"
+frame = 2
 speed_scale = 0.5
+
+[node name="QuantumNode" type="Node" parent="." index="6"]
+script = ExtResource( 4 )

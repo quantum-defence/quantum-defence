@@ -59,10 +59,11 @@ func upgrade_with(item_type: int) -> bool:
 	return false
 	
 
-func _fire() -> void:
+func _fire():
 	weapon = preload("res://src/projectile/core/Projectile.tscn").instance()
 	weapon.fire(global_position, _target)
 	get_parent().add_child(weapon)
+	return weapon
 
 
 func _choose_enemy() -> Enemy:
@@ -74,7 +75,7 @@ func _choose_enemy() -> Enemy:
 	var min_dist := self.position.distance_squared_to(chosen_enemy.position)
 	for enemy in _enemiesInRange:
 		if enemy.action == Enemy.ACTION.DIE:
-			_forget_out_of_range(enemy)
+			_forget_enemy(enemy)
 		var new_dist := self.position.distance_squared_to(enemy.position)
 		if min_dist > new_dist:
 			chosen_enemy = enemy
@@ -86,22 +87,22 @@ func _process(delta: float) -> void:
 		_timer.start()
 		_fire()
 
-func _add_new_in_range(enemy: Enemy) -> void:
+func _add_enemy(enemy: Enemy) -> void:
 	if (enemy.qubit_state == 1 and isRed):
 		_enemiesInRange.append(enemy)
 	elif (enemy.qubit_state == 2 and !isRed):
 		_enemiesInRange.append(enemy)
 	
-func _forget_out_of_range(enemy: Enemy) -> void:
+func _forget_enemy(enemy: Enemy) -> void:
 	_enemiesInRange.erase(enemy)
 
 func _on_Range_body_entered(body) -> void:
 	if body is Enemy:
-		_add_new_in_range(body)
+		_add_enemy(body)
 
 func _on_Range_body_exited(body: Node) -> void:
 	if body is Enemy:
-		_forget_out_of_range(body)
+		_forget_enemy(body)
 
 func _equip_item(item):
 	# All the current stats of the tower

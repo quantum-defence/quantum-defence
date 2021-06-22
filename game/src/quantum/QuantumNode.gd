@@ -5,6 +5,10 @@ class_name QuantumNode
 onready var qc: QuantumCircuit = $QuantumCircuit
 onready var sim: QuantumSimulator = $Simulator
 
+func _ready() -> void:
+	qc = QuantumCircuit.new()
+	sim = QuantumSimulator.new()
+
 # returns array of strings 
 func simulate_and_get_memory(config={}) -> Array:
 	config['get'] = 'memory';

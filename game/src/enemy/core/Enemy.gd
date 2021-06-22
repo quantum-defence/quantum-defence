@@ -120,13 +120,13 @@ func attack() -> void:
 	get_parent().add_child(weapon)
 
 # take damage
-func take_damage(damage_taken: float, flip_state: bool = false) -> void:
+func take_damage(damage_taken: float, isFlip: bool = false, isRed: bool = false) -> void:
 	_health -= damage_taken
 	if _health <= 0.0:
 		_kill()
 		return
 	
-	if flip_state:
+	if isFlip:
 		if qubit_state == Q_STATE.RED:
 			change_state(Q_STATE.BLUE)
 		elif qubit_state == Q_STATE.BLUE:
@@ -147,7 +147,6 @@ func change_state(new_state: int) -> void:
 			modulate = Color.blue
 			_target = _blue_target
 	set_target(_target)
-	
 
 func _kill() -> void:
 	action = ACTION.DIE
