@@ -35,6 +35,7 @@ func can_drop_data(position, data):
 	return true
 
 func drop_data(position, data):
+	print("Dropped data called in towerInventory slot")
 	var target_slot_name : String = get_parent().get_name()
 	var target_slot = get_parent()
 	var target_slot_item = tower_inventory.tower_inventory_items_held[target_slot_name]
@@ -55,6 +56,7 @@ func drop_data(position, data):
 			
 		#If target slot belongs to Tower inventory. E.g equipping item
 		elif (origin_slot.is_in_group("TowerInventorySlots")):
+			print("COMES HErEERELKJALEKs")
 			data["target_item"] = null
 			data["target_texture"] = null
 			tower_inventory.tower_inventory_items_held[target_slot_name] = data["origin_item"]
