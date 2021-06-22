@@ -84,13 +84,13 @@ func drop_data(position, data):
 			tower_inventory.tower_inventory_items_held[origin_slot_name] = temp_item_for_swap			
 
 
-	print("________________________")
-	print("Tower inventory is")
-	print(tower_inventory.tower_inventory_items_held)
-	print("________________________")
-	print("Build UI Inventory is")
-	print(build_UI.build_UI_items_held)
-	print("====================================================================")		
+	# print("________________________")
+	# print("Tower inventory is")
+	# print(tower_inventory.tower_inventory_items_held)
+	# print("________________________")
+	# print("Build UI Inventory is")
+	# print(build_UI.build_UI_items_held)
+	# print("====================================================================")		
 	tower_inventory.check_all_items_attributes()		
 
 

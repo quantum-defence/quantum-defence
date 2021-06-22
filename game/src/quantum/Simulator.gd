@@ -129,7 +129,6 @@ func simulate(qc: QuantumCircuit, config={}):
 						probs[b1] = (1 - p_meas) * p1 + p_meas * p0
 		if get=='probabilities_dict':
 			var probs_dict : Dictionary = {};
-			print(probs_dict)
 			for i in range(probs.size()):
 				probs_dict[dec2bin(i, qc.num_qubits)] = probs[i]
 			return probs_dict

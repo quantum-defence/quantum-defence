@@ -32,6 +32,8 @@ onready var itemsHeld = []
 var weapon 
 onready var _attributes := [0, 0, 0, 0] # assuming 4 attributes
 
+export var isRed = true
+
 func _ready() -> void:
 	#_timer.set_wait_time(firing_interval)
 # warning-ignore:return_value_discarded
@@ -85,7 +87,10 @@ func _process(delta: float) -> void:
 		_fire()
 
 func _add_new_in_range(enemy: Enemy) -> void:
-	_enemiesInRange.append(enemy)
+	if (enemy.qubit_state == 1 and isRed):
+		_enemiesInRange.append(enemy)
+	elif (enemy.qubit_state == 2 and !isRed):
+		_enemiesInRange.append(enemy)
 	
 func _forget_out_of_range(enemy: Enemy) -> void:
 	_enemiesInRange.erase(enemy)
@@ -104,12 +109,9 @@ func _equip_item(item):
 	var towerDamage = weapon.damage
 	var projectileSpeed = weapon.speed
 	var towerAttackSpeed = $Timer.get_wait_time()
-	print(towerAttackSpeed)
 	
 	if (itemsHeld.size() < 4):
 		itemsHeld.append(item)
-		print("item is appended")
-		print(weapon.speed)
 		#Check for all the stats
 		if (item.damageIncrease != 0):
 			weapon.damage = towerDamage + item.damageIncrease

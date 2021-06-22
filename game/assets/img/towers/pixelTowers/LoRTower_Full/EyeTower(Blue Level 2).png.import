@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LoRTowerV1_red_no_soul_no_fire-Sheet.png-329e4d380a3f06896d5f7f99df73ab49.stex"
+path="res://.import/EyeTower(Blue Level 2).png-5dd7d94e49a278f0487d4f5240655224.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/towers/pixelTowers/LoRTower_Full/LoRTowerV1_red_no_soul_no_fire-Sheet.png"
-dest_files=[ "res://.import/LoRTowerV1_red_no_soul_no_fire-Sheet.png-329e4d380a3f06896d5f7f99df73ab49.stex" ]
+source_file="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 2).png"
+dest_files=[ "res://.import/EyeTower(Blue Level 2).png-5dd7d94e49a278f0487d4f5240655224.stex" ]
 
 [params]
 

@@ -75,26 +75,24 @@ func _ready():
 	toggle_tower_inventory_visible()
 	for slots in inventorySlots.get_children():
 		slots.get_child(0).connect("gui_input", self, "slot_gui_input", [slots.get_child(0)])
-	print("ready")	
 
 func slot_gui_input(event: InputEvent, binds)-> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed() and event.button_index == BUTTON_RIGHT:
-			print("aksjdbakjsdb")
-			print(binds)
+			# print(binds)
 			var current_slot = binds
 			var item_dropped = drop_item(current_slot)
-			print("=========================")
-			print(item_dropped)
-			print("=========================")
+			# print("=========================")
+			# print(item_dropped)
+			# print("=========================")
 			build_ui._pick_up_item(item_dropped)
 			
 
 func drop_item(slot: TowerInventorySlot) -> Item:
-	print(tower_to_be_built.tower_items_held)
+	# print(tower_to_be_built.tower_items_held)
 	var slot_name = slot.get_parent().get_name()
 	var item_dropped = tower_to_be_built._drop_item(slot_name)
-	print(tower_to_be_built.tower_items_held)
+	# print(tower_to_be_built.tower_items_held)
 	slot.texture = null
 	return item_dropped
 

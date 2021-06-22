@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FlyingObelisk_lightnings_no_letter.png-f7df08139698759da5d81b20745a9b5c.stex"
+path="res://.import/EyeTower(Red Level 1).png-42679416be7a1545ee456056dbfca8bb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_lightnings_no_letter.png"
-dest_files=[ "res://.import/FlyingObelisk_lightnings_no_letter.png-f7df08139698759da5d81b20745a9b5c.stex" ]
+source_file="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Red Level 1).png"
+dest_files=[ "res://.import/EyeTower(Red Level 1).png-42679416be7a1545ee456056dbfca8bb.stex" ]
 
 [params]
 

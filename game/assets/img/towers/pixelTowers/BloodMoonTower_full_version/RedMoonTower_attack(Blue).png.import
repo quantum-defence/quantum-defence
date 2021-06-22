@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FlyingObelisk_lightnings_letter.png-12a8ab0b222ffc2a2c09e113fae0fc03.stex"
+path="res://.import/RedMoonTower_attack(Blue).png-7769b368a977a4cd60cef81cf44753cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_lightnings_letter.png"
-dest_files=[ "res://.import/FlyingObelisk_lightnings_letter.png-12a8ab0b222ffc2a2c09e113fae0fc03.stex" ]
+source_file="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_attack(Blue).png"
+dest_files=[ "res://.import/RedMoonTower_attack(Blue).png-7769b368a977a4cd60cef81cf44753cd.stex" ]
 
 [params]
 

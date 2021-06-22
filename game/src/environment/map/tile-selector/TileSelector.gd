@@ -45,7 +45,6 @@ func take_action():
 		ACTION.BUILDING:
 			return arena.build_tower(_x, _y, _type)
 		ACTION.INSPECTING:
-			print("inspecting tower")	
 			var inspected_tower = arena.get_tower_at(_x, _y).get_ref()
 			if (inspected_tower == null):
 				return 0

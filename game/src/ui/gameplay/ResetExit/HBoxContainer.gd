@@ -17,11 +17,9 @@ func _ready():
 
 
 func _on_TextureButton_pressed():
-	print("Reset button pressed")
 	get_tree().change_scene("res://src/environment/map/Map.tscn")
 	
 
 
 func _on_ExitButton_pressed():
-	print("Exit Button")
 	get_tree().quit()

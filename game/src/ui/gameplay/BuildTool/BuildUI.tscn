@@ -1,20 +1,22 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Increase.png" type="Texture" id=2]
-[ext_resource path="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png" type="Texture" id=3]
+[ext_resource path="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation(Blue).png" type="Texture" id=3]
 [ext_resource path="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png" type="Texture" id=4]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Avatar.png" type="Texture" id=5]
-[ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelysk_souls_no_letter_light.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Blue Level 2).png" type="Texture" id=6]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Normal/Buttons_Button Normal - Increase.png" type="Texture" id=7]
 [ext_resource path="res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet.png" type="Texture" id=8]
 [ext_resource path="res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_blue_sheet.png" type="Texture" id=9]
 [ext_resource path="res://assets/img/UI/BuildToolUIBackground.png" type="Texture" id=10]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Info.png" type="Texture" id=11]
-[ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/LoRTowerV2_blue_no_soul_no_fire-Sheet.png" type="Texture" id=12]
+[ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 1).png" type="Texture" id=12]
 [ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Equipment/Bag.png" type="Texture" id=13]
 [ext_resource path="res://src/ui/gameplay/BuildTool/buildUISlot.gd" type="Script" id=14]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png" type="Texture" id=15]
 [ext_resource path="res://src/ui/gameplay/BuildTool/tower-builds.gd" type="Script" id=16]
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade C.png" type="Texture" id=17]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -71,7 +73,7 @@ custom_styles/panel = SubResource( 2 )
 margin_top = 60.0
 margin_right = 1920.0
 margin_bottom = 220.0
-custom_constants/separation = 25
+custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -83,16 +85,16 @@ texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 7 )
 
 [node name="InspectMode" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
-margin_left = 185.0
-margin_right = 345.0
+margin_left = 170.0
+margin_right = 330.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 11 )
 
 [node name="ObeliskTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
-margin_left = 370.0
-margin_right = 530.0
+margin_left = 340.0
+margin_right = 500.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
 script = ExtResource( 16 )
@@ -106,8 +108,8 @@ hframes = 14
 [node name="FlyingObelisk" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
-margin_left = 555.0
-margin_right = 715.0
+margin_left = 510.0
+margin_right = 670.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
 script = ExtResource( 16 )
@@ -121,8 +123,8 @@ hframes = 14
 [node name="LightningTotem" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
-margin_left = 740.0
-margin_right = 900.0
+margin_left = 680.0
+margin_right = 840.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
 script = ExtResource( 16 )
@@ -137,8 +139,8 @@ vframes = 5
 [node name="DemonStatue" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
-margin_left = 925.0
-margin_right = 1085.0
+margin_left = 850.0
+margin_right = 1010.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
 script = ExtResource( 16 )
@@ -153,8 +155,8 @@ vframes = 2
 [node name="MoonTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
-margin_left = 1110.0
-margin_right = 1270.0
+margin_left = 1020.0
+margin_right = 1180.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
 script = ExtResource( 16 )
@@ -168,8 +170,8 @@ hframes = 11
 [node name="EyeTower" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
-margin_left = 1295.0
-margin_right = 1455.0
+margin_left = 1190.0
+margin_right = 1350.0
 margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
 script = ExtResource( 16 )
@@ -181,8 +183,8 @@ texture = ExtResource( 12 )
 hframes = 14
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
-margin_left = 1480.0
-margin_right = 1816.0
+margin_left = 1360.0
+margin_right = 1696.0
 margin_bottom = 160.0
 columns = 5
 
@@ -411,6 +413,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
+margin_left = 1706.0
+margin_right = 1866.0
+margin_bottom = 160.0
+toggle_mode = true
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Build Mode"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/BuildMode" to="." method="_on_BuildMode_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/InspectMode" to="." method="_on_InspectMode_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/ObeliskTower" to="." method="_on_ObeliskTower_pressed"]
@@ -419,3 +441,4 @@ __meta__ = {
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/DemonStatue" to="." method="_on_DemonStatue_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/MoonTower" to="." method="_on_MoonTower_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/EyeTower" to="." method="_on_EyeTower_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
