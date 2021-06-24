@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Blue Level 2).png" type="Texture" id=1]
 [ext_resource path="res://src/environment/towers/core/Tower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 1).png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -73,20 +74,94 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 2470, 0, 190, 380 )
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 190, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 380, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 570, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 760, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 950, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1140, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1330, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1520, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1710, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1900, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2090, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2280, 0, 190, 240 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2470, 0, 190, 240 )
+
+[sub_resource type="SpriteFrames" id=29]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
-"name": "Idle",
+"name": "IdleBlue(Level 1)",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
+"loop": true,
+"name": "IdleRed(Level 1)",
 "speed": 5.0
 } ]
 
 [node name="Tower" instance=ExtResource( 2 )]
 
 [node name="AnimatedSprite" parent="." index="4"]
-position = Vector2( 6, -102 )
-scale = Vector2( 1.05789, 0.9045 )
-frames = SubResource( 15 )
-animation = "Idle"
-frame = 1
-playing = true
+position = Vector2( 2.22699, -48 )
+scale = Vector2( 1.11842, 1.05225 )
+frames = SubResource( 29 )
+animation = "IdleRed(Level 1)"
+frame = 5
