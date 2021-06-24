@@ -155,6 +155,8 @@ func change_state(new_state: int) -> void:
 			set_collision_layer_bit(5, false)
 			set_collision_layer_bit(4, true)
 	set_target(_target)
+	if (self.position.distance_to(_target.position) > 400):
+		_is_reached = false
 
 func _kill() -> void:
 	action = ACTION.DIE
