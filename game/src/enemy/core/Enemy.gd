@@ -143,9 +143,17 @@ func change_state(new_state: int) -> void:
 		Q_STATE.RED:
 			modulate = Color.red
 			_target = _red_target
+			set_collision_mask_bit(4, false)
+			set_collision_mask_bit(5, true)
+			set_collision_layer_bit(4, false)
+			set_collision_layer_bit(5, true)
 		Q_STATE.BLUE:
 			modulate = Color.blue
 			_target = _blue_target
+			set_collision_mask_bit(5, false)
+			set_collision_mask_bit(4, true)
+			set_collision_layer_bit(5, false)
+			set_collision_layer_bit(4, true)
 	set_target(_target)
 
 func _kill() -> void:
