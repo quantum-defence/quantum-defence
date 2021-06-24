@@ -109,12 +109,9 @@ func _equip_item(item):
 	var towerDamage = weapon.damage
 	var projectileSpeed = weapon.speed
 	var towerAttackSpeed = $Timer.get_wait_time()
-	print(towerAttackSpeed)
 	
 	if (itemsHeld.size() < 4):
 		itemsHeld.append(item)
-		print("item is appended")
-		print(weapon.speed)
 		#Check for all the stats
 		if (item.damageIncrease != 0):
 			weapon.damage = towerDamage + item.damageIncrease
