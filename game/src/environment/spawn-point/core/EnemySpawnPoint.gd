@@ -7,8 +7,8 @@ onready var ENEMY_TYPES = {
 }
 
 # constants
-export var spawn_rate := 1.0
-export var on_off_interval := [6,4]
+export var spawn_rate := 0.5
+export var on_off_interval := [4,16]
 
 # hidden state variables
 var _last_spawn := 0.0

@@ -7,5 +7,7 @@
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="3"]
+position = Vector2( -0.0672827, -1.58238 )
+scale = Vector2( 0.698864, 0.698864 )
 animation = "move"
 frame = 5
