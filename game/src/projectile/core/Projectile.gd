@@ -7,6 +7,8 @@ export var damage := 20.0
 # enemy state variables
 var origin : Vector2
 var target : Node2D
+var isTensor: bool = false
+var _probs: Dictionary
 
 func _ready() -> void:
 	self.global_position = origin
@@ -14,6 +16,10 @@ func _ready() -> void:
 		_stop()
 	else:
 		look_at(target.position)
+
+func set_prob(probs) -> void:
+	isTensor = true
+	_probs = probs
 
 func _physics_process(delta: float) -> void:
 	_move_toward_target(delta)
@@ -37,6 +43,11 @@ func _stop() -> void:
 	queue_free()
 
 func inflict_damage(body : Node2D) -> void:
+	var flip_state := false
+	var isRed := false
 	if body == target:
-		body.take_damage(damage)
+		if isTensor:
+			flip_state = true
+			isRed = randf() > _probs["1"]
+		body.take_damage(damage, flip_state, isRed)
 		self.queue_free()

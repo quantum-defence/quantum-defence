@@ -15,8 +15,8 @@ func _process(_delta: float) -> void:
 	if damage_taken_timer.is_stopped():
 		sprite.play("live")
 
-func take_damage(damage: float) -> void:
-	self.health -= damage
+func take_damage(damage_taken: float, _isFlip: bool = false, _isRed: bool = false) -> void:
+	self.health -= damage_taken
 	if health <= 0.0:
 		health = 0.0
 		sprite.play("take_damage")
