@@ -4,8 +4,8 @@
 [ext_resource path="res://src/environment/home/Home.gd" type="Script" id=2]
 [ext_resource path="res://src/environment/home/home_spriteframes.tres" type="SpriteFrames" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 64, 64 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 80.0
 
 [sub_resource type="DynamicFontData" id=2]
 font_path = "res://assets/font/arcadeclassic/ARCADECLASSIC.TTF"
