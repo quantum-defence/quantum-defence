@@ -11,6 +11,26 @@ enum TOWERTYPES {
 	EYETOWER = 5
 }
 
+#Red Sprites
+var redSprites = [
+	preload("res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 1).png"),
+	preload("res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png"),
+	preload("res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet(Red).png"),
+	preload("res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_red_sheet.png"),
+	preload("res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png"),
+	preload("res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Red Level 1).png")
+]
+
+var blueSprites = [
+	preload("res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Blue Level 1).png"),
+	preload("res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png"),
+	preload("res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet.png"),
+	preload("res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_blue_sheet.png"),
+	preload("res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation(Blue).png"),
+	preload("res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 1).png")
+]
+
+
 #Preload all the tower scenes to build
 const RESOURCE = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn",
 "res://src/environment/towers/pixelTowers/flyingObelisk/flyingObelisk.tscn",
@@ -53,6 +73,7 @@ onready var currentMap = self.get_parent()
 
 func _ready() -> void:
 	get_tree().call_group("tower_builds", "change_visibility", false)
+	print("ready being called")
 	# for slot in inventorySlots.get_children():
 		# slot.connect("gui_input", self, "slot_gui_input", [slot])
 
@@ -122,9 +143,31 @@ func _pick_up_item(item: Item) -> void:
 
 
 func _on_TextureButton_pressed():
+	_toggle_build_sprites_colors()
 	if (isRed):
 		isRed = false
 	else:
 		isRed = true	
 
 
+func _toggle_build_sprites_colors():
+	print("toggle being called")
+	var sceneTree = get_tree()
+	var towers = sceneTree.get_nodes_in_group("tower_builds")
+	var temp = 0
+	var sprite_used
+	
+	#For changing between sprites
+	if (isRed):
+		sprite_used = blueSprites
+	else:
+		sprite_used = redSprites
+
+	for tower in towers:
+		var picture = sprite_used[temp]
+		towers[temp].get_node("Sprite").texture = picture
+		temp += 1
+#	for tower in towers:
+#		print("hi") 
+#		tower.texture = redSprites[temp]
+#		temp += 1

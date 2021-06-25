@@ -116,11 +116,6 @@ region = Rect2( 1000, 0, 100, 140 )
 
 [sub_resource type="SpriteFrames" id=23]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "IdleBlue(Level 1)",
@@ -135,12 +130,12 @@ animations = [ {
 [node name="Tower" instance=ExtResource( 1 )]
 
 [node name="Timer" parent="." index="3"]
-wait_time = 0.5
+wait_time = 0.2
 
 [node name="AnimatedSprite" parent="." index="4"]
 position = Vector2( 1.71875, -57.5031 )
 scale = Vector2( 1.88563, 1.92138 )
 frames = SubResource( 23 )
-animation = ""
-frame = 0
+animation = "IdleBlue(Level 1)"
+frame = 4
 speed_scale = 0.5
