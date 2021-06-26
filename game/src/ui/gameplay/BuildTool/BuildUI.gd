@@ -73,7 +73,6 @@ onready var currentMap = self.get_parent()
 
 func _ready() -> void:
 	get_tree().call_group("tower_builds", "change_visibility", false)
-	print("ready being called")
 	# for slot in inventorySlots.get_children():
 		# slot.connect("gui_input", self, "slot_gui_input", [slot])
 
@@ -148,7 +147,6 @@ func _on_TextureButton_pressed():
 
 
 func _toggle_build_sprites_colors():
-	print("toggle being called")
 	var sceneTree = get_tree()
 	var towers: Array = sceneTree.get_nodes_in_group("tower_builds")
 	var temp = 0
