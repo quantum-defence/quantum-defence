@@ -108,6 +108,7 @@ ItemManager="*res://src/items/core/ItemManager.gd"
 
 [debug]
 
+gdscript/warnings/return_value_discarded=false
 gdscript/warnings/unsafe_property_access=true
 gdscript/warnings/unsafe_method_access=true
 gdscript/warnings/unsafe_cast=true
@@ -135,6 +136,8 @@ font=false
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="projectile"
 2d_physics/layer_4="tower"
+2d_physics/layer_5="enemyblue"
+2d_physics/layer_6="enemyred"
 
 [physics]
 

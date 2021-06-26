@@ -4,7 +4,7 @@
 [ext_resource path="res://src/enemy/core/Enemy.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 8 )
+extents = Vector2( 4, 6 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -14,11 +14,10 @@ radius = 20.0
 [node name="Enemy" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
 collision_layer = 2
-collision_mask = 2
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2 )
+position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 
 [node name="Vitals" type="Area2D" parent="."]
@@ -29,6 +28,8 @@ position = Vector2( -0.0672836, 0 )
 shape = SubResource( 2 )
 
 [node name="Range" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource( 3 )
@@ -37,7 +38,6 @@ shape = SubResource( 3 )
 position = Vector2( 0, -4 )
 frames = ExtResource( 1 )
 animation = "take_damage"
-frame = 1
 playing = true
 offset = Vector2( 26, -10 )
 __meta__ = {

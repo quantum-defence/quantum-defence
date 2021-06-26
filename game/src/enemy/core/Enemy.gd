@@ -12,7 +12,7 @@ var _target : Home
 var _red_target : Home
 var _blue_target : Home
 
-enum Q_STATE { SUPERPOSITION, RED, BLUE }
+enum Q_STATE { SUPERPOSITION = 0, RED = 1, BLUE = 2 }
 var qubit := Vector2()
 var qubit_state : int = Q_STATE.SUPERPOSITION
 
@@ -120,17 +120,17 @@ func attack() -> void:
 	get_parent().add_child(weapon)
 
 # take damage
-func take_damage(damage_taken: float, flip_state: bool = false) -> void:
+func take_damage(damage_taken: float, isFlip: bool = false, isRed: bool = false) -> void:
 	_health -= damage_taken
 	if _health <= 0.0:
 		_kill()
 		return
 	
-	if flip_state:
-		if qubit_state == Q_STATE.RED:
-			change_state(Q_STATE.BLUE)
-		elif qubit_state == Q_STATE.BLUE:
+	if isFlip:
+		if isRed:
 			change_state(Q_STATE.RED)
+		else:
+			change_state(Q_STATE.BLUE)
 	
 	damage_taken_timer.start(damage_taken_time)
 	if action != ACTION.TAKE_DAMAGE:
@@ -143,11 +143,20 @@ func change_state(new_state: int) -> void:
 		Q_STATE.RED:
 			modulate = Color.red
 			_target = _red_target
+			set_collision_mask_bit(4, false)
+			set_collision_mask_bit(5, true)
+			set_collision_layer_bit(4, false)
+			set_collision_layer_bit(5, true)
 		Q_STATE.BLUE:
 			modulate = Color.blue
 			_target = _blue_target
+			set_collision_mask_bit(5, false)
+			set_collision_mask_bit(4, true)
+			set_collision_layer_bit(5, false)
+			set_collision_layer_bit(4, true)
 	set_target(_target)
-	
+	if (self.position.distance_to(_target.position) > 400):
+		_is_reached = false
 
 func _kill() -> void:
 	action = ACTION.DIE
