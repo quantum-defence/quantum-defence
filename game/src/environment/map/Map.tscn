@@ -65,5 +65,5 @@ position = Vector2( 1612, 586 )
 
 [node name="ResetExit" parent="." instance=ExtResource( 9 )]
 
-[node name="Area2D" parent="." instance=ExtResource( 10 )]
-position = Vector2( 311.688, 165.476 )
+[node name="Trap" parent="." instance=ExtResource( 10 )]
+position = Vector2( 320, 176 )
