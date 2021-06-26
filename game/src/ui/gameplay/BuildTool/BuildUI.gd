@@ -66,7 +66,8 @@ var build_UI_items_held : Dictionary = {
 
 
 
-onready var tileSelector: TileSelector = find_parent("Map").get_node("Selector")
+onready var tileSelector: TileSelector = find_parent("Arena").get_node("Selector")
+# TODO: change below to Arena, or delete if not necessary (best practice: minimise calls to parent)
 onready var currentMap = self.get_parent()
 
 

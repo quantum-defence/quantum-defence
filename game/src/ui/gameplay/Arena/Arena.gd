@@ -6,10 +6,11 @@ const TILE_SIZE = 64.0
 enum TILE_CONTENTS { PATH, EMPTY, TOWER, HOME, INVALID = -1 }
 enum ACTION { BUILDING, INSPECTING }
 
-onready var tile_selector := $Selector
-onready var tile_map : TileMap = $TileMapSkeleton
-onready var blue_home : Home = $BlueHome
-onready var red_home : Home = $RedHome
+onready var tile_selector: TileSelector = $Selector
+onready var level_map : LevelMap = $LevelMap
+onready var tile_map : TileMap = level_map.tile_skeleton
+onready var blue_home : Home = level_map.blue_home
+onready var red_home : Home = level_map.red_home
 var tile_at
 var tower_at
 
