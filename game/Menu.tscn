@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/img/Screens/04(1).jpg" type="Texture" id=1]
+[ext_resource path="res://assets/img/Audio/ThemeBackgroud/Medieval Theme #2.wav" type="AudioStream" id=2]
+[ext_resource path="res://Menu.gd" type="Script" id=3]
+[ext_resource path="res://assets/img/Screens/Temp.png" type="Texture" id=4]
+
+[sub_resource type="ParticlesMaterial" id=1]
+resource_local_to_scene = true
+emission_shape = 1
+emission_sphere_radius = 1000.0
+flag_disable_z = true
+gravity = Vector3( -40, -98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.2
+color = Color( 1, 0.223529, 0.180392, 1 )
+hue_variation = 0.21
+hue_variation_random = 0.5
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+mix_target = 1
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 928, 824 )
+amount = 300
+lifetime = 3.0
+preprocess = 3.0
+randomness = 0.13
+process_material = SubResource( 1 )
+
+[node name="Temp" type="Sprite" parent="Particles2D"]
+modulate = Color( 0.466667, 0.235294, 0.235294, 1 )
+position = Vector2( 640, -576 )
+scale = Vector2( 2.3, 2.3 )
+texture = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 1344.0
+margin_top = 448.0
+margin_right = 1792.0
+margin_bottom = 688.0
