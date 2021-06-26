@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/ui/gameplay/Arena/tile-selector/TileSelector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/ui/gameplay/Arena/Arena.gd" type="Script" id=2]
-[ext_resource path="res://src/environment/LevelMap/LevelMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/environment/LevelMap/core/LevelMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/ui/gameplay/UI/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/ui/gameplay/ResetExit/Reset.tscn" type="PackedScene" id=9]
 

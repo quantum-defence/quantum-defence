@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "LevelMap",
 "language": "GDScript",
-"path": "res://src/environment/LevelMap/LevelMap.gd"
+"path": "res://src/environment/LevelMap/core/LevelMap.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Projectile",
