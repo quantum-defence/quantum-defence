@@ -12,7 +12,7 @@ enum TOWERTYPES {
 }
 
 #Red Sprites
-var redSprites = [
+var redSprites : Array = [
 	preload("res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 1).png"),
 	preload("res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png"),
 	preload("res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet(Red).png"),
@@ -21,7 +21,7 @@ var redSprites = [
 	preload("res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Red Level 1).png")
 ]
 
-var blueSprites = [
+var blueSprites : Array = [
 	preload("res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Blue Level 1).png"),
 	preload("res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png"),
 	preload("res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet.png"),
@@ -32,7 +32,7 @@ var blueSprites = [
 
 
 #Preload all the tower scenes to build
-const RESOURCE = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn",
+const RESOURCE : Array = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn",
 "res://src/environment/towers/pixelTowers/flyingObelisk/flyingObelisk.tscn",
 "res://src/environment/towers/pixelTowers/lightningTotem/LightningTotem.tscn",
 "res://src/environment/towers/pixelTowers/demonStatue/DemonStatue.tscn",
@@ -51,7 +51,7 @@ var blueTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RP
 
 #if buildMode is not true, then it is in normal mode
 var buildMode : bool = false
-var build_UI_items_held  = {
+var build_UI_items_held : Dictionary = {
 	"Slot1" : null,
 	"Slot2" : null,
 	"Slot3" : bag_item,
@@ -66,14 +66,13 @@ var build_UI_items_held  = {
 
 
 
-onready var tileSelector = find_parent("Map").get_node("Selector")
+onready var tileSelector: TileSelector = find_parent("Map").get_node("Selector")
 onready var currentMap = self.get_parent()
 
 
 
 func _ready() -> void:
 	get_tree().call_group("tower_builds", "change_visibility", false)
-	print("ready being called")
 	# for slot in inventorySlots.get_children():
 		# slot.connect("gui_input", self, "slot_gui_input", [slot])
 
@@ -143,31 +142,16 @@ func _pick_up_item(item: Item) -> void:
 
 
 func _on_TextureButton_pressed():
+	isRed = not isRed
 	_toggle_build_sprites_colors()
-	if (isRed):
-		isRed = false
-	else:
-		isRed = true	
 
 
 func _toggle_build_sprites_colors():
-	print("toggle being called")
 	var sceneTree = get_tree()
-	var towers = sceneTree.get_nodes_in_group("tower_builds")
+	var towers: Array = sceneTree.get_nodes_in_group("tower_builds")
 	var temp = 0
-	var sprite_used
-	
-	#For changing between sprites
-	if (isRed):
-		sprite_used = blueSprites
-	else:
-		sprite_used = redSprites
+	var sprite_used: Array = redSprites if isRed else blueSprites
 
-	for tower in towers:
-		var picture = sprite_used[temp]
-		towers[temp].get_node("Sprite").texture = picture
-		temp += 1
-#	for tower in towers:
-#		print("hi") 
-#		tower.texture = redSprites[temp]
-#		temp += 1
+	for towerIndex in range(towers.size()):
+		var picture = sprite_used[towerIndex]
+		towers[towerIndex].get_node("Sprite").texture = picture
