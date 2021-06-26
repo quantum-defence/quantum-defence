@@ -469,7 +469,7 @@ script = ExtResource( 2 )
 wait_time = 2.0
 
 [node name="AnimatedSprite" parent="." index="4"]
-position = Vector2( 0, -64 )
+position = Vector2( 0, -24 )
 scale = Vector2( 1.905, 1.905 )
 frames = SubResource( 85 )
 animation = "IdleBlue(Level 1)"
