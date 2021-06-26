@@ -32,7 +32,12 @@ func get_drag_data(position):
 	return data
 
 func can_drop_data(position, data):
-	return true
+	print("Can drop data is being called")
+	var item = data["origin_item"]
+	if (item.isTensor == true):
+		return false
+	else: 
+		return true	
 
 func drop_data(position, data):
 	# print("Dropped data called in towerInventory slot")
