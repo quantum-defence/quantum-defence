@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/items/core/Item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Weapon & Tool/Emerald Staff.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/QuantumItemGates/Xgate.png" type="Texture" id=2]
 
 [node name="Item" instance=ExtResource( 1 )]
+isTensor = true
 
 [node name="TextureRect" parent="." index="0"]
 texture = ExtResource( 2 )

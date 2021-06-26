@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
@@ -24,16 +24,17 @@
 [ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=22]
 [ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Weapon & Tool/Emerald Staff.png" type="Texture" id=23]
 [ext_resource path="res://src/ui/gameplay/towerInventory/QuantumCircuitSlot.gd" type="Script" id=24]
+[ext_resource path="res://assets/img/QuantumItemGates/Hgate.png" type="Texture" id=25]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=1]
 size = 22
 font_data = ExtResource( 22 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=2]
 size = 30
 font_data = ExtResource( 22 )
 
-[sub_resource type="StyleBoxTexture" id=1]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 160, 160 )
 margin_left = 13.2964
@@ -112,7 +113,7 @@ margin_bottom = 23.0
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Attack"]
 margin_right = 72.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Attack"
 
@@ -124,7 +125,7 @@ margin_bottom = 50.0
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/AttackSpeed"]
 margin_right = 72.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "AtkSpd"
 
@@ -136,7 +137,7 @@ margin_bottom = 77.0
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Range"]
 margin_right = 60.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Range"
 
@@ -148,7 +149,7 @@ margin_bottom = 104.0
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Tensor"]
 margin_right = 132.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Probability"
 
@@ -160,7 +161,7 @@ margin_bottom = 157.0
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Color"]
 margin_right = 60.0
 margin_bottom = 49.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Color
 "
@@ -170,7 +171,7 @@ margin_left = 43.0
 margin_top = 308.0
 margin_right = 128.0
 margin_bottom = 373.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Items
 "
@@ -197,7 +198,7 @@ __meta__ = {
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot1"]
@@ -221,7 +222,7 @@ margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot2"]
@@ -244,7 +245,7 @@ margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot3"]
@@ -267,7 +268,7 @@ margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot4"]
@@ -301,7 +302,7 @@ margin_left = 41.8108
 margin_top = 420.682
 margin_right = 160.811
 margin_bottom = 485.682
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Quantum
 "
@@ -328,7 +329,7 @@ __meta__ = {
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot1"]
@@ -351,7 +352,7 @@ margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot2"]
@@ -374,7 +375,7 @@ margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot3"]
@@ -397,7 +398,7 @@ margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot4"]
@@ -420,7 +421,7 @@ margin_left = 272.0
 margin_right = 336.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot5"]
@@ -616,6 +617,7 @@ margin_left = 10.409
 margin_top = 10.2728
 margin_right = -9.59103
 margin_bottom = -10.7272
+texture = ExtResource( 25 )
 expand = true
 script = ExtResource( 7 )
 __meta__ = {
