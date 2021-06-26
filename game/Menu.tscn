@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/img/Screens/04(1).jpg" type="Texture" id=1]
 [ext_resource path="res://assets/img/Audio/ThemeBackgroud/Medieval Theme #2.wav" type="AudioStream" id=2]
 [ext_resource path="res://Menu.gd" type="Script" id=3]
 [ext_resource path="res://assets/img/Screens/Temp.png" type="Texture" id=4]
+[ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=5]
 
 [sub_resource type="ParticlesMaterial" id=1]
 resource_local_to_scene = true
@@ -17,6 +18,11 @@ scale = 2.2
 color = Color( 1, 0.223529, 0.180392, 1 )
 hue_variation = 0.21
 hue_variation_random = 0.5
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_color = Color( 0.466667, 0.235294, 0.235294, 1 )
+font_data = ExtResource( 5 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -55,6 +61,21 @@ texture = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 1344.0
-margin_top = 448.0
+margin_top = 512.0
 margin_right = 1792.0
-margin_bottom = 688.0
+margin_bottom = 752.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1376.0
+margin_top = 368.0
+margin_right = 1780.0
+margin_bottom = 440.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.466667, 0.235294, 0.235294, 1 )
+text = "The Architect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
