@@ -95,7 +95,6 @@ func slot_gui_input(event: InputEvent, binds)-> void:
 			
 
 func drop_item(slot: TowerInventorySlot) -> Item:
-	# print(tower_to_be_built.tower_items_held)
 	var slot_name = slot.get_parent().get_name()
 	var item_dropped = tower_to_be_built._drop_item(slot_name)
 	# print(tower_to_be_built.tower_items_held)

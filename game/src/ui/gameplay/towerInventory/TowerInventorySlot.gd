@@ -32,7 +32,6 @@ func get_drag_data(position):
 	return data
 
 func can_drop_data(position, data):
-	print("Can drop data is being called")
 	var item = data["origin_item"]
 	if (item.isTensor == true):
 		return false
@@ -40,6 +39,7 @@ func can_drop_data(position, data):
 		return true	
 
 func drop_data(position, data):
+	print("Tower inventory being called")
 	# print("Dropped data called in towerInventory slot")
 	var target_slot_name : String = get_parent().get_name()
 	var target_slot = get_parent()
@@ -66,7 +66,7 @@ func drop_data(position, data):
 			tower_inventory.tower_inventory_items_held[target_slot_name] = data["origin_item"]
 			tower_inventory.tower_inventory_items_held[origin_slot_name] = null
 			texture = data["origin_texture"]
-
+		
 	#Swapping between items 
 	else: 
 		#If the item swap is within buildUI
@@ -93,7 +93,7 @@ func drop_data(position, data):
 			var temp_item_for_swap = target_slot_item
 			tower_inventory.tower_inventory_items_held[target_slot_name] = origin_slot_item
 			tower_inventory.tower_inventory_items_held[origin_slot_name] = temp_item_for_swap
-
+	print(tower_inventory.tower_inventory_items_held)		
 
 	# print("________________________")
 	# print("Tower inventory is")

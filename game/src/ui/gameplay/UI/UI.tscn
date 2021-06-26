@@ -323,7 +323,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot1" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
+[node name="QuantumSlot1" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
 "TowerInventorySlots",
 ]]
 margin_right = 64.0
@@ -332,7 +332,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot1"]
+[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
@@ -345,7 +345,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot2" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
+[node name="QuantumSlot2" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
 "TowerInventorySlots",
 ]]
 margin_left = 68.0
@@ -355,7 +355,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot2"]
+[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
@@ -368,7 +368,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot3" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
+[node name="QuantumSlot3" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
 "TowerInventorySlots",
 ]]
 margin_left = 136.0
@@ -378,7 +378,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot3"]
+[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
@@ -391,7 +391,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot4" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
+[node name="QuantumSlot4" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
 "TowerInventorySlots",
 ]]
 margin_left = 204.0
@@ -401,7 +401,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot4"]
+[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
@@ -414,7 +414,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot5" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
+[node name="QuantumSlot5" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
 "TowerInventorySlots",
 ]]
 margin_left = 272.0
@@ -424,7 +424,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot5"]
+[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot5"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
@@ -861,9 +861,9 @@ __meta__ = {
 [connection signal="gui_input" from="Control/TowerInventory/TextureRect/GridContainer/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
 [connection signal="mouse_entered" from="Control/TowerInventory/TextureRect/GridContainer/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_mouse_entered"]
 [connection signal="gui_input" from="Control/TowerInventory/TextureRect/GridContainer/Slot2/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
-[connection signal="gui_input" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
-[connection signal="mouse_entered" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_mouse_entered"]
-[connection signal="gui_input" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/Slot2/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
+[connection signal="gui_input" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
+[connection signal="mouse_entered" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_mouse_entered"]
+[connection signal="gui_input" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot2/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/BuildMode" to="Control/BuildUI" method="_on_BuildMode_pressed"]
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/InspectMode" to="Control/BuildUI" method="_on_InspectMode_pressed"]
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/ObeliskTower" to="Control/BuildUI" method="_on_ObeliskTower_pressed"]
