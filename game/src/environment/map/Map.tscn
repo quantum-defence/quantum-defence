@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/environment/map/tile-selector/TileSelector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/map/Map.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/environment/home/Home.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/ui/gameplay/UI/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/ui/gameplay/ResetExit/Reset.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/environment/traps/Trap.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 1850.91, 233.674, 1849.91, 467.674, 1738, 291, 1663.91, 44.674, 1733, 373, 1707, 449, 1683.91, 628.674, 1673, 489, 1683, 223, 1671, 161, -398.085, 507.674, -1258.09, 606.674, -1071.09, -819.326, -276.085, -636.326, 120.915, -15.326, -29.0851, 161.674, 81.9149, 162.674, 290.915, 141.674, 392, 251, 157.915, 234.674, 599.915, 147.674, 441, 256, 592, 239, 577, 255, 1606, 158, 1569, 133, 1399.91, 46.674, 1503, 132, 1458, 163, 1392, 168, 1214.91, 233.674, 1380, 211, 1375, 270, 1331, 299, 1121, 356, 1118, 304, 569.915, 778.674, 555.915, 890.674, 453, 776, 447.915, 650.674, 468, 535, 563, 558, 585, 587, 361.43, 877.428, 393, 809, 1684.91, 654.674, 1384.91, 651.674, 1382.91, 629.674, 1540, 553, 949, 261, 947, 304, 785, 304, 778, 265, 868, 180, 408, 764, 280, 814, 272.915, 880.674, 1323, 366, 1245.91, 493.674, 1183.91, 491.674, 1103, 375, 1099, 259, 1049.91, 76.674, 1079, 244, 996.915, 79.674, 970, 241, 735.915, 85.674, 755, 242, 674.915, 84.674, 563, 277, 466, 303, 458, 480, 226, 788, 238.915, 904.674, 156.915, 900.674, 99.9149, 847.674, 103.915, 583.674, 208, 718, 259.915, 645.674, 136.915, 558.674, 416, 562, 796.75, 720.87, 769.915, 759.674, 692, 586, 795.265, 690.43, 715, 567, 782, 557, 833.427, 655.387, 957, 559, 1032.91, 653.674, 1002, 526, 1038, 503, 1059, 455, 1075, 392, 1357, 399, 1389, 485, 1467, 505, 1602, 494 )
@@ -63,3 +64,6 @@ position = Vector2( 1612, 586 )
 [node name="UI" parent="." instance=ExtResource( 8 )]
 
 [node name="ResetExit" parent="." instance=ExtResource( 9 )]
+
+[node name="Trap" parent="." instance=ExtResource( 10 )]
+position = Vector2( 320, 176 )

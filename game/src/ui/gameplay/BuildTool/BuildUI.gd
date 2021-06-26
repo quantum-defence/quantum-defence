@@ -11,8 +11,28 @@ enum TOWERTYPES {
 	EYETOWER = 5
 }
 
+#Red Sprites
+var redSprites : Array = [
+	preload("res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 1).png"),
+	preload("res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png"),
+	preload("res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet(Red).png"),
+	preload("res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_red_sheet.png"),
+	preload("res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png"),
+	preload("res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Red Level 1).png")
+]
+
+var blueSprites : Array = [
+	preload("res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Blue Level 1).png"),
+	preload("res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png"),
+	preload("res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet.png"),
+	preload("res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_blue_sheet.png"),
+	preload("res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation(Blue).png"),
+	preload("res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 1).png")
+]
+
+
 #Preload all the tower scenes to build
-const RESOURCE = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn",
+const RESOURCE : Array = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn",
 "res://src/environment/towers/pixelTowers/flyingObelisk/flyingObelisk.tscn",
 "res://src/environment/towers/pixelTowers/lightningTotem/LightningTotem.tscn",
 "res://src/environment/towers/pixelTowers/demonStatue/DemonStatue.tscn",
@@ -31,7 +51,7 @@ var blueTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RP
 
 #if buildMode is not true, then it is in normal mode
 var buildMode : bool = false
-var build_UI_items_held  = {
+var build_UI_items_held : Dictionary = {
 	"Slot1" : null,
 	"Slot2" : null,
 	"Slot3" : bag_item,
@@ -46,7 +66,7 @@ var build_UI_items_held  = {
 
 
 
-onready var tileSelector = find_parent("Map").get_node("Selector")
+onready var tileSelector: TileSelector = find_parent("Map").get_node("Selector")
 onready var currentMap = self.get_parent()
 
 
@@ -122,9 +142,16 @@ func _pick_up_item(item: Item) -> void:
 
 
 func _on_TextureButton_pressed():
-	if (isRed):
-		isRed = false
-	else:
-		isRed = true	
+	isRed = not isRed
+	_toggle_build_sprites_colors()
 
 
+func _toggle_build_sprites_colors():
+	var sceneTree = get_tree()
+	var towers: Array = sceneTree.get_nodes_in_group("tower_builds")
+	var temp = 0
+	var sprite_used: Array = redSprites if isRed else blueSprites
+
+	for towerIndex in range(towers.size()):
+		var picture = sprite_used[towerIndex]
+		towers[towerIndex].get_node("Sprite").texture = picture

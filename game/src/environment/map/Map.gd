@@ -76,9 +76,12 @@ func build_tower(x: int, y: int, tower_type: String) -> bool:
 	
 	#Check and change the universe of the towers
 
+	var animated_sprite = tower.get_node("AnimatedSprite")
 	if (build_UI.isRed):
+		animated_sprite.animation = "IdleRed(Level 1)"
 		pass
 	else:
+		animated_sprite.animation = "IdleBlue(Level 1)"
 		tower.isRed = false
 	
 	add_child(tower)

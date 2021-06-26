@@ -10,4 +10,4 @@ script = ExtResource( 2 )
 position = Vector2( -0.0672827, -1.58238 )
 scale = Vector2( 0.698864, 0.698864 )
 animation = "move"
-frame = 5
+frame = 4

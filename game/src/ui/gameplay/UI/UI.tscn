@@ -7,15 +7,15 @@
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade C.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Avatar.png" type="Texture" id=6]
 [ext_resource path="res://src/ui/gameplay/BuildTool/buildUISlot.gd" type="Script" id=7]
-[ext_resource path="res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_blue_sheet.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Red Level 1).png" type="Texture" id=8]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Increase.png" type="Texture" id=9]
-[ext_resource path="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation(Blue).png" type="Texture" id=10]
-[ext_resource path="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png" type="Texture" id=11]
+[ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 1).png" type="Texture" id=10]
+[ext_resource path="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png" type="Texture" id=11]
 [ext_resource path="res://assets/img/UI/BuildToolUIBackground.png" type="Texture" id=12]
-[ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Blue Level 1).png" type="Texture" id=13]
+[ext_resource path="res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_red_sheet.png" type="Texture" id=13]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Normal/Buttons_Button Normal - Increase.png" type="Texture" id=14]
-[ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 1).png" type="Texture" id=15]
-[ext_resource path="res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet.png" type="Texture" id=16]
+[ext_resource path="res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet(Red).png" type="Texture" id=15]
+[ext_resource path="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png" type="Texture" id=16]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Info.png" type="Texture" id=17]
 [ext_resource path="res://src/ui/gameplay/BuildTool/tower-builds.gd" type="Script" id=18]
 [ext_resource path="res://src/ui/gameplay/UI/UI.gd" type="Script" id=19]
@@ -288,7 +288,7 @@ script = ExtResource( 18 )
 [node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/ObeliskTower"]
 position = Vector2( 81.5646, 77.6973 )
 scale = Vector2( 0.81223, 0.605684 )
-texture = ExtResource( 13 )
+texture = ExtResource( 10 )
 hframes = 14
 
 [node name="FlyingObelisk" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
@@ -318,7 +318,7 @@ script = ExtResource( 18 )
 [node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/LightningTotem"]
 position = Vector2( 82.8553, 37.525 )
 scale = Vector2( 1.59623, 1.57333 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 hframes = 16
 vframes = 5
 
@@ -334,7 +334,7 @@ script = ExtResource( 18 )
 [node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/DemonStatue"]
 position = Vector2( 84.4443, 54.4763 )
 scale = Vector2( 1.58211, 1.12533 )
-texture = ExtResource( 8 )
+texture = ExtResource( 13 )
 hframes = 31
 vframes = 2
 
@@ -350,7 +350,7 @@ script = ExtResource( 18 )
 [node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/MoonTower"]
 position = Vector2( 81.2661, 59.7736 )
 scale = Vector2( 1.73396, 1.26406 )
-texture = ExtResource( 10 )
+texture = ExtResource( 16 )
 hframes = 11
 
 [node name="EyeTower" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
@@ -365,7 +365,7 @@ script = ExtResource( 18 )
 [node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/EyeTower"]
 position = Vector2( 81.796, 67.7196 )
 scale = Vector2( 1.78694, 1.62277 )
-texture = ExtResource( 15 )
+texture = ExtResource( 8 )
 hframes = 14
 
 [node name="GridContainer" type="GridContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]

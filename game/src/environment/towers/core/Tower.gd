@@ -8,13 +8,6 @@ enum TYPES {
 	ULTIMATE = 3,
 }
 
-const RESOURCE = [
-	'res://src/environment/towers/FastestTower.tscn',
-	'res://src/environment/towers/RepeaterTower.tscn',
-	'res://src/environment/towers/ShotgunTower.tscn',
-	'res://src/environment/towers/UltimateTower.tscn'
-]
-
 var bag_item = preload("res://src/items/otherItems/Axe.tscn").instance()
 var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn").instance()
 

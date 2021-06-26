@@ -8,7 +8,7 @@
 extents = Vector2( 64, 64 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 256.0
+radius = 528.242
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [  ]
@@ -143,9 +143,6 @@ collision_mask = 2
 
 [node name="RangeRadius" type="CollisionShape2D" parent="Range"]
 shape = SubResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Timer" type="Timer" parent="."]
 
