@@ -20,3 +20,16 @@ func _on_PlayButton_pressed():
 	
 	root.remove_child(self)
 	self.queue_free()
+
+func _on_Quit_pressed():
+	get_tree().quit()
+	
+func _on_Tutorial_pressed():
+	var arena = load("res://src/ui/gameplay/Arena/Arena.tscn").instance()
+	var basic = load("res://src/environment/LevelMap/BasicLevel.tscn").instance()
+	var root = get_tree().get_root()
+	root.add_child(arena)
+	arena.set_up(basic)
+	
+	root.remove_child(self)
+	self.queue_free()

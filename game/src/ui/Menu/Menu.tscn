@@ -61,7 +61,7 @@ stream = ExtResource( 5 )
 mix_target = 1
 
 [node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 928, 824 )
+position = Vector2( 951.163, 818.655 )
 amount = 300
 lifetime = 3.0
 preprocess = 3.0
@@ -107,7 +107,7 @@ custom_styles/normal = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
 text = "Settings"
 
-[node name="Gallery" type="Button" parent="VBoxContainer"]
+[node name="Tutorial" type="Button" parent="VBoxContainer"]
 margin_top = 150.0
 margin_right = 448.0
 margin_bottom = 221.0
@@ -117,7 +117,7 @@ custom_styles/focus = SubResource( 2 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
-text = "Gallery"
+text = "Tutorial"
 
 [node name="Credits" type="Button" parent="VBoxContainer"]
 margin_top = 225.0
@@ -130,6 +130,18 @@ custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
 text = "Credits"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 300.0
+margin_right = 448.0
+margin_bottom = 371.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "I Quit"
 
 [node name="Label" type="Label" parent="."]
 margin_left = 1376.0
@@ -144,3 +156,5 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_Tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
