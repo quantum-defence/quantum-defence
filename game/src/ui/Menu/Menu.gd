@@ -13,7 +13,7 @@ func _process(delta):
 
 func _on_PlayButton_pressed():
 	var arena = load("res://src/ui/gameplay/Arena/Arena.tscn").instance()
-	var basic = load("res://src/environment/LevelMap/BasicLevel.tscn").instance()
+	var basic = load("res://src/environment/LevelMap/BasicLevel.tscn")
 	var root = get_tree().get_root()
 	root.add_child(arena)
 	arena.set_up(basic)
@@ -26,7 +26,7 @@ func _on_Quit_pressed():
 	
 func _on_Tutorial_pressed():
 	var arena = load("res://src/ui/gameplay/Arena/Arena.tscn").instance()
-	var basic = load("res://src/environment/LevelMap/BasicLevel.tscn").instance()
+	var basic = load("res://src/environment/LevelMap/BasicLevel.tscn")
 	var root = get_tree().get_root()
 	root.add_child(arena)
 	arena.set_up(basic)

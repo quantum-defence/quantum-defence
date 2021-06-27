@@ -82,6 +82,18 @@ func set_up() -> void:
 	print(self.find_parent("Arena"))
 	print(self.find_parent("Arena").level_map)
 	var initial_items = self.find_parent("Arena").level_map.initial_items
+	build_UI_items_held =  {
+		"Slot1" : null,
+		"Slot2" : null,
+		"Slot3" : null,
+		"Slot4" : null,
+		"Slot5" : null,
+		"Slot6" : null,
+		"Slot7" : null,
+		"Slot8" : null,
+		"Slot9" : null,
+		"Slot10" : null
+	}
 	for item_name in initial_items:
 		var item = null
 		match(item_name):

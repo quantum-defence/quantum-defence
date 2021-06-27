@@ -13,10 +13,15 @@ onready var blue_home : Home
 onready var red_home : Home
 var tile_at
 var tower_at
+var current_level_class = null
 
 func set_up(level) -> void:
 	if (level_map != null):
 		level_map.queue_free()
+	if (level == null):
+		level = current_level_class
+	current_level_class = level
+	level = level.instance()
 	self.add_child(level)
 	self.move_child(level, 0)
 	level_map = level
