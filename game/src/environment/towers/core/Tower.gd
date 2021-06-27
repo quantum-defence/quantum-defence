@@ -75,9 +75,10 @@ func _fire():
 	weapon_instance.fire(global_position, _target)
 	get_parent().add_child(weapon_instance)
 	if (is_tensor):
-		print(probs)
+	
 		weapon_instance.set_prob(probs)
 		_forget_enemy(_target)
+		
 	return weapon_instance
 
 
@@ -141,7 +142,8 @@ func update_items():
 			continue
 		is_tensor = true
 		_equip_tensor_item(tensor)
-	probs = self.qn.simulate_and_get_probabilities_dict()
+	var prob_result = self.qn.simulate_and_get_probabilities_dict()
+	probs = prob_result if isRed else { "0": prob_result["1"], "1": prob_result["0"] } 
 	
 
 func _equip_tensor_item(tensor):

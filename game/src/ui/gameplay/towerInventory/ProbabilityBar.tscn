@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.gd" type="Script" id=1]
+[ext_resource path="res://assets/img/Screens/Temp.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/UI/pngs/brown/meter_icon_holder_brown.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/UI/pngs/blue/meter_bar_center-repeating_blue.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/UI/pngs/red/meter_bar_center-repeating_red.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/UI/pngs/brown/meter_bar_holder_center-repeating_brown.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/UI/pngs/brown/meter_bar_holder_right_edge_brown.png" type="Texture" id=7]
+
+[node name="ProbabiilityBar" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Red" type="TextureProgress" parent="."]
+margin_top = -0.793701
+margin_right = 920.0
+margin_bottom = 109.206
+value = 100.0
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 5 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Red"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.82153
+margin_right = 37.1785
+margin_bottom = 0.000297546
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Red"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1042.0
+margin_top = -19.0
+margin_right = -898.0
+margin_bottom = 20.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Red"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1014.0
+margin_top = 14.0
+margin_right = -926.0
+margin_bottom = -17.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blue" type="TextureProgress" parent="."]
+margin_left = -3.3873
+margin_top = -0.834244
+margin_right = 916.613
+margin_bottom = 109.166
+texture_progress = ExtResource( 4 )
+fill_mode = 1
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

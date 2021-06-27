@@ -17,9 +17,9 @@ func _ready():
 
 
 func _on_TextureButton_pressed():
-	get_tree().change_scene("res://src/environment/map/Map.tscn")
+	get_tree().change_scene("res://src/ui/gameplay/Arena/Arena.tscn")
 	
 
 
 func _on_ExitButton_pressed():
-	get_tree().quit()
+	get_tree().change_scene("res://src/ui/Menu/Menu.tscn")

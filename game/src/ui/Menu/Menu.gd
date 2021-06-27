@@ -13,3 +13,10 @@ func _process(delta):
 
 func _on_PlayButton_pressed():
 	get_tree().change_scene("res://src/ui/gameplay/Arena/Arena.tscn")
+
+
+func _on_Quit_pressed():
+	get_tree().quit()
+	
+func _on_Tutorial_pressed():
+	pass # Replace with function body.
