@@ -44,11 +44,11 @@ position = Vector2( 0, 1 )
 navpoly = SubResource( 1 )
 
 [node name="RedHome" parent="." instance=ExtResource( 5 )]
-position = Vector2( 160, 673 )
+position = Vector2( 200, 800 )
 isRed = true
 
 [node name="BlueHome" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1612, 586 )
+position = Vector2( 1752, 184 )
 
 [node name="EnemySpawnPoint" parent="." instance=ExtResource( 6 )]
 visible = false
