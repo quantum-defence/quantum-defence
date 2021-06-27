@@ -53,9 +53,6 @@ func change_tower_to_be_build(tower: Tower):
 	var other_animated_sprite = animated_sprite.duplicate()	
 	other_animated_sprite.position = Vector2.ZERO
 	var control = self.get_node("TextureRect/Control")
-	# delete_children(control)
-	# control.add_child(other_animated_sprite)
-	# update_tower_inventory_textures()
 
 	var tower_display = self.get_node("TextureRect/TowerDisplay")
 	delete_children(tower_display)
