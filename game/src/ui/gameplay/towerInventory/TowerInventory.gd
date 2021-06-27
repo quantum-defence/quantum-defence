@@ -11,9 +11,6 @@ onready var tower_inventory_items_held
 onready var build_ui = get_parent().get_node("BuildUI")
 var tower_display_reference = Vector2(1690,275)
 
-func _equip_item(slotNumber: String, item: Item ):
-	tower_inventory_items_held[slotNumber] = item
-
 #Remove all children nodes	
 func delete_children(node):
 	for n in node.get_children():
@@ -27,6 +24,9 @@ func check_all_items_attributes():
 		var temp_item = slots
 
 	tower_inventory_items_held = tower_to_be_built.tower_items_held	
+
+func update_tower():
+	tower_to_be_built.update_items()
 
 #Update tower inventory textures. To be called when change tower to be build is called	
 func update_tower_inventory_textures():
@@ -53,9 +53,6 @@ func change_tower_to_be_build(tower: Tower):
 	var other_animated_sprite = animated_sprite.duplicate()	
 	other_animated_sprite.position = Vector2.ZERO
 	var control = self.get_node("TextureRect/Control")
-	# delete_children(control)
-	# control.add_child(other_animated_sprite)
-	# update_tower_inventory_textures()
 
 	var tower_display = self.get_node("TextureRect/TowerDisplay")
 	delete_children(tower_display)

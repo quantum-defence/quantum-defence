@@ -42,7 +42,9 @@ const RESOURCE : Array = ["res://src/environment/towers/pixelTowers/obelisk/Obel
 var bag_item = preload("res://src/items/otherItems/Axe.tscn").instance()
 var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn").instance()
 onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer")
-var hgate = preload("res://src/items/QuantumItems/H.tscn").instance()
+var h_gate = preload("res://src/items/QuantumItems/H.tscn").instance()
+var ry_gate = preload("res://src/items/QuantumItems/RY.tscn").instance()
+var x_gate = preload("res://src/items/QuantumItems/X.tscn").instance()
 
 var isRed = true
 var redTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png")
@@ -52,9 +54,9 @@ var blueTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RP
 #if buildMode is not true, then it is in normal mode
 var buildMode : bool = false
 var build_UI_items_held : Dictionary = {
-	"Slot1" : hgate,
-	"Slot2" : null,
-	"Slot3" : bag_item,
+	"Slot1" : h_gate,
+	"Slot2" : ry_gate,
+	"Slot3" : x_gate,
 	"Slot4" : null,
 	"Slot5" : null,
 	"Slot6" : null,

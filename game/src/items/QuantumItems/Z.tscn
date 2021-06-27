@@ -5,6 +5,7 @@
 
 [node name="z" instance=ExtResource( 1 )]
 isTensor = true
+tensor_func_name = "z"
 
 [node name="TextureRect" parent="." index="0"]
 texture = ExtResource( 2 )

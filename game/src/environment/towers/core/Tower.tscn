@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/img/PixelTiles/2DML_SET3_v1.0/mainlevbuild.png" type="Texture" id=1]
 [ext_resource path="res://src/environment/towers/core/Tower.gd" type="Script" id=2]
 [ext_resource path="res://assets/img/towers/pixelTowers/angel_v1/angel_appear-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://src/quantum/QuantumNode.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 64 )
@@ -156,6 +157,9 @@ frames = SubResource( 22 )
 animation = "Build"
 frame = 17
 playing = true
+
+[node name="QuantumNode" type="Node" parent="."]
+script = ExtResource( 4 )
 
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]

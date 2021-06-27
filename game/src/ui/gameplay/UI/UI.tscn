@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Weapon & Tool/Emerald Staff.png" type="Texture" id=23]
 [ext_resource path="res://src/ui/gameplay/towerInventory/QuantumCircuitSlot.gd" type="Script" id=24]
 [ext_resource path="res://assets/img/QuantumItemGates/Hgate.png" type="Texture" id=25]
+[ext_resource path="res://assets/img/QuantumItemGates/RYgate.png" type="Texture" id=26]
+[ext_resource path="res://assets/img/QuantumItemGates/Xgate.png" type="Texture" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -635,12 +637,15 @@ custom_styles/panel = SubResource( 6 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.0248585
+anchor_top = -0.00426292
+anchor_right = 1.02486
+anchor_bottom = 0.995737
 margin_left = 10.409
 margin_top = 10.2728
 margin_right = -9.59103
 margin_bottom = -10.7272
+texture = ExtResource( 26 )
 expand = true
 script = ExtResource( 7 )
 __meta__ = {
@@ -659,11 +664,11 @@ custom_styles/panel = SubResource( 6 )
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.409
-margin_top = 10.2728
-margin_right = -9.59103
-margin_bottom = -10.7272
-texture = ExtResource( 21 )
+margin_left = 9.99994
+margin_top = 9.99997
+margin_right = -10.0001
+margin_bottom = -11.0
+texture = ExtResource( 27 )
 expand = true
 script = ExtResource( 7 )
 __meta__ = {

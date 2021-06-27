@@ -29,6 +29,7 @@ func get_drag_data(position):
 	drag_texture.rect_position = - 0.5 * drag_texture.rect_size
 	set_drag_preview(control)
 	texture = null
+	tower_inventory.update_tower()
 	return data
 
 func can_drop_data(position, data):
@@ -39,8 +40,6 @@ func can_drop_data(position, data):
 		return true	
 
 func drop_data(position, data):
-	print("Tower inventory being called")
-	# print("Dropped data called in towerInventory slot")
 	var target_slot_name : String = get_parent().get_name()
 	var target_slot = get_parent()
 	var target_slot_item = tower_inventory.tower_inventory_items_held[target_slot_name]
@@ -93,7 +92,7 @@ func drop_data(position, data):
 			var temp_item_for_swap = target_slot_item
 			tower_inventory.tower_inventory_items_held[target_slot_name] = origin_slot_item
 			tower_inventory.tower_inventory_items_held[origin_slot_name] = temp_item_for_swap
-	print(tower_inventory.tower_inventory_items_held)		
+	tower_inventory.update_tower()
 
 	# print("________________________")
 	# print("Tower inventory is")

@@ -1,8 +1,5 @@
 extends "res://src/ui/gameplay/towerInventory/TowerInventorySlot.gd"
 
-
-
-
 #Override can drop data function
 func can_drop_data(position, data):
 	var item = data["origin_item"]
@@ -12,8 +9,6 @@ func can_drop_data(position, data):
 		return false
 
 func drop_data(position, data):
-	print("Quantum inventory being called")
-	# print("Dropped data called in towerInventory slot")
 	var target_slot_name : String = get_parent().get_name()
 	var target_slot = get_parent()
 	var target_slot_item = tower_inventory.tower_inventory_items_held[target_slot_name]
@@ -66,7 +61,7 @@ func drop_data(position, data):
 			var temp_item_for_swap = target_slot_item
 			tower_inventory.tower_inventory_items_held[target_slot_name] = origin_slot_item
 			tower_inventory.tower_inventory_items_held[origin_slot_name] = temp_item_for_swap
-	print(tower_inventory.tower_inventory_items_held)	
+	tower_inventory.update_tower()
 
 func update_tower_quantum_circuit():
 		pass
