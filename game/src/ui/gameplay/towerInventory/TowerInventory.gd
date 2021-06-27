@@ -30,8 +30,6 @@ func update_tower():
 	#Update probability bar
 	var prob: Dictionary = tower_to_be_built.probs
 	var prob_of_red = prob["0"]
-	print(prob)
-	print(tower_to_be_built)
 	prob_bar.update_prob(prob_of_red)
 	
 #Update tower inventory textures. To be called when change tower to be build is called	
@@ -61,7 +59,6 @@ func update_tower_inventory_textures():
 			slot_texture_rects.texture = current_item.get_node("TextureRect").texture	
 
 func change_tower_to_be_build(tower: Tower):
-	print("Change tower to be built")
 	if (tower == tower_to_be_built):
 		return 
 	tower_to_be_built = tower
@@ -74,12 +71,7 @@ func change_tower_to_be_build(tower: Tower):
 	var control = self.get_node("TextureRect/Control")
 
 	var tower_display = self.get_node("TextureRect/TowerDisplay")
-	print("Before")
-	print(tower_to_be_built.probs)
 	update_tower()
-	print(tower_to_be_built.probs)
-	print("After")
-	print("+++++++++++++++++++++++++++++++++++")
 	delete_children(tower_display)
 	tower_display.add_child(other_animated_sprite)
 	update_tower_inventory_textures()
