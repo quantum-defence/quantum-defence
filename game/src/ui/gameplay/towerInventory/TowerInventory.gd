@@ -3,6 +3,7 @@ extends CanvasLayer
 class_name TowerInventory
 
 onready var inventorySlots = $TextureRect/GridContainer
+onready var quantumSlots = $TextureRect/QuantumLabel/QuantumCircuit
 
 #Tower to be built shud be an instance of tower. Each tower may have different items equipped
 var is_visible = false
@@ -10,6 +11,10 @@ var tower_to_be_built : Tower =  preload("res://src/environment/towers/pixelTowe
 onready var tower_inventory_items_held
 onready var build_ui = get_parent().get_node("BuildUI")
 var tower_display_reference = Vector2(1690,275)
+onready var prob_bar = self.get_node("TextureRect/ProbabiilityBar")
+
+
+
 
 #Remove all children nodes	
 func delete_children(node):
@@ -17,17 +22,18 @@ func delete_children(node):
 			node.remove_child(n)
 			n.queue_free()
 
-#Supposed to check all the attributes of the items in the tower 	
-func check_all_items_attributes():
-	
-	for slots in tower_to_be_built.tower_items_held.values():
-		var temp_item = slots
-
-	tower_inventory_items_held = tower_to_be_built.tower_items_held	
 
 func update_tower():
+	#Update all the tower items
 	tower_to_be_built.update_items()
-
+	
+	#Update probability bar
+	var prob: Dictionary = tower_to_be_built.probs
+	var prob_of_red = prob["0"]
+	print(prob)
+	print(tower_to_be_built)
+	prob_bar.update_prob(prob_of_red)
+	
 #Update tower inventory textures. To be called when change tower to be build is called	
 func update_tower_inventory_textures():
 	for slots in inventorySlots.get_children():
@@ -41,12 +47,25 @@ func update_tower_inventory_textures():
 		#If any items in the new tower inspected, update all the textures
 		if (current_item != null):
 			slot_texture_rects.texture = current_item.get_node("TextureRect").texture
+			
+	for slots in quantumSlots.get_children():
+		var slots_name = slots.get_name()
+		var slot_texture_rects = slots.get_node("TextureRect")
+		var current_item = tower_to_be_built.tower_items_held[slots_name]
+
+		#Reset all the textures
+		slot_texture_rects.texture = null
+
+		#If any items in the new tower inspected, update all the textures
+		if (current_item != null):
+			slot_texture_rects.texture = current_item.get_node("TextureRect").texture	
 
 func change_tower_to_be_build(tower: Tower):
+	print("Change tower to be built")
 	if (tower == tower_to_be_built):
 		return 
 	tower_to_be_built = tower
-	check_all_items_attributes()
+	tower_inventory_items_held = tower_to_be_built.tower_items_held	
 
 	var animated_sprite = tower_to_be_built.get_node("AnimatedSprite")
 	animated_sprite.z_index = 1
@@ -55,6 +74,12 @@ func change_tower_to_be_build(tower: Tower):
 	var control = self.get_node("TextureRect/Control")
 
 	var tower_display = self.get_node("TextureRect/TowerDisplay")
+	print("Before")
+	print(tower_to_be_built.probs)
+	update_tower()
+	print(tower_to_be_built.probs)
+	print("After")
+	print("+++++++++++++++++++++++++++++++++++")
 	delete_children(tower_display)
 	tower_display.add_child(other_animated_sprite)
 	update_tower_inventory_textures()
@@ -97,6 +122,7 @@ func drop_item(slot: TowerInventorySlot) -> Item:
 	# print(tower_to_be_built.tower_items_held)
 	slot.texture = null
 	return item_dropped
+
 
 #func slot_gui_input(event:InputEvent, slot:slotClass):
 #	if (event is InputEventMouseButton):
