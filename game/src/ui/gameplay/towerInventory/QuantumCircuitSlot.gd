@@ -1,43 +1,12 @@
-extends TextureRect
+extends "res://src/ui/gameplay/towerInventory/TowerInventorySlot.gd"
 
-class_name TowerInventorySlot
-
-onready var build_UI = self.find_parent("Control").get_node("BuildUI")
-onready var tower_inventory = self.find_parent("TowerInventory")
-
-func _process(delta):
-	pass
-
-func get_drag_data(position): 
-	var tower_inventory_name = get_parent().get_name()
-	var tower_inventory_slot = self
-	
-	var data = {}
-	data["origin_texture"] = texture
-	data["origin_panel"] = "TowerInventory"
-	data["origin_item"] = tower_inventory.tower_inventory_items_held[tower_inventory_name]
-	data["origin_slot_name"] = tower_inventory_name
-	data["origin_slot"] = tower_inventory_slot
-	var drag_texture = TextureRect.new()
-	drag_texture.expand = true
-	drag_texture.texture = texture
-	drag_texture.rect_size = Vector2(100,100)
-	drag_texture.process_priority = 1
-	
-	var control = Control.new()
-	control.add_child(drag_texture)
-	drag_texture.rect_position = - 0.5 * drag_texture.rect_size
-	set_drag_preview(control)
-	texture = null
-	tower_inventory.update_tower()
-	return data
-
+#Override can drop data function
 func can_drop_data(position, data):
 	var item = data["origin_item"]
 	if (item.isTensor == true):
-		return false
+		return true
 	else: 
-		return true	
+		return false
 
 func drop_data(position, data):
 	var target_slot_name : String = get_parent().get_name()
@@ -94,14 +63,5 @@ func drop_data(position, data):
 			tower_inventory.tower_inventory_items_held[origin_slot_name] = temp_item_for_swap
 	tower_inventory.update_tower()
 
-	# print("________________________")
-	# print("Tower inventory is")
-	# print(tower_inventory.tower_inventory_items_held)
-	# print("________________________")
-	# print("Build UI Inventory is")
-	# print(build_UI.build_UI_items_held)
-	# print("====================================================================")		
-
-
-
-
+func update_tower_quantum_circuit():
+		pass

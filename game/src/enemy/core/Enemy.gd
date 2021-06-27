@@ -159,6 +159,8 @@ func change_state(new_state: int) -> void:
 		_is_reached = false
 
 func _kill() -> void:
+	if action == ACTION.DIE:
+		return 
 	action = ACTION.DIE
 	damage_taken_timer.start(death_rattle_time)
 	sprite.play("die")
