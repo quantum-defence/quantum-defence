@@ -1,7 +1,7 @@
 extends KinematicBody2D
 class_name Projectile
 
-export var speed := 40.0
+export var speed := 600.0
 export var damage := 20.0
 
 # enemy state variables

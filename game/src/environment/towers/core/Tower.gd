@@ -25,8 +25,8 @@ onready var qn: QuantumNode = $QuantumNode
 
 # Attributes
 export var range_radius = 528
-export var tower_damage = 600
-export var projectile_speed = 20
+export var tower_damage = 20
+export var projectile_speed = 600
 export var tower_attack_speed = 1.0
 
 var probs: Dictionary
@@ -75,6 +75,7 @@ func _fire():
 	weapon_instance.fire(global_position, _target)
 	get_parent().add_child(weapon_instance)
 	if (is_tensor):
+		print(probs)
 		weapon_instance.set_prob(probs)
 		_forget_enemy(_target)
 	return weapon_instance
