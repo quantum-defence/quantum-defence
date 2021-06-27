@@ -5,6 +5,7 @@ class_name LevelMap
 onready var blue_home : Home = $BlueHome
 onready var red_home : Home = $RedHome
 onready var tile_skeleton : TileMap = $TileMapSkeleton
+onready var initial_items : Array = ['h', 'x', 'ry']
 export var level_name : String = "core"
 
 # Make an INBUILT script and do the following for any inherited LevelMap:

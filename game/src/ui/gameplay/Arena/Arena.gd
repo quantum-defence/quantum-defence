@@ -21,6 +21,7 @@ func _ready() -> void:
 	self.move_child(basic, 0)
 	level_map = basic
 	_set_up()
+	$UI/Control/BuildUI.set_up()
 
 func _set_up() -> void:
 	tile_map = level_map.tile_skeleton

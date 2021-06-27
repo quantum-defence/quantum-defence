@@ -11,7 +11,6 @@ enum TOWERTYPES {
 	EYETOWER = 5
 }
 
-#Red Sprites
 var redSprites : Array = [
 	preload("res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 1).png"),
 	preload("res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png"),
@@ -30,21 +29,24 @@ var blueSprites : Array = [
 	preload("res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 1).png")
 ]
 
-
 #Preload all the tower scenes to build
-const RESOURCE : Array = ["res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn",
-"res://src/environment/towers/pixelTowers/flyingObelisk/flyingObelisk.tscn",
-"res://src/environment/towers/pixelTowers/lightningTotem/LightningTotem.tscn",
-"res://src/environment/towers/pixelTowers/demonStatue/DemonStatue.tscn",
-"res://src/environment/towers/pixelTowers/moonTower/MoonTower.tscn",
-"res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn"]
+const RESOURCE : Array = [
+	"res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn",
+	"res://src/environment/towers/pixelTowers/flyingObelisk/flyingObelisk.tscn",
+	"res://src/environment/towers/pixelTowers/lightningTotem/LightningTotem.tscn",
+	"res://src/environment/towers/pixelTowers/demonStatue/DemonStatue.tscn",
+	"res://src/environment/towers/pixelTowers/moonTower/MoonTower.tscn",
+	"res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn"
+]
 
-var bag_item = preload("res://src/items/otherItems/Axe.tscn").instance()
-var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn").instance()
 onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer")
-var h_gate = preload("res://src/items/QuantumItems/H.tscn").instance()
-var ry_gate = preload("res://src/items/QuantumItems/RY.tscn").instance()
-var x_gate = preload("res://src/items/QuantumItems/X.tscn").instance()
+
+var h_gate = preload("res://src/items/QuantumItems/H.tscn")
+var ry_gate = preload("res://src/items/QuantumItems/RY.tscn")
+var x_gate = preload("res://src/items/QuantumItems/X.tscn")
+
+var bag_item = preload("res://src/items/otherItems/Axe.tscn")
+var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn")
 
 var isRed = true
 var redTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png")
@@ -54,32 +56,50 @@ var blueTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RP
 #if buildMode is not true, then it is in normal mode
 var buildMode : bool = false
 var build_UI_items_held : Dictionary = {
-	"Slot1" : h_gate,
-	"Slot2" : ry_gate,
-	"Slot3" : x_gate,
+	"Slot1" : null,
+	"Slot2" : null,
+	"Slot3" : null,
 	"Slot4" : null,
 	"Slot5" : null,
 	"Slot6" : null,
-	"Slot7" : emerald_staff,
+	"Slot7" : null,
 	"Slot8" : null,
 	"Slot9" : null,
-	"Slot10" : bag_item
+	"Slot10" : null
 }
 
 
 
 onready var tileSelector: TileSelector = find_parent("Arena").get_node("Selector")
 # TODO: change below to Arena, or delete if not necessary (best practice: minimise calls to parent)
-onready var currentMap = self.get_parent()
 
 
 
 func _ready() -> void:
 	get_tree().call_group("tower_builds", "change_visibility", false)
-	# for slot in inventorySlots.get_children():
-		# slot.connect("gui_input", self, "slot_gui_input", [slot])
 
-	
+func set_up() -> void:
+	print(self.find_parent("Arena"))
+	print(self.find_parent("Arena").level_map)
+	var initial_items = self.find_parent("Arena").level_map.initial_items
+	for item_name in initial_items:
+		var item = null
+		match(item_name):
+			'h':
+				item = h_gate.instance()
+			'x':
+				item = x_gate.instance()
+			'ry':
+				item = ry_gate.instance()
+			'bag_item':
+				item = bag_item.instance()
+			'emerald_staff':
+				item = emerald_staff.instance()
+			_:
+				item = null
+		if item != null:
+			_pick_up_item(item)
+
 func _on_BuildMode_pressed():
 	get_tree().call_group("tower_builds", "change_visibility", true)
 	

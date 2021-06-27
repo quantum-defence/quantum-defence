@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Increase.png" type="Texture" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://assets/img/UI/BuildToolUIBackground.png" type="Texture" id=10]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Info.png" type="Texture" id=11]
 [ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 1).png" type="Texture" id=12]
-[ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Equipment/Bag.png" type="Texture" id=13]
 [ext_resource path="res://src/ui/gameplay/BuildTool/buildUISlot.gd" type="Script" id=14]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png" type="Texture" id=15]
 [ext_resource path="res://src/ui/gameplay/BuildTool/tower-builds.gd" type="Script" id=16]
@@ -241,13 +240,13 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 3 )
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot3"]
+anchor_top = 0.0269871
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.02699
 margin_left = 10.409
 margin_top = 10.2728
 margin_right = -9.59103
 margin_bottom = -10.7272
-texture = ExtResource( 13 )
 expand = true
 script = ExtResource( 14 )
 __meta__ = {
@@ -406,7 +405,6 @@ margin_left = 10.409
 margin_top = 10.2728
 margin_right = -9.59103
 margin_bottom = -10.7272
-texture = ExtResource( 13 )
 expand = true
 script = ExtResource( 14 )
 __meta__ = {
