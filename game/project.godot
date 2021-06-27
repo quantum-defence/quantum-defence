@@ -105,7 +105,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Tower Defence"
-run/main_scene="res://src/ui/gameplay/Arena/Arena.tscn"
+run/main_scene="res://src/ui/Menu/Menu.tscn"
 config/icon="res://assets/img/coloured-squares/wip-logo.png"
 
 [autoload]
