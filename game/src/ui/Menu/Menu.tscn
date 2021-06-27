@@ -19,22 +19,22 @@ color = Color( 1, 0.223529, 0.180392, 1 )
 hue_variation = 0.21
 hue_variation_random = 0.5
 
-[sub_resource type="StyleBoxLine" id=6]
+[sub_resource type="StyleBoxLine" id=2]
 color = Color( 1, 1, 1, 1 )
 thickness = 10
 vertical = true
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=6]
 size = 70
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=7]
 size = 60
 outline_color = Color( 0.466667, 0.235294, 0.235294, 1 )
 font_data = ExtResource( 1 )
@@ -87,48 +87,48 @@ __meta__ = {
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 margin_right = 448.0
 margin_bottom = 71.0
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Play Game"
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 margin_top = 75.0
 margin_right = 448.0
 margin_bottom = 146.0
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Settings"
 
 [node name="Gallery" type="Button" parent="VBoxContainer"]
 margin_top = 150.0
 margin_right = 448.0
 margin_bottom = 221.0
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Gallery"
 
 [node name="Credits" type="Button" parent="VBoxContainer"]
 margin_top = 225.0
 margin_right = 448.0
 margin_bottom = 296.0
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Credits"
 
 [node name="Label" type="Label" parent="."]
@@ -136,7 +136,7 @@ margin_left = 1376.0
 margin_top = 368.0
 margin_right = 1780.0
 margin_bottom = 440.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.466667, 0.235294, 0.235294, 1 )
 text = "The Architect"
 __meta__ = {

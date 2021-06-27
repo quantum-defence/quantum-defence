@@ -14,6 +14,7 @@ outlines = [ PoolVector2Array( -1258.09, 606.674, -398.085, 507.674, -29.0851, 1
 
 [node name="LevelMap" type="Node2D"]
 script = ExtResource( 4 )
+level_name = "core"
 
 [node name="TileMapPretty" type="TileMap" parent="."]
 position = Vector2( 0, 1 )

@@ -12,4 +12,11 @@ func _process(delta):
 		background_music.playing = true
 
 func _on_PlayButton_pressed():
-	get_tree().change_scene("res://src/ui/gameplay/Arena/Arena.tscn")
+	var arena = load("res://src/ui/gameplay/Arena/Arena.tscn").instance()
+	var basic = load("res://src/environment/LevelMap/BasicLevel.tscn").instance()
+	var root = get_tree().get_root()
+	root.add_child(arena)
+	arena.set_up(basic)
+	
+	root.remove_child(self)
+	self.queue_free()

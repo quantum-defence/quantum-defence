@@ -14,16 +14,14 @@ onready var red_home : Home
 var tile_at
 var tower_at
 
-func _ready() -> void:
-	var basic = load("res://src/environment/LevelMap/BasicLevel.tscn").instance()
-	level_map.queue_free()
-	self.add_child(basic)
-	self.move_child(basic, 0)
-	level_map = basic
-	_set_up()
+func set_up(level) -> void:
+	if (level_map != null):
+		level_map.queue_free()
+	self.add_child(level)
+	self.move_child(level, 0)
+	level_map = level
+	
 	$UI/Control/BuildUI.set_up()
-
-func _set_up() -> void:
 	tile_map = level_map.tile_skeleton
 	blue_home = level_map.blue_home
 	red_home = level_map.red_home
