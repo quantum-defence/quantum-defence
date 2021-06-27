@@ -10,7 +10,6 @@
 script = ExtResource( 2 )
 
 [node name="LevelMap" parent="." instance=ExtResource( 3 )]
-level_name = "core"
 
 [node name="Selector" parent="." instance=ExtResource( 1 )]
 position = Vector2( -190.663, -292.601 )
