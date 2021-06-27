@@ -6,6 +6,7 @@ class_name Item
 export var damageIncrease: int
 export var attackSpeedIncrease: int
 export var rangeIncrease: int
+export var isTensor: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

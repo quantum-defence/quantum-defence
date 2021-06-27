@@ -50,12 +50,18 @@ func change_tower_to_be_build(tower: Tower):
 
 	var animated_sprite = tower_to_be_built.get_node("AnimatedSprite")
 	animated_sprite.z_index = 1
-	var other_animated_sprite = animated_sprite.duplicate()
+	var other_animated_sprite = animated_sprite.duplicate()	
 	other_animated_sprite.position = Vector2.ZERO
 	var control = self.get_node("TextureRect/Control")
-	delete_children(control)
-	control.add_child(other_animated_sprite)
+	# delete_children(control)
+	# control.add_child(other_animated_sprite)
+	# update_tower_inventory_textures()
+
+	var tower_display = self.get_node("TextureRect/TowerDisplay")
+	delete_children(tower_display)
+	tower_display.add_child(other_animated_sprite)
 	update_tower_inventory_textures()
+
 
 	
 #Function to make tower visible/invisible. Realised that 
@@ -89,7 +95,6 @@ func slot_gui_input(event: InputEvent, binds)-> void:
 			
 
 func drop_item(slot: TowerInventorySlot) -> Item:
-	# print(tower_to_be_built.tower_items_held)
 	var slot_name = slot.get_parent().get_name()
 	var item_dropped = tower_to_be_built._drop_item(slot_name)
 	# print(tower_to_be_built.tower_items_held)

@@ -48,6 +48,7 @@ func x(q: int) -> QuantumCircuit:
 	return self
 
 func rx(theta: float, q: int) -> QuantumCircuit:
+	print("rx being called")
 	var temp = ['rx', theta, q]
 	self.circuit_data.append(temp)
 	return self
@@ -82,6 +83,7 @@ func measure(q: int, b: int) -> QuantumCircuit:
 	return self;
 
 func ry(theta,q) -> QuantumCircuit:
+	print("ry being called")
 	return self.rx(PI/2,q).rz(theta,q).rx(-PI/2,q)
 
 func print_data():

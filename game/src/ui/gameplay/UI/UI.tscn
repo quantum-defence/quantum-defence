@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
@@ -21,18 +21,26 @@
 [ext_resource path="res://src/ui/gameplay/UI/UI.gd" type="Script" id=19]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png" type="Texture" id=20]
 [ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Equipment/Bag.png" type="Texture" id=21]
+[ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=22]
+[ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Weapon & Tool/Emerald Staff.png" type="Texture" id=23]
+[ext_resource path="res://src/ui/gameplay/towerInventory/QuantumCircuitSlot.gd" type="Script" id=24]
+[ext_resource path="res://assets/img/QuantumItemGates/Hgate.png" type="Texture" id=25]
 
-[sub_resource type="StyleBoxTexture" id=1]
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 22 )
+
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 160, 160 )
 margin_left = 13.2964
 margin_right = 12.1884
 margin_top = 13.5051
 margin_bottom = 14.4044
-
-[sub_resource type="StyleBoxEmpty" id=2]
-
-[sub_resource type="StyleBoxEmpty" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -53,6 +61,8 @@ margin_bottom = 14.4044
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -1.49829
+margin_right = -1.49829
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -75,12 +85,108 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="Control/TowerInventory/TextureRect"]
-margin_left = 264.0
-margin_top = 360.0
-margin_right = 412.0
-margin_bottom = 520.0
-columns = 2
+[node name="TowerDisplay" type="HBoxContainer" parent="Control/TowerInventory/TextureRect"]
+anchor_left = 0.729
+anchor_right = 0.729
+margin_left = -208.153
+margin_top = 156.0
+margin_right = -200.153
+margin_bottom = 168.0
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TowerStats" type="VBoxContainer" parent="Control/TowerInventory/TextureRect"]
+margin_left = 212.0
+margin_top = 82.0
+margin_right = 413.0
+margin_bottom = 295.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attack" type="HBoxContainer" parent="Control/TowerInventory/TextureRect/TowerStats"]
+margin_right = 201.0
+margin_bottom = 23.0
+
+[node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Attack"]
+margin_right = 72.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
+text = "Attack"
+
+[node name="AttackSpeed" type="HBoxContainer" parent="Control/TowerInventory/TextureRect/TowerStats"]
+margin_top = 27.0
+margin_right = 201.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/AttackSpeed"]
+margin_right = 72.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
+text = "AtkSpd"
+
+[node name="Range" type="HBoxContainer" parent="Control/TowerInventory/TextureRect/TowerStats"]
+margin_top = 54.0
+margin_right = 201.0
+margin_bottom = 77.0
+
+[node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Range"]
+margin_right = 60.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
+text = "Range"
+
+[node name="Tensor" type="HBoxContainer" parent="Control/TowerInventory/TextureRect/TowerStats"]
+margin_top = 81.0
+margin_right = 201.0
+margin_bottom = 104.0
+
+[node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Tensor"]
+margin_right = 132.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
+text = "Probability"
+
+[node name="Color" type="HBoxContainer" parent="Control/TowerInventory/TextureRect/TowerStats"]
+margin_top = 108.0
+margin_right = 201.0
+margin_bottom = 157.0
+
+[node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Color"]
+margin_right = 60.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
+text = "Color
+"
+
+[node name="ItemLabel" type="Label" parent="Control/TowerInventory/TextureRect"]
+margin_left = 43.0
+margin_top = 308.0
+margin_right = 128.0
+margin_bottom = 373.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
+text = "Items
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="HBoxContainer" parent="Control/TowerInventory/TextureRect"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 97.0139
+margin_top = -198.812
+margin_right = 97.0139
+margin_bottom = -134.812
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -92,7 +198,7 @@ __meta__ = {
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot1"]
@@ -116,7 +222,7 @@ margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot2"]
@@ -135,11 +241,11 @@ __meta__ = {
 [node name="Slot3" type="Panel" parent="Control/TowerInventory/TextureRect/GridContainer" groups=[
 "TowerInventorySlots",
 ]]
-margin_top = 68.0
-margin_right = 64.0
-margin_bottom = 132.0
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot3"]
@@ -158,12 +264,11 @@ __meta__ = {
 [node name="Slot4" type="Panel" parent="Control/TowerInventory/TextureRect/GridContainer" groups=[
 "TowerInventorySlots",
 ]]
-margin_left = 68.0
-margin_top = 68.0
-margin_right = 132.0
-margin_bottom = 132.0
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot4"]
@@ -180,33 +285,154 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/TowerInventory/TextureRect"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -77.6748
-margin_top = 63.6992
-margin_right = 81.3252
-margin_bottom = 218.699
-custom_styles/panel = SubResource( 2 )
+[node name="Control" type="Control" parent="Control/TowerInventory/TextureRect"]
+anchor_left = 0.729
+anchor_right = 0.729
+margin_left = -196.716
+margin_top = 135.181
+margin_right = -165.716
+margin_bottom = 156.181
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TowerInspected" type="Panel" parent="Control/TowerInventory/TextureRect/PanelContainer"]
-margin_right = 159.0
-margin_bottom = 155.0
+[node name="QuantumLabel" type="Label" parent="Control/TowerInventory/TextureRect"]
+margin_left = 41.8108
+margin_top = 420.682
+margin_right = 160.811
+margin_bottom = 485.682
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
+text = "Quantum
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuantumCircuit" type="HBoxContainer" parent="Control/TowerInventory/TextureRect/QuantumLabel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 21.9053
+margin_top = -36.6003
+margin_right = 238.905
+margin_bottom = 27.3997
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuantumSlot1" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
+"TowerInventorySlots",
+]]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
 
-[node name="Control" type="Control" parent="Control/TowerInventory/TextureRect"]
-anchor_left = 0.729
-anchor_right = 0.729
-margin_left = -104.153
-margin_top = 134.0
-margin_right = -103.153
-margin_bottom = 134.0
+[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.409
+margin_top = 10.2728
+margin_right = -9.59103
+margin_bottom = -10.7272
+expand = true
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuantumSlot2" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
+"TowerInventorySlots",
+]]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 19 )
+
+[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.409
+margin_top = 10.2728
+margin_right = -9.59103
+margin_bottom = -10.7272
+expand = true
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuantumSlot3" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
+"TowerInventorySlots",
+]]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 19 )
+
+[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.409
+margin_top = 10.2728
+margin_right = -9.59103
+margin_bottom = -10.7272
+expand = true
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuantumSlot4" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
+"TowerInventorySlots",
+]]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 19 )
+
+[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.409
+margin_top = 10.2728
+margin_right = -9.59103
+margin_bottom = -10.7272
+expand = true
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuantumSlot5" type="Panel" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit" groups=[
+"TowerInventorySlots",
+]]
+margin_left = 272.0
+margin_right = 336.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 19 )
+
+[node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.409
+margin_top = 10.2728
+margin_right = -9.59103
+margin_bottom = -10.7272
+expand = true
+script = ExtResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -391,6 +617,7 @@ margin_left = 10.409
 margin_top = 10.2728
 margin_right = -9.59103
 margin_bottom = -10.7272
+texture = ExtResource( 25 )
 expand = true
 script = ExtResource( 7 )
 __meta__ = {
@@ -530,6 +757,7 @@ margin_left = 11.6689
 margin_top = 10.2728
 margin_right = -8.33114
 margin_bottom = -10.7272
+texture = ExtResource( 23 )
 expand = true
 script = ExtResource( 7 )
 __meta__ = {
@@ -633,6 +861,9 @@ __meta__ = {
 [connection signal="gui_input" from="Control/TowerInventory/TextureRect/GridContainer/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
 [connection signal="mouse_entered" from="Control/TowerInventory/TextureRect/GridContainer/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_mouse_entered"]
 [connection signal="gui_input" from="Control/TowerInventory/TextureRect/GridContainer/Slot2/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
+[connection signal="gui_input" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
+[connection signal="mouse_entered" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_mouse_entered"]
+[connection signal="gui_input" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot2/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/BuildMode" to="Control/BuildUI" method="_on_BuildMode_pressed"]
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/InspectMode" to="Control/BuildUI" method="_on_InspectMode_pressed"]
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/ObeliskTower" to="Control/BuildUI" method="_on_ObeliskTower_pressed"]

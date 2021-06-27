@@ -15,7 +15,13 @@ var tower_items_held  = {
 	"Slot1" : bag_item,
 	"Slot2" : null,
 	"Slot3" : null,
-	"Slot4" : bag_item
+	"Slot4" : bag_item,
+	"QuantumSlot1" : null,
+	"QuantumSlot2" : null,
+	"QuantumSlot3" : null,
+	"QuantumSlot4" : null,
+	"QuantumSlot5" : null,
+
 }
 
 onready var _target : Enemy = null
