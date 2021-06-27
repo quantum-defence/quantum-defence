@@ -82,6 +82,7 @@ func drop_data(position, data):
 			var temp_item_for_swap = target_slot_item
 			build_UI.build_UI_items_held[target_slot_name] = origin_slot_item
 			tower_inventory.tower_inventory_items_held[origin_slot_name] = temp_item_for_swap			
+	tower_inventory.update_tower()
 
 
 	# print("________________________")

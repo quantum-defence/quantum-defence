@@ -1,71 +1,83 @@
 extends KinematicBody2D
 class_name Tower
 
-enum TYPES { 
-	FASTEST = 0,
-	REPEATER = 1, 
-	SHOTGUN = 2, 
-	ULTIMATE = 3,
-}
-
-var bag_item = preload("res://src/items/otherItems/Axe.tscn").instance()
-var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn").instance()
-
+# Special variable (only thing not reset by _reset())
 var tower_items_held  = {
-	"Slot1" : bag_item,
+	"Slot1" : null,
 	"Slot2" : null,
 	"Slot3" : null,
-	"Slot4" : bag_item,
+	"Slot4" : null,
 	"QuantumSlot1" : null,
 	"QuantumSlot2" : null,
 	"QuantumSlot3" : null,
 	"QuantumSlot4" : null,
 	"QuantumSlot5" : null,
-
 }
 
 onready var _target : Enemy = null
+
+onready var weapon = preload("res://src/projectile/core/Projectile.tscn")
 onready var _enemiesInRange := []
 onready var _timer : Timer = $Timer
-onready var itemsHeld = []
-var weapon 
-onready var _attributes := [0, 0, 0, 0] # assuming 4 attributes
+onready var itemsHeld : Array = []
+onready var tensorItems : Array = []
+onready var qn: QuantumNode = $QuantumNode
+
+# Attributes
+export var range_radius = 528
+export var tower_damage = 600
+export var projectile_speed = 20
+export var tower_attack_speed = 1.0
+
+var probs: Dictionary
+var is_tensor := false
 
 export var isRed := true
-export var isTensor := false
 
 func _ready() -> void:
-	#_timer.set_wait_time(firing_interval)
-# warning-ignore:return_value_discarded
+	_reset()
+	# warning-ignore:return_value_discarded
 	_timer.connect("timeout", self, "_fire")
+
+func _reset() -> void:
+	# Resets everything and is_tensor except tower_items_held (dictionary)
+	itemsHeld = []
+	tensorItems = []
+	itemsHeld.resize(4)
+	tensorItems.resize(5)
+	is_tensor = false
+
+	$Range/RangeRadius.shape.radius = range_radius 
+	var weapon_instance = weapon.instance()
+	weapon_instance.damage
+	projectile_speed = weapon_instance.speed
+	weapon_instance.queue_free()
+	_timer.set_wait_time(tower_attack_speed)
+
+	self.qn.qc = QuantumCircuit.new()
+	self.qn.qc.set_circuit(1,1)
+	probs = { "0":0, "1":1 } if isRed else  { "0":1, "1":0 }
 
 func build_at(position: Vector2) -> void:
 	self.position = position
 	# _play_build_tower_animation()
 	# show animation
 
-func dismantle() -> Array:
+func dismantle():
 	# show animation
-	var attr = self._attributes
 	queue_free()
-	return attr
-
-func upgrade_with(item_type: int) -> bool:
-	# Item.TYPES should be an enum that handles this
-	var current_level = self._attributes[item_type]
-	if current_level < 5:
-		self._attributes[item_type] = current_level + 1
-		return true
-	return false
-	
+	return 
 
 func _fire():
-	weapon = preload("res://src/projectile/core/Projectile.tscn").instance()
-	weapon.fire(global_position, _target)
-	get_parent().add_child(weapon)
-	if (isTensor):
+	var weapon_instance = weapon.instance()
+	weapon_instance.damage = tower_damage 
+	weapon_instance.speed = projectile_speed 
+	weapon_instance.fire(global_position, _target)
+	get_parent().add_child(weapon_instance)
+	if (is_tensor):
+		weapon_instance.set_prob(probs)
 		_forget_enemy(_target)
-	return weapon
+	return weapon_instance
 
 
 func _choose_enemy() -> Enemy:
@@ -106,23 +118,58 @@ func _on_Range_body_exited(body: Node) -> void:
 	if body is Enemy:
 		_forget_enemy(body)
 
-func _equip_item(item):
-	# All the current stats of the tower
-	var rangeRadius = $Range/RangeRadius.shape.radius
-	var towerDamage = weapon.damage
-	var projectileSpeed = weapon.speed
-	var towerAttackSpeed = $Timer.get_wait_time()
+func update_items():
+	_reset()
+
+	itemsHeld[0] = tower_items_held["Slot1"]
+	itemsHeld[1] = tower_items_held["Slot2"]
+	itemsHeld[2] = tower_items_held["Slot3"]
+	itemsHeld[3] = tower_items_held["Slot4"]
+	tensorItems[0] = tower_items_held["QuantumSlot1"]
+	tensorItems[1] = tower_items_held["QuantumSlot2"]
+	tensorItems[2] = tower_items_held["QuantumSlot3"]
+	tensorItems[3] = tower_items_held["QuantumSlot4"]
+	tensorItems[4] = tower_items_held["QuantumSlot5"]
+
+	for quodite in itemsHeld:
+		if quodite == null:
+			continue
+		_equip_quodite_item(quodite)
+	for tensor in tensorItems:
+		if tensor == null:
+			continue
+		is_tensor = true
+		_equip_tensor_item(tensor)
+	probs = self.qn.simulate_and_get_probabilities_dict()
 	
-	if (itemsHeld.size() < 4):
-		itemsHeld.append(item)
-		#Check for all the stats
-		if (item.damageIncrease != 0):
-			weapon.damage = towerDamage + item.damageIncrease
-		if (item.attackSpeedIncrease != 0):
-			var newTowerAttackSpeed = towerAttackSpeed * 100/(100 + item.attackSpeedIncrease)
-			$Timer.set_wait_time(newTowerAttackSpeed)
-		if (item.rangeIncrease != 0):
-			$Range/RangeRadius.set_radius(rangeRadius + item.rangeIncrease)
+
+func _equip_tensor_item(tensor):
+	var func_to_call = tensor.tensor_func_name
+	match (tensor.tensor_func_name):
+		'h':
+			self.qn.qc.h(0)
+		'x':
+			self.qn.qc.x(0)
+		'y':
+			self.qn.qc.y(0)
+		'z':
+			self.qn.qc.z(0)
+		'rx':
+			self.qn.qc.rx(PI/4, 0)
+		'rz':
+			self.qn.qc.rz(PI/4, 0)
+		'ry':
+			self.qn.qc.ry(PI/4, 0)
+
+func _equip_quodite_item(item):
+	# All the current stats of the tower
+	if (item.damageIncrease != 0):
+		weapon.damage = tower_damage + item.damageIncrease
+	if (item.attackSpeedIncrease != 0):
+		var new_tower_attack_speed = tower_attack_speed * 100/(100 + item.attackSpeedIncrease)
+		$Timer.set_wait_time(new_tower_attack_speed)
+	if (item.rangeIncrease != 0):
+		$Range/RangeRadius.set_radius(range_radius + item.rangeIncrease)
 
 
 #func _play_build_tower_animation():

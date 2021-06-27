@@ -1,9 +1,7 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://src/environment/towers/core/Tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_blue_sheet.png" type="Texture" id=2]
-[ext_resource path="res://src/environment/towers/pixelTowers/demonStatue/DemonStatueScript.gd" type="Script" id=3]
-[ext_resource path="res://src/quantum/QuantumNode.gd" type="Script" id=4]
 [ext_resource path="res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_red_sheet.png" type="Texture" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -330,7 +328,6 @@ animations = [ {
 } ]
 
 [node name="Tower" instance=ExtResource( 1 )]
-script = ExtResource( 3 )
 
 [node name="Timer" parent="." index="3"]
 wait_time = 0.33
@@ -340,8 +337,5 @@ position = Vector2( 0, -64 )
 scale = Vector2( 1.7249, 1.47304 )
 frames = SubResource( 63 )
 animation = "IdleRed(Level 1)"
-frame = 12
+frame = 22
 speed_scale = 0.5
-
-[node name="QuantumNode" type="Node" parent="." index="6"]
-script = ExtResource( 4 )
