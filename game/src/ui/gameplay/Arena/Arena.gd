@@ -6,14 +6,26 @@ const TILE_SIZE = 64.0
 enum TILE_CONTENTS { PATH, EMPTY, TOWER, HOME, INVALID = -1 }
 enum ACTION { BUILDING, INSPECTING }
 
-onready var tile_selector := $Selector
-onready var tile_map : TileMap = $TileMapSkeleton
-onready var blue_home : Home = $BlueHome
-onready var red_home : Home = $RedHome
+onready var tile_selector: TileSelector = $Selector
+onready var level_map : LevelMap = $LevelMap
+onready var tile_map : TileMap
+onready var blue_home : Home
+onready var red_home : Home
 var tile_at
 var tower_at
 
 func _ready() -> void:
+	var basic = load("res://src/environment/LevelMap/BasicLevel.tscn").instance()
+	level_map.queue_free()
+	self.add_child(basic)
+	self.move_child(basic, 0)
+	level_map = basic
+	_set_up()
+
+func _set_up() -> void:
+	tile_map = level_map.tile_skeleton
+	blue_home = level_map.blue_home
+	red_home = level_map.red_home
 	tile_selector.set_action(ACTION.INSPECTING, "")
 	tile_at = []
 	tile_at.resize(90)
@@ -85,7 +97,7 @@ func build_tower(x: int, y: int, tower_type: String) -> bool:
 		tower.isRed = false
 	
 	add_child(tower)
-	tower.build_at(Vector2(x + 0.5, y + 0.5) * TILE_SIZE)
+	tower.build_at(Vector2(x + 0.5, y) * TILE_SIZE)
 	tower.z_index = tower.global_position.y / 10.0
 	tower_at[x][y] = weakref(tower)
 	tile_at[x][y] = TILE_CONTENTS.TOWER

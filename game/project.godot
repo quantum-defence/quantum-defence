@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Arena",
 "language": "GDScript",
-"path": "res://src/environment/map/Map.gd"
+"path": "res://src/ui/gameplay/Arena/Arena.gd"
 }, {
 "base": "CanvasLayer",
 "class": "BuildUI",
@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/items/core/Item.gd"
 }, {
+"base": "Node2D",
+"class": "LevelMap",
+"language": "GDScript",
+"path": "res://src/environment/LevelMap/core/LevelMap.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Projectile",
 "language": "GDScript",
@@ -62,7 +67,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "TileSelector",
 "language": "GDScript",
-"path": "res://src/environment/map/tile-selector/TileSelector.gd"
+"path": "res://src/ui/gameplay/Arena/tile-selector/TileSelector.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Tower",
@@ -86,6 +91,7 @@ _global_script_class_icons={
 "EnemySpawnPoint": "",
 "Home": "",
 "Item": "",
+"LevelMap": "",
 "Projectile": "",
 "QuantumCircuit": "",
 "QuantumNode": "",
@@ -99,7 +105,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Tower Defence"
-run/main_scene="res://src/ui/Menu/Menu.tscn"
+run/main_scene="res://src/ui/gameplay/Arena/Arena.tscn"
 config/icon="res://assets/img/coloured-squares/wip-logo.png"
 
 [autoload]
@@ -120,6 +126,7 @@ window/size/width=1920
 window/size/height=1080
 window/size/always_on_top=true
 window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gdnative]
 

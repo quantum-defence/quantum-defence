@@ -12,7 +12,8 @@ var _action : int
 var _type : String # resource to instance from
 var _valid_tile : bool
 
-onready var arena : Arena = get_parent()
+# TODO: Remove all arena / parent references, convert to signals
+onready var arena = get_parent()
 
 func select(x : int, y : int) -> void:
 	_x = x
@@ -49,12 +50,11 @@ func take_action():
 			if (inspected_tower == null):
 				return 0
 			else:
-				var tower_inventory = find_parent("Map").get_node("UI/Control/TowerInventory")
+				var tower_inventory = arena.get_node("UI/Control/TowerInventory")
 				tower_inventory.change_tower_to_be_build(inspected_tower)
 				if (tower_inventory.is_visible == false):
 					tower_inventory.toggle_tower_inventory_visible()
 				return 0
-			#return arena.tower_at[_x][_y].get_ref()
-		_: # INSPECTING
-			# idk maybe show a pop up for towers to inspect?
+		_:
+			assert(false, 'Should not reach here')
 			return 0
