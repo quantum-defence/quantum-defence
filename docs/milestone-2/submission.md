@@ -4,8 +4,8 @@ Try out the current version of "The Architect" v0.9 alpha at [this link](https:/
 
 Here are some additional materials made for orbital:
 
-- [Video Link](https://bit.ly/3i31g5d)
-- [Poster Link](https://raw.githubusercontent.com/bharathcs/quantum-defence/main/docs/milestone-1/poster.png)
+- [Video Link](https://drive.google.com/file/d/1xsTMTM_VYzgOGxGCkvySZRo6IN7slZ64/view?usp=sharing)
+- [Poster Link](https://raw.githubusercontent.com/bharathcs/quantum-defence/main/docs/milestone-2/poster.png)
 - [Project Log](./project-log.md)
 - [Bug Reports](./bug-report.xslx)
 - [Developer Guide](./dev-guide.md)
