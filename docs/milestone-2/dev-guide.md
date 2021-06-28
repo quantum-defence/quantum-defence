@@ -60,7 +60,7 @@ The Arena itself has multiple important nodes, but here are some clarifications 
 
 A diagram summarising these interactions can be seen below:
 
-![Arena and UI](./arena-and-ui-interaction.png)
+![Arena and UI](./assets/arena-and-ui-interaction.png)
 
 ## Overview of Enemy Quantum Logic
 
@@ -81,4 +81,4 @@ Upon first contact with a classical tower projectile each of these enemies will 
 In the future, specialised quantum missiles (Tensor in our game lore), will be able to apply quantum computation on the enemies in superposition.
 This requires quite specialised code from MicroQiskit, which we have rewritten into GDScript (Godot's coding language)
 
-![Enemy, Tower Projectile and API Service](./enemy-projectile-api.png)
+![Enemy, Tower Projectile and API Service](./assets/enemy-projectile-api.png)
