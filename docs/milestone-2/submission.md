@@ -1,11 +1,15 @@
 # Milestone 1 README
 
-Try out the current version of "The Architect" v0.7 alpha at [this link](https://github.com/bharathcs/quantum-defence/releases/tag/v0.7-alpha)! Comments and feedback are welcomed and much appreciated.
+Try out the current version of "The Architect" v0.9 alpha at [this link](https://github.com/bharathcs/quantum-defence/releases/tag/v0.9-alpha)! Comments and feedback are welcomed and much appreciated.
 
 Here are some additional materials made for orbital:
 
 - [Video Link](https://bit.ly/3i31g5d)
 - [Poster Link](https://raw.githubusercontent.com/bharathcs/quantum-defence/main/docs/milestone-1/poster.png)
+- [Project Log](./project-log.md)
+- [Bug Reports](./bug-report.xslx)
+- [Developer Guide](./dev-guide.md)
+- [User Guide](./user-guide.md)
 
 ## Motivation:
 
@@ -67,122 +71,3 @@ This is the broad overview of how we see users employing our game:
 
   - User story 3.1: I want to be able to record the score (kill count / rounds) of the game or somehow keep track of all the achievements etc. E.g a personal high score record.
   - User story 3.2: I want to track the time it takes to complete the entire game and a display for that
-
-# Project Log
-
-| Start Date |  End Date  |  Member  | Task                                      | Comments                                       | Hours |
-| :--------: | :--------: | :------: | :---------------------------------------- | :--------------------------------------------- | :---: |
-| 2021-05-01 | 2021-05-10 | Tee Chin | Learning godot and game design principles | Made a Pong clone                              |  12   |
-| 2021-05-01 | 2021-05-10 | Bharath  | Learning godot and game design principles | Made a Pong clone                              |  12   |
-| 2021-05-10 | 2021-05-14 | Tee Chin | Make Basic TD Mechanics                   | Turrets Timers Homing Projectiles              |   4   |
-| 2021-05-10 | 2021-05-14 | Bharath  | Basic TD: Enemy and Home                  | Sprites and Enemy attacking behaviour          |   4   |
-| 2021-05-14 | 2021-05-15 | Bharath  | Basic TD: Enemy Spawning                  | Enemy Spawn Points and creation logic          |   3   |
-| 2021-05-14 | 2021-05-16 | Bharath  | Basic TD: Enemy Mechanics (Attempt 1)     | Physics Layer and enemy path testing           |   7   |
-| 2021-05-14 | 2021-05-16 | Tee Chin | Basic TD: Tower mechanics                 | Tower sprite, watching for enemy, firing       |   7   |
-| 2021-05-16 | 2021-05-18 | Tee Chin | Basic TD: Design                          | Redesigned and choose assets for the game      |   3   |
-| 2021-05-17 | 2021-05-17 | Bharath  | Team meeting                              | Discussing how to integrate or split           |   2   |
-| 2021-05-18 | 2021-05-19 | Bharath  | Managing new assets and reorganising work | Bulk of time on learning dev practices         |   3   |
-| 2021-05-18 | 2021-05-20 | Tee Chin | BuildUI (First attempt)                   | Made the BuildUI (First attempt)               |   7   |
-| 2021-05-19 | 2021-05-22 | Bharath  | Enemy collision (Attempt 2)               | Tried nav poly based logic, ended up too laggy |   4   |
-| 2021-05-19 | 2021-05-22 | Bharath  | Enemy collision (Attempt 3)               | Bulk on time on learning godot physics         |   6   |
-| 2021-05-17 | 2021-05-22 | Tee Chin | Build UI (Second attempt)                 | Remade the BuildUI using built-in nodes        |   7   |
-| 2021-05-20 | 2021-05-24 | Tee Chin | Made an item and tower inventory class    | squash tower inventory bugs                    |   7   |
-| 2021-05-23 | 2021-05-29 | Bharath  | Tile Selector (UI for Maps)               | Detecting tile content & displaying overlay    |   4   |
-| 2021-05-23 | 2021-05-29 | Bharath  | Working on PR and Merges and cleaning up  | And integrating tee chin UI work to main       |   1   |
-| 2021-05-24 | 2021-05-30 | Tee Chin | Debugged and redesign inventory class     | Add inventory, drag and drop system to buildUI |   7   |
-| 2021-05-29 | 2021-05-30 | Bharath  | Create new tile map (lava world)          | Some code logic, mostly design work            |   4   |
-| 2021-05-29 | 2021-05-30 | Bharath  | Make basic API on localhost               | Build basic Express app to return 0 or 1       |   3   |
-| 2021-05-29 | 2021-05-30 | Bharath  | Deploy API on heroku                      | Use Heroku documentation                       |   2   |
-| 2021-05-29 | 2021-05-30 | Bharath  | Connecting Enemy to the API               | On taking damage, choose red / blue            |   2   |
-| 2021-05-29 | 2021-05-30 | Bharath  | Personal Milestone 1 Tasks                | Meeting, Documentation, Exporting              |   3   |
-| 2021-05-31 | 2021-05-31 | Bharath  | Milestone 1 Team Meeting and Submission   | Submission Documents                           |   2   |
-| 2021-05-31 | 2021-05-31 | Tee Chin | Milestone 1 Team Meeting and Submission   | Submission Documents                           |   2   |
-| 2021-05-31 | 2021-06-10 | Bharath  | Rewrote microqiskit library from python to gdscript| Handled quantum gates and  simulate function |   20   |
-| 2021-05-31 | 2021-06-10 | Tee Chin | Rewrote microqiskit library from python to gdscript| Handled quantum circuit                      |   5  |
-| 2021-05-31 | 2021-06-18 | Tee Chin | Wrote tower inspector                               | Preliminary one had many bugs and drag and dropped kept crashing |   15 |
-| 2021-05-31 | 2021-06-18 | Bharath  | Improved enemy physics and navigation improvements  | Fixed some bugs regarding movement          |   10  |
-| 2021-05-31 | 2021-06-21 Tee Chin | Added quantum slots to the tower inspector and fixed all bugs  | Connected it with our library written                          |   15  |
-| 2021-05-31 | 2021-06-21 | Bharath  | Refactored map into arena for more modularity   | Area is now the scene for all battles. Map is the one that get changed      |   10  |
-| 2021-05-31 | 2021-06-21 | Tee Chin | Created Menu and audio input  | Found art and put it together with audio through audio player     |   10  |
-| 2021-05-31 | 2021-06-27| Bharath  | Creating quantum towers and their logic   | Connected towers with the tower inventory and quantum node. Made sure all the probability was correct |   10  |
-| 2021-05-31 | 2021-06-27| Tee Chin | Creating quantum towers and their logic   | Connected towers with the tower inventory and quantum node. Made sure all the probability was correct |   10  |
-| 2021-05-31 | 2021-06-27| Bharath  | Milestone 2 Team meeting and submission   | Submission Documents                           |   4 |
-| 2021-05-31 | 2021-06-27| Tee Chin | Milestone 2 Team meeting and submission   | Submission Documents                           |   4 |
-
-|  Member  | Hours |
-| :------: | :---: |
-| Bharath  |  106  |
-| Tee Chin |  114  |
-
-# Program Flow
-
-## Overview of Game Source Code
-
-Programming in our code is largely split into 2:
-
-- Arena: in charge of dealing with all the tiles, enemy, home base and towers
-- Build Tool UI: takes in user interaction to build / upgrade / destroy and passes it on to the Arena to execute
-
-The Arena itself has multiple important nodes, but here are some clarifications on the most inscrutable parts:
-
-**Navigation**
-
-- When requested by an enemy instance, plots a valid path across navigable tiles (see Skeleton Tile Map)
-- Is not aware of other future enemy positions when calculating for a particular enemy, so it cannot plot around non tile obstacles. Depends on enemy to manage collisions itself.
-
-**Tower & Enemy & Home**
-
-- Enemies will ask navigator for map and proceed along the route, barring any collisions. For every collision it will stagger randomly for a predetermined period of time and then request a new path.
-- As enemies enter / leave tower range, the tower will add to memory / forget these instances. Towers will continuously fire at the nearest enemy in memory.
-- Enemies and home have specific behaviour and animation for different behaviours to show satisfying feedback and for game mechanics (taking damage takes priority over all other behaviour, attacks require a brief cool down, etc)
-
-**Internal Representation**
-
-- `tower_at` - an array of Tower [WeakRefs](https://docs.godotengine.org/en/stable/classes/class_weakref.html) for use when upgrading / building / dismantling towers and used when Arena is updated by / updates Build Tool UI
-- `tile_at` - an array of enum values representing the content of the tile
-
-**TileSelector**
-
-- Square that flashes Green / Red based on if the tile is a valid position for user action (based on whether they are in build mode)
-- follows user interaction and is continually updated by `tower_at` and `tile_at`.
-- On the user taking action, the TileSelector provides the BuildTool the tile location or the tower if applicable for further action (building / dismantling / inspection / upgrade by user)
-
-**Tile Map**
-
-- Tile Map (Pretty): 32x32 and 16x16 tiled pixel art to show a nice user friendly depiction. Does not have any responsibility other than display
-- Tile Map (Skeleton): 64x64 bare tiles that provides an easy way for level designer to communicate the position of paths to the map's internal representation
-
-**Build Tool**
-
-- Primarily contains build and inspect buttons that set user mode.
-- In build mode, shows an otherwise hidden list of tower buttons to set type of tower to be built
-- (Disabled in v0.7-alpha release) In inspect mode, selecting a tower will show a tower inspector window that displays attributes and items as well as provide upgrade and dismantle options
-- (Disabled in v0.7-alpha release) Contains an item pack that can be consumed by towers to upgrade their attributes
-
-A diagram summarising these interactions can be seen below:
-
-![Arena and UI](./arena-and-ui-interaction.png)
-
-## Overview of Enemy Quantum Logic
-
-In quantum computing, qubits replace the traditional 0s or 1s of bits in classical computing.
-Where a bit can only be 0 or 1, qubits appear to be in a coherent superposition (in _both_ states of 0 and 1 simultaneously).
-Qubits will however collapse to just holding 1 bit of information (turn into a typical bit in either 0 or 1 state) when measured.
-Our enemies can be either blue or red, but their state is represented as a qubit.
-
-As such, quantum powered (tensor) weapons or classical (quodite) weapons can be employed against them:
-
-- Tensor: change change the state of their qubit without measurement (applying qubits through the quantum logic circuits in the weapons, changing their probabilities in the red and blue dimensions)
-- Quodite: can be dealt direct typical damage, which would also measure them (collapsing them to red or blue dimensions)
-
-Quodite and Tensor effects can be combined, resulting in many unique possibilities for our game users to experiment with quantum computing.
-Currently in the milestone 1 submission, all that is being explored is collapsing an enemy that initially is in a superposition of blue and red states.
-Upon first contact with a classical tower projectile each of these enemies will collapse to be only in either blue or red dimension.
-
-In the future, specialised quantum missiles (Tensor in our game lore), will be able to apply quantum computation on the enemies in superposition.
-This requires quite specialised programming which Godot may not be able to fill, so we are employing an API service.
-The current version used in v0.7-alpha is extremely barebones — it shows the result of collapsing a qubit into either 0 or 1: [Measuring a superposition (Reload multiple times)](https://tower-defence-qiskit-api.herokuapp.com/test-enemy-gen)).
-
-This flow from an enemy getting hit with a projectile to checking the API and updating its internal data can be seen as below:
-
-![Enemy, Tower Projectile and API Service](./enemy-projectile-api.png)

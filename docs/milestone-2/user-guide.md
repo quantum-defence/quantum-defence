@@ -7,7 +7,7 @@
 
 - If you encounter any issues regarding 'unidentified developer' or 'unsigned certificate' and you are on a MacOS - follow this [link](https://support.apple.com/en-sg/guide/mac-help/mh40616/mac)
 
-## User Stories
+## User Guide
 
 ### Menu
 
