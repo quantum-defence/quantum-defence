@@ -51,7 +51,7 @@
 
 ![Inspecting Towers](./assets/tower-inspector.png)
 
-- Select inspect mode by hitting '+'
+- Select inspect mode by hitting 'i'
 - Choose towers to see a graphical visualisation of the current attributes of this tower
 - At this point, quantum towers can be added in to change the probability of enemy states after hit. (Default is always 100% red or blue to indicate no change to enemy)
 
