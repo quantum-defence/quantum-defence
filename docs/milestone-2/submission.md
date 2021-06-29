@@ -7,7 +7,7 @@ Here are some additional materials made for orbital:
 - [Video Link](https://drive.google.com/file/d/1xsTMTM_VYzgOGxGCkvySZRo6IN7slZ64/view?usp=sharing)
 - [Poster Link](https://raw.githubusercontent.com/bharathcs/quantum-defence/main/docs/milestone-2/poster.png)
 - [Project Log](./project-log.md)
-- [Bug Reports](https://github.com/bharathcs/quantum-defence/blob/main/docs/milestone-2/bug-report.xlsx)
+- [Bug Reports](https://github.com/bharathcs/quantum-defence/raw/main/docs/milestone-2/bug-report.xlsx)
 - [Developer Guide](./dev-guide.md)
 - [User Guide](./user-guide.md)
 
