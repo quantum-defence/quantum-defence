@@ -18,6 +18,13 @@ var current_level_class = null
 func set_up(level) -> void:
 	if (level_map != null):
 		level_map.queue_free()
+	if tower_at != null and tower_at.size() > 0:
+		for i in range(90):
+			var arr = tower_at[i]
+			tower_at[i] = []
+			for maybe_tower in arr:
+				if maybe_tower != null and typeof(maybe_tower) != TYPE_INT:
+					maybe_tower.get_ref().queue_free()
 	if (level == null):
 		level = current_level_class
 	current_level_class = level
