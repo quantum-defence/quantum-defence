@@ -53,4 +53,12 @@ position = Vector2( 1752, 184 )
 [node name="EnemySpawnPoint" parent="." instance=ExtResource( 6 )]
 visible = false
 position = Vector2( -80, 128 )
-spawn_rate = 2.0
+
+[connection signal="on_hit" from="RedHome" to="." method="_on_home_damage"]
+[connection signal="on_hit" from="BlueHome" to="." method="_on_home_damage"]
+[connection signal="on_enemy_kia" from="EnemySpawnPoint" to="." method="_on_enemy_kia"]
+[connection signal="on_enemy_spawn" from="EnemySpawnPoint" to="." method="_on_enemy_spawn"]
+[connection signal="on_last_enemy_dead" from="EnemySpawnPoint" to="." method="_on_last_enemy_dead"]
+[connection signal="on_max_cycle_reached" from="EnemySpawnPoint" to="." method="_on_max_cycle_reached"]
+[connection signal="on_prep_start" from="EnemySpawnPoint" to="." method="_on_prep_start"]
+[connection signal="on_spawn_cycle_change" from="EnemySpawnPoint" to="." method="_on_spawn_cycle_change"]
