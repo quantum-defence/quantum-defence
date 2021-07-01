@@ -15,9 +15,38 @@ onready var red_home : Home = $RedHome
 onready var tile_skeleton : TileMap = $TileMapSkeleton
 onready var initial_items : Array = ['h', 'x', 'ry']
 var prebuilt_towers : Array = [
+	{ 
+		'tower_res_string': "res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn", 
+		'x': 4, 'y': 7, 'colour': "red" 
+	},
+	{ 
+		'tower_res_string': "res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn", 
+		'x': 9, 'y': 4, 'colour': "red" 
+	},
+	{ 
+		'tower_res_string': "res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn", 
+		'x': 16, 'y': 4, 'colour': "blue" 
+	},
 ]
 
 var spawn_config : Array = [
+	{ 'duration': 6.0, 'enemy_queue': [] },
+	{
+		'duration': 40.0,
+		'enemy_queue': [ 
+			"sabre", "core", "sabre", 
+			"sabre", "core", "sabre",
+			"sabre", "core", "sabre",
+		]
+	},
+	{
+		'duration': 40.0,
+		'enemy_queue': [ 
+			"core", "core", "sabre", "sabre",
+			"core", "core", "sabre", "sabre",
+			"core", "core", "sabre", "sabre",
+		]
+	},
 ];
 
 var blue_health := 100
