@@ -60,5 +60,4 @@ position = Vector2( -80, 128 )
 [connection signal="on_enemy_spawn" from="EnemySpawnPoint" to="." method="_on_enemy_spawn"]
 [connection signal="on_last_enemy_dead" from="EnemySpawnPoint" to="." method="_on_last_enemy_dead"]
 [connection signal="on_max_cycle_reached" from="EnemySpawnPoint" to="." method="_on_max_cycle_reached"]
-[connection signal="on_prep_start" from="EnemySpawnPoint" to="." method="_on_prep_start"]
-[connection signal="on_spawn_cycle_change" from="EnemySpawnPoint" to="." method="_on_spawn_cycle_change"]
+[connection signal="on_new_spawn_cycle" from="EnemySpawnPoint" to="." method="_on_new_spawn_cycle"]

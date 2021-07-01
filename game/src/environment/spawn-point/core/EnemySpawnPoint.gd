@@ -2,92 +2,56 @@ extends Area2D
 class_name EnemySpawnPoint
 
 onready var ENEMY_TYPES = {
-	"CORE" : preload("res://src/enemy/core/Enemy.tscn"),
-	"SABRE" : preload("res://src/enemy/sabre/Sabre.tscn")
+	"core" : preload("res://src/enemy/core/Enemy.tscn"),
+	"sabre" : preload("res://src/enemy/sabre/Sabre.tscn")
 }
 
-# constants
-var spawn_rate := 0.5
-var spawn_on_time := 10.0
-var spawn_off_time := 20.0
-var max_spawn_cycle := 4
-
-signal on_prep_start(duration)
-signal on_spawn_cycle_change(is_spawning, cycle_number, duration)
+signal on_new_spawn_cycle(cycle_number, duration)
 signal on_max_cycle_reached
 signal on_enemy_kia
 signal on_enemy_spawn
 signal on_last_enemy_dead
 
 # hidden state variables
-var _last_spawn := 0.0
-var is_spawning : bool = true
-var prep_timer : Timer
-var cooldown_timer : Timer
-var spawn_timer : Timer
+var _spawn_config: Array;
+var _max_spawn_cycle: int;
 var cycle_number : int = 0
+
+var cycle_timer : Timer
 var living_enemy_count: int = 0
 
 func _ready() -> void:
 	set_process(false)
 
-func begin_prep_clock(prep_time: float) -> void:
-	prep_timer = Timer.new()
-	prep_timer.wait_time = prep_time
-	prep_timer.autostart = false
-	prep_timer.one_shot = true
-	add_child(prep_timer)
-	prep_timer.connect("timeout", self, "_begin_spawn_cycles")
-	prep_timer.start()
-	emit_signal("on_prep_start", prep_time)
-
-func _begin_spawn_cycles() -> void:
-	prep_timer.stop()
-	prep_timer.queue_free()
-	prep_timer = null
+func begin_prep_clock(spawn_config : Array = []) -> void:
+	_spawn_config = spawn_config.duplicate(true)
+	_max_spawn_cycle = spawn_config.size()
 	
-	cooldown_timer = Timer.new()
-	spawn_timer = Timer.new()
-	cooldown_timer.wait_time = spawn_off_time
-	spawn_timer.wait_time = spawn_on_time
-	cooldown_timer.autostart = false
-	spawn_timer.autostart = false
-	cooldown_timer.one_shot = true
-	spawn_timer.one_shot = true
+	cycle_timer = Timer.new()
+	cycle_timer.wait_time = _spawn_config[cycle_number].duration
+	cycle_timer.autostart = false
+	cycle_timer.one_shot = true
+	cycle_timer.connect("timeout", self, "_new_cycle")
 	
-	add_child(cooldown_timer)
-	add_child(spawn_timer)
-	spawn_timer.start()
-	emit_signal("on_spawn_cycle_change", true, cycle_number, spawn_on_time)
-	set_process(true)
+	add_child(cycle_timer)
+	_new_cycle()
 
-func _process(delta: float) -> void:
-	if is_spawning:
-		if spawn_timer.is_stopped():
-			if max_spawn_cycle <= cycle_number:
-				emit_signal("on_max_cycle_reached")
-				set_process(false)
-				return
-			cooldown_timer.start()
-			print('fasfsf')
-			emit_signal("on_spawn_cycle_change", false, cycle_number, spawn_off_time)
-			is_spawning = false
-	else: 
-		if cooldown_timer.is_stopped():
-			cycle_number += 1
-			spawn_timer.start()
-			is_spawning = true
-			emit_signal("on_spawn_cycle_change", true, cycle_number, spawn_on_time)
-	if !is_spawning:
-		return
-	elif _last_spawn > 1.0 / spawn_rate:
-		_last_spawn = 0.0
-		spawn()
-	_last_spawn += delta
+func _new_cycle() -> void:
+	var next_cycle : Dictionary = _spawn_config.pop_front()
+	emit_signal("on_new_spawn_cycle", cycle_number, next_cycle.duration)
+	cycle_timer.wait_time = next_cycle.duration
+	for type in next_cycle.enemy_queue:
+		spawn_enemy(type)
+		
+	cycle_number += 1
+	if cycle_number < _max_spawn_cycle:
+		cycle_timer.start();
+	else:
+		emit_signal("on_max_cycle_reached")
 
-func spawn() -> void:
+func spawn_enemy(enemy_type: String) -> void:
 	living_enemy_count += 1
-	var enemy : Enemy = ENEMY_TYPES.SABRE.instance()
+	var enemy : Enemy = ENEMY_TYPES[enemy_type].instance()
 	enemy.connect("kia", self, "register_kia")
 	get_parent().add_child_below_node(self, enemy)
 	enemy.set_up(
@@ -99,5 +63,5 @@ func spawn() -> void:
 func register_kia() -> void:
 	emit_signal("on_enemy_kia")
 	living_enemy_count -= 1
-	if max_spawn_cycle <= cycle_number:
+	if _max_spawn_cycle < cycle_number:
 		emit_signal("on_last_enemy_dead")

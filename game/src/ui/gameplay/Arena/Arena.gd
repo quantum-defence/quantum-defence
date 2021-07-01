@@ -33,7 +33,6 @@ func set_up(level) -> void:
 	self.move_child(level, 0)
 	level_map = level
 	
-	$UI/Control/BuildUI.set_up()
 	tile_map = level_map.tile_skeleton
 	blue_home = level_map.blue_home
 	red_home = level_map.red_home
@@ -54,6 +53,16 @@ func set_up(level) -> void:
 		tower_at[i].resize(90)
 		for j in range(90):
 			tower_at[i][j] = tile_map.get_cell(i, j)
+
+	level_map.set_up()
+	$UI/Control/BuildUI.set_up()
+	for tower_init in level_map.prebuilt_towers:
+		self.build_tower(
+			tower_init.x,
+			tower_init.y,
+			tower_init.tower_res_string,
+			tower_init.colour
+		)
 
 # dummy function to show use of selector
 func _input(event: InputEvent) -> void:
@@ -90,22 +99,21 @@ func is_valid_tower_drop(x: int, y: int) -> bool:
 func is_valid_item_drop(x: int, y: int) -> bool:
 	return tile_at[x][y] == TILE_CONTENTS.TOWER
 
-func build_tower(x: int, y: int, tower_type: String) -> bool:
+func build_tower(x: int, y: int, tower_type: String, force_colour = "") -> bool:
 	if tile_at[x][y] != TILE_CONTENTS.EMPTY:
 		return false
 	# warning-ignore:unsafe_method_access
 	var tower : Tower = load(tower_type).instance()
-	var build_UI = self.get_node("UI/Control/BuildUI")
-	
-	#Check and change the universe of the towers
-
 	var animated_sprite = tower.get_node("AnimatedSprite")
-	if (build_UI.isRed):
-		animated_sprite.animation = "IdleRed(Level 1)"
-		pass
-	else:
-		animated_sprite.animation = "IdleBlue(Level 1)"
-		tower.isRed = false
+	
+	var build_isRed = self.get_node("UI/Control/BuildUI").isRed
+	if force_colour == "red":
+		build_isRed = true
+	elif force_colour == "blue":
+		build_isRed = false
+	
+	animated_sprite.animation = "IdleRed(Level 1)" if build_isRed else "IdleBlue(Level 1)"
+	tower.isRed = build_isRed
 	
 	add_child(tower)
 	tower.build_at(Vector2(x + 0.5, y) * TILE_SIZE)
