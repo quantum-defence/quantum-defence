@@ -39,7 +39,6 @@ func set_up() -> void:
 	# $Navigator/NavigationPolygonInstance.set_enabled(true)
 
 func _on_home_damage(isRed, health) -> void:
-	# print("home damage" + " red " if isRed else " blue " + str(health))
 	if isRed:
 		red_health = health
 	else:
@@ -62,6 +61,5 @@ func _on_max_cycle_reached() -> void:
 	emit_signal("on_last_cycle")
 
 func _on_new_spawn_cycle(cycle_number, duration) -> void:
-	print('span' + str(duration) + " " + str(cycle_number))
 	_cycle_number = cycle_number
 	emit_signal("on_spawn_cycle", cycle_number, duration)

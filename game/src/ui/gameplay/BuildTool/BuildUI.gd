@@ -79,8 +79,6 @@ func _ready() -> void:
 	get_tree().call_group("tower_builds", "change_visibility", false)
 
 func set_up() -> void:
-	print(self.find_parent("Arena"))
-	print(self.find_parent("Arena").level_map)
 	var initial_items = self.find_parent("Arena").level_map.initial_items
 	build_UI_items_held =  {
 		"Slot1" : null,
