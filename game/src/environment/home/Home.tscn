@@ -54,7 +54,7 @@ position = Vector2( 0.340393, -0.419159 )
 scale = Vector2( 2.69565, 2.69565 )
 frames = ExtResource( 3 )
 animation = "live"
-frame = 58
+frame = 20
 playing = true
 
 [node name="Timer" type="Timer" parent="."]

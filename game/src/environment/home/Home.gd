@@ -1,6 +1,8 @@
 extends Area2D
 class_name Home
 
+signal on_hit(isRed, health)
+
 onready var health := 100.0
 onready var sprite : AnimatedSprite = $AnimatedSprite
 onready var damage_taken_timer : Timer = $Timer
@@ -19,6 +21,7 @@ func _process(_delta: float) -> void:
 
 func take_damage(damage_taken: float, _isFlip: bool = false, _isRed: bool = false) -> void:
 	self.health -= damage_taken
+	emit_signal("on_hit", isRed, self.health)
 	if health <= 0.0:
 		health = 0.0
 		sprite.play("take_damage")

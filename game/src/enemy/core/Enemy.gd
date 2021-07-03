@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Enemy
 
+signal kia
+
 # % of random movement to avoid the 'queue' clustering effect'
 const RAND_WALK_EFFECT := 50
 const RANDOM_WALK_DIST := 128.0 * 0.4
@@ -159,6 +161,7 @@ func change_state(new_state: int) -> void:
 		_is_reached = false
 
 func _kill() -> void:
+	emit_signal("kia")
 	if action == ACTION.DIE:
 		return 
 	action = ACTION.DIE
