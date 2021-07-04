@@ -1101,7 +1101,7 @@ shader_param/aspect_ratio = 0.5
 58/shapes = [  ]
 58/z_index = 0
 
-[node name="TileMap" type="TileMap"]
+[node name="PrettyTileMap" type="TileMap"]
 scale = Vector2( 2, 2 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )

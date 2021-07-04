@@ -13,7 +13,7 @@ func _process(delta):
 
 func _on_PlayButton_pressed():
 	var arena = load("res://src/ui/gameplay/Arena/Arena.tscn").instance()
-	var basic = load("res://src/environment/LevelMap/core/LevelMap.tscn")
+	var basic = load("res://src/environment/LevelMap/L1-1/L1-1_main.tscn")
 	# var basic = load("res://src/environment/LevelMap/BasicLevel.tscn")
 	var root = get_tree().get_root()
 	root.add_child(arena)
