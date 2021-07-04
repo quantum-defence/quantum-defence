@@ -29,23 +29,36 @@ func set_action(action : int, type_resource_string : String) -> void:
 	_type = type_resource_string
 
 func _process(_delta: float) -> void:
-	self.modulate = Color(0, 1, 0) if _is_valid_tile() else Color(1, 0, 0)
-	
+	if (build_ui.tower_following_mouse == null):
+		self.modulate = Color(0, 1, 0) if _is_valid_tile() else Color(1, 0, 0)
+	else :
+		var mouse_tower = build_ui.tower_following_mouse
+		var mouse_pos = get_viewport().get_mouse_position()
+		mouse_tower.position = mouse_pos
+		mouse_tower.modulate = Color(0, 1, 0, 0.5) if _is_valid_tile() else Color(1, 0, 0, 0.5)
+
+
 func _is_valid_tile() -> bool:
 	var tile = arena.get_contents_at(_x, _y)
-	print(tile)
-	if (build_ui.buildMode == true):
+
+	#If the person clicks on a tower, it always must inspect it first
+	if (tile == TILE_CONTENTS.TOWER):
+		self.set_action(self.ACTION.INSPECTING, "inspecting")
+		return true
+
+	#After u press a button build mode becomes true
+	elif (build_ui.buildMode == true):
 		if (tile == TILE_CONTENTS.TOWER):
 			return false
 		elif (tile == TILE_CONTENTS.EMPTY):
 			return true	
 	
-	if (tile == TILE_CONTENTS.TOWER):
-		self.set_action(self.ACTION.INSPECTING, "inspecting")
-		return true
+	#If button is not pressed yet		
+	if (tile == TILE_CONTENTS.PATH):
+		return false
 	elif (tile == TILE_CONTENTS.EMPTY):
 		self.set_action(self.ACTION.IDLE, "Idle")
-		return false
+		return true
 	return true	
 
 	# if (tile == TILE_CONTENTS.TOWER and build_ui.buildMode != true):
@@ -68,7 +81,11 @@ func take_action():
 		return null
 	match (_action):
 		ACTION.BUILDING:
-			return arena.build_tower(_x, _y, _type)
+			arena.build_tower(_x, _y, _type)
+			build_ui.tower_following_mouse.queue_free()
+			build_ui.tower_following_mouse = null
+			
+			self.set_action(self.ACTION.IDLE, "Idle")
 		ACTION.INSPECTING:
 			if (arena.get_tower_at(_x, _y) == null):
 				return 0
@@ -78,8 +95,7 @@ func take_action():
 			else:
 				var tower_inventory = arena.get_node("UI/Control/TowerInventory")
 				tower_inventory.change_tower_to_be_build(inspected_tower)
-				if (tower_inventory.is_visible == false):
-					tower_inventory.toggle_tower_inventory_visible()
+				tower_inventory.toggle_tower_inventory_visible()
 				return 0
 		ACTION.IDLE:
 			return 0		
