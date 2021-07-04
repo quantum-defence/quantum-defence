@@ -66,6 +66,9 @@ func set_up() -> void:
 	# $Navigator/NavPolyInstance.set_enabled(false)
 	# $Navigator/NavPolyInstance.queue_free()
 	# $Navigator/NavigationPolygonInstance.set_enabled(true)
+	# initial_items = ..
+	# prebuilt_towers = ..
+	# spawn_config = 
 
 func _on_home_damage(isRed, health) -> void:
 	if isRed:
