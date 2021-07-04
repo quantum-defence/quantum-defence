@@ -4,7 +4,7 @@ class_name TileSelector
 # DUPLICATE CODE: must also modify at map
 const TILE_SIZE = 64.0
 enum TILE_CONTENTS { PATH, EMPTY, TOWER, HOME, INVALID = -1 }
-enum ACTION { BUILDING, INSPECTING }
+enum ACTION { BUILDING, INSPECTING, IDLE }
 
 var _x : int
 var _y : int
@@ -14,6 +14,7 @@ var _valid_tile : bool
 
 # TODO: Remove all arena / parent references, convert to signals
 onready var arena = get_parent()
+onready var build_ui = arena.get_node("UI/Control/BuildUI") 
 
 func select(x : int, y : int) -> void:
 	_x = x
@@ -23,6 +24,7 @@ func select(x : int, y : int) -> void:
 # if action == ACTION.BUILDING, type must be of Tower.TYPE
 # likewise if action == ACTION.DROPPING, type must be of Item.TYPE
 func set_action(action : int, type_resource_string : String) -> void:
+	print(action)
 	_action = action
 	_type = type_resource_string
 
@@ -31,13 +33,35 @@ func _process(_delta: float) -> void:
 	
 func _is_valid_tile() -> bool:
 	var tile = arena.get_contents_at(_x, _y)
-	match (_action):
-		ACTION.BUILDING:
-			return tile == TILE_CONTENTS.EMPTY
-		ACTION.INSPECTING:
-			return tile == TILE_CONTENTS.TOWER
-		_: # INSPECTING
-			return true
+	print(tile)
+	if (build_ui.buildMode == true):
+		if (tile == TILE_CONTENTS.TOWER):
+			return false
+		elif (tile == TILE_CONTENTS.EMPTY):
+			return true	
+	
+	if (tile == TILE_CONTENTS.TOWER):
+		self.set_action(self.ACTION.INSPECTING, "inspecting")
+		return true
+	elif (tile == TILE_CONTENTS.EMPTY):
+		self.set_action(self.ACTION.IDLE, "Idle")
+		return false
+	return true	
+
+	# if (tile == TILE_CONTENTS.TOWER and build_ui.buildMode != true):
+	# 	self.set_action(self.ACTION.INSPECTING, "inspecting")
+	# elif (tile == TILE_CONTENTS.EMPTY and build_ui.buildMode == true):
+	# 	pass
+	# elif (tile == TILE_CONTENTS.EMPTY):
+	# 	return false
+	# return true	
+	# match (_action):
+	# 	ACTION.BUILDING:
+	# 		return tile == TILE_CONTENTS.EMPTY
+	# 	ACTION.INSPECTING:
+	# 		return tile == TILE_CONTENTS.TOWER
+	# 	_: # INSPECTING
+	# 		return true
 
 func take_action():
 	if !_is_valid_tile():
@@ -46,6 +70,8 @@ func take_action():
 		ACTION.BUILDING:
 			return arena.build_tower(_x, _y, _type)
 		ACTION.INSPECTING:
+			if (arena.get_tower_at(_x, _y) == null):
+				return 0
 			var inspected_tower = arena.get_tower_at(_x, _y).get_ref()
 			if (inspected_tower == null):
 				return 0
@@ -55,6 +81,8 @@ func take_action():
 				if (tower_inventory.is_visible == false):
 					tower_inventory.toggle_tower_inventory_visible()
 				return 0
+		ACTION.IDLE:
+			return 0		
 		_:
 			assert(false, 'Should not reach here')
 			return 0

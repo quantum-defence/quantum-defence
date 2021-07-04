@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/img/PixelTiles/2DML_SET3_v1.0/mainlevbuild.png" type="Texture" id=1]
-[ext_resource path="res://TileMapPretty_LevelOne.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/environment/LevelMap/Level1/TileMapPretty_LevelOne.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/ui/gameplay/Arena/ground_tile_set.tres" type="TileSet" id=3]
 [ext_resource path="res://src/environment/LevelMap/core/LevelMap.gd" type="Script" id=4]
 [ext_resource path="res://src/environment/home/Home.tscn" type="PackedScene" id=5]

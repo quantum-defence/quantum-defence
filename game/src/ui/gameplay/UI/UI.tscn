@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
@@ -8,23 +8,17 @@
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Avatar.png" type="Texture" id=6]
 [ext_resource path="res://src/ui/gameplay/BuildTool/buildUISlot.gd" type="Script" id=7]
 [ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Red Level 1).png" type="Texture" id=8]
-[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Increase.png" type="Texture" id=9]
 [ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 1).png" type="Texture" id=10]
 [ext_resource path="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png" type="Texture" id=11]
 [ext_resource path="res://assets/img/UI/BuildToolUIBackground.png" type="Texture" id=12]
 [ext_resource path="res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_red_sheet.png" type="Texture" id=13]
-[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Normal/Buttons_Button Normal - Increase.png" type="Texture" id=14]
 [ext_resource path="res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet(Red).png" type="Texture" id=15]
 [ext_resource path="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png" type="Texture" id=16]
-[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Buttons/Disabled/Buttons_Button Disabled - Info.png" type="Texture" id=17]
 [ext_resource path="res://src/ui/gameplay/BuildTool/tower-builds.gd" type="Script" id=18]
 [ext_resource path="res://src/ui/gameplay/UI/UI.gd" type="Script" id=19]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png" type="Texture" id=20]
 [ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=22]
 [ext_resource path="res://src/ui/gameplay/towerInventory/QuantumCircuitSlot.gd" type="Script" id=24]
-[ext_resource path="res://assets/img/QuantumItemGates/Hgate.png" type="Texture" id=25]
-[ext_resource path="res://assets/img/QuantumItemGates/RYgate.png" type="Texture" id=26]
-[ext_resource path="res://assets/img/QuantumItemGates/Xgate.png" type="Texture" id=27]
 [ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.tscn" type="PackedScene" id=28]
 
 [sub_resource type="DynamicFont" id=1]
@@ -67,7 +61,9 @@ margin_bottom = 14.4044
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1.49829
+margin_top = -2.37842
 margin_right = -1.49829
+margin_bottom = -2.37842
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -485,31 +481,54 @@ margin_bottom = 280.0
 custom_styles/panel = SubResource( 6 )
 script = ExtResource( 19 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer"]
 margin_top = 60.0
 margin_right = 1920.0
 margin_bottom = 220.0
+custom_constants/margin_right = 30
+custom_constants/margin_left = 30
+script = ExtResource( 19 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer"]
+margin_left = 30.0
+margin_right = 1890.0
+margin_bottom = 160.0
 custom_constants/separation = 10
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BuildMode" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
+[node name="ObeliskTower" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" groups=[
+"tower_builds",
+]]
 margin_right = 160.0
 margin_bottom = 160.0
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 14 )
-script = ExtResource( 19 )
+texture_normal = ExtResource( 6 )
+script = ExtResource( 18 )
 
-[node name="InspectMode" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
+[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ObeliskTower"]
+position = Vector2( 81.5646, 77.6973 )
+scale = Vector2( 0.81223, 0.605684 )
+texture = ExtResource( 10 )
+hframes = 14
+
+[node name="FlyingObelisk" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" groups=[
+"tower_builds",
+]]
 margin_left = 170.0
 margin_right = 330.0
 margin_bottom = 160.0
-texture_normal = ExtResource( 17 )
-script = ExtResource( 19 )
+texture_normal = ExtResource( 6 )
+script = ExtResource( 18 )
 
-[node name="ObeliskTower" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
+[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/FlyingObelisk"]
+position = Vector2( 74.6506, 69.8009 )
+scale = Vector2( 0.677756, 0.412511 )
+texture = ExtResource( 11 )
+hframes = 14
+
+[node name="LightningTotem" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
 margin_left = 340.0
@@ -518,13 +537,14 @@ margin_bottom = 160.0
 texture_normal = ExtResource( 6 )
 script = ExtResource( 18 )
 
-[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/ObeliskTower"]
-position = Vector2( 81.5646, 77.6973 )
-scale = Vector2( 0.81223, 0.605684 )
-texture = ExtResource( 10 )
-hframes = 14
+[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/LightningTotem"]
+position = Vector2( 82.8553, 37.525 )
+scale = Vector2( 1.59623, 1.57333 )
+texture = ExtResource( 15 )
+hframes = 16
+vframes = 5
 
-[node name="FlyingObelisk" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
+[node name="DemonStatue" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
 margin_left = 510.0
@@ -533,13 +553,14 @@ margin_bottom = 160.0
 texture_normal = ExtResource( 6 )
 script = ExtResource( 18 )
 
-[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/FlyingObelisk"]
-position = Vector2( 74.6506, 69.8009 )
-scale = Vector2( 0.677756, 0.412511 )
-texture = ExtResource( 11 )
-hframes = 14
+[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/DemonStatue"]
+position = Vector2( 84.4443, 54.4763 )
+scale = Vector2( 1.58211, 1.12533 )
+texture = ExtResource( 13 )
+hframes = 31
+vframes = 2
 
-[node name="LightningTotem" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
+[node name="MoonTower" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
 margin_left = 680.0
@@ -548,14 +569,13 @@ margin_bottom = 160.0
 texture_normal = ExtResource( 6 )
 script = ExtResource( 18 )
 
-[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/LightningTotem"]
-position = Vector2( 82.8553, 37.525 )
-scale = Vector2( 1.59623, 1.57333 )
-texture = ExtResource( 15 )
-hframes = 16
-vframes = 5
+[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/MoonTower"]
+position = Vector2( 81.2661, 59.7736 )
+scale = Vector2( 1.73396, 1.26406 )
+texture = ExtResource( 16 )
+hframes = 11
 
-[node name="DemonStatue" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
+[node name="EyeTower" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
 margin_left = 850.0
@@ -564,51 +584,20 @@ margin_bottom = 160.0
 texture_normal = ExtResource( 6 )
 script = ExtResource( 18 )
 
-[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/DemonStatue"]
-position = Vector2( 84.4443, 54.4763 )
-scale = Vector2( 1.58211, 1.12533 )
-texture = ExtResource( 13 )
-hframes = 31
-vframes = 2
-
-[node name="MoonTower" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
-"tower_builds",
-]]
-margin_left = 1020.0
-margin_right = 1180.0
-margin_bottom = 160.0
-texture_normal = ExtResource( 6 )
-script = ExtResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/MoonTower"]
-position = Vector2( 81.2661, 59.7736 )
-scale = Vector2( 1.73396, 1.26406 )
-texture = ExtResource( 16 )
-hframes = 11
-
-[node name="EyeTower" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer" groups=[
-"tower_builds",
-]]
-margin_left = 1190.0
-margin_right = 1350.0
-margin_bottom = 160.0
-texture_normal = ExtResource( 6 )
-script = ExtResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/EyeTower"]
+[node name="Sprite" type="Sprite" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/EyeTower"]
 position = Vector2( 81.796, 67.7196 )
 scale = Vector2( 1.78694, 1.62277 )
 texture = ExtResource( 8 )
 hframes = 14
 
-[node name="GridContainer" type="GridContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
-margin_left = 1360.0
-margin_right = 1696.0
+[node name="ItemSlots" type="GridContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer"]
+margin_left = 1020.0
+margin_right = 1356.0
 margin_bottom = 160.0
 columns = 5
 script = ExtResource( 19 )
 
-[node name="Slot1" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
+[node name="Slot1" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots" groups=[
 "BuildUISlots",
 ]]
 margin_right = 64.0
@@ -617,7 +606,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot1"]
+[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot1"]
 anchor_left = -0.00639153
 anchor_top = -0.00426292
 anchor_right = 0.993608
@@ -632,7 +621,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot2" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
+[node name="Slot2" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots" groups=[
 "BuildUISlots",
 ]]
 margin_left = 68.0
@@ -642,7 +631,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot2"]
+[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot2"]
 anchor_left = 0.0248585
 anchor_top = -0.00426292
 anchor_right = 1.02486
@@ -657,7 +646,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot3" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
+[node name="Slot3" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots" groups=[
 "BuildUISlots",
 ]]
 margin_left = 136.0
@@ -666,7 +655,7 @@ margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot3"]
+[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 9.99994
@@ -679,7 +668,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot4" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
+[node name="Slot4" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots" groups=[
 "BuildUISlots",
 ]]
 margin_left = 204.0
@@ -689,7 +678,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot4"]
+[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
@@ -702,7 +691,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot5" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
+[node name="Slot5" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots" groups=[
 "BuildUISlots",
 ]]
 margin_left = 272.0
@@ -712,7 +701,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot5"]
+[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot5"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
@@ -725,7 +714,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot6" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
+[node name="Slot6" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots" groups=[
 "BuildUISlots",
 ]]
 margin_top = 68.0
@@ -735,7 +724,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot6"]
+[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot6"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
@@ -748,7 +737,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot7" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
+[node name="Slot7" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots" groups=[
 "BuildUISlots",
 ]]
 margin_left = 68.0
@@ -759,7 +748,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot7"]
+[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot7"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 12.0
@@ -772,7 +761,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot8" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
+[node name="Slot8" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots" groups=[
 "BuildUISlots",
 ]]
 margin_left = 136.0
@@ -783,7 +772,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot8"]
+[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot8"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
@@ -796,7 +785,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot9" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
+[node name="Slot9" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots" groups=[
 "BuildUISlots",
 ]]
 margin_left = 204.0
@@ -807,7 +796,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot9"]
+[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot9"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
@@ -820,7 +809,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot10" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer" groups=[
+[node name="Slot10" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots" groups=[
 "BuildUISlots",
 ]]
 margin_left = 272.0
@@ -831,7 +820,7 @@ rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
 script = ExtResource( 19 )
 
-[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer/Slot10"]
+[node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot10"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.409
@@ -844,9 +833,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
-margin_left = 1706.0
-margin_right = 1866.0
+[node name="TextureButton" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer"]
+margin_left = 1366.0
+margin_right = 1526.0
 margin_bottom = 160.0
 toggle_mode = true
 texture_normal = ExtResource( 20 )
@@ -856,7 +845,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Label" type="Label" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/TextureButton"]
+[node name="Label" type="Label" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/TextureButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "Build Mode"
@@ -871,12 +860,10 @@ __meta__ = {
 [connection signal="gui_input" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
 [connection signal="mouse_entered" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_mouse_entered"]
 [connection signal="gui_input" from="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot2/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
-[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/BuildMode" to="Control/BuildUI" method="_on_BuildMode_pressed"]
-[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/InspectMode" to="Control/BuildUI" method="_on_InspectMode_pressed"]
-[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/ObeliskTower" to="Control/BuildUI" method="_on_ObeliskTower_pressed"]
-[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/FlyingObelisk" to="Control/BuildUI" method="_on_FlyingObelisk_pressed"]
-[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/LightningTotem" to="Control/BuildUI" method="_on_LightningTotem_pressed"]
-[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/DemonStatue" to="Control/BuildUI" method="_on_DemonStatue_pressed"]
-[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/MoonTower" to="Control/BuildUI" method="_on_MoonTower_pressed"]
-[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/EyeTower" to="Control/BuildUI" method="_on_EyeTower_pressed"]
-[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/TextureButton" to="Control/BuildUI" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ObeliskTower" to="Control/BuildUI" method="_on_ObeliskTower_pressed"]
+[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/FlyingObelisk" to="Control/BuildUI" method="_on_FlyingObelisk_pressed"]
+[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/LightningTotem" to="Control/BuildUI" method="_on_LightningTotem_pressed"]
+[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/DemonStatue" to="Control/BuildUI" method="_on_DemonStatue_pressed"]
+[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/MoonTower" to="Control/BuildUI" method="_on_MoonTower_pressed"]
+[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/EyeTower" to="Control/BuildUI" method="_on_EyeTower_pressed"]
+[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/TextureButton" to="Control/BuildUI" method="_on_TextureButton_pressed"]

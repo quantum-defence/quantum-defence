@@ -38,8 +38,7 @@ const RESOURCE : Array = [
 	"res://src/environment/towers/pixelTowers/moonTower/MoonTower.tscn",
 	"res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn"
 ]
-
-onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/GridContainer")
+onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots")
 
 var h_gate = preload("res://src/items/QuantumItems/H.tscn")
 var ry_gate = preload("res://src/items/QuantumItems/RY.tscn")
@@ -76,7 +75,8 @@ onready var tileSelector: TileSelector = find_parent("Arena").get_node("Selector
 
 
 func _ready() -> void:
-	get_tree().call_group("tower_builds", "change_visibility", false)
+	get_tree().call_group("tower_builds", "change_visibility", true)
+	tileSelector.set_action(TileSelector.ACTION.INSPECTING, "smth")
 
 func set_up() -> void:
 	var initial_items = self.find_parent("Arena").level_map.initial_items
@@ -126,38 +126,38 @@ func _on_InspectMode_pressed():
 
 
 func _on_ObeliskTower_pressed():
-	if (buildMode):
-		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.OBELISK])
+	buildMode = true
+	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.OBELISK])
 	pass
 
 
 func _on_FlyingObelisk_pressed():
-	if (buildMode):
-		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.FLYINGOBELISK])
+	buildMode = true
+	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.FLYINGOBELISK])
 	pass # Replace with function body.
 
 
 func _on_LightningTotem_pressed():
-	if (buildMode):
-		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.LIGHTNINGTOTEM])
+	buildMode = true
+	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.LIGHTNINGTOTEM])
 	pass # Replace with function body.
 
 
 func _on_DemonStatue_pressed():
-	if (buildMode):
-		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.DEMONSTATUE])
+	buildMode = true
+	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.DEMONSTATUE])
 	pass # Replace with function body.
 
 
 func _on_MoonTower_pressed():
-	if (buildMode):
-		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.MOONTOWER])
+	buildMode = true
+	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.MOONTOWER])
 	pass # Replace with function body.
 
 
 func _on_EyeTower_pressed():
-	if (buildMode):
-		tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.EYETOWER])
+	buildMode = true
+	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.EYETOWER])
 	pass # Replace with function body.
 
 func _pick_up_item(item: Item) -> void:
