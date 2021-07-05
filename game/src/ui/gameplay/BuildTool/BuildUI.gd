@@ -49,6 +49,8 @@ var x_gate = preload("res://src/items/QuantumItems/X.tscn")
 
 var bag_item = preload("res://src/items/otherItems/Axe.tscn")
 var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn")
+var tile_size = 64
+
 
 var isRed = true
 var redTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png")
@@ -127,63 +129,55 @@ func _on_InspectMode_pressed():
 	var tower_inventory = get_parent().get_node("TowerInventory")
 	get_tree().call_group("tower_builds", "change_visibility", false)
 
+
+
+func _helper_mouse_tower(tower_type: int) -> void:
+	# Make the instance of the tower always follow the mouse
+	tower_following_mouse = load(RESOURCE[tower_type]).instance()
+	tileSelector.add_child(tower_following_mouse)
+	tower_following_mouse.position = Vector2(tower_following_mouse.position.x + tile_size/2, tower_following_mouse.position.y + tile_size)
+	tower_following_mouse.set_name("Tower")
+	pass
+
+
 func _on_ObeliskTower_pressed():
 	buildMode = true
 	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.OBELISK])
-
-	# Make the instance of the tower always follow the mouse
-	tower_following_mouse = load(RESOURCE[TOWERTYPES.OBELISK]).instance()
-	self.find_parent("Arena").add_child(tower_following_mouse)
+	_helper_mouse_tower(TOWERTYPES.OBELISK)
 	pass
 
 
 func _on_FlyingObelisk_pressed():
 	buildMode = true
 	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.FLYINGOBELISK])
-
-	# Make the instance of the tower always follow the mouse
-	tower_following_mouse = load(RESOURCE[TOWERTYPES.FLYINGOBELISK]).instance()
-	self.find_parent("Arena").add_child(tower_following_mouse)
+	_helper_mouse_tower(TOWERTYPES.FLYINGOBELISK)
 	pass # Replace with function body.
 
 
 func _on_LightningTotem_pressed():
 	buildMode = true
 	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.LIGHTNINGTOTEM])
-
-	# Make the instance of the tower always follow the mouse
-	tower_following_mouse = load(RESOURCE[TOWERTYPES.LIGHTNINGTOTEM]).instance()
-	self.find_parent("Arena").add_child(tower_following_mouse)
+	_helper_mouse_tower(TOWERTYPES.LIGHTNINGTOTEM)
 	pass # Replace with function body.
 
 
 func _on_DemonStatue_pressed():
 	buildMode = true
 	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.DEMONSTATUE])
-
-	# Make the instance of the tower always follow the mouse
-	tower_following_mouse = load(RESOURCE[TOWERTYPES.DEMONSTATUE]).instance()
-	self.find_parent("Arena").add_child(tower_following_mouse)
-	pass # Replace with function body.
-
+	_helper_mouse_tower(TOWERTYPES.DEMONSTATUE)
+	pass
 
 func _on_MoonTower_pressed():
 	buildMode = true
 	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.MOONTOWER])
-
-	# Make the instance of the tower always follow the mouse
-	tower_following_mouse = load(RESOURCE[TOWERTYPES.MOONTOWER]).instance()
-	self.find_parent("Arena").add_child(tower_following_mouse)
+	_helper_mouse_tower(TOWERTYPES.MOONTOWER)
 	pass # Replace with function body.
 
 
 func _on_EyeTower_pressed():
 	buildMode = true
 	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.EYETOWER])
-
-	# Make the instance of the tower always follow the mouse
-	tower_following_mouse = load(RESOURCE[TOWERTYPES.EYETOWER]).instance()
-	self.find_parent("Arena").add_child(tower_following_mouse)
+	_helper_mouse_tower(TOWERTYPES.EYETOWER)
 	pass # Replace with function body.
 
 func _pick_up_item(item: Item) -> void:

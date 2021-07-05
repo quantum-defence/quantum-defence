@@ -90,7 +90,14 @@ func toggle_tower_inventory_visible():
 		self.scale = Vector2(1,1)	
 		is_visible = true
 
-		
+func make_tower_inventory_visible():
+	self.scale = Vector2(1,1)
+	is_visible = true		
+
+func make_tower_inventory_invisible():
+	self.scale = Vector2.ZERO
+	is_visible = false
+	
 func _ready():
 	toggle_tower_inventory_visible()
 	for slots in inventorySlots.get_children():

@@ -24,18 +24,28 @@ func select(x : int, y : int) -> void:
 # if action == ACTION.BUILDING, type must be of Tower.TYPE
 # likewise if action == ACTION.DROPPING, type must be of Item.TYPE
 func set_action(action : int, type_resource_string : String) -> void:
-	print(action)
 	_action = action
 	_type = type_resource_string
 
 func _process(_delta: float) -> void:
-	if (build_ui.tower_following_mouse == null):
+	var mouse_tower = self.get_node("Tower")
+	if (mouse_tower == null):
 		self.modulate = Color(0, 1, 0) if _is_valid_tile() else Color(1, 0, 0)
 	else :
-		var mouse_tower = build_ui.tower_following_mouse
-		var mouse_pos = get_viewport().get_mouse_position()
-		mouse_tower.position = mouse_pos
-		mouse_tower.modulate = Color(0, 1, 0, 0.5) if _is_valid_tile() else Color(1, 0, 0, 0.5)
+		if (_is_valid_tile()):
+			if (build_ui.isRed):
+				#Is valid tile and buildUI is red
+				mouse_tower.modulate = Color(1,0.1,0,1)
+				self.modulate = Color(1,0.1,0,0.5)
+			else: 
+				#is valid and tower is blue
+				print(mouse_tower.modulate)
+				mouse_tower.modulate = Color(0,0.7,1,1)
+				self.modulate = Color(0,0.7,1,0.8)
+		else:
+			# is not valid tile		
+			mouse_tower.modulate = Color(0, 0, 0, 1)
+			self.modulate = Color(0,0,0,1)
 
 
 func _is_valid_tile() -> bool:
@@ -79,12 +89,15 @@ func _is_valid_tile() -> bool:
 func take_action():
 	if !_is_valid_tile():
 		return null
+	
+	var tower_inventory = arena.get_node("UI/Control/TowerInventory")
 	match (_action):
 		ACTION.BUILDING:
 			arena.build_tower(_x, _y, _type)
-			build_ui.tower_following_mouse.queue_free()
-			build_ui.tower_following_mouse = null
-			
+			var mouse_tower = self.get_node("Tower")
+			mouse_tower.queue_free()
+			build_ui.tower_following_mouse = null	
+
 			self.set_action(self.ACTION.IDLE, "Idle")
 		ACTION.INSPECTING:
 			if (arena.get_tower_at(_x, _y) == null):
@@ -93,11 +106,14 @@ func take_action():
 			if (inspected_tower == null):
 				return 0
 			else:
-				var tower_inventory = arena.get_node("UI/Control/TowerInventory")
+				if (tower_inventory.tower_to_be_built == inspected_tower):
+					tower_inventory.toggle_tower_inventory_visible()
+				else:
+					tower_inventory.make_tower_inventory_visible()
 				tower_inventory.change_tower_to_be_build(inspected_tower)
-				tower_inventory.toggle_tower_inventory_visible()
 				return 0
 		ACTION.IDLE:
+			tower_inventory.make_tower_inventory_invisible()		
 			return 0		
 		_:
 			assert(false, 'Should not reach here')
