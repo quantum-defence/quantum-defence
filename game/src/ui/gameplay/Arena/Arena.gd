@@ -122,7 +122,7 @@ func build_tower(x: int, y: int, tower_type: String, force_colour = "") -> bool:
 	tile_at[x][y] = TILE_CONTENTS.TOWER
 
 	#Make tower start firing
-	tower.is_firing = true
+	tower.is_frozen = false
 	return true
 
 func drop_items(x: int, y: int, item_type: int) -> bool:

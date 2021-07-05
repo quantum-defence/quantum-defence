@@ -833,7 +833,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="ColourSwitcher" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer"]
 margin_left = 1366.0
 margin_right = 1526.0
 margin_bottom = 160.0
@@ -845,7 +845,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Label" type="Label" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/TextureButton"]
+[node name="Label" type="Label" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ColourSwitcher"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "Build Mode"
@@ -869,4 +869,4 @@ wait_time = 0.2
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/DemonStatue" to="Control/BuildUI" method="_on_DemonStatue_pressed"]
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/MoonTower" to="Control/BuildUI" method="_on_MoonTower_pressed"]
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/EyeTower" to="Control/BuildUI" method="_on_EyeTower_pressed"]
-[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/TextureButton" to="Control/BuildUI" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ColourSwitcher" to="Control/BuildUI" method="_toggle_build_sprites_colors"]

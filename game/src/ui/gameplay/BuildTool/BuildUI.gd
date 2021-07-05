@@ -40,8 +40,7 @@ const RESOURCE : Array = [
 ]
 onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots")
 
-onready var tower_following_mouse 
-onready var mouse_pos
+var tower_following_mouse 
 
 var h_gate = preload("res://src/items/QuantumItems/H.tscn")
 var ry_gate = preload("res://src/items/QuantumItems/RY.tscn")
@@ -57,8 +56,8 @@ var redTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG
 var blueTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade C.png")
 
 
-#if buildMode is not true, then it is in normal mode
-var buildMode : bool = false
+#if build_mode is not true, then it is in normal mode
+var build_mode : bool = false
 var build_UI_items_held : Dictionary = {
 	"Slot1" : null,
 	"Slot2" : null,
@@ -80,27 +79,21 @@ onready var tileSelector: TileSelector = find_parent("Arena").get_node("Selector
 func _input(event):
 	if (Input.is_action_just_pressed("build_first_tower")):
 		_on_ObeliskTower_pressed()
-		print("1 pressed")
 	elif (Input.is_action_just_pressed("build_second_tower")):
 		_on_FlyingObelisk_pressed()
-		print("2 pressed")
 	elif (Input.is_action_just_pressed("build_third_tower")):
 		_on_LightningTotem_pressed()
-		print("3 pressed")
 	elif (Input.is_action_just_pressed("build_forth_tower")):
 		_on_DemonStatue_pressed()
-		print("4 pressed")
 	elif (Input.is_action_just_pressed("build_fifth_tower")):
 		_on_MoonTower_pressed()
-		print("5 pressed")
 	elif (Input.is_action_just_pressed("build_sixth_tower")):
 		_on_EyeTower_pressed()
-		print("6 pressed")
 	elif (Input.is_action_just_pressed("change_color")):
 		#This function refers to pressing the button to change the color of the towers
-		var button = self.get_node("VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/TextureButton")
+		var button = self.get_node("VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ColourSwitcher")
 		button.pressed = !button.pressed
-		_on_TextureButton_pressed()
+		_toggle_build_sprites_colors()
 	return	
 
 func _ready() -> void:
@@ -145,10 +138,10 @@ func _on_BuildMode_pressed():
 	var tower_inventory = get_parent().get_node("TowerInventory")
 	if (tower_inventory.is_visible == true):
 		tower_inventory.toggle_tower_inventory_visible()
-	buildMode = true
+	build_mode = true
 
 func _on_InspectMode_pressed():
-	buildMode = false
+	build_mode = false
 	tileSelector.set_action(TileSelector.ACTION.INSPECTING, "smth")
 	var tower_inventory = get_parent().get_node("TowerInventory")
 	get_tree().call_group("tower_builds", "change_visibility", false)
@@ -171,49 +164,30 @@ func _helper_mouse_tower(tower_type: int) -> void:
 		tileSelector.add_child(tower_following_mouse)
 		tower_following_mouse.position = Vector2(tower_following_mouse.position.x + tile_size/2, tower_following_mouse.position.y + tile_size)
 		tower_following_mouse.set_name("Tower")
-	pass
 
+func _build_tower(tower_type: int) -> void:
+	build_mode = true
+	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[tower_type])
+	_helper_mouse_tower(tower_type)
 
 func _on_ObeliskTower_pressed():
-	buildMode = true
-	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.OBELISK])
-	_helper_mouse_tower(TOWERTYPES.OBELISK)
-	pass
-
+	_build_tower(TOWERTYPES.OBELISK)
 
 func _on_FlyingObelisk_pressed():
-	buildMode = true
-	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.FLYINGOBELISK])
-	_helper_mouse_tower(TOWERTYPES.FLYINGOBELISK)
-	pass # Replace with function body.
-
+	_build_tower(TOWERTYPES.FLYINGOBELISK)
 
 func _on_LightningTotem_pressed():
-	buildMode = true
-	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.LIGHTNINGTOTEM])
-	_helper_mouse_tower(TOWERTYPES.LIGHTNINGTOTEM)
-	pass # Replace with function body.
-
+	_build_tower(TOWERTYPES.LIGHTNINGTOTEM)
 
 func _on_DemonStatue_pressed():
-	buildMode = true
-	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.DEMONSTATUE])
-	_helper_mouse_tower(TOWERTYPES.DEMONSTATUE)
-	pass
+	_build_tower(TOWERTYPES.DEMONSTATUE)
 
 func _on_MoonTower_pressed():
-	buildMode = true
-	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.MOONTOWER])
-	_helper_mouse_tower(TOWERTYPES.MOONTOWER)
-	pass # Replace with function body.
-
+	_build_tower(TOWERTYPES.MOONTOWER)
 
 func _on_EyeTower_pressed():
-	buildMode = true
-	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[TOWERTYPES.EYETOWER])
-	_helper_mouse_tower(TOWERTYPES.EYETOWER)
-	pass # Replace with function body.
-
+	_build_tower(TOWERTYPES.EYETOWER)
+	
 func _pick_up_item(item: Item) -> void:
 	#Equip the item
 	var slot
@@ -228,12 +202,8 @@ func _pick_up_item(item: Item) -> void:
 	current_slot.texture = item.get_node("TextureRect").texture
 
 
-func _on_TextureButton_pressed():
-	isRed = not isRed
-	_toggle_build_sprites_colors()
-
-
 func _toggle_build_sprites_colors():
+	isRed = not isRed
 	var sceneTree = get_tree()
 	var towers: Array = sceneTree.get_nodes_in_group("tower_builds")
 	var temp = 0

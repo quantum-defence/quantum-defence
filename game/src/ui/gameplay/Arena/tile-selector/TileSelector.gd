@@ -33,15 +33,8 @@ func _process(_delta: float) -> void:
 		self.modulate = Color(0, 1, 0) if _is_valid_tile() else Color(1, 0, 0)
 	else :
 		if (_is_valid_tile()):
-			if (build_ui.isRed):
-				#Is valid tile and buildUI is red
-				mouse_tower.modulate = Color(1,0.1,0,1)
-				self.modulate = Color(1,0.1,0,0.5)
-			else: 
-				#is valid and tower is blue
-				print(mouse_tower.modulate)
-				mouse_tower.modulate = Color(0,0.7,1,1)
-				self.modulate = Color(0,0.7,1,0.8)
+			mouse_tower.modulate = Color(1,0.1,0,1) if build_ui.isRed else Color(0,0.7,1,1)
+			self.modulate = Color(1,0.1,0,0.5) if build_ui.isRed else Color(0,0.7,1,0.8)
 		else:
 			# is not valid tile		
 			mouse_tower.modulate = Color(0, 0, 0, 1)
@@ -57,7 +50,7 @@ func _is_valid_tile() -> bool:
 		return true
 
 	#After u press a button build mode becomes true
-	elif (build_ui.buildMode == true):
+	elif (build_ui.build_mode == true):
 		if (tile == TILE_CONTENTS.TOWER):
 			return false
 		elif (tile == TILE_CONTENTS.EMPTY):
@@ -70,21 +63,6 @@ func _is_valid_tile() -> bool:
 		self.set_action(self.ACTION.IDLE, "Idle")
 		return true
 	return true	
-
-	# if (tile == TILE_CONTENTS.TOWER and build_ui.buildMode != true):
-	# 	self.set_action(self.ACTION.INSPECTING, "inspecting")
-	# elif (tile == TILE_CONTENTS.EMPTY and build_ui.buildMode == true):
-	# 	pass
-	# elif (tile == TILE_CONTENTS.EMPTY):
-	# 	return false
-	# return true	
-	# match (_action):
-	# 	ACTION.BUILDING:
-	# 		return tile == TILE_CONTENTS.EMPTY
-	# 	ACTION.INSPECTING:
-	# 		return tile == TILE_CONTENTS.TOWER
-	# 	_: # INSPECTING
-	# 		return true
 
 func take_action():
 	if !_is_valid_tile():
