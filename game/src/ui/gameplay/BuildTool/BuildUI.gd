@@ -77,7 +77,31 @@ var build_UI_items_held : Dictionary = {
 onready var tileSelector: TileSelector = find_parent("Arena").get_node("Selector")
 # TODO: change below to Arena, or delete if not necessary (best practice: minimise calls to parent)
 
-
+func _input(event):
+	if (Input.is_action_just_pressed("build_first_tower")):
+		_on_ObeliskTower_pressed()
+		print("1 pressed")
+	elif (Input.is_action_just_pressed("build_second_tower")):
+		_on_FlyingObelisk_pressed()
+		print("2 pressed")
+	elif (Input.is_action_just_pressed("build_third_tower")):
+		_on_LightningTotem_pressed()
+		print("3 pressed")
+	elif (Input.is_action_just_pressed("build_forth_tower")):
+		_on_DemonStatue_pressed()
+		print("4 pressed")
+	elif (Input.is_action_just_pressed("build_fifth_tower")):
+		_on_MoonTower_pressed()
+		print("5 pressed")
+	elif (Input.is_action_just_pressed("build_sixth_tower")):
+		_on_EyeTower_pressed()
+		print("6 pressed")
+	elif (Input.is_action_just_pressed("change_color")):
+		#This function refers to pressing the button to change the color of the towers
+		var button = self.get_node("VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/TextureButton")
+		button.pressed = !button.pressed
+		_on_TextureButton_pressed()
+	return	
 
 func _ready() -> void:
 	get_tree().call_group("tower_builds", "change_visibility", true)
@@ -134,9 +158,17 @@ func _on_InspectMode_pressed():
 func _helper_mouse_tower(tower_type: int) -> void:
 	# Make the instance of the tower always follow the mouse
 	tower_following_mouse = load(RESOURCE[tower_type]).instance()
-	tileSelector.add_child(tower_following_mouse)
-	tower_following_mouse.position = Vector2(tower_following_mouse.position.x + tile_size/2, tower_following_mouse.position.y + tile_size)
-	tower_following_mouse.set_name("Tower")
+	if (tileSelector.get_node("Tower") == null):
+		tileSelector.add_child(tower_following_mouse)
+		tower_following_mouse.position = Vector2(tower_following_mouse.position.x + tile_size/2, tower_following_mouse.position.y + tile_size)
+		tower_following_mouse.set_name("Tower")
+	else:
+		var temp = tileSelector.get_node("Tower")
+		tileSelector.remove_child(temp)
+		temp.queue_free()
+		tileSelector.add_child(tower_following_mouse)
+		tower_following_mouse.position = Vector2(tower_following_mouse.position.x + tile_size/2, tower_following_mouse.position.y + tile_size)
+		tower_following_mouse.set_name("Tower")
 	pass
 
 
@@ -208,3 +240,4 @@ func _toggle_build_sprites_colors():
 	for towerIndex in range(towers.size()):
 		var picture = sprite_used[towerIndex]
 		towers[towerIndex].get_node("Sprite").texture = picture
+		
