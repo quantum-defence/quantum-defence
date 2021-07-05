@@ -97,6 +97,7 @@ func take_action():
 			var mouse_tower = self.get_node("Tower")
 			mouse_tower.queue_free()
 			build_ui.tower_following_mouse = null	
+			build_ui.make_buildUI_visible()
 
 			self.set_action(self.ACTION.IDLE, "Idle")
 		ACTION.INSPECTING:

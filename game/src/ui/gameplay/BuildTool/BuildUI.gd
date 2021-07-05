@@ -50,7 +50,7 @@ var x_gate = preload("res://src/items/QuantumItems/X.tscn")
 var bag_item = preload("res://src/items/otherItems/Axe.tscn")
 var emerald_staff = preload("res://src/items/otherItems/EmeraldStaff.tscn")
 var tile_size = 64
-
+var is_visible = true
 
 var isRed = true
 var redTile = preload("res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png")
@@ -156,6 +156,8 @@ func _on_InspectMode_pressed():
 
 
 func _helper_mouse_tower(tower_type: int) -> void:
+	if (is_visible):
+		make_buildUI_invisible()
 	# Make the instance of the tower always follow the mouse
 	tower_following_mouse = load(RESOURCE[tower_type]).instance()
 	if (tileSelector.get_node("Tower") == null):
@@ -240,4 +242,11 @@ func _toggle_build_sprites_colors():
 	for towerIndex in range(towers.size()):
 		var picture = sprite_used[towerIndex]
 		towers[towerIndex].get_node("Sprite").texture = picture
-		
+
+func make_buildUI_visible():
+	self.scale = Vector2(1,1)
+	is_visible = true		
+	
+func make_buildUI_invisible():
+	self.scale = Vector2.ZERO
+	is_visible = false
