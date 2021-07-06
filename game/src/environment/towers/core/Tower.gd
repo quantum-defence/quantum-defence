@@ -152,10 +152,8 @@ func update_items():
 	
 	#Make tensor towers damage 0
 	if (is_tensor):
-		print("Comes here")
 		_set_tower_dmg(0)
 	
-	print(self.tower_damage)	
 	
 
 func _equip_tensor_item(tensor):
