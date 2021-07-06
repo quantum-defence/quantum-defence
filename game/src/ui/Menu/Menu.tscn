@@ -157,7 +157,7 @@ __meta__ = {
 }
 
 [node name="Fabric" parent="." instance=ExtResource( 6 )]
-position = Vector2( 969, 572 )
+position = Vector2( 968, 560 )
 scale = Vector2( 62.4375, 36.25 )
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
