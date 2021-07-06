@@ -16,7 +16,7 @@ func _ready():
 #	pass
 
 
-func _on_TextureButton_pressed():
+func _on_ResetButton_pressed():
 	get_tree().get_root().get_node("Arena").set_up(null)
 	
 

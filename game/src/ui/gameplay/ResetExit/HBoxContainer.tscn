@@ -30,5 +30,5 @@ margin_bottom = 160.0
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 2 )
 
-[connection signal="pressed" from="ResetButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_ResetButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]

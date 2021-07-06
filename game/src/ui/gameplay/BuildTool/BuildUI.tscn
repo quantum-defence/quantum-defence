@@ -411,7 +411,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
+[node name="ColourSwitcher" type="TextureButton" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer"]
 margin_left = 1706.0
 margin_right = 1866.0
 margin_bottom = 160.0
@@ -422,7 +422,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/TextureButton"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/ColourSwitcher"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "Build Mode"
@@ -439,4 +439,4 @@ __meta__ = {
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/DemonStatue" to="." method="_on_DemonStatue_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/MoonTower" to="." method="_on_MoonTower_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/EyeTower" to="." method="_on_EyeTower_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/PanelContainer/HBoxContainer/ColourSwitcher" to="." method="_toggle_build_sprites_colors"]

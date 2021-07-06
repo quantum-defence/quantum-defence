@@ -28,6 +28,7 @@ export var range_radius = 528
 export var tower_damage = 20
 export var projectile_speed = 600
 export var tower_attack_speed = 1.0
+export var is_frozen = true # unfrozen by build_tower() in Arena.gd
 
 var probs: Dictionary
 var is_tensor := false
@@ -69,6 +70,8 @@ func dismantle():
 	return 
 
 func _fire():
+	if (is_frozen):
+		return null
 	var weapon_instance = weapon.instance()
 	weapon_instance.damage = tower_damage 
 	weapon_instance.speed = projectile_speed 
