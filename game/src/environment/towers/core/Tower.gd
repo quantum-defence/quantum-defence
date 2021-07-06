@@ -40,6 +40,8 @@ func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	_timer.connect("timeout", self, "_fire")
 
+
+
 func _reset() -> void:
 	# Resets everything and is_tensor except tower_items_held (dictionary)
 	itemsHeld = []
@@ -148,6 +150,13 @@ func update_items():
 	var prob_result = self.qn.simulate_and_get_probabilities_dict()
 	probs = prob_result if isRed else { "0": prob_result["1"], "1": prob_result["0"] } 
 	
+	#Make tensor towers damage 0
+	if (is_tensor):
+		print("Comes here")
+		_set_tower_dmg(0)
+	
+	print(self.tower_damage)	
+	
 
 func _equip_tensor_item(tensor):
 	var func_to_call = tensor.tensor_func_name
@@ -188,3 +197,7 @@ func _drop_item(slot:String):
 	var temp = tower_items_held[slot]
 	tower_items_held[slot] = null
 	return temp
+
+func _set_tower_dmg(damage: int) -> void:
+	tower_damage = damage		
+

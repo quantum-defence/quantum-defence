@@ -128,7 +128,6 @@ animations = [ {
 } ]
 
 [node name="Tower" instance=ExtResource( 1 )]
-tower_damage = 0
 
 [node name="Timer" parent="." index="3"]
 wait_time = 0.2
@@ -138,5 +137,5 @@ position = Vector2( 1.71875, -57.5031 )
 scale = Vector2( 1.88563, 1.92138 )
 frames = SubResource( 23 )
 animation = "IdleBlue(Level 1)"
-frame = 7
+frame = 2
 speed_scale = 0.5
