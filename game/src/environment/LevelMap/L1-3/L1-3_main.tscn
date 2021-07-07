@@ -58,6 +58,6 @@ scale = Vector2( 66.4375, 41.5 )
 position = Vector2( 1536, 304 )
 
 [node name="EnemySpawnPoint" parent="." index="5"]
-position = Vector2( 255, 208 )
+position = Vector2( 248, 176 )
 
 [node name="AudioStreamPlayer" parent="." index="6" instance=ExtResource( 2 )]
