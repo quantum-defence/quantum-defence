@@ -21,6 +21,7 @@ func _ready() -> void:
 "
 
 [sub_resource type="NavigationPolygon" id=2]
+resource_local_to_scene = true
 vertices = PoolVector2Array( 1848, 248, 1848, 656, 1744, 640, 1744, 336, 1656, 144, 1664, 320, 1608, 264, 952, 136, 1064, 264, 904, 256, 512, 1032, 112, 1032, 72, 960, 72, 768, 120, 712, 432, 896, 1912, 712, 1912, 832, 1792, 944, 1736, 960, 1536, 776, 1536, 656, 1424, 784, 1352, 960, 944, 784, 1024, 944, 976, 904, 896, 904, 760, 776, 856, 688, 432, 264, 384, 328, 120, 312, 80, 256, 80, 128, 136, 80, 312, 80, 400, 144, 720, 128, 584, 256, 832, 328, 640, 328, 776, 72, 904, 80, 912, 440, 1056, 464, 496, 864, 384, 712, 440, 760 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5, 6 ), PoolIntArray( 7, 4, 6, 8, 9 ), PoolIntArray( 10, 11, 12, 13, 14, 15 ), PoolIntArray( 2, 1, 16, 17, 18, 19, 20, 21 ), PoolIntArray( 22, 21, 20, 23 ), PoolIntArray( 24, 22, 23, 25, 26 ), PoolIntArray( 24, 26, 27, 28, 29 ), PoolIntArray( 30, 31, 32, 33, 34, 35, 36, 37 ), PoolIntArray( 30, 37, 38, 39 ), PoolIntArray( 40, 41, 39, 38, 9 ), PoolIntArray( 9, 38, 42, 43, 7 ), PoolIntArray( 44, 9, 8, 45 ), PoolIntArray( 46, 44, 45, 29, 28 ), PoolIntArray( 46, 28, 10, 15 ), PoolIntArray( 15, 14, 47, 48 ) ]
 outlines = [ PoolVector2Array( 120, 312, 384, 328, 432, 264, 584, 256, 640, 328, 832, 328, 904, 256, 912, 440, 496, 864, 432, 896, 440, 760, 384, 712, 120, 712, 72, 768, 72, 960, 112, 1032, 512, 1032, 760, 776, 896, 904, 976, 904, 1024, 944, 1352, 960, 1536, 776, 1736, 960, 1792, 944, 1912, 832, 1912, 712, 1848, 656, 1848, 248, 1656, 144, 952, 136, 904, 80, 776, 72, 720, 128, 400, 144, 312, 80, 136, 80, 80, 128, 80, 256 ), PoolVector2Array( 1424, 784, 944, 784, 856, 688, 1056, 464, 1064, 264, 1608, 264, 1664, 320, 1744, 336, 1744, 640, 1536, 656 ) ]
@@ -37,6 +38,9 @@ tile_data = PoolIntArray( -196612, 1, 0, -196611, 1, 0, -196610, 1, 0, -196609, 
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigator" index="1"]
 navpoly = SubResource( 2 )
+
+[node name="BlueHome" parent="." index="4"]
+position = Vector2( 1824, 768 )
 
 [node name="EnemySpawnPoint" parent="." index="5"]
 position = Vector2( 255, 208 )
