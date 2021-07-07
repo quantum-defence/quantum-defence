@@ -84,7 +84,6 @@ func _fire():
 		
 	return weapon_instance
 
-
 func _choose_enemy() -> Enemy:
 	# may have future considerations based on quantum state
 	if _enemiesInRange.size() == 0:
@@ -148,6 +147,9 @@ func update_items():
 	var prob_result = self.qn.simulate_and_get_probabilities_dict()
 	probs = prob_result if isRed else { "0": prob_result["1"], "1": prob_result["0"] } 
 	
+	#Make tensor towers damage 0
+	if (is_tensor):
+		_set_tower_dmg(0)
 
 func _equip_tensor_item(tensor):
 	var func_to_call = tensor.tensor_func_name
@@ -177,14 +179,10 @@ func _equip_quodite_item(item):
 	if (item.rangeIncrease != 0):
 		$Range/RangeRadius.set_radius(range_radius + item.rangeIncrease)
 
-
-#func _play_build_tower_animation():
-#	$BuildAnimation.visible = true
-#	$BuildAnimation.play("Build", false)
-#	# $BuildAnimation.visible = false
-#	pass
-
 func _drop_item(slot:String):
 	var temp = tower_items_held[slot]
 	tower_items_held[slot] = null
 	return temp
+
+func _set_tower_dmg(damage: int) -> void:
+	tower_damage = damage		

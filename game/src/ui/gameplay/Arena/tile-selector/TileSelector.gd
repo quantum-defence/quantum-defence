@@ -47,6 +47,10 @@ func _is_valid_tile() -> bool:
 	#If the person clicks on a tower, it always must inspect it first
 	if (tile == TILE_CONTENTS.TOWER):
 		self.set_action(self.ACTION.INSPECTING, "inspecting")
+		var mouse_tower = self.get_node("Tower")
+		if (mouse_tower != null):
+			mouse_tower.queue_free()
+		build_ui.tower_following_mouse = null
 		return true
 
 	#After u press a button build mode becomes true
