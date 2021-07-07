@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/img/Screens/04(1).jpg" type="Texture" id=3]
 [ext_resource path="res://src/ui/Menu/Menu.gd" type="Script" id=4]
 [ext_resource path="res://assets/audio/background-music/Medieval Theme #2.wav" type="AudioStream" id=5]
-[ext_resource path="res://src/ui/Menu/Fog.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/environment/Fog/Fog.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ParticlesMaterial" id=1]
 resource_local_to_scene = true

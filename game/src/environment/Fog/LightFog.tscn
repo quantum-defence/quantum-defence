@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Material/Fabric.png" type="Texture" id=1]
+[ext_resource path="res://src/environment/Fog/lightfog.shader" type="Shader" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/color = Vector3( 1, 1, 1 )
+shader_param/depth = 4
+
+[node name="Fog" type="Sprite"]
+material = SubResource( 1 )
+position = Vector2( 1152, 536 )
+scale = Vector2( 45.375, 29 )
+texture = ExtResource( 1 )
