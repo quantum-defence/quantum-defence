@@ -40,8 +40,6 @@ func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	_timer.connect("timeout", self, "_fire")
 
-
-
 func _reset() -> void:
 	# Resets everything and is_tensor except tower_items_held (dictionary)
 	itemsHeld = []
@@ -85,7 +83,6 @@ func _fire():
 		_forget_enemy(_target)
 		
 	return weapon_instance
-
 
 func _choose_enemy() -> Enemy:
 	# may have future considerations based on quantum state
@@ -153,8 +150,6 @@ func update_items():
 	#Make tensor towers damage 0
 	if (is_tensor):
 		_set_tower_dmg(0)
-	
-	
 
 func _equip_tensor_item(tensor):
 	var func_to_call = tensor.tensor_func_name
@@ -184,13 +179,6 @@ func _equip_quodite_item(item):
 	if (item.rangeIncrease != 0):
 		$Range/RangeRadius.set_radius(range_radius + item.rangeIncrease)
 
-
-#func _play_build_tower_animation():
-#	$BuildAnimation.visible = true
-#	$BuildAnimation.play("Build", false)
-#	# $BuildAnimation.visible = false
-#	pass
-
 func _drop_item(slot:String):
 	var temp = tower_items_held[slot]
 	tower_items_held[slot] = null
@@ -198,4 +186,3 @@ func _drop_item(slot:String):
 
 func _set_tower_dmg(damage: int) -> void:
 	tower_damage = damage		
-
