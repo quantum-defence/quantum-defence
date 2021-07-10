@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/img/Screens/Temp.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/Screens/04(1).jpg" type="Texture" id=3]
 [ext_resource path="res://src/ui/Menu/Menu.gd" type="Script" id=4]
 [ext_resource path="res://assets/audio/background-music/Medieval Theme #2.wav" type="AudioStream" id=5]
+[ext_resource path="res://src/environment/Fog/Fog.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ParticlesMaterial" id=1]
 resource_local_to_scene = true
@@ -154,6 +155,10 @@ text = "The Architect"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Fabric" parent="." instance=ExtResource( 6 )]
+position = Vector2( 968, 560 )
+scale = Vector2( 62.4375, 36.25 )
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_Tutorial_pressed"]
