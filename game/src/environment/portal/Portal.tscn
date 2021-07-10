@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/environment/portal/portal_sprite_frames.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://src/environment/portal/Portal.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 27.3368
+height = 40.1428
+
+[node name="Portal" type="Area2D"]
+collision_mask = 5
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 4 )
+rotation = 1.5708
+scale = Vector2( 0.752112, 0.752112 )
+frames = ExtResource( 1 )
+animation = "red"
+frame = 3
+speed_scale = 2.0
+playing = true
+
+[connection signal="body_entered" from="." to="." method="_on_Base_body_entered"]

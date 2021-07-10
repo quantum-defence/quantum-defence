@@ -3,14 +3,14 @@ class_name Arena
 
 # DUPLICATE CODE: must also modify at tile selector
 const TILE_SIZE = 64.0
-enum TILE_CONTENTS { PATH, EMPTY, TOWER, HOME, INVALID = -1 }
+enum TILE_CONTENTS { PATH, EMPTY, TOWER, PORTAL, INVALID = -1 }
 enum ACTION { BUILDING, INSPECTING }
 
 onready var tile_selector: TileSelector = $Selector
 onready var level_map : LevelMap = $LevelMap
 onready var tile_map : TileMap
-onready var blue_home : Home
-onready var red_home : Home
+var blue_portal
+var red_portal
 var tile_at
 var tower_at
 var current_level_class = null
@@ -34,8 +34,8 @@ func set_up(level) -> void:
 	level_map = level
 	
 	tile_map = level_map.tile_skeleton
-	blue_home = level_map.blue_home
-	red_home = level_map.red_home
+	blue_portal = level_map.blue_portal
+	red_portal = level_map.red_portal
 	tile_selector.set_action(ACTION.INSPECTING, "")
 	tile_at = []
 	tile_at.resize(90)
@@ -44,8 +44,8 @@ func set_up(level) -> void:
 		tile_at[i].resize(90)
 		for j in range(90):
 			tile_at[i][j] = tile_map.get_cell(i, j)
-	tile_at[red_home.position.x / TILE_SIZE][red_home.position.y / TILE_SIZE] = TILE_CONTENTS.HOME
-	tile_at[blue_home.position.x / TILE_SIZE][blue_home.position.y / TILE_SIZE] = TILE_CONTENTS.HOME
+	tile_at[red_portal.position.x / TILE_SIZE][red_portal.position.y / TILE_SIZE] = TILE_CONTENTS.PORTAL
+	tile_at[blue_portal.position.x / TILE_SIZE][blue_portal.position.y / TILE_SIZE] = TILE_CONTENTS.PORTAL
 	tower_at = []
 	tower_at.resize(90)
 	for i in range(90):

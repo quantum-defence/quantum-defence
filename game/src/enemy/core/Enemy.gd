@@ -8,11 +8,12 @@ const RAND_WALK_EFFECT := 50
 const RANDOM_WALK_DIST := 128.0 * 0.4
 
 # basic enemy variables
+var damage := 10.0
 var _speed := 200.0
 var _health := 100.0
-var _target : Home
-var _red_target : Home
-var _blue_target : Home
+var _target # : Portal
+var _red_target # : Portal
+var _blue_target # : Portal
 
 enum Q_STATE { SUPERPOSITION = 0, RED = 1, BLUE = 2 }
 var qubit := Vector2()
@@ -28,7 +29,6 @@ var death_rattle_time := 2.0
 var attack_time := 2.0
 
 var path := PoolVector2Array()
-var _is_reached := false
 
 onready var sprite : AnimatedSprite = $Sprite
 onready var damage_taken_timer : Timer = $DamageTakenTimer
@@ -43,8 +43,8 @@ func _ready() -> void:
 
 func set_up(
 		global_pos: Vector2,
-		red_target: Home,
-		blue_target: Home
+		red_target, # : Portal,
+		blue_target # : Portal
 	):
 	self.global_position = global_pos
 	_red_target = red_target
@@ -60,19 +60,17 @@ func _physics_process(delta: float) -> void:
 		return
 	elif !damage_taken_timer.is_stopped():
 		return
-	elif not _is_reached:
-		if collision_timer.is_paused():
-			if not _target: 
-				_set_new_random_walk()
-			_move_along_path(delta * _speed)
-		elif collision_timer.is_stopped() or path.size() == 0:
-			collision_timer.set_paused(true)
-			if _target: 
-				set_target(_target)
-		else:
-			_move_along_path(delta * _speed)
+
+	if collision_timer.is_paused():
+		if not _target: 
+			_set_new_random_walk()
+		_move_along_path(delta * _speed)
+	elif collision_timer.is_stopped() or path.size() == 0:
+		collision_timer.set_paused(true)
+		if _target: 
+			set_target(_target)
 	else:
-		attack()
+		_move_along_path(delta * _speed)
 
 func _move_along_path(distance: float) -> void:
 	action = self.ACTION.MOVE
@@ -105,21 +103,9 @@ func _move_along_path(distance: float) -> void:
 		collision_timer.set_paused(false)
 		collision_timer.start()
 
-
 func _set_new_random_walk() -> void:
 	var new_target := Vector2(randf() - 0.5, randf() - 0.5).normalized() * RANDOM_WALK_DIST
 	path = _set_target(new_target)
-
-# fire weapon at home
-func attack() -> void:
-	if !attack_timer.is_stopped():
-		return
-	action = self.ACTION.ATTACK
-	sprite.play("attack")
-	attack_timer.start()
-	var weapon = preload("res://src/projectile/enemy-weapon/EnemyWeapon.tscn").instance()
-	weapon.fire(global_position, _target)
-	get_parent().add_child(weapon)
 
 # take damage
 func take_damage(damage_taken: float, isFlip: bool = false, isRed: bool = false) -> void:
@@ -157,8 +143,6 @@ func change_state(new_state: int) -> void:
 			set_collision_layer_bit(5, false)
 			set_collision_layer_bit(4, true)
 	set_target(_target)
-	if (self.position.distance_to(_target.position) > 400):
-		_is_reached = false
 
 func _kill() -> void:
 	emit_signal("kia")
@@ -170,7 +154,7 @@ func _kill() -> void:
 	# warning-ignore:return_value_discarded
 	damage_taken_timer.connect("timeout", self, "queue_free")
 
-func set_target(target : Home) -> void:
+func set_target(target) -> void:
 	_target = target
 	path = _set_target(target.global_position - self.global_position)
 
@@ -178,17 +162,6 @@ func _set_target(relative_position_target : Vector2) -> PoolVector2Array:
 	var nav : Navigation2D
 	nav = get_parent().get_node("Navigator")
 	return nav.get_simple_path(global_position, global_position + relative_position_target, true)
-
-# registers when home has been encountered
-func _on_Range_area_entered(area: Area2D) -> void:
-	if area is Home:
-		var ar : Home = area
-		if ar.isRed and qubit_state == Q_STATE.RED:
-			_is_reached = true
-		if qubit_state == Q_STATE.BLUE and not (ar.isRed):
-			_is_reached = true
-	return
-
 
 func _on_body_entering_vitals(body: Node) -> void:
 	if body is Projectile:

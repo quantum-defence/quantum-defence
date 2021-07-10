@@ -40,7 +40,7 @@ tile_data = PoolIntArray( -196612, 1, 0, -196611, 1, 0, -196610, 1, 0, -196609, 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigator" index="1"]
 navpoly = SubResource( 2 )
 
-[node name="BlueHome" parent="." index="4"]
+[node name="BluePortal" parent="." index="4"]
 position = Vector2( 1824, 768 )
 
 [node name="EnemySpawnPoint" parent="." index="5"]

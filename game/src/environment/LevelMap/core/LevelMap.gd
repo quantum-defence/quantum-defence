@@ -2,16 +2,14 @@ extends Node2D
 
 class_name LevelMap
 
-signal on_prep_time_start(duration)
 signal on_spawn_cycle(cycle_number, duration)
-signal on_cooldown_cycle(cycle_number, duration)
 signal on_game_end(is_win, blue_health, red_health, cycle_number, enemy_spawn_count, enemy_kill_count)
 signal on_enemy_death
 signal on_last_cycle
 
 export var level_name : String = "core"
-onready var blue_home : Home = $BlueHome
-onready var red_home : Home = $RedHome
+onready var blue_portal = $BluePortal
+onready var red_portal = $RedPortal
 onready var tile_skeleton : TileMap = $TileMapSkeleton
 onready var initial_items : Array = ['h', 'x', 'ry']
 var prebuilt_towers : Array = [
@@ -56,7 +54,7 @@ var enemy_kill_count := 0
 var _cycle_number := 0
 
 func set_up() -> void:
-	var spawn_point : EnemySpawnPoint = $EnemySpawnPoint
+	var spawn_point = $EnemySpawnPoint
 	spawn_point.begin_prep_clock(spawn_config)
 
 # Make an INBUILT script and do the following for any inherited LevelMap:
@@ -70,7 +68,7 @@ func set_up() -> void:
 	# prebuilt_towers = ..
 	# spawn_config = 
 
-func _on_home_damage(isRed, health) -> void:
+func _on_portal_damage(isRed, health) -> void:
 	if isRed:
 		red_health = health
 	else:

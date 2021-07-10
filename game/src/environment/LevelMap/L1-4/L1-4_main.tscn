@@ -42,10 +42,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="RedHome" parent="." index="3"]
+[node name="RedPortal" parent="." index="3"]
 position = Vector2( 1552, 704 )
 
-[node name="BlueHome" parent="." index="4"]
+[node name="BluePortal" parent="." index="4"]
 position = Vector2( 1536, 176 )
 
 [node name="EnemySpawnPoint" parent="." index="5"]

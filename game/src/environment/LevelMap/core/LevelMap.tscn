@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/ui/gameplay/Arena/ground_tile_set.tres" type="TileSet" id=3]
 [ext_resource path="res://src/environment/LevelMap/core/LevelMap.gd" type="Script" id=4]
-[ext_resource path="res://src/environment/home/Home.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/environment/portal/Portal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/environment/spawn-point/core/EnemySpawnPoint.tscn" type="PackedScene" id=6]
 
 [sub_resource type="NavigationPolygon" id=2]
@@ -28,19 +28,19 @@ modulate = Color( 0.87451, 0, 1, 0.380392 )
 position = Vector2( 0, 1 )
 navpoly = SubResource( 2 )
 
-[node name="RedHome" parent="." instance=ExtResource( 5 )]
+[node name="RedPortal" parent="." instance=ExtResource( 5 )]
 position = Vector2( 200, 800 )
 isRed = true
 
-[node name="BlueHome" parent="." instance=ExtResource( 5 )]
+[node name="BluePortal" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1752, 184 )
 
 [node name="EnemySpawnPoint" parent="." instance=ExtResource( 6 )]
 visible = false
 position = Vector2( -80, 128 )
 
-[connection signal="on_hit" from="RedHome" to="." method="_on_home_damage"]
-[connection signal="on_hit" from="BlueHome" to="." method="_on_home_damage"]
+[connection signal="on_hit" from="RedPortal" to="." method="_on_portal_damage"]
+[connection signal="on_hit" from="BluePortal" to="." method="_on_portal_damage"]
 [connection signal="on_enemy_kia" from="EnemySpawnPoint" to="." method="_on_enemy_kia"]
 [connection signal="on_enemy_spawn" from="EnemySpawnPoint" to="." method="_on_enemy_spawn"]
 [connection signal="on_last_enemy_dead" from="EnemySpawnPoint" to="." method="_on_last_enemy_dead"]

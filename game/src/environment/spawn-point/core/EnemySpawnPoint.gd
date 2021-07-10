@@ -56,8 +56,8 @@ func spawn_enemy(enemy_type: String) -> void:
 	get_parent().add_child_below_node(self, enemy)
 	enemy.set_up(
 		self.global_position, 
-		get_parent().get_node("RedHome"),
-		get_parent().get_node("BlueHome"))
+		get_parent().get_node("RedPortal"),
+		get_parent().get_node("BluePortal"))
 	emit_signal("on_enemy_spawn")
 
 func register_kia() -> void:
