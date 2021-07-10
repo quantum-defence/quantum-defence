@@ -8,7 +8,7 @@ onready var quantumSlots = $TextureRect/QuantumLabel/QuantumCircuit
 #Tower to be built shud be an instance of tower. Each tower may have different items equipped
 var is_visible = false
 var tower_to_be_built : Tower =  preload("res://src/environment/towers/pixelTowers/demonStatue/DemonStatue.tscn").instance()
-onready var tower_inventory_items_held
+onready var tower_inventory_items_held : Dictionary
 onready var build_ui = get_parent().get_node("BuildUI")
 var tower_display_reference = Vector2(1690,275)
 onready var prob_bar = self.get_node("TextureRect/ProbabiilityBar")
@@ -59,10 +59,15 @@ func update_tower_inventory_textures():
 			slot_texture_rects.texture = current_item.get_node("TextureRect").texture	
 
 func change_tower_to_be_build(tower: Tower):
-	if (tower == tower_to_be_built):
-		return 
+	if tower == tower_to_be_built:
+		return
+	if tower == null:
+		tower = null
+		make_tower_inventory_invisible()
+		return
 	tower_to_be_built = tower
-	tower_inventory_items_held = tower_to_be_built.tower_items_held	
+	tower_inventory_items_held = tower_to_be_built.tower_items_held
+	tower_inventory_items_held = tower_inventory_items_held.duplicate(true)
 
 	var animated_sprite = tower_to_be_built.get_node("AnimatedSprite")
 	animated_sprite.z_index = 1

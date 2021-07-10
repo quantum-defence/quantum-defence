@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Avatar.png" type="Texture" id=6]
 [ext_resource path="res://src/ui/gameplay/BuildTool/buildUISlot.gd" type="Script" id=7]
 [ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Red Level 1).png" type="Texture" id=8]
+[ext_resource path="res://src/ui/gameplay/UI/UI_Control.gd" type="Script" id=9]
 [ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 1).png" type="Texture" id=10]
 [ext_resource path="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png" type="Texture" id=11]
 [ext_resource path="res://assets/img/UI/BuildToolUIBackground.png" type="Texture" id=12]
@@ -15,7 +16,6 @@
 [ext_resource path="res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet(Red).png" type="Texture" id=15]
 [ext_resource path="res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png" type="Texture" id=16]
 [ext_resource path="res://src/ui/gameplay/BuildTool/tower-builds.gd" type="Script" id=18]
-[ext_resource path="res://src/ui/gameplay/UI/UI.gd" type="Script" id=19]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png" type="Texture" id=20]
 [ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=22]
 [ext_resource path="res://src/ui/gameplay/towerInventory/QuantumCircuitSlot.gd" type="Script" id=24]
@@ -64,7 +64,7 @@ margin_left = -1.49829
 margin_top = -2.37842
 margin_right = -1.49829
 margin_bottom = -2.37842
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -81,7 +81,7 @@ margin_top = 188.0
 margin_right = -9.37012
 margin_bottom = -344.0
 texture = ExtResource( 4 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -93,7 +93,7 @@ margin_left = -208.153
 margin_top = 156.0
 margin_right = -200.153
 margin_bottom = 168.0
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -192,7 +192,7 @@ margin_left = 97.0139
 margin_top = -198.812
 margin_right = 97.0139
 margin_bottom = -134.812
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -204,7 +204,7 @@ margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 4 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot1"]
 anchor_right = 1.0
@@ -227,7 +227,7 @@ margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 4 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot2"]
 anchor_right = 1.0
@@ -250,7 +250,7 @@ margin_right = 200.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 4 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot3"]
 anchor_right = 1.0
@@ -273,7 +273,7 @@ margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 4 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot4"]
 anchor_right = 1.0
@@ -295,7 +295,7 @@ margin_left = -196.716
 margin_top = 135.181
 margin_right = -165.716
 margin_bottom = 156.181
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -321,7 +321,7 @@ margin_left = 21.9053
 margin_top = -36.6003
 margin_right = 238.905
 margin_bottom = 27.3997
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -333,7 +333,7 @@ margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 4 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot1"]
 anchor_right = 1.0
@@ -356,7 +356,7 @@ margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 4 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot2"]
 anchor_right = 1.0
@@ -379,7 +379,7 @@ margin_right = 200.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 4 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot3"]
 anchor_right = 1.0
@@ -402,7 +402,7 @@ margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 4 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot4"]
 anchor_right = 1.0
@@ -425,7 +425,7 @@ margin_right = 336.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 4 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot5"]
 anchor_right = 1.0
@@ -448,7 +448,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 800.0
 alignment = 2
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -457,7 +457,7 @@ __meta__ = {
 margin_right = 1920.0
 margin_bottom = 280.0
 custom_styles/panel = SubResource( 5 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -470,7 +470,7 @@ texture = ExtResource( 12 )
 patch_margin_left = 40
 patch_margin_right = 120
 axis_stretch_horizontal = 1
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -479,7 +479,7 @@ __meta__ = {
 margin_right = 1920.0
 margin_bottom = 280.0
 custom_styles/panel = SubResource( 6 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer"]
 margin_top = 60.0
@@ -487,14 +487,14 @@ margin_right = 1920.0
 margin_bottom = 220.0
 custom_constants/margin_right = 30
 custom_constants/margin_left = 30
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer"]
 margin_left = 30.0
 margin_right = 1890.0
 margin_bottom = 160.0
 custom_constants/separation = 10
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -595,7 +595,7 @@ margin_left = 1020.0
 margin_right = 1356.0
 margin_bottom = 160.0
 columns = 5
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="Slot1" type="Panel" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots" groups=[
 "BuildUISlots",
@@ -604,7 +604,7 @@ margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot1"]
 anchor_left = -0.00639153
@@ -629,7 +629,7 @@ margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot2"]
 anchor_left = 0.0248585
@@ -676,7 +676,7 @@ margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot4"]
 anchor_right = 1.0
@@ -699,7 +699,7 @@ margin_right = 336.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot5"]
 anchor_right = 1.0
@@ -722,7 +722,7 @@ margin_right = 64.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot6"]
 anchor_right = 1.0
@@ -746,7 +746,7 @@ margin_right = 132.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot7"]
 anchor_right = 1.0
@@ -770,7 +770,7 @@ margin_right = 200.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot8"]
 anchor_right = 1.0
@@ -794,7 +794,7 @@ margin_right = 268.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot9"]
 anchor_right = 1.0
@@ -818,7 +818,7 @@ margin_right = 336.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
 custom_styles/panel = SubResource( 7 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot10"]
 anchor_right = 1.0
@@ -840,7 +840,7 @@ margin_bottom = 160.0
 toggle_mode = true
 texture_normal = ExtResource( 20 )
 texture_pressed = ExtResource( 5 )
-script = ExtResource( 19 )
+script = ExtResource( 9 )
 __meta__ = {
 "_editor_description_": ""
 }

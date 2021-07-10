@@ -12,3 +12,6 @@ func drop_data(position, data):
 	data["target_slot"] = data["origin_slot"]
 	data["target_item"] = data["origin_item"]
 	data["origin_slot"].texture = data["origin_texture"]
+
+func reset():
+	$TowerInventory.change_tower_to_be_build(null)

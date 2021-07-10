@@ -5,7 +5,7 @@
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventorySlot.gd" type="Script" id=3]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=4]
 [ext_resource path="res://assets/img/items/Pixel Art Icon Pack - RPG/Equipment/Bag.png" type="Texture" id=5]
-[ext_resource path="res://src/ui/gameplay/UI/UI.gd" type="Script" id=6]
+[ext_resource path="res://src/ui/gameplay/UI/UI_Control.gd" type="Script" id=6]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
