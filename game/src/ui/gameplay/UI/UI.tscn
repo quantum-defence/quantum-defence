@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Avatar.png" type="Texture" id=6]
 [ext_resource path="res://src/ui/gameplay/BuildTool/buildUISlot.gd" type="Script" id=7]
 [ext_resource path="res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Red Level 1).png" type="Texture" id=8]
-[ext_resource path="res://src/ui/gameplay/UI/UI_Control.gd" type="Script" id=9]
+[ext_resource path="res://src/ui/gameplay/UI/UI.gd" type="Script" id=9]
 [ext_resource path="res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 1).png" type="Texture" id=10]
 [ext_resource path="res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png" type="Texture" id=11]
 [ext_resource path="res://assets/img/UI/BuildToolUIBackground.png" type="Texture" id=12]
