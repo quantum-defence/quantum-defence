@@ -20,8 +20,8 @@ var cycle_number : int = 0
 var cycle_timer : Timer
 var living_enemy_count: int = 0
 
-func _ready() -> void:
-	set_process(false)
+var spawn_spacer : Timer
+var current_cycle : Dictionary
 
 func begin_prep_clock(spawn_config : Array = []) -> void:
 	_spawn_config = spawn_config.duplicate(true)
@@ -32,22 +32,38 @@ func begin_prep_clock(spawn_config : Array = []) -> void:
 	cycle_timer.autostart = false
 	cycle_timer.one_shot = true
 	cycle_timer.connect("timeout", self, "_new_cycle")
-	
 	add_child(cycle_timer)
+	
+	spawn_spacer = Timer.new()
+	spawn_spacer.wait_time = 0.2
+	spawn_spacer.autostart = false
+	spawn_spacer.one_shot = true
+	spawn_spacer.connect("timeout", self, "spawn_queue_handler")
+	add_child(spawn_spacer)
+	
 	_new_cycle()
 
 func _new_cycle() -> void:
-	var next_cycle : Dictionary = _spawn_config.pop_front()
-	emit_signal("on_new_spawn_cycle", cycle_number, next_cycle.duration)
-	cycle_timer.wait_time = next_cycle.duration
-	for type in next_cycle.enemy_queue:
-		spawn_enemy(type)
-		
+	current_cycle = _spawn_config.pop_front()
+	current_cycle = current_cycle.duplicate(true)
+	emit_signal("on_new_spawn_cycle", cycle_number, current_cycle.duration)
+	cycle_timer.wait_time = current_cycle.duration
+	
 	cycle_number += 1
 	if cycle_number < _max_spawn_cycle:
 		cycle_timer.start();
+		spawn_spacer.start()
 	else:
 		emit_signal("on_max_cycle_reached")
+
+func spawn_queue_handler() -> void:
+	if (current_cycle == null):
+		return
+	var queue : Array = current_cycle.enemy_queue
+	
+	if queue != null and queue.size() != 0:
+		spawn_enemy(queue.pop_front())
+		spawn_spacer.start()
 
 func spawn_enemy(enemy_type: String) -> void:
 	living_enemy_count += 1
