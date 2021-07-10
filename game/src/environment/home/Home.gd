@@ -11,8 +11,7 @@ const damage_taken_time = 0.2
 
 func _ready() -> void:
 	$MarginContainer/HBoxContainer/Label.set_text("HEALTH - " + str(health))
-	var shadow : Sprite = $shadow
-	shadow.modulate = Color8(193, 69, 69, 233) if isRed else Color8(0, 42, 233, 100) 
+	sprite.play("red" if isRed else "blue")
 
 func _process(_delta: float) -> void:
 	$MarginContainer/HBoxContainer/Label.set_text("HEALTH - " + str(health))
