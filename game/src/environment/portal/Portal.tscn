@@ -11,10 +11,6 @@ height = 40.1428
 collision_mask = 5
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource( 1 )
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 4 )
 rotation = 1.5708
@@ -24,5 +20,9 @@ animation = "red"
 frame = 3
 speed_scale = 2.0
 playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_Base_body_entered"]

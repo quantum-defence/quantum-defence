@@ -154,6 +154,19 @@ func _kill() -> void:
 	# warning-ignore:return_value_discarded
 	damage_taken_timer.connect("timeout", self, "queue_free")
 
+func show_teleportation() -> void:
+	modulate = Color.white
+	set_physics_process(false)
+	emit_signal("teleport")
+	var teleport_anim : AnimatedSprite = $TeleportAnimation
+	teleport_anim.visible = true
+	var main_sprite : AnimatedSprite = $Sprite
+	main_sprite.visible = false
+	teleport_anim.play("default")
+	attack_timer.start(attack_time)
+	attack_timer.connect("timeout", self, "queue_free")
+
+
 func set_target(target) -> void:
 	_target = target
 	path = _set_target(target.global_position - self.global_position)

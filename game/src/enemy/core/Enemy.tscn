@@ -1,6 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/enemy/core/core_spriteframes.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://src/enemy/core/teleport-animation.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://src/enemy/core/Enemy.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -28,6 +29,7 @@ shape = SubResource( 2 )
 position = Vector2( 0, -4 )
 frames = ExtResource( 1 )
 animation = "take_damage"
+frame = 1
 playing = true
 offset = Vector2( 26, -10 )
 __meta__ = {
@@ -44,5 +46,10 @@ autostart = true
 [node name="CollisionTimer" type="Timer" parent="."]
 wait_time = 0.146
 one_shot = true
+
+[node name="TeleportAnimation" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -0.0672836, -4 )
+frames = ExtResource( 2 )
 
 [connection signal="body_entered" from="Vitals" to="." method="_on_body_entering_vitals"]
