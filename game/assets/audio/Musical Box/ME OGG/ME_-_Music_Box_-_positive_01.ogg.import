@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ME_-_Music_Box_-_positive_01.ogg-b9aa781c8c0ee55390cda4a0f77193b5.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Musical Box/ME OGG/ME_-_Music_Box_-_positive_01.ogg"
+dest_files=[ "res://.import/ME_-_Music_Box_-_positive_01.ogg-b9aa781c8c0ee55390cda4a0f77193b5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

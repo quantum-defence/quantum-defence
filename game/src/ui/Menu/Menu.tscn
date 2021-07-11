@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/img/Screens/Temp.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/Screens/04(1).jpg" type="Texture" id=3]
 [ext_resource path="res://src/ui/Menu/Menu.gd" type="Script" id=4]
-[ext_resource path="res://assets/audio/background-music/Medieval Theme #2.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/Musical Box/BGM OGG/Theme_-_Music_Box_-_Dream_Dance.ogg" type="AudioStream" id=5]
 [ext_resource path="res://src/environment/Fog/Fog.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/ui/Menu/LevelSelection.gd" type="Script" id=7]
 
@@ -64,6 +64,7 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = -4.578
 mix_target = 1
 
 [node name="Particles2D" type="Particles2D" parent="."]

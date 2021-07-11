@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Theme_-_Music_Box_-_Nursery_Nightmare.ogg-dea1c0e7cf0217b3d84ed726e840eb7b.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Musical Box/BGM OGG/Theme_-_Music_Box_-_Nursery_Nightmare.ogg"
+dest_files=[ "res://.import/Theme_-_Music_Box_-_Nursery_Nightmare.ogg-dea1c0e7cf0217b3d84ed726e840eb7b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
