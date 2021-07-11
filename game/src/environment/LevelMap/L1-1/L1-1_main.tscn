@@ -15,10 +15,12 @@ func _ready() -> void:
 	$Navigator/NavigationPolygonInstance.set_enabled(true)
 	initial_items = [ 'h', 'r', 'x']
 	prebuilt_towers = []
-	spawn_config = [ {
-		'duration': 5.0, 
-		\"enemy_queue\": ['core', 'core', 'sabre', 'sabre' ] 
-		} ]
+	spawn_config = [ 
+		{
+			'duration': 5.0, 
+			\"enemy_queue\": ['core', 'core', 'sabre', 'sabre' ] 
+		},
+	]
 "
 
 [sub_resource type="NavigationPolygon" id=2]
