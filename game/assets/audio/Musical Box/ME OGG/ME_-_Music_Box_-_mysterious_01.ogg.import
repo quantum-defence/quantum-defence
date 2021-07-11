@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ME_-_Music_Box_-_mysterious_01.ogg-339ec4bab5e3fcd8133d5d6ca2cb46c5.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Musical Box/ME OGG/ME_-_Music_Box_-_mysterious_01.ogg"
+dest_files=[ "res://.import/ME_-_Music_Box_-_mysterious_01.ogg-339ec4bab5e3fcd8133d5d6ca2cb46c5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
