@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Green Portal Sprite Sheet.png-0da68c885a835e36b641e33102312128.stex"
+path="res://.import/PFX012.png-74c198f8040231b5886f498d6f0b0302.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/elthen-itch-io/Green Portal Sprite Sheet.png"
-dest_files=[ "res://.import/Green Portal Sprite Sheet.png-0da68c885a835e36b641e33102312128.stex" ]
+source_file="res://assets/img/Pixel Art Effect FX000_nyknck/PFX000_nyknck/PFX012.png"
+dest_files=[ "res://.import/PFX012.png-74c198f8040231b5886f498d6f0b0302.stex" ]
 
 [params]
 

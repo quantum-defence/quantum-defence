@@ -3,7 +3,7 @@ class_name TileSelector
 
 # DUPLICATE CODE: must also modify at map
 const TILE_SIZE = 64.0
-enum TILE_CONTENTS { PATH, EMPTY, TOWER, HOME, INVALID = -1 }
+enum TILE_CONTENTS { PATH, EMPTY, TOWER, PORTAL, INVALID = -1 }
 enum ACTION { BUILDING, INSPECTING, IDLE }
 
 var _x : int

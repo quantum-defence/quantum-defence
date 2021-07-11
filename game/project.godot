@@ -29,11 +29,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/environment/spawn-point/core/EnemySpawnPoint.gd"
 }, {
-"base": "Area2D",
-"class": "Home",
-"language": "GDScript",
-"path": "res://src/environment/home/Home.gd"
-}, {
 "base": "Node2D",
 "class": "Item",
 "language": "GDScript",
@@ -43,6 +38,11 @@ _global_script_classes=[ {
 "class": "LevelMap",
 "language": "GDScript",
 "path": "res://src/environment/LevelMap/core/LevelMap.gd"
+}, {
+"base": "Area2D",
+"class": "Portal",
+"language": "GDScript",
+"path": "res://src/environment/portal/Portal.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Projectile",
@@ -89,9 +89,9 @@ _global_script_class_icons={
 "BuildUI": "",
 "Enemy": "",
 "EnemySpawnPoint": "",
-"Home": "",
 "Item": "",
 "LevelMap": "",
+"Portal": "",
 "Projectile": "",
 "QuantumCircuit": "",
 "QuantumNode": "",

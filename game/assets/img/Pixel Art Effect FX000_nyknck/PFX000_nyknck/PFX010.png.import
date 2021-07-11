@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Purple Portal Sprite Sheet.png-9bfe206f99b9ed406553757351a8505b.stex"
+path="res://.import/PFX010.png-524feccd2f437f70d64ae53b76e12b5d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/elthen-itch-io/Purple Portal Sprite Sheet.png"
-dest_files=[ "res://.import/Purple Portal Sprite Sheet.png-9bfe206f99b9ed406553757351a8505b.stex" ]
+source_file="res://assets/img/Pixel Art Effect FX000_nyknck/PFX000_nyknck/PFX010.png"
+dest_files=[ "res://.import/PFX010.png-524feccd2f437f70d64ae53b76e12b5d.stex" ]
 
 [params]
 

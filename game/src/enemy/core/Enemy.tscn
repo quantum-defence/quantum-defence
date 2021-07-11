@@ -1,15 +1,13 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/enemy/core/core_spriteframes.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://src/enemy/core/teleport-animation.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://src/enemy/core/Enemy.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 6 )
 
 [sub_resource type="RectangleShape2D" id=2]
-
-[sub_resource type="CircleShape2D" id=3]
-radius = 20.0
 
 [node name="Enemy" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
@@ -27,17 +25,11 @@ collision_mask = 5
 position = Vector2( -0.0672836, 0 )
 shape = SubResource( 2 )
 
-[node name="Range" type="Area2D" parent="."]
-monitorable = false
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
-shape = SubResource( 3 )
-
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -4 )
 frames = ExtResource( 1 )
 animation = "take_damage"
+frame = 1
 playing = true
 offset = Vector2( 26, -10 )
 __meta__ = {
@@ -55,5 +47,9 @@ autostart = true
 wait_time = 0.146
 one_shot = true
 
+[node name="TeleportAnimation" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -0.0672836, -4 )
+frames = ExtResource( 2 )
+
 [connection signal="body_entered" from="Vitals" to="." method="_on_body_entering_vitals"]
-[connection signal="area_entered" from="Range" to="." method="_on_Range_area_entered"]

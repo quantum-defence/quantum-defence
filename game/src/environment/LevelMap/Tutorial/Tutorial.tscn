@@ -30,8 +30,8 @@ func _ready() -> void:
 		{ 'duration': 5.0, \"enemy_queue\": [] },
 		{ 'duration': 5.0, \"enemy_queue\": ['core', 'core', 'sabre', 'sabre' ] },
 	]
-	blue_home.health = 9999
-	red_home.health = 9999
+	blue_portal.health = 9999
+	red_portal.health = 9999
 	level_name = \"basic\"
 	$Navigator/NavPolyInstance.set_enabled(false)
 	$Navigator/NavPolyInstance.queue_free()
@@ -59,10 +59,10 @@ navpoly = SubResource( 2 )
 [node name="Trap" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 1184, 584 )
 
-[node name="RedHome" parent="." index="4"]
+[node name="RedPortal" parent="." index="4"]
 position = Vector2( 1592, 704 )
 
-[node name="BlueHome" parent="." index="5"]
+[node name="BluePortal" parent="." index="5"]
 position = Vector2( 1536, 256 )
 
 [node name="EnemySpawnPoint" parent="." index="6"]
