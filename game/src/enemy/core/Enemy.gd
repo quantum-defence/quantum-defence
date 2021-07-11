@@ -14,6 +14,8 @@ var _health := 100.0
 var _target # : Portal
 var _red_target # : Portal
 var _blue_target # : Portal
+export var drop_rate = 10
+
 
 enum Q_STATE { SUPERPOSITION = 0, RED = 1, BLUE = 2 }
 var qubit := Vector2()
@@ -145,6 +147,7 @@ func change_state(new_state: int) -> void:
 	set_target(_target)
 
 func _kill() -> void:
+	_drop_item(drop_rate)
 	emit_signal("kia")
 	if action == ACTION.DIE:
 		return 
@@ -180,3 +183,25 @@ func _on_body_entering_vitals(body: Node) -> void:
 	if body is Projectile:
 		# warning-ignore:unsafe_method_access
 		body.inflict_damage(self)
+
+func _drop_item(percentage: int):
+	var rng = RandomNumberGenerator.new()
+	var roll = rng.randi_range(0,100)
+	if (roll > percentage):
+		print("no drop")
+		return
+	else:	
+		# var position = self.position
+		# var droppable_item = $DroppableItem
+		# var quantum_item = droppable_item._get_random_quantum_item().get_child(0)
+		# quantum_item.position = position
+		# var build_UI = self.find_parent("Arena").get_node("UI/Control/BuildUI")
+
+		# build_UI._pick_up_item(quantum_item)
+		var pos = self.position
+		var item_dropper = $DroppableItem
+		var dropppable_item = item_dropper._get_random_quantum_item()
+		var arena = self.find_parent("Arena").get_node("UI")
+		arena.add_child(dropppable_item)
+		dropppable_item.rect_position = pos
+

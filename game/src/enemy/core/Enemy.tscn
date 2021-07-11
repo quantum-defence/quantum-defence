@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/enemy/core/core_spriteframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://src/enemy/core/teleport-animation.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://src/enemy/core/Enemy.gd" type="Script" id=3]
+[ext_resource path="res://src/items/core/DroppableItems.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 6 )
@@ -29,7 +30,6 @@ shape = SubResource( 2 )
 position = Vector2( 0, -4 )
 frames = ExtResource( 1 )
 animation = "take_damage"
-frame = 1
 playing = true
 offset = Vector2( 26, -10 )
 __meta__ = {
@@ -51,5 +51,11 @@ one_shot = true
 visible = false
 position = Vector2( -0.0672836, -4 )
 frames = ExtResource( 2 )
+
+[node name="DroppableItem" parent="." instance=ExtResource( 4 )]
+margin_left = 32.0
+margin_top = -72.0
+margin_right = 32.0
+margin_bottom = -72.0
 
 [connection signal="body_entered" from="Vitals" to="." method="_on_body_entering_vitals"]
