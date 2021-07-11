@@ -44,17 +44,20 @@ func begin_prep_clock(spawn_config : Array = []) -> void:
 	_new_cycle()
 
 func _new_cycle() -> void:
+	if (_spawn_config.size() == 0):
+		return
 	current_cycle = _spawn_config.pop_front()
 	current_cycle = current_cycle.duplicate(true)
 	emit_signal("on_new_spawn_cycle", cycle_number, current_cycle.duration)
 	cycle_timer.wait_time = current_cycle.duration
 	
-	cycle_number += 1
 	if cycle_number < _max_spawn_cycle:
 		cycle_timer.start();
 		spawn_spacer.start()
 	else:
 		emit_signal("on_max_cycle_reached")
+	
+	cycle_number += 1
 
 func spawn_queue_handler() -> void:
 	if (current_cycle == null):
