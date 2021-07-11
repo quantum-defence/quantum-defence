@@ -127,6 +127,8 @@ func drop_item(slot: TowerInventorySlot) -> Item:
 	slot.texture = null
 	return item_dropped
 
+func _on_DismissButton_pressed() -> void:
+	change_tower_to_be_build(null)
 
 #func slot_gui_input(event:InputEvent, slot:slotClass):
 #	if (event is InputEventMouseButton):
