@@ -27,6 +27,7 @@ func set_up(level) -> void:
 					maybe_tower.get_ref().queue_free()
 	if (level == null):
 		level = current_level_class
+		$UI/Control.reset()
 	current_level_class = level
 	level = level.instance()
 	self.add_child(level)
