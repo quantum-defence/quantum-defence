@@ -69,6 +69,8 @@ func set_up() -> void:
 	# spawn_config = 
 
 func _on_portal_damage(isRed, health) -> void:
+	$EnemySpawnPoint.register_teleported()
+
 	if isRed:
 		red_health = health
 	else:
