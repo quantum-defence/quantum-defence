@@ -71,7 +71,9 @@ var build_UI_items_held : Dictionary = {
 	"Slot10" : null
 }
 
-
+func update_slot(slot_name : String, item = null):
+	if slot_name != "":
+		build_UI_items_held[slot_name] = item;
 
 onready var tileSelector: TileSelector = find_parent("Arena").get_node("Selector")
 # TODO: change below to Arena, or delete if not necessary (best practice: minimise calls to parent)
