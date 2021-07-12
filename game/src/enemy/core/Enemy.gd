@@ -152,13 +152,6 @@ func change_state(new_state: int) -> void:
 	set_target(_target)
 
 func _kill() -> void:
-
-	#Make the gold appear above the enemies head when killed
-	var gold_dropped = drop_gold()
-	var gold_label = Label.new()
-	self.add_child(gold_label)
-	gold_label.text = str("+",gold_dropped) 
-	
 	emit_signal("kia")
 	if action == ACTION.DIE:
 		return 
@@ -167,6 +160,12 @@ func _kill() -> void:
 	sprite.play("die")
 	# warning-ignore:return_value_discarded
 	damage_taken_timer.connect("timeout", self, "queue_free")
+
+	#Make the gold appear above the enemies head when killed
+	var gold_dropped = drop_gold()
+	var gold_label = Label.new()
+	self.add_child(gold_label)
+	gold_label.text = str("+",gold_dropped, "Gold") 
 
 func show_teleportation() -> void:
 	modulate = Color.white
