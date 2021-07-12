@@ -122,8 +122,11 @@ func _on_Range_body_exited(body: Node) -> void:
 	if body is Enemy:
 		_forget_enemy(body)
 
-func update_items():
+func update_items(item_slot : String = "", item = null):
 	_reset()
+
+	if (item_slot != ""):
+		tower_items_held[item_slot] = item
 
 	itemsHeld[0] = tower_items_held["Slot1"]
 	itemsHeld[1] = tower_items_held["Slot2"]

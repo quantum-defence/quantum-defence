@@ -13,19 +13,19 @@ onready var build_ui = get_parent().get_node("BuildUI")
 var tower_display_reference = Vector2(1690,275)
 onready var prob_bar = self.get_node("TextureRect/ProbabiilityBar")
 
-
-
-
 #Remove all children nodes	
 func delete_children(node):
 	for n in node.get_children():
 			node.remove_child(n)
 			n.queue_free()
 
+func update_tower(slot_name : String = "", item = null):
 
-func update_tower():
+	if slot_name != "":
+		tower_inventory_items_held[slot_name] = item;
+
 	#Update all the tower items
-	tower_to_be_built.update_items()
+	tower_to_be_built.update_items(slot_name, item)
 	
 	#Update probability bar
 	var prob: Dictionary = tower_to_be_built.probs

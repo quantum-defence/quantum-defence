@@ -71,7 +71,9 @@ var build_UI_items_held : Dictionary = {
 	"Slot10" : null
 }
 
-
+func update_slot(slot_name : String, item = null):
+	if slot_name != "":
+		build_UI_items_held[slot_name] = item;
 
 onready var tileSelector: TileSelector = find_parent("Arena").get_node("Selector")
 # TODO: change below to Arena, or delete if not necessary (best practice: minimise calls to parent)
@@ -220,3 +222,12 @@ func make_buildUI_visible():
 func make_buildUI_invisible():
 	self.scale = Vector2.ZERO
 	is_visible = false
+
+func can_drop_data(position, data):
+	return true
+
+func drop_data(position, data):
+	print("Dropped here")
+	data["target_slot"] = data["origin_slot"]
+	data["target_item"] = data["origin_item"]
+	data["origin_slot"].texture = data["origin_texture"]

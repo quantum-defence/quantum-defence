@@ -54,16 +54,16 @@ func drop_data(position, data):
 		if (origin_slot.is_in_group("BuildUISlots")):
 			data["target_item"] = null
 			data["target_texture"] = null
-			tower_inventory.tower_inventory_items_held[target_slot_name] = data["origin_item"]
-			build_UI.build_UI_items_held[origin_slot_name] = null
+			tower_inventory.update_tower(target_slot_name, data["origin_item"])
+			build_UI.update_slot(origin_slot_name, null)
 			texture = data["origin_texture"]
 			
 		#If target slot belongs to Tower inventory. E.g equipping item
 		elif (origin_slot.is_in_group("TowerInventorySlots")):
 			data["target_item"] = null
 			data["target_texture"] = null
-			tower_inventory.tower_inventory_items_held[target_slot_name] = data["origin_item"]
-			tower_inventory.tower_inventory_items_held[origin_slot_name] = null
+			tower_inventory.update_tower(target_slot_name, data["origin_item"])
+			tower_inventory.update_tower(origin_slot_name, null)
 			texture = data["origin_texture"]
 		
 	#Swapping between items 
@@ -78,8 +78,8 @@ func drop_data(position, data):
 			
 			#Swap for actual info
 			var temp_item_for_swap = target_slot_item
-			tower_inventory.tower_inventory_items_held[target_slot_name] = origin_slot_item
-			build_UI.build_UI_items_held[origin_slot_name] = temp_item_for_swap
+			tower_inventory.update_tower(target_slot_name, origin_slot_item)
+			build_UI.update_slot(origin_slot_name, temp_item_for_swap)
 
 		elif (target_slot.is_in_group("TowerInventorySlots")):
 			data["target_item"] = target_slot_item
@@ -90,8 +90,8 @@ func drop_data(position, data):
 
 			#Swap for actual info
 			var temp_item_for_swap = target_slot_item
-			tower_inventory.tower_inventory_items_held[target_slot_name] = origin_slot_item
-			tower_inventory.tower_inventory_items_held[origin_slot_name] = temp_item_for_swap
+			tower_inventory.update_tower(target_slot_name, origin_slot_item)
+			tower_inventory.update_tower(origin_slot_name, origin_slot_item)
 	tower_inventory.update_tower()
 
 	# print("________________________")
