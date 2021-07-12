@@ -38,8 +38,9 @@ const RESOURCE : Array = [
 	"res://src/environment/towers/pixelTowers/moonTower/MoonTower.tscn",
 	"res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn"
 ]
-onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots")
 
+onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots") 
+onready var gold_label = self.get_node("VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/Gold/Label")
 var tower_following_mouse 
 
 var h_gate = preload("res://src/items/QuantumItems/H.tscn")
@@ -131,6 +132,7 @@ func set_up() -> void:
 				item = null
 		if item != null:
 			_pick_up_item(item)
+	gold_label.reset()		
 
 func _on_BuildMode_pressed():
 	get_tree().call_group("tower_builds", "change_visibility", true)
@@ -220,3 +222,14 @@ func make_buildUI_visible():
 func make_buildUI_invisible():
 	self.scale = Vector2.ZERO
 	is_visible = false
+
+
+func change_gold(gold_added: int):
+	gold_label.change_gold(gold_added)
+
+func set_gold(gold_set: int):
+	gold_label.set_gold(gold_set)
+
+
+
+
