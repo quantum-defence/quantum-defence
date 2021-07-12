@@ -145,9 +145,9 @@ func change_state(new_state: int) -> void:
 	set_target(_target)
 
 func _kill() -> void:
-	emit_signal("kia")
 	if action == ACTION.DIE:
 		return 
+	emit_signal("kia")
 	action = ACTION.DIE
 	damage_taken_timer.start(death_rattle_time)
 	sprite.play("die")

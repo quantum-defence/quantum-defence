@@ -64,6 +64,24 @@ func set_up(level) -> void:
 			tower_init.tower_res_string,
 			tower_init.colour
 		)
+	
+	level_map.connect("on_game_end", self, "on_game_end")
+
+func on_game_end(is_win: bool, blue_health: float, red_health: float, 
+	cycle_number: int, enemy_spawn_count: int, enemy_kill_count: int):
+	
+	var dict = {
+		"result": "won" if is_win else "lost",
+		"blue_health": blue_health, 
+		"red_health": red_health, 
+		"current_cycle": cycle_number + 1, 
+		"enemy_spawn_count": enemy_spawn_count, 
+		"enemy_kill_count": enemy_kill_count
+	}
+	var gameCompleteDialog : WindowDialog = $GameCompleteDialog
+	var text = "You {result} on round {current_cycle} \n\n" +"{enemy_spawn_count} enemies spawned \n" + "{enemy_kill_count} enemies killed \n" + "Red: {red_health}\nBlue: {blue_health}"
+	gameCompleteDialog.set_text(text.format(dict))
+	gameCompleteDialog.popup_centered()
 
 # dummy function to show use of selector
 func _input(event: InputEvent) -> void:

@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/ui/gameplay/Arena/tile-selector/TileSelector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/ui/gameplay/Arena/Arena.gd" type="Script" id=2]
 [ext_resource path="res://src/environment/LevelMap/core/LevelMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=4]
 [ext_resource path="res://src/ui/gameplay/UI/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/ui/gameplay/ResetExit/Reset.tscn" type="PackedScene" id=9]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends WindowDialog
+
+func set_text(dialog : String) -> void:
+	$Label.text = dialog
+"
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 4 )
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 2 )
@@ -17,3 +29,23 @@ position = Vector2( -190.663, -292.601 )
 [node name="UI" parent="." instance=ExtResource( 8 )]
 
 [node name="ResetExit" parent="." instance=ExtResource( 9 )]
+
+[node name="GameCompleteDialog" type="WindowDialog" parent="."]
+margin_right = 600.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GameCompleteDialog"]
+margin_right = 200.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 600, 0 )
+custom_fonts/font = SubResource( 2 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
