@@ -67,7 +67,10 @@ func change_tower_to_be_build(tower: Tower):
 		return
 	tower_to_be_built = tower
 	tower_inventory_items_held = tower_to_be_built.tower_items_held
-	tower_inventory_items_held = tower_inventory_items_held.duplicate(true)
+	print(tower_inventory_items_held)
+	var temp = tower_inventory_items_held.duplicate()
+	tower_inventory_items_held = temp
+	print(tower_inventory_items_held.duplicate())
 
 	var animated_sprite = tower_to_be_built.get_node("AnimatedSprite")
 	animated_sprite.z_index = 1
