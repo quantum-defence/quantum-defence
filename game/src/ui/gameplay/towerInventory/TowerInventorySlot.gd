@@ -54,7 +54,7 @@ func drop_data(position, data):
 		if (origin_slot.is_in_group("BuildUISlots")):
 			data["target_item"] = null
 			data["target_texture"] = null
-			tower_inventory.tower_inventory_items_held[target_slot_name] = data["origin_item"]
+			tower_inventory.update_tower(target_slot_name, data["origin_item"])
 			build_UI.build_UI_items_held[origin_slot_name] = null
 			texture = data["origin_texture"]
 			
