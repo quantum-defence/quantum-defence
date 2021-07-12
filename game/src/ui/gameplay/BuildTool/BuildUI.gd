@@ -222,3 +222,12 @@ func make_buildUI_visible():
 func make_buildUI_invisible():
 	self.scale = Vector2.ZERO
 	is_visible = false
+
+func can_drop_data(position, data):
+	return true
+
+func drop_data(position, data):
+	print("Dropped here")
+	data["target_slot"] = data["origin_slot"]
+	data["target_item"] = data["origin_item"]
+	data["origin_slot"].texture = data["origin_texture"]
