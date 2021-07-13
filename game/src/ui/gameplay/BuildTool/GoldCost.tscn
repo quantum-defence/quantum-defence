@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Game Icon/Cartoon RPG UI_Game Icon - Coin.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Cartoon RPG UI_Game Icon - Coin" type="Sprite" parent="."]
+position = Vector2( 29.1926, -6.2171 )
+scale = Vector2( 0.551015, 0.515938 )
+texture = ExtResource( 2 )

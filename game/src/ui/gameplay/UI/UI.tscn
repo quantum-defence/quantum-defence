@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png" type="Texture" id=20]
 [ext_resource path="res://src/ui/gameplay/GoldIndicator/GoldIndicator.gd" type="Script" id=21]
 [ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=22]
+[ext_resource path="res://src/ui/gameplay/BuildTool/GoldCost.tscn" type="PackedScene" id=23]
 [ext_resource path="res://src/ui/gameplay/towerInventory/QuantumCircuitSlot.gd" type="Script" id=24]
 [ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.tscn" type="PackedScene" id=28]
 
@@ -50,6 +51,10 @@ margin_bottom = 14.4044
 [sub_resource type="StyleBoxEmpty" id=6]
 content_margin_top = 60.0
 content_margin_bottom = 60.0
+
+[sub_resource type="DynamicFont" id=11]
+size = 100
+font_data = ExtResource( 22 )
 
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 6 )
@@ -557,6 +562,20 @@ scale = Vector2( 0.81223, 0.605684 )
 texture = ExtResource( 10 )
 hframes = 14
 
+[node name="Node2D" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ObeliskTower" instance=ExtResource( 23 )]
+position = Vector2( 133.893, 12.6612 )
+
+[node name="CostLabel" type="Label" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ObeliskTower/Node2D"]
+margin_left = -72.7138
+margin_top = -59.2449
+margin_right = 47.2862
+margin_bottom = 73.7551
+custom_fonts/font = SubResource( 11 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FlyingObelisk" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
@@ -571,6 +590,20 @@ position = Vector2( 74.6506, 69.8009 )
 scale = Vector2( 0.677756, 0.412511 )
 texture = ExtResource( 11 )
 hframes = 14
+
+[node name="Node2D" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/FlyingObelisk" instance=ExtResource( 23 )]
+position = Vector2( 133.893, 12.6612 )
+
+[node name="CostLabel" type="Label" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/FlyingObelisk/Node2D"]
+margin_left = -72.7138
+margin_top = -59.2449
+margin_right = 47.2862
+margin_bottom = 73.7551
+custom_fonts/font = SubResource( 11 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LightningTotem" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" groups=[
 "tower_builds",
@@ -588,6 +621,20 @@ texture = ExtResource( 15 )
 hframes = 16
 vframes = 5
 
+[node name="Node2D" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/LightningTotem" instance=ExtResource( 23 )]
+position = Vector2( 133.893, 12.6612 )
+
+[node name="CostLabel" type="Label" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/LightningTotem/Node2D"]
+margin_left = -72.7138
+margin_top = -59.2449
+margin_right = 47.2862
+margin_bottom = 73.7551
+custom_fonts/font = SubResource( 11 )
+text = "8"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="DemonStatue" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
@@ -604,6 +651,20 @@ texture = ExtResource( 13 )
 hframes = 31
 vframes = 2
 
+[node name="Node2D2" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/DemonStatue" instance=ExtResource( 23 )]
+position = Vector2( 137.46, 7.90436 )
+
+[node name="CostLabel" type="Label" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/DemonStatue/Node2D2"]
+margin_left = -133.035
+margin_top = -56.8665
+margin_right = -13.035
+margin_bottom = 76.1335
+custom_fonts/font = SubResource( 11 )
+text = "20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MoonTower" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
@@ -619,6 +680,20 @@ scale = Vector2( 1.73396, 1.26406 )
 texture = ExtResource( 16 )
 hframes = 11
 
+[node name="Node2D" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/MoonTower" instance=ExtResource( 23 )]
+position = Vector2( 133.893, 12.6612 )
+
+[node name="CostLabel" type="Label" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/MoonTower/Node2D"]
+margin_left = -72.7138
+margin_top = -59.2449
+margin_right = 47.2862
+margin_bottom = 73.7551
+custom_fonts/font = SubResource( 11 )
+text = "6"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="EyeTower" type="TextureButton" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" groups=[
 "tower_builds",
 ]]
@@ -633,6 +708,20 @@ position = Vector2( 81.796, 67.7196 )
 scale = Vector2( 1.78694, 1.62277 )
 texture = ExtResource( 8 )
 hframes = 14
+
+[node name="Node2D" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/EyeTower" instance=ExtResource( 23 )]
+position = Vector2( 133.893, 12.6612 )
+
+[node name="CostLabel" type="Label" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/EyeTower/Node2D"]
+margin_left = -72.7138
+margin_top = -59.2449
+margin_right = 47.2862
+margin_bottom = 73.7551
+custom_fonts/font = SubResource( 11 )
+text = "7"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ItemSlots" type="GridContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer"]
 margin_left = 1190.0
