@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://src/ui/gameplay/BuildTool/tower-builds.gd" type="Script" id=18]
 [ext_resource path="res://src/ui/gameplay/UI/UI.gd" type="Script" id=19]
 [ext_resource path="res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png" type="Texture" id=20]
+[ext_resource path="res://src/ui/gameplay/GoldIndicator/GoldIndicator.gd" type="Script" id=21]
 [ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=22]
 [ext_resource path="res://src/ui/gameplay/towerInventory/QuantumCircuitSlot.gd" type="Script" id=24]
 [ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.tscn" type="PackedScene" id=28]
@@ -62,6 +63,10 @@ margin_bottom = 14.4044
 
 [sub_resource type="DynamicFont" id=9]
 size = 40
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 100
 font_data = ExtResource( 22 )
 
 [node name="UI" type="CanvasLayer"]
@@ -917,6 +922,28 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="Control/BuildUI"]
 wait_time = 0.2
 
+[node name="GoldIndicator" type="Label" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -359.65
+margin_top = -113.54
+margin_right = 381.35
+margin_bottom = 66.4604
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.945098, 0.898039, 0.898039, 1 )
+text = "NOT ENOUGH GOLD"
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Control/GoldIndicator"]
+wait_time = 0.8
+one_shot = true
+
 [connection signal="gui_input" from="Control/TowerInventory/TextureRect/GridContainer/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
 [connection signal="mouse_entered" from="Control/TowerInventory/TextureRect/GridContainer/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_mouse_entered"]
 [connection signal="gui_input" from="Control/TowerInventory/TextureRect/GridContainer/Slot2/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
@@ -931,3 +958,4 @@ wait_time = 0.2
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/DemonStatue" to="Control/BuildUI" method="_on_DemonStatue_pressed"]
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/MoonTower" to="Control/BuildUI" method="_on_MoonTower_pressed"]
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/EyeTower" to="Control/BuildUI" method="_on_EyeTower_pressed"]
+[connection signal="timeout" from="Control/GoldIndicator/Timer" to="Control/GoldIndicator" method="_on_Timer_timeout"]

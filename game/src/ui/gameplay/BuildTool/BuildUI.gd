@@ -170,15 +170,7 @@ func _helper_mouse_tower(tower_type: int) -> void:
 		tower_following_mouse.set_name("Tower")
 
 func _build_tower(tower_type: int) -> void:
-	var tower = load(RESOURCE[tower_type]).instance()
-	var tower_cost = tower.gold_cost
-	tower.queue_free()
-	
-	if (tower_cost > gold_label.curr_gold):
-		return 
 	build_mode = true
-	tower_cost = tower_cost * -1
-	gold_label.change_gold(tower_cost)
 	tileSelector.set_action(TileSelector.ACTION.BUILDING, RESOURCE[tower_type])
 	_helper_mouse_tower(tower_type)
 
@@ -242,8 +234,8 @@ func drop_data(position, data):
 	data["target_item"] = data["origin_item"]
 	data["origin_slot"].texture = data["origin_texture"]
 
-func change_gold(gold_added: int):
-	gold_label.change_gold(gold_added)
+func change_gold(gold_added: int) -> bool:
+	return gold_label.change_gold(gold_added)
 
-func set_gold(gold_set: int):
-	gold_label.set_gold(gold_set)
+func set_gold(gold_set: int) -> bool:
+	return gold_label.set_gold(gold_set)

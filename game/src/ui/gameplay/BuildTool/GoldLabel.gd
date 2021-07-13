@@ -2,17 +2,24 @@ extends Label
 
 const start_gold = 10
 export var curr_gold : int = 0
+onready var arena = self.find_parent("Arena")
 
 func _ready():
 	curr_gold = start_gold
 	update_gold()
 
-func change_gold(gold_change: int):
+func change_gold(gold_change: int) -> bool:
+	if (curr_gold + gold_change < 0):
+		return false
 	curr_gold += gold_change	
 	update_gold()
+	return true
 
 func set_gold(gold_set: int):
+	if (gold_set < 0):
+		return false
 	curr_gold = gold_set
+	return true
 	
 func update_gold():
 	self.text = str(curr_gold)	
