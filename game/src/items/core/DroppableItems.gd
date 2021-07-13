@@ -6,7 +6,8 @@ extends Area2D
 onready var build_UI = get_parent().get_node("UI").get_node("Control").get_node("BuildUI")
 onready var item = get_node("Item")
 
-func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx:int):
-	if (event.is_pressed() and event.button_index == BUTTON_LEFT):
+
+func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+	if event.is_pressed() and event.button_index == BUTTON_LEFT:
 		build_UI._pick_up_item(item)
 		queue_free()
