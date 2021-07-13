@@ -62,7 +62,7 @@ var is_visible = true
 var isRed = true
 
 # godot appears to conflict with gdformat (line break after 'preload(' )
-const r_src = "res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png";
+const r_src = "res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png"
 const b_src = "res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade C.png"
 var redTile = preload(r_src)
 var blueTile = preload(b_src)
