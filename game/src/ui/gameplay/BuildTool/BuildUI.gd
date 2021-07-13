@@ -11,29 +11,27 @@ enum TOWERTYPES {
 	EYETOWER = 5
 }
 
+# godot appears to conflict with gdformat (line break after 'preload(' )
+const one = "res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png"
+const two = "res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png"
+const three = "res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png"
+const four = "res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation(Blue).png"
+
 var redSprites: Array = [
 	preload("res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 1).png"),
-	preload(
-		"res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png"
-	),
+	preload(one),
 	preload("res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet(Red).png"),
 	preload("res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_red_sheet.png"),
-	preload(
-		"res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png"
-	),
+	preload(two),
 	preload("res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Red Level 1).png")
 ]
 
 var blueSprites: Array = [
 	preload("res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Blue Level 1).png"),
-	preload(
-		"res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png"
-	),
+	preload(three),
 	preload("res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet.png"),
 	preload("res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_blue_sheet.png"),
-	preload(
-		"res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation(Blue).png"
-	),
+	preload(four),
 	preload("res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 1).png")
 ]
 
@@ -62,12 +60,12 @@ var tile_size = 64
 var is_visible = true
 
 var isRed = true
-var redTile = preload(
-	"res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png"
-)
-var blueTile = preload(
-	"res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade C.png"
-)
+
+# godot appears to conflict with gdformat (line break after 'preload(' )
+const r_src = "res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade S.png";
+const b_src = "res://assets/img/UI/Cartoon GUI/PNG/Item Slot/Cartoon RPG UI_Slot - Grade C.png"
+var redTile = preload(r_src)
+var blueTile = preload(b_src)
 
 #if build_mode is not true, then it is in normal mode
 var build_mode: bool = false
