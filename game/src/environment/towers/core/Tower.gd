@@ -40,7 +40,7 @@ func _ready() -> void:
 	_reset()
 	# warning-ignore:return_value_discarded
 	_timer.connect("timeout", self, "_fire")
-
+	$Range/RangeRadius.shape.radius = range_radius 
 
 func _reset() -> void:
 	# Resets everything and is_tensor except tower_items_held (dictionary)

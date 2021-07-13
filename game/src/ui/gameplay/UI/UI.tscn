@@ -472,9 +472,8 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/BuildUI/VBoxContainer"]
-margin_top = 40.0
 margin_right = 1920.0
-margin_bottom = 320.0
+margin_bottom = 280.0
 custom_styles/panel = SubResource( 5 )
 script = ExtResource( 19 )
 __meta__ = {
