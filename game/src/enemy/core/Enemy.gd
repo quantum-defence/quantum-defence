@@ -14,7 +14,7 @@ var _health := 100.0
 var _target # : Portal
 var _red_target # : Portal
 var _blue_target # : Portal
-export var drop_rate = 10
+export var drop_rate = 100
 
 
 enum Q_STATE { SUPERPOSITION = 0, RED = 1, BLUE = 2 }
@@ -186,9 +186,11 @@ func _on_body_entering_vitals(body: Node) -> void:
 
 func _drop_item(percentage: int):
 	var rng = RandomNumberGenerator.new()
+	rng.randomize()
 	var roll = rng.randi_range(0,100)
+	print(roll)
+	print(percentage)
 	if (roll > percentage):
-		print("no drop")
 		return
 	else:	
 		# var position = self.position
