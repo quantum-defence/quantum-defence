@@ -108,6 +108,10 @@ config/name="Tower Defence"
 run/main_scene="res://src/ui/Menu/Menu.tscn"
 config/icon="res://assets/img/coloured-squares/wip-logo.png"
 
+[audio]
+
+default_bus_layout="res://src/Audio/audio_bus_layout.tres"
+
 [autoload]
 
 ItemManager="*res://src/items/core/ItemManager.gd"
