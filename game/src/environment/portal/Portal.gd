@@ -3,7 +3,7 @@ class_name Portal
 
 signal on_hit(isRed, health)
 
-onready var health := 100.0
+export var health := 100.0
 onready var sprite: AnimatedSprite = $AnimatedSprite
 export var isRed: bool = false
 

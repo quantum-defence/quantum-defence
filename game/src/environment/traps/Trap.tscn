@@ -13,7 +13,7 @@ extents = Vector2( 64, 64 )
 [node name="Trap" type="Area2D"]
 position = Vector2( -1, 1 )
 script = ExtResource( 6 )
-dps = 100
+dps = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

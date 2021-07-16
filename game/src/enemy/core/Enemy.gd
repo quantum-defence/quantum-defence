@@ -9,7 +9,7 @@ const RANDOM_WALK_DIST := 128.0 * 0.4
 
 # basic enemy variables
 var damage := 10.0
-var _speed := 200.0
+var _speed := 100.0
 var _health := 100.0
 var _target  # : Portal
 var _red_target  # : Portal
@@ -43,14 +43,14 @@ func _ready() -> void:
 	collision_timer.set_paused(true)
 
 
-func set_up(global_pos: Vector2, red_target, blue_target):  # : Portal,  # : Portal
+func set_up(global_pos: Vector2, red_target, blue_target, is_red_probability = 0.5):  # : Portal,  # : Portal
 	self.global_position = global_pos
 	_red_target = red_target
 	_blue_target = blue_target
-	if randf() >= 0.5:
-		change_state(Q_STATE.RED)
-	else:
+	if randf() >= is_red_probability:
 		change_state(Q_STATE.BLUE)
+	else:
+		change_state(Q_STATE.RED)
 
 
 func _physics_process(delta: float) -> void:
