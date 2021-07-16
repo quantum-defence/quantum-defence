@@ -11,36 +11,38 @@ enum TOWERTYPES {
 	EYETOWER = 5
 }
 
-const sprite_path = "res://assets/img/towers/pixelTowers/"
+# godot appears to conflict with gdformat (line break after 'preload(' )
+const one = "res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png"
+const two = "res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png"
+const three = "res://assets/img/towers/pixelTowers/FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png"
+const four = "res://assets/img/towers/pixelTowers/BloodMoonTower_full_version/RedMoonTower_free_idle_animation(Blue).png"
 
 var redSprites: Array = [
-	preload(sprite_path + "Obelisk_Full_version/Obelisk(Red Level 1).png"),
-	preload(sprite_path + "FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter(Red).png"),
-	preload(sprite_path + "LightningTotemFull/Totem_full-Sheet(Red).png"),
-	preload(sprite_path + "Demon_Statue/Demon_Statue_red_sheet.png"),
-	preload(sprite_path + "BloodMoonTower_full_version/RedMoonTower_free_idle_animation..png"),
-	preload(sprite_path + "LoRTower_Full/EyeTower(Red Level 1).png")
+	preload("res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Red Level 1).png"),
+	preload(one),
+	preload("res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet(Red).png"),
+	preload("res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_red_sheet.png"),
+	preload(two),
+	preload("res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Red Level 1).png")
 ]
 
 var blueSprites: Array = [
-	preload(sprite_path + "Obelisk_Full_version/Obelisk(Blue Level 1).png"),
-	preload(sprite_path + "FlyingObelisk_Full_v2/FlyingObelisk_no_lightnings_no_letter.png"),
-	preload(sprite_path + "LightningTotemFull/Totem_full-Sheet.png"),
-	preload(sprite_path + "Demon_Statue/Demon_Statue_blue_sheet.png"),
-	preload(sprite_path + "BloodMoonTower_full_version/RedMoonTower_free_idle_animation(Blue).png"),
-	preload(sprite_path + "LoRTower_Full/EyeTower(Blue Level 1).png")
+	preload("res://assets/img/towers/pixelTowers/Obelisk_Full_version/Obelisk(Blue Level 1).png"),
+	preload(three),
+	preload("res://assets/img/towers/pixelTowers/LightningTotemFull/Totem_full-Sheet.png"),
+	preload("res://assets/img/towers/pixelTowers/Demon_Statue/Demon_Statue_blue_sheet.png"),
+	preload(four),
+	preload("res://assets/img/towers/pixelTowers/LoRTower_Full/EyeTower(Blue Level 1).png")
 ]
-
-const tower_scn_path = "res://src/environment/towers/pixelTowers/"
 
 #Preload all the tower scenes to build
 const RESOURCE: Array = [
-	tower_scn_path + "obelisk/Obelisk.tscn",
-	tower_scn_path + "flyingObelisk/flyingObelisk.tscn",
-	tower_scn_path + "lightningTotem/LightningTotem.tscn",
-	tower_scn_path + "demonStatue/DemonStatue.tscn",
-	tower_scn_path + "moonTower/MoonTower.tscn",
-	tower_scn_path + "eyeTower/EyeTower.tscn"
+	"res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn",
+	"res://src/environment/towers/pixelTowers/flyingObelisk/flyingObelisk.tscn",
+	"res://src/environment/towers/pixelTowers/lightningTotem/LightningTotem.tscn",
+	"res://src/environment/towers/pixelTowers/demonStatue/DemonStatue.tscn",
+	"res://src/environment/towers/pixelTowers/moonTower/MoonTower.tscn",
+	"res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn"
 ]
 onready var all_inventories_slots = get_node(
 	"VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots"
