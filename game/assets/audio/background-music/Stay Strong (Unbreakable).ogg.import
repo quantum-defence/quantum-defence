@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Stay Strong (Unbreakable).ogg-f7ad2f14b98d1036d43a51ab562cf397.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/background-music/Stay Strong (Unbreakable).ogg"
+dest_files=[ "res://.import/Stay Strong (Unbreakable).ogg-f7ad2f14b98d1036d43a51ab562cf397.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

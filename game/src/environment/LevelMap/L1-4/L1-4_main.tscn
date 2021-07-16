@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/environment/LevelMap/L1-4/L1-4_pretty.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/LevelMap/core/LevelMap.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Audio/BattleLoop1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/environment/Fog/LightFog.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/environment/traps/Trap.tscn" type="PackedScene" id=5]
 
@@ -87,9 +86,10 @@ position = Vector2( 1506, 191 )
 visible = true
 position = Vector2( 969, 545 )
 
-[node name="AudioStreamPlayer" parent="." index="6" instance=ExtResource( 3 )]
-
-[node name="Fog" parent="." index="7" instance=ExtResource( 4 )]
+[node name="Fog" parent="." index="6" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 992, 568 )
 scale = Vector2( 64.3437, 42.5 )
+
+[node name="BgMusicPlayer" parent="." index="7"]
+choice = 18

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Audio/BgMusicPlayer.gd" type="Script" id=1]
+[ext_resource path="res://src/Audio/CustomAudioPlayer.tscn" type="PackedScene" id=2]
+
+[node name="BgMusicPlayer" instance=ExtResource( 2 )]
+bus = "BgMusic"
+script = ExtResource( 1 )
+choice = 16
