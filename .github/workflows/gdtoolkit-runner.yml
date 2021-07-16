@@ -1,7 +1,8 @@
 name: gdtoolkit-runner.yml
 
-# Triggers the workflow on push or pull request events but only for the main branch
+# Triggers the workflow on push but only for the main branch, or on demand for any branch
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
 
