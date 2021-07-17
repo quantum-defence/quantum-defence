@@ -84,12 +84,12 @@ func take_action():
 			var negative_tower_cost = tower_cost * -1
 			mouse_tower.queue_free()
 
-			build_ui.tower_following_mouse = null	
+			build_ui.tower_following_mouse = null
 			var enough_gold = build_ui.change_gold(negative_tower_cost)
 
 			build_ui.make_buildUI_visible()
 			print(enough_gold)
-			if (!enough_gold):
+			if ! enough_gold:
 				var show_rejection = arena.get_node("UI/Control/GoldIndicator")
 				show_rejection._make_visible()
 				show_rejection.get_node("Timer").start()
