@@ -45,12 +45,9 @@ const RESOURCE: Array = [
 	"res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn"
 ]
 
-onready var all_inventories_slots = get_node(
-	"VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots"
-)
-onready var gold_label = self.get_node(
-	"VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/Gold/Label"
-)
+var hbox_prefix = "VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/"
+onready var all_inventories_slots = get_node(hbox_prefix + "ItemSlots")
+onready var gold_label = self.get_node(hbox_prefix + "Gold/Label")
 var tower_following_mouse
 
 var h_gate = preload("res://src/items/QuantumItems/H.tscn")
