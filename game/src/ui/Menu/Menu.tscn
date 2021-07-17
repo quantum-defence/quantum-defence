@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/img/Screens/Temp.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/Screens/04(1).jpg" type="Texture" id=3]
 [ext_resource path="res://src/ui/Menu/Menu.gd" type="Script" id=4]
-[ext_resource path="res://assets/audio/Musical Box/BGM OGG/Theme_-_Music_Box_-_Dream_Dance.ogg" type="AudioStream" id=5]
+[ext_resource path="res://src/Audio/BgMusicPlayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/environment/Fog/Fog.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/ui/Menu/LevelSelection.gd" type="Script" id=7]
 
@@ -53,6 +53,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BgMusicPlayer" parent="." instance=ExtResource( 5 )]
+
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -62,10 +64,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-volume_db = -4.578
-mix_target = 1
+[node name="Temp" type="Sprite" parent="."]
+modulate = Color( 0.466667, 0.235294, 0.235294, 1 )
+position = Vector2( 1591.16, 242.655 )
+scale = Vector2( 2.3, 2.3 )
+texture = ExtResource( 2 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 951.163, 818.655 )
@@ -74,12 +77,6 @@ lifetime = 3.0
 preprocess = 3.0
 randomness = 0.13
 process_material = SubResource( 1 )
-
-[node name="Temp" type="Sprite" parent="Particles2D"]
-modulate = Color( 0.466667, 0.235294, 0.235294, 1 )
-position = Vector2( 640, -576 )
-scale = Vector2( 2.3, 2.3 )
-texture = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 process_priority = 1
@@ -162,7 +159,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fabric" parent="." instance=ExtResource( 6 )]
+[node name="Fog" parent="." instance=ExtResource( 6 )]
 position = Vector2( 968, 560 )
 scale = Vector2( 62.4375, 36.25 )
 

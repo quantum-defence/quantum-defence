@@ -79,6 +79,10 @@ var enemy_kill_count := 0
 var _cycle_number := 0
 
 
+func _ready() -> void:
+	$BgMusicPlayer.play()
+
+
 func set_up() -> void:
 	var spawn_point = $EnemySpawnPoint
 	spawn_point.begin_prep_clock(spawn_config)

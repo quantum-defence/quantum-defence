@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Audio/Game_SFX_Player.gd" type="Script" id=1]
+[ext_resource path="res://src/Audio/CustomAudioPlayer.tscn" type="PackedScene" id=2]
+
+[node name="Game_SFX_Player" instance=ExtResource( 2 )]
+bus = "GameFx"
+script = ExtResource( 1 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Time of Heroes.ogg-bfba0cff0089403ebd61d91c6fcc17b6.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/background-music/Time of Heroes.ogg"
+dest_files=[ "res://.import/Time of Heroes.ogg-bfba0cff0089403ebd61d91c6fcc17b6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
