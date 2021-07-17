@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Medieval Theme #2.ogg-0fe240d1caa577c64ef5a0bc8ecd9efd.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/background-music/Medieval Theme #2.ogg"
+dest_files=[ "res://.import/Medieval Theme #2.ogg-0fe240d1caa577c64ef5a0bc8ecd9efd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

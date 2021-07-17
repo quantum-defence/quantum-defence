@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/audio/background-music/Battle Loop #3.ogg" type="AudioStream" id=1]
+[ext_resource path="res://src/Audio/CustomAudioPlayer.gd" type="Script" id=2]
+
+[node name="CustomAudioPlayer" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+mix_target = 1
+script = ExtResource( 2 )
