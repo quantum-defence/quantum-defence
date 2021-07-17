@@ -80,7 +80,8 @@ func spawn_enemy(enemy_type: String) -> void:
 	enemy.set_up(
 		self.global_position,
 		get_parent().get_node("RedPortal"),
-		get_parent().get_node("BluePortal")
+		get_parent().get_node("BluePortal"),
+		0
 	)
 	emit_signal("on_enemy_spawn")
 
