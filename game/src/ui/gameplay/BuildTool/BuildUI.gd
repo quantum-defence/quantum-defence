@@ -45,10 +45,10 @@ const RESOURCE: Array = [
 	"res://src/environment/towers/pixelTowers/eyeTower/EyeTower.tscn"
 ]
 
-onready var all_inventories_slots = get_node("VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots") 
-onready var gold_label = self.get_node("VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/Gold/Label")
-var tower_following_mouse 
-
+var hbox_prefix = "VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/"
+onready var all_inventories_slots = get_node(hbox_prefix + "ItemSlots")
+onready var gold_label = self.get_node(hbox_prefix + "Gold/Label")
+var tower_following_mouse
 
 var h_gate = preload("res://src/items/QuantumItems/H.tscn")
 var ry_gate = preload("res://src/items/QuantumItems/RY.tscn")
@@ -151,7 +151,7 @@ func set_up() -> void:
 				item = null
 		if item != null:
 			_pick_up_item(item)
-	gold_label.reset()		
+	gold_label.reset()
 
 
 func _on_BuildMode_pressed():
@@ -270,8 +270,10 @@ func drop_data(position, data):
 	data["target_item"] = data["origin_item"]
 	data["origin_slot"].texture = data["origin_texture"]
 
+
 func change_gold(gold_added: int) -> bool:
 	return gold_label.change_gold(gold_added)
+
 
 func set_gold(gold_set: int) -> bool:
 	return gold_label.set_gold(gold_set)

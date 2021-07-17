@@ -29,9 +29,8 @@ export var tower_damage = 20
 export var projectile_speed = 600
 export var tower_attack_speed = 1.0
 
-export var is_frozen = true # unfrozen by build_tower() in Arena.gd
+export var is_frozen = true  # unfrozen by build_tower() in Arena.gd
 export var gold_cost: int = 0
-
 
 var probs: Dictionary
 var is_tensor := false
@@ -43,7 +42,7 @@ func _ready() -> void:
 	_reset()
 	# warning-ignore:return_value_discarded
 	_timer.connect("timeout", self, "_fire")
-	$Range/RangeRadius.shape.radius = range_radius 
+	$Range/RangeRadius.shape.radius = range_radius
 
 
 func _reset() -> void:
