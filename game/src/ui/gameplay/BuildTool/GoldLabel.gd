@@ -5,8 +5,7 @@ export var curr_gold : int = 0
 onready var arena = self.find_parent("Arena")
 
 func _ready():
-	curr_gold = start_gold
-	update_gold()
+	reset()
 
 func change_gold(gold_change: int) -> bool:
 	if (curr_gold + gold_change < 0):
@@ -33,4 +32,6 @@ func drop_data(position, data):
 	data["origin_slot"].texture = data["origin_texture"]
 
 func reset():
-	_ready()
+	curr_gold = start_gold
+	update_gold()
+

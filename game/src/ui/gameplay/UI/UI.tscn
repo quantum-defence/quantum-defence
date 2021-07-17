@@ -52,11 +52,11 @@ margin_bottom = 14.4044
 content_margin_top = 60.0
 content_margin_bottom = 60.0
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=7]
 size = 100
 font_data = ExtResource( 22 )
 
-[sub_resource type="StyleBoxTexture" id=7]
+[sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 160, 160 )
 margin_left = 13.2964
@@ -64,13 +64,13 @@ margin_right = 12.1884
 margin_top = 13.5051
 margin_bottom = 14.4044
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=9]
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=10]
 size = 40
 font_data = ExtResource( 22 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=11]
 size = 100
 font_data = ExtResource( 22 )
 
@@ -570,7 +570,7 @@ margin_left = -72.7138
 margin_top = -59.2449
 margin_right = 47.2862
 margin_bottom = 73.7551
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 7 )
 text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -599,7 +599,7 @@ margin_left = -72.7138
 margin_top = -59.2449
 margin_right = 47.2862
 margin_bottom = 73.7551
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 7 )
 text = "5"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -629,7 +629,7 @@ margin_left = -72.7138
 margin_top = -59.2449
 margin_right = 47.2862
 margin_bottom = 73.7551
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 7 )
 text = "8"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -659,7 +659,7 @@ margin_left = -133.035
 margin_top = -56.8665
 margin_right = -13.035
 margin_bottom = 76.1335
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 7 )
 text = "20"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -688,7 +688,7 @@ margin_left = -72.7138
 margin_top = -59.2449
 margin_right = 47.2862
 margin_bottom = 73.7551
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 7 )
 text = "6"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -717,7 +717,7 @@ margin_left = -72.7138
 margin_top = -59.2449
 margin_right = 47.2862
 margin_bottom = 73.7551
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 7 )
 text = "7"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -736,7 +736,7 @@ script = ExtResource( 19 )
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot1"]
@@ -761,7 +761,7 @@ margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot2"]
@@ -786,7 +786,7 @@ margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot3"]
@@ -811,7 +811,7 @@ margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot4"]
@@ -834,7 +834,7 @@ margin_left = 272.0
 margin_right = 336.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot5"]
@@ -857,7 +857,7 @@ margin_top = 68.0
 margin_right = 64.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot6"]
@@ -881,7 +881,7 @@ margin_top = 68.0
 margin_right = 132.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot7"]
@@ -905,7 +905,7 @@ margin_top = 68.0
 margin_right = 200.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot8"]
@@ -929,7 +929,7 @@ margin_top = 68.0
 margin_right = 268.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot9"]
@@ -953,7 +953,7 @@ margin_top = 68.0
 margin_right = 336.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot10"]
@@ -974,7 +974,7 @@ margin_left = 1536.0
 margin_right = 1600.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 9 )
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1001,7 +1001,7 @@ margin_left = 97.515
 margin_top = 23.7841
 margin_right = 243.515
 margin_bottom = 64.7841
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 text = "0"
 script = ExtResource( 17 )
 __meta__ = {
@@ -1021,7 +1021,7 @@ margin_left = -359.65
 margin_top = -113.54
 margin_right = 381.35
 margin_bottom = 66.4604
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.945098, 0.898039, 0.898039, 1 )
 text = "NOT ENOUGH GOLD"
 script = ExtResource( 21 )
