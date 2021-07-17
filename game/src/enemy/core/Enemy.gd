@@ -15,6 +15,11 @@ var _target  # : Portal
 var _red_target  # : Portal
 var _blue_target  # : Portal
 
+#
+export var gold_dropped_min: int = 0
+export var gold_dropped_max: int = 5
+export var gold_drop_rate : int = 100
+
 enum Q_STATE { SUPERPOSITION = 0, RED = 1, BLUE = 2 }
 var qubit := Vector2()
 var qubit_state: int = Q_STATE.SUPERPOSITION
@@ -35,6 +40,8 @@ onready var damage_taken_timer: Timer = $DamageTakenTimer
 onready var attack_timer: Timer = $AttackTimer
 onready var collision_timer: Timer = $CollisionTimer
 
+
+onready var build_UI = self.find_parent("Arena").get_node("UI/Control/BuildUI")
 
 func _ready() -> void:
 	action = self.ACTION.IDLE
@@ -158,6 +165,13 @@ func _kill() -> void:
 	damage_taken_timer.connect("timeout", self, "queue_free")
 
 
+	#Make the gold appear above the enemies head when killed
+	var gold_dropped = drop_gold()
+	var gold_label = Label.new()
+	self.add_child(gold_label)
+	gold_label.text = str("+",gold_dropped, "Gold") 
+
+
 func show_teleportation() -> void:
 	modulate = Color.white
 	set_physics_process(false)
@@ -186,3 +200,15 @@ func _on_body_entering_vitals(body: Node) -> void:
 	if body is Projectile:
 		# warning-ignore:unsafe_method_access
 		body.inflict_damage(self)
+
+func drop_gold() -> int:
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var roll_drop_rate = rng.randi_range(0,100)
+	var gold_dropped
+	if (roll_drop_rate < gold_drop_rate):
+		gold_dropped = rng.randi_range(gold_dropped_min, gold_dropped_max)
+		print(gold_dropped)
+		build_UI.change_gold(gold_dropped)
+	return gold_dropped
+
