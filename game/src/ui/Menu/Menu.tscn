@@ -111,7 +111,7 @@ custom_styles/normal = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
 text = "Settings"
 
-[node name="Tutorial" type="Button" parent="VBoxContainer"]
+[node name="Credits" type="Button" parent="VBoxContainer"]
 margin_top = 150.0
 margin_right = 448.0
 margin_bottom = 221.0
@@ -121,24 +121,12 @@ custom_styles/focus = SubResource( 2 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
-text = "Tutorial"
-
-[node name="Credits" type="Button" parent="VBoxContainer"]
-margin_top = 225.0
-margin_right = 448.0
-margin_bottom = 296.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 2 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
 text = "Credits"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
-margin_top = 300.0
+margin_top = 225.0
 margin_right = 448.0
-margin_bottom = 371.0
+margin_bottom = 296.0
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 2 )
@@ -171,7 +159,6 @@ script = ExtResource( 7 )
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_Tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="id_pressed" from="LevelSelection" to="LevelSelection" method="_on_LevelSelection_id_pressed"]
