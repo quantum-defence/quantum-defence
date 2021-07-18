@@ -1,5 +1,6 @@
 extends Control
 
+
 func _on_PlayButton_pressed():
 	var levels = [
 		{ 
@@ -23,7 +24,8 @@ func _on_PlayButton_pressed():
 	$LevelSelection.set_up(levels)
 	$LevelSelection.popup_centered()
 	return
-	
+
+
 func _on_Tutorial_pressed():
 	var tutorials = [
 		# tutorial 1 to show typical TD
@@ -38,11 +40,17 @@ func _on_Tutorial_pressed():
 	$LevelSelection.popup_centered()
 	return
 
+
 # Called by the pop up menu
 func start_level(level_src: String):
 	var arena = _free_self_start_new("res://src/ui/gameplay/Arena/Arena.tscn")
 	var level = load(level_src)
 	arena.set_up(level)
+
+
+func _on_Settings_pressed() -> void:
+	_free_self_start_new("res://src/ui/Menu/Settings.tscn")
+
 
 func _on_Quit_pressed():
 	get_tree().quit()

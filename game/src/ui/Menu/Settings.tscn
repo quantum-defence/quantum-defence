@@ -1,0 +1,142 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://src/Audio/BgMusicPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/img/Screens/04(1).jpg" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+func _on_BgMusicVolumeSlider_value_changed(value: float) -> void:
+	$\"/root/Globals\".set_bg_vol(value)
+
+func _on_FxVolumeSlider_value_changed(value: float) -> void:
+	$\"/root/Globals\".set_fx_vol(value)
+
+
+func _on_DoneButton_pressed() -> void:
+	var loaded = load(\"res://src/ui/Menu/Menu.tscn\").instance()
+	var root = get_tree().get_root()
+	root.add_child(loaded)
+	root.remove_child(self)
+	self.queue_free()
+
+"
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 1 )
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.329412, 0.329412, 0.329412, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BgMusicPlayer" parent="." instance=ExtResource( 2 )]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+process_priority = 1
+margin_left = 560.0
+margin_top = 300.0
+margin_right = 960.0
+margin_bottom = 500.0
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeaderLabel2" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 82.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "Settings"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BgMusicVolLabel" type="RichTextLabel" parent="VBoxContainer"]
+margin_top = 86.0
+margin_right = 400.0
+margin_bottom = 125.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Background Music"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BgMusicVolumeSlider" type="HSlider" parent="VBoxContainer"]
+margin_top = 129.0
+margin_right = 400.0
+margin_bottom = 145.0
+step = 10.0
+value = 70.0
+rounded = true
+tick_count = 6
+
+[node name="FxVolLabel" type="RichTextLabel" parent="VBoxContainer"]
+margin_top = 149.0
+margin_right = 400.0
+margin_bottom = 188.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "Sound Effects"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FxVolumeSlider" type="HSlider" parent="VBoxContainer"]
+margin_top = 192.0
+margin_right = 400.0
+margin_bottom = 208.0
+step = 10.0
+value = 100.0
+rounded = true
+tick_count = 6
+
+[node name="DoneBtnContainer" type="Control" parent="VBoxContainer"]
+margin_top = 212.0
+margin_right = 400.0
+margin_bottom = 212.0
+
+[node name="DoneButton" type="Button" parent="VBoxContainer/DoneBtnContainer"]
+margin_left = 304.0
+margin_top = 18.0
+margin_right = 376.0
+margin_bottom = 45.0
+grow_vertical = 0
+custom_fonts/font = SubResource( 5 )
+text = "DONE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="VBoxContainer/BgMusicVolumeSlider" to="." method="_on_BgMusicVolumeSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/FxVolumeSlider" to="." method="_on_FxVolumeSlider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/DoneBtnContainer/DoneButton" to="." method="_on_DoneButton_pressed"]

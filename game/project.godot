@@ -121,6 +121,7 @@ default_bus_layout="res://src/Audio/audio_bus_layout.tres"
 [autoload]
 
 ItemManager="*res://src/items/core/ItemManager.gd"
+Globals="*res://src/Globals.gd"
 
 [debug]
 

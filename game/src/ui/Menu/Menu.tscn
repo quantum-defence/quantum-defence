@@ -170,6 +170,7 @@ custom_fonts/font = SubResource( 8 )
 script = ExtResource( 7 )
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_Tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="id_pressed" from="LevelSelection" to="LevelSelection" method="_on_LevelSelection_id_pressed"]
