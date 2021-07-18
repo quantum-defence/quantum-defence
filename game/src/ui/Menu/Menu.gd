@@ -56,6 +56,10 @@ func _on_Quit_pressed():
 	get_tree().quit()
 
 
+func _on_Credits_pressed() -> void:
+	_free_self_start_new("res://src/ui/Menu/Credits.tscn")
+
+
 func _free_self_start_new(resource_path: String):
 	var loaded = load(resource_path).instance()
 	var root = get_tree().get_root()
