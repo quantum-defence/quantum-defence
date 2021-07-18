@@ -1,32 +1,33 @@
 extends Control
 
 const levels_info: Array = [
-	{ 
+	{
 		"name": "Tutorial",
-		"src": "res://src/environment/LevelMap/Tutorial/Tutorial.tscn", 
+		"src": "res://src/environment/LevelMap/Tutorial/Tutorial.tscn",
 		"description": "Learn how to play with a slow paced start."
 	},
-	{ 
+	{
 		"name": "Level One",
-		"src": "res://src/environment/LevelMap/L1-1/L1-1_main.tscn", 
+		"src": "res://src/environment/LevelMap/L1-1/L1-1_main.tscn",
 		"description": "Border incursions..."
 	},
-	{ 
-		"name": "Level Two", 
-		"src": "res://src/environment/LevelMap/L1-2/L1-2_main.tscn", 
+	{
+		"name": "Level Two",
+		"src": "res://src/environment/LevelMap/L1-2/L1-2_main.tscn",
 		"description": "Two ways in, no way out."
 	},
-	{ 
-		"name": "Level Three", 
-		"src": "res://src/environment/LevelMap/L1-3/L1-3_main.tscn", 
+	{
+		"name": "Level Three",
+		"src": "res://src/environment/LevelMap/L1-3/L1-3_main.tscn",
 		"description": "A bit of a twist."
 	},
-	{ 
-		"name": "Level Four", 
-		"src": "res://src/environment/LevelMap/L1-4/L1-4_main.tscn", 
+	{
+		"name": "Level Four",
+		"src": "res://src/environment/LevelMap/L1-4/L1-4_main.tscn",
 		"description": "Make your stand"
 	},
 ]
+
 
 func _on_PlayButton_pressed():
 	var level_selector = _free_self_start_new("res://src/ui/Menu/LevelSelection.tscn")
