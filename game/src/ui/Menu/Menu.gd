@@ -40,14 +40,18 @@ func _on_Tutorial_pressed():
 
 # Called by the pop up menu
 func start_level(level_src: String):
-	var arena = load("res://src/ui/gameplay/Arena/Arena.tscn").instance()
+	var arena = _free_self_start_new("res://src/ui/gameplay/Arena/Arena.tscn")
 	var level = load(level_src)
-	var root = get_tree().get_root()
-	root.add_child(arena)
 	arena.set_up(level)
-	
-	root.remove_child(self)
-	self.queue_free()
 
 func _on_Quit_pressed():
 	get_tree().quit()
+
+
+func _free_self_start_new(resource_path: String):
+	var loaded = load(resource_path).instance()
+	var root = get_tree().get_root()
+	root.add_child(loaded)
+	root.remove_child(self)
+	self.queue_free()
+	return loaded
