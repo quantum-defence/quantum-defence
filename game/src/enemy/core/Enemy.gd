@@ -201,15 +201,16 @@ func _on_body_entering_vitals(body: Node) -> void:
 		# warning-ignore:unsafe_method_access
 		body.inflict_damage(self)
 
+
 func _drop_item(percentage: int):
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var roll = rng.randi_range(0,100)
+	var roll = rng.randi_range(0, 100)
 	print(roll)
 	print(percentage)
-	if (roll > percentage):
+	if roll > percentage:
 		return
-	else:	
+	else:
 		# var position = self.position
 		# var droppable_item = $DroppableItem
 		# var quantum_item = droppable_item._get_random_quantum_item().get_child(0)
