@@ -1,0 +1,163 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/ui/components/LevelContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Audio/BgMusicPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/img/Screens/04(1).jpg" type="Texture" id=3]
+[ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+var _levels_info: Array
+
+onready var level_containers : HBoxContainer = $\"VBoxContainer/ScrollContainer/LevelContainerList\"
+
+func _ready() -> void:
+	var x: ScrollContainer = $VBoxContainer/ScrollContainer
+	var scrollbar: ScrollBar = x.get_h_scrollbar()
+	scrollbar.rect_min_size.y = 20
+
+func set_up(levels_info: Array = []) -> void:
+	_levels_info = levels_info
+	for child in level_containers.get_children():
+		level_containers.remove_child(child)
+		child.queue_free()
+	for id in range(_levels_info.size()):
+		var level_info = _levels_info[id]
+		var level : LevelContainer
+		level = load(\"res://src/ui/components/LevelContainer.tscn\").instance()
+		level.set_up(id, level_info[\"name\"], level_info[\"description\"])
+		level_containers.add_child(level)
+
+
+func on_play_pressed(level_id: int):
+	var arena = _free_self_start_new(\"res://src/ui/gameplay/Arena/Arena.tscn\")
+	var level = load(_levels_info[level_id][\"src\"])
+	arena.set_up(level)
+
+
+func _on_BackButton_pressed() -> void:
+	_free_self_start_new(\"res://src/ui/Menu/Menu.tscn\")
+	
+
+
+func _free_self_start_new(resource_path: String):
+	var loaded = load(resource_path).instance()
+	var root = get_tree().get_root()
+	root.add_child(loaded)
+	root.remove_child(self)
+	self.queue_free()
+	return loaded
+"
+
+[sub_resource type="DynamicFont" id=2]
+size = 200
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 4 )
+
+[node name="LevelSelection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.329412, 0.329412, 0.329412, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BgMusicPlayer" parent="." instance=ExtResource( 2 )]
+choice = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 128.0
+margin_top = 128.0
+margin_right = 200.0
+margin_bottom = 252.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeaderLabel" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 1720.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 0, 256 )
+custom_fonts/normal_font = SubResource( 2 )
+text = "Choose your map"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 260.0
+margin_right = 1720.0
+margin_bottom = 731.0
+rect_min_size = Vector2( 1720, 440 )
+rect_pivot_offset = Vector2( -1688, 68 )
+scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelContainerList" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 2412.0
+margin_bottom = 459.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelContainer4" parent="VBoxContainer/ScrollContainer/LevelContainerList" instance=ExtResource( 1 )]
+margin_right = 600.0
+margin_bottom = 459.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="LevelContainer3" parent="VBoxContainer/ScrollContainer/LevelContainerList" instance=ExtResource( 1 )]
+margin_left = 604.0
+margin_right = 1204.0
+margin_bottom = 459.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="LevelContainer2" parent="VBoxContainer/ScrollContainer/LevelContainerList" instance=ExtResource( 1 )]
+margin_left = 1208.0
+margin_right = 1808.0
+margin_bottom = 459.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="LevelContainer" parent="VBoxContainer/ScrollContainer/LevelContainerList" instance=ExtResource( 1 )]
+margin_left = 1812.0
+margin_right = 2412.0
+margin_bottom = 459.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="BackBtnContainer" type="Control" parent="VBoxContainer"]
+margin_top = 735.0
+margin_right = 1720.0
+margin_bottom = 735.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="VBoxContainer/BackBtnContainer"]
+margin_left = 1424.0
+margin_top = 20.0
+margin_right = 1612.0
+margin_bottom = 107.0
+grow_vertical = 0
+custom_fonts/font = SubResource( 3 )
+text = "BACK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="VBoxContainer/BackBtnContainer/BackButton" to="." method="_on_BackButton_pressed"]

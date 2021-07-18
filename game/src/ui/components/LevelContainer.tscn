@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://src/ui/components/LevelContainer.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 36
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 1 )
+
+[node name="LevelContainer" type="CenterContainer"]
+process_priority = 1
+margin_right = 550.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 600, 400 )
+rect_scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="."]
+scale = Vector2( 1, 0.6 )
+points = PoolVector2Array( 16, 32, 16, 640 )
+default_color = Color( 1, 1, 1, 0.141176 )
+
+[node name="VBox" type="VBoxContainer" parent="."]
+margin_left = 38.0
+margin_right = 562.0
+margin_bottom = 459.0
+
+[node name="Name" type="RichTextLabel" parent="VBox"]
+margin_right = 524.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+custom_fonts/normal_font = SubResource( 2 )
+text = "Level ID"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="RichTextLabel" parent="VBox"]
+margin_top = 124.0
+margin_right = 524.0
+margin_bottom = 284.0
+rect_min_size = Vector2( 524, 160 )
+custom_fonts/normal_font = SubResource( 4 )
+text = "Description"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="VBox"]
+margin_top = 288.0
+margin_right = 524.0
+margin_bottom = 355.0
+
+[node name="PlayButton" type="Button" parent="VBox/CenterContainer"]
+margin_left = 190.0
+margin_right = 334.0
+margin_bottom = 67.0
+grow_vertical = 0
+custom_fonts/font = SubResource( 3 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer" type="RichTextLabel" parent="VBox"]
+margin_top = 359.0
+margin_right = 524.0
+margin_bottom = 459.0
+rect_min_size = Vector2( 0, 100 )
+custom_fonts/normal_font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="VBox/CenterContainer/PlayButton" to="." method="_on_PlayButton_pressed"]

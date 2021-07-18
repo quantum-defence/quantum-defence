@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/items/core/Item.gd"
 }, {
+"base": "CenterContainer",
+"class": "LevelContainer",
+"language": "GDScript",
+"path": "res://src/ui/components/LevelContainer.gd"
+}, {
 "base": "Node2D",
 "class": "LevelMap",
 "language": "GDScript",
@@ -96,6 +101,7 @@ _global_script_class_icons={
 "Enemy": "",
 "EnemySpawnPoint": "",
 "Item": "",
+"LevelContainer": "",
 "LevelMap": "",
 "Portal": "",
 "Projectile": "",
@@ -121,6 +127,7 @@ default_bus_layout="res://src/Audio/audio_bus_layout.tres"
 [autoload]
 
 ItemManager="*res://src/items/core/ItemManager.gd"
+Globals="*res://src/Globals.gd"
 
 [debug]
 
