@@ -16,7 +16,6 @@ func _ready() -> void:
 	var x: ScrollContainer = $VBoxContainer/ScrollContainer
 	var scrollbar: ScrollBar = x.get_h_scrollbar()
 	scrollbar.rect_min_size.y = 20
-	print(scrollbar.rect_size)
 
 func set_up(levels_info: Array = []) -> void:
 	_levels_info = levels_info
@@ -32,7 +31,6 @@ func set_up(levels_info: Array = []) -> void:
 
 
 func on_play_pressed(level_id: int):
-	print(level_id)
 	var arena = _free_self_start_new(\"res://src/ui/gameplay/Arena/Arena.tscn\")
 	var level = load(_levels_info[level_id][\"src\"])
 	arena.set_up(level)
