@@ -9,7 +9,6 @@ func take_file(audio_file: String, is_loop: bool):
 	# load is memoized internally by godot, there is no need to optimise this
 	var audio = load(audio_file)
 	if ".ogg" in audio_file:
-		print('ogg')
 		audio.set_loop(is_loop)
 	else:
 		assert(false, 'Audio should be .ogg')
