@@ -37,6 +37,7 @@ jobs:
           author: Github <noreply@github.com>
           signoff: false
           branch: gdformatter
+          branch-suffix: timestamp
           delete-branch: true
           title: 'Format GD script'
           draft: false
