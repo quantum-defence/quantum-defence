@@ -1,0 +1,110 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_02.png" type="Texture" id=1]
+[ext_resource path="res://src/ui/gameplay/Prompts/AnimatedSprite.gd" type="Script" id=2]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_01.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_12.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_17.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_14.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_23.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_18.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_20.png" type="Texture" id=9]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_09.png" type="Texture" id=10]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_16.png" type="Texture" id=11]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_10.png" type="Texture" id=12]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_21.png" type="Texture" id=13]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_19.png" type="Texture" id=14]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_15.png" type="Texture" id=15]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_13.png" type="Texture" id=16]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_22.png" type="Texture" id=17]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_11.png" type="Texture" id=18]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_03.png" type="Texture" id=19]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_06.png" type="Texture" id=20]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_04.png" type="Texture" id=21]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_08.png" type="Texture" id=22]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_07.png" type="Texture" id=23]
+[ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_05.png" type="Texture" id=24]
+[ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=25]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 457, 548 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 457, 548 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 0, 0, 457, 548 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 18 ), ExtResource( 4 ), ExtResource( 16 ), ExtResource( 6 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 22.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Temp",
+"speed": 22.0
+} ]
+
+[sub_resource type="DynamicFont" id=5]
+size = 80
+font_data = ExtResource( 25 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 60
+font_data = ExtResource( 25 )
+
+[node name="Prompt" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 937.94, 458.846 )
+scale = Vector2( 3.07206, 1.69033 )
+frames = SubResource( 4 )
+animation = "Temp"
+speed_scale = 1.5
+playing = true
+script = ExtResource( 2 )
+
+[node name="AllText" type="Node" parent="AnimatedSprite"]
+
+[node name="Title" type="Label" parent="AnimatedSprite/AllText"]
+margin_left = 466.957
+margin_top = 107.476
+margin_right = 994.957
+margin_bottom = 228.476
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.615686, 0.160784, 0.160784, 1 )
+text = "Instructions:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="AnimatedSprite/AllText"]
+margin_left = 493.622
+margin_top = 257.0
+margin_right = 1292.62
+margin_bottom = 638.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.615686, 0.160784, 0.160784, 1 )
+text = "Protect your Portals! 
+Red Enemies go to red portal
+and blue enemies go
+ to blue portal.Each tower
+ can only hit enemies 
+of the same color"
+__meta__ = {
+"_edit_use_anchors_": false
+}
