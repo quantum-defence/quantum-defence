@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=22]
 [ext_resource path="res://src/ui/gameplay/BuildTool/GoldCost.tscn" type="PackedScene" id=23]
 [ext_resource path="res://src/ui/gameplay/towerInventory/QuantumCircuitSlot.gd" type="Script" id=24]
+[ext_resource path="res://src/ui/gameplay/HealthBar/HealthBar.tscn" type="PackedScene" id=25]
+[ext_resource path="res://src/ui/gameplay/UI/MakeSettings.gd" type="Script" id=26]
 [ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.tscn" type="PackedScene" id=28]
 
 [sub_resource type="DynamicFont" id=1]
@@ -75,6 +77,7 @@ size = 100
 font_data = ExtResource( 22 )
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource( 26 )
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
@@ -1032,6 +1035,10 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="Control/GoldIndicator"]
 wait_time = 0.8
 one_shot = true
+
+[node name="HealthBar" parent="Control" instance=ExtResource( 25 )]
+position = Vector2( 362.542, 7.27487 )
+scale = Vector2( 0.6, 0.5 )
 
 [connection signal="gui_input" from="Control/TowerInventory/TextureRect/GridContainer/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_gui_input"]
 [connection signal="mouse_entered" from="Control/TowerInventory/TextureRect/GridContainer/Slot1/TextureRect" to="Control/TowerInventory" method="_on_TextureRect_mouse_entered"]

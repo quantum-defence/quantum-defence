@@ -3,10 +3,11 @@ extends HBoxContainer
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var isVisible = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_make_invis()
 	pass  # Replace with function body.
 
 
@@ -27,3 +28,19 @@ func _on_ExitButton_pressed():
 	root.add_child(menu)
 	root.remove_child(arena)
 	arena.queue_free()
+
+func _make_visible():
+	print("make vis")
+	self.rect_scale = Vector2(0.5,0.5)
+	isVisible = true
+	
+func _make_invis():
+	self.rect_scale = Vector2.ZERO
+	isVisible = false
+	
+func _toggle_invis():
+	if (isVisible):
+		_make_invis()
+	else:
+		_make_visible()
+ 

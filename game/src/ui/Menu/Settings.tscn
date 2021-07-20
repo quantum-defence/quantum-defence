@@ -1,11 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://src/Audio/BgMusicPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/img/Screens/04(1).jpg" type="Texture" id=3]
+[ext_resource path="res://src/ui/gameplay/ResetExit/Reset.tscn" type="PackedScene" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
+
+var from_menu = true
+var from_game = false
 
 func _on_BgMusicVolumeSlider_value_changed(value: float) -> void:
 	$\"/root/Globals\".set_bg_vol(value)
@@ -15,11 +19,30 @@ func _on_FxVolumeSlider_value_changed(value: float) -> void:
 
 
 func _on_DoneButton_pressed() -> void:
-	var loaded = load(\"res://src/ui/Menu/Menu.tscn\").instance()
-	var root = get_tree().get_root()
-	root.add_child(loaded)
-	root.remove_child(self)
-	self.queue_free()
+	if (from_menu):
+		var loaded = load(\"res://src/ui/Menu/Menu.tscn\").instance()
+		var root = get_tree().get_root()
+		root.add_child(loaded)
+		root.remove_child(self)
+		self.queue_free()
+	
+	#Come from game
+	else:
+		self.queue_free()	
+
+
+
+func _toggle_reset_exit():
+	var reset_exit = $ResetExit
+	reset_exit.get_node(\"HBoxContainer\")._toggle_invis()
+
+func _toggle_origin():
+	if (from_menu):
+		from_game = true
+		from_menu = false
+	else:
+		from_game = false
+		from_menu = true	
 
 "
 
@@ -136,6 +159,8 @@ text = "DONE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ResetExit" parent="." instance=ExtResource( 4 )]
 
 [connection signal="value_changed" from="VBoxContainer/BgMusicVolumeSlider" to="." method="_on_BgMusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/FxVolumeSlider" to="." method="_on_FxVolumeSlider_value_changed"]
