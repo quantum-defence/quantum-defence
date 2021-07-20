@@ -1,41 +1,40 @@
 extends Node2D
 
 
-export var init_red_portal_health: int = 100
-export var init_blue_portal_health: int = 100
-onready var red_portal_health: int = init_red_portal_health
-onready var blue_portal_health: int = init_blue_portal_health
-var red_health_display: TextureProgress
+export var max_portal_health: int = 100
+onready var red_portal_health: int = 0
+onready var blue_portal_health: int = 0
+var red_health_display: TextureProgress 
 var blue_health_display: TextureProgress
+
 
 func _ready():
 	red_health_display = self.get_node("Red")
 	blue_health_display = self.get_node("Blue")
-	red_health_display.set_max(init_red_portal_health)
-	blue_health_display.set_max(init_blue_portal_health)
+	set_max_portal_health(max_portal_health)
 	update_health()
-	
-func _set_red_portal_health(health: int):
-	red_portal_health = health
+
+
+func set_max_portal_health(health: int):
+	max_portal_health = health
+	red_health_display.set_max(max_portal_health)
+	blue_health_display.set_max(max_portal_health)
 	update_health()
-	
-func _change_red_portal_health(health_change: int):
-	red_portal_health += health_change
+
+func set_portal_health(health:int, isRed: bool):
+	if (isRed):
+		red_portal_health = health
+	else:
+		blue_portal_health = health
 	update_health()
-		
-func _set_blue_portal_health(health: int):
-	blue_portal_health = health
-	update_health()
-	
-func _change_blue_portal_health(health_change: int):
-	blue_portal_health += health_change
-	update_health()
-	
+
 func update_health():
 	#Update the health bar texture
+	if (red_health_display == null or blue_health_display == null):
+		return 
 	red_health_display.value = red_portal_health
 	blue_health_display.value = blue_portal_health
-	
+
 	#Update the label of the health bar
 	var red_health_label = red_health_display.get_node("Label")
 	var blue_health_label = blue_health_display.get_node("Label")

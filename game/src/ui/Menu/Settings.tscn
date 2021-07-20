@@ -9,7 +9,7 @@
 script/source = "extends Control
 
 var from_menu = true
-var from_game = false
+
 
 func _on_BgMusicVolumeSlider_value_changed(value: float) -> void:
 	$\"/root/Globals\".set_bg_vol(value)
@@ -38,10 +38,8 @@ func _toggle_reset_exit():
 
 func _toggle_origin():
 	if (from_menu):
-		from_game = true
 		from_menu = false
 	else:
-		from_game = false
 		from_menu = true	
 
 "
