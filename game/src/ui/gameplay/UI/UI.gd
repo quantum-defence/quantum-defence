@@ -19,6 +19,3 @@ func drop_data(position, data):
 
 func reset():
 	$TowerInventory.change_tower_to_be_build(null)
-
-
-
