@@ -1,10 +1,9 @@
 extends Node2D
 
-
 export var max_portal_health: int = 100
 onready var red_portal_health: int = 0
 onready var blue_portal_health: int = 0
-var red_health_display: TextureProgress 
+var red_health_display: TextureProgress
 var blue_health_display: TextureProgress
 
 
@@ -21,17 +20,19 @@ func set_max_portal_health(health: int):
 	blue_health_display.set_max(max_portal_health)
 	update_health()
 
-func set_portal_health(health:int, isRed: bool):
-	if (isRed):
+
+func set_portal_health(health: int, isRed: bool):
+	if isRed:
 		red_portal_health = health
 	else:
 		blue_portal_health = health
 	update_health()
 
+
 func update_health():
 	#Update the health bar texture
-	if (red_health_display == null or blue_health_display == null):
-		return 
+	if red_health_display == null or blue_health_display == null:
+		return
 	red_health_display.value = red_portal_health
 	blue_health_display.value = blue_portal_health
 
@@ -41,17 +42,21 @@ func update_health():
 	red_health_label.set_text("Health   " + str(red_portal_health))
 	blue_health_label.set_text("Health   " + str(blue_portal_health))
 
+
 func _make_visible():
 	self.visible = true
+
 
 func _make_invis():
 	self.visible = false
 
+
 func _toggle_invis():
-	if(self.visible):
+	if self.visible:
 		_make_invis()
 	else:
 		_make_visible()
+
 
 func _input(event: InputEvent):
 	if event is InputEventKey:
