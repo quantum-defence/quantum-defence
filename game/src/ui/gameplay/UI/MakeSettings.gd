@@ -7,6 +7,7 @@ var settings_string = "res://src/ui/Menu/Settings.tscn"
 var settings = preload("res://src/ui/Menu/Settings.tscn")
 var setting_instance
 var setting_present: bool = false
+var isPaused = false
 onready var arena = self.find_parent("Arena")
 
 #Pause unpause node
@@ -39,7 +40,18 @@ func _input(event: InputEvent):
 				setting_present = true
 				self.set_pause_scene(arena, true)
 				self.set_pause_node(setting_instance, false)
+				isPaused = true
 			elif setting_present:
-				self.queue_free()
 				self.set_pause_scene(arena, false)
+				isPaused = false
 
+
+
+func _on_TextureButton_pressed():
+	if (!isPaused):
+		self.set_pause_scene(arena, true)
+		self.set_pause_node($Control/TextureButton, false)
+		isPaused = true
+	else:
+		self.set_pause_scene(arena, false)
+		isPaused = false
