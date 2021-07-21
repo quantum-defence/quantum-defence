@@ -9,6 +9,9 @@
 script/source = "extends LevelMap
 
 func _ready() -> void:
+	#Set up portal health and gold start
+	set_up_paramenters(140,140,10)
+	
 	level_name = \"L2\"
 	$Navigator/NavPolyInstance.set_enabled(false)
 	$Navigator/NavPolyInstance.queue_free()

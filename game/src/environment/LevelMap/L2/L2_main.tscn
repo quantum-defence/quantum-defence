@@ -8,6 +8,8 @@
 script/source = "extends LevelMap
 
 func _ready() -> void:
+	#Set up portal health and gold start
+	set_up_paramenters(140,10,10)
 	prebuilt_towers = [
 
 	]
@@ -29,9 +31,6 @@ func _ready() -> void:
 	]
 	initial_items = ['h', 'h']
 	var health_bar = self.find_parent(\"Arena\").get_node(\"UI/Control/HealthBar\")
-	blue_portal.set_up(140)
-	red_portal.set_up(10)
-	health_bar.set_max_portal_health(max(blue_portal.health, red_portal.health))
 	level_name = \"basic\"
 	$Navigator/NavPolyInstance.set_enabled(false)
 	$Navigator/NavPolyInstance.queue_free()
