@@ -9,6 +9,30 @@
 script/source = "extends Control
 
 var from_menu = true
+onready var arena = self.find_parent(\"Arena\")
+var make_settings 
+
+
+func _ready():
+	if (!from_menu):
+		make_settings = arena.get_node(\"UI\")
+		
+#(Un)pauses a single node
+func set_pause_node(node : Node, pause : bool) -> void:
+	node.set_process(!pause)
+	node.set_process_input(!pause)
+	node.set_process_internal(!pause)
+	node.set_process_unhandled_input(!pause)
+	node.set_process_unhandled_key_input(!pause)
+	node.set_physics_process(!pause)
+	node.set_physics_process_internal(!pause)
+	
+#(Un)pauses a single node
+func set_pause_scene(rootNode : Node, pause : bool, ignoredChilds : PoolStringArray = [null]):
+	set_pause_node(rootNode, pause)
+	for node in rootNode.get_children():
+		if not (String(node.get_path()) in ignoredChilds):
+			set_pause_scene(node, pause, ignoredChilds)
 
 
 func _on_BgMusicVolumeSlider_value_changed(value: float) -> void:
@@ -28,8 +52,10 @@ func _on_DoneButton_pressed() -> void:
 	
 	#Come from game
 	else:
-		self.queue_free()	
-
+		self.queue_free()
+		self.set_pause_scene(arena, false, [self.get_path()])
+		make_settings.setting_present = false
+		self.queue_free()
 
 
 func _toggle_reset_exit():
@@ -40,8 +66,17 @@ func _toggle_origin():
 	if (from_menu):
 		from_menu = false
 	else:
-		from_menu = true	
+		from_menu = true
 
+	
+func _input(event: InputEvent):
+	if event is InputEventKey:
+		print(\"being pressed here\")
+		if event.is_pressed() and event.is_action_pressed(\"Settings\"):
+			print(\"being pressed\")
+			self.set_pause_scene(arena, false, [self.get_path()])
+			make_settings.setting_present = false
+			self.queue_free()
 "
 
 [sub_resource type="DynamicFont" id=2]

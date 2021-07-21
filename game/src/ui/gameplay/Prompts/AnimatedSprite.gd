@@ -30,7 +30,7 @@ func _on_AnimatedSprite_animation_finished():
 
 func _input(event: InputEvent):
 	if event is InputEventKey:
-		if event.pressed:
+		if event.pressed and !event.is_action_pressed("Settings"):
 			if counter > textArray.size() - 1:
 				self.queue_free()
 			else:
