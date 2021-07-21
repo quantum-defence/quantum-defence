@@ -8,7 +8,13 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends LevelMap
 
+
 func _ready() -> void:
+	var health_bar = self.find_parent(\"Arena\").get_node(\"UI/Control/HealthBar\")
+	blue_portal.set_up(2000)
+	red_portal.set_up(2000)
+	health_bar.set_max_portal_health(max(blue_portal.health, red_portal.health))
+	gold_start = 1000
 	level_name = \"L1\"
 	$Navigator/NavPolyInstance.set_enabled(false)
 	$Navigator/NavPolyInstance.queue_free()
@@ -41,6 +47,7 @@ func _ready() -> void:
 		\"enemy_queue\": ['core', 'core', 'sabre', 'sabre' ] 
 		},
 		]
+		
 "
 
 [sub_resource type="NavigationPolygon" id=2]
@@ -83,7 +90,6 @@ scale = Vector2( 64.3437, 42.5 )
 choice = 18
 
 [node name="Prompt" parent="." index="8" instance=ExtResource( 4 )]
-visible = false
 margin_left = -15.7214
 margin_top = 4.49951
 margin_right = -15.7214
