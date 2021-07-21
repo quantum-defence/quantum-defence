@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://src/environment/LevelMap/L1-4/L1-4_pretty.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/environment/LevelMap/L1/L1_pretty.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/LevelMap/core/LevelMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/environment/Fog/LightFog.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/environment/traps/Trap.tscn" type="PackedScene" id=5]
@@ -9,7 +9,7 @@
 script/source = "extends LevelMap
 
 func _ready() -> void:
-	level_name = \"L1-1\"
+	level_name = \"L1\"
 	$Navigator/NavPolyInstance.set_enabled(false)
 	$Navigator/NavPolyInstance.queue_free()
 	$Navigator/NavigationPolygonInstance.set_enabled(true)
