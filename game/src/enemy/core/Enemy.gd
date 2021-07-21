@@ -206,18 +206,9 @@ func _drop_item(percentage: int):
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var roll = rng.randi_range(0, 100)
-	print(roll)
-	print(percentage)
 	if roll > percentage:
 		return
 	else:
-		# var position = self.position
-		# var droppable_item = $DroppableItem
-		# var quantum_item = droppable_item._get_random_quantum_item().get_child(0)
-		# quantum_item.position = position
-		# var build_UI = self.find_parent("Arena").get_node("UI/Control/BuildUI")
-
-		# build_UI._pick_up_item(quantum_item)
 		var pos = self.position
 		var item_dropper = $DroppableItem
 		var dropppable_item = item_dropper._get_random_quantum_item()
@@ -233,6 +224,5 @@ func drop_gold() -> int:
 	var gold_dropped
 	if roll_drop_rate < gold_drop_rate:
 		gold_dropped = rng.randi_range(gold_dropped_min, gold_dropped_max)
-		print(gold_dropped)
 		build_UI.change_gold(gold_dropped)
 	return gold_dropped

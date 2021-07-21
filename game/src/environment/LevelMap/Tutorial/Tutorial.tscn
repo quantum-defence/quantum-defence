@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/environment/LevelMap/core/LevelMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/LevelMap/Tutorial/TutorialPretty.tscn" type="PackedScene" id=2]
@@ -29,8 +29,10 @@ func _ready() -> void:
 		{ 'duration': 5.0, \"enemy_queue\": [] },
 	]
 	initial_items = ['h', 'h']
-	blue_portal.health = 140
-	red_portal.health = 140
+	var health_bar = self.find_parent(\"Arena\").get_node(\"UI/Control/HealthBar\")
+	blue_portal.set_up(140)
+	red_portal.set_up(10)
+	health_bar.set_max_portal_health(max(blue_portal.health, red_portal.health))
 	level_name = \"basic\"
 	$Navigator/NavPolyInstance.set_enabled(false)
 	$Navigator/NavPolyInstance.queue_free()
@@ -57,11 +59,11 @@ navpoly = SubResource( 2 )
 
 [node name="RedPortal" parent="." index="3"]
 position = Vector2( 1592, 704 )
-health = 40.0
+health = 140.0
 
 [node name="BluePortal" parent="." index="4"]
 position = Vector2( 1536, 256 )
-health = 40.0
+health = 200.0
 
 [node name="EnemySpawnPoint" parent="." index="5"]
 position = Vector2( 144, 272 )
