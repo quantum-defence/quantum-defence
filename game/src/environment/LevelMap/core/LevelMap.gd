@@ -151,6 +151,7 @@ func _on_new_spawn_cycle(cycle_number, duration) -> void:
 	_cycle_number = cycle_number
 	emit_signal("on_spawn_cycle", cycle_number, duration)
 
+
 func set_up_paramenters(red_portal_health, blue_portal_health, gold):
 	var health_bar = self.find_parent("Arena").get_node("UI/Control/HealthBar")
 	blue_portal.set_up(blue_portal_health)

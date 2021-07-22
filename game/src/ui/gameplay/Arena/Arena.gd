@@ -55,14 +55,13 @@ func set_up(level) -> void:
 		tower_at[i].resize(90)
 		for j in range(90):
 			tower_at[i][j] = tile_map.get_cell(i, j)
-	
+
 	level_map.set_up()
 	$UI/Control/BuildUI.set_up(level_map.gold_start)
 	for tower_init in level_map.prebuilt_towers:
 		self.build_tower(tower_init.x, tower_init.y, tower_init.tower_res_string, tower_init.colour)
 	level_map.connect("on_game_end", self, "on_game_end")
-	
-	
+
 
 func on_game_end(
 	is_win: bool,
