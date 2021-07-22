@@ -9,6 +9,8 @@ var setting_instance
 var setting_present: bool = false
 var isPaused = false
 onready var arena = self.find_parent("Arena")
+onready var pause_texture = preload("res://assets/img/UI/PausePlayButton/PauseButton.png")
+onready var play_texture = preload("res://assets/img/UI/PausePlayButton/Play.png")
 
 #Pause unpause node
 func set_pause_node(node : Node, pause : bool) -> void:
@@ -41,16 +43,16 @@ func _input(event: InputEvent):
 				self.set_pause_scene(arena, true)
 				self.set_pause_node(setting_instance, false)
 				isPaused = true
+			# Tbh dun really think the else statement below cos we cant access
+			# When the scene itself is paused. Hence the paused statement in Settings.tscn
 			elif setting_present:
 				self.set_pause_scene(arena, false)
 				isPaused = false
 
-
-
-func _on_TextureButton_pressed():
+func _on_PauseButton_pressed():
 	if (!isPaused):
 		self.set_pause_scene(arena, true)
-		self.set_pause_node($Control/TextureButton, false)
+		self.set_pause_node($Control/PauseButton, false)
 		isPaused = true
 	else:
 		self.set_pause_scene(arena, false)

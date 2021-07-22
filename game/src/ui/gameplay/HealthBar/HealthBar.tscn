@@ -16,6 +16,31 @@ font_data = ExtResource( 7 )
 [node name="HealthBar" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 1983.33
+margin_top = -1.0
+margin_right = 2030.33
+margin_bottom = 109.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1986.87
+margin_top = 98.0
+margin_right = 2026.87
+margin_bottom = 208.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Red" type="TextureProgress" parent="."]
 margin_top = -0.793701
 margin_right = 2000.0
@@ -26,20 +51,6 @@ texture_progress = ExtResource( 5 )
 nine_patch_stretch = true
 __meta__ = {
 "_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="Red"]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -9.52246
-margin_top = -0.107983
-margin_right = 37.4775
-margin_bottom = -0.107689
-texture = ExtResource( 3 )
-expand = true
-__meta__ = {
 "_edit_use_anchors_": false
 }
 
@@ -65,19 +76,6 @@ texture_progress = ExtResource( 8 )
 nine_patch_stretch = true
 __meta__ = {
 "_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="Blue"]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -2.82153
-margin_right = 37.1785
-margin_bottom = 0.000297546
-texture = ExtResource( 3 )
-expand = true
-__meta__ = {
 "_edit_use_anchors_": false
 }
 

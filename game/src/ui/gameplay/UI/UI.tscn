@@ -26,9 +26,9 @@
 [ext_resource path="res://src/ui/gameplay/towerInventory/QuantumCircuitSlot.gd" type="Script" id=24]
 [ext_resource path="res://src/ui/gameplay/HealthBar/HealthBar.tscn" type="PackedScene" id=25]
 [ext_resource path="res://src/ui/gameplay/UI/MakeSettings.gd" type="Script" id=26]
-[ext_resource path="res://assets/img/coloured-squares/enemy-alive.png" type="Texture" id=27]
+[ext_resource path="res://assets/img/UI/PausePlayButton/Play.png" type="Texture" id=27]
 [ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.tscn" type="PackedScene" id=28]
-[ext_resource path="res://assets/img/coloured-squares/gold-tile.png" type="Texture" id=29]
+[ext_resource path="res://assets/img/UI/PausePlayButton/PauseButton.png" type="Texture" id=29]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -1042,14 +1042,15 @@ one_shot = true
 position = Vector2( 362.542, 7.27487 )
 scale = Vector2( 0.6, 0.5 )
 
-[node name="TextureButton" type="TextureButton" parent="Control"]
-margin_left = 1613.09
-margin_top = 10.0907
-margin_right = 1917.09
-margin_bottom = 314.091
-rect_scale = Vector2( 0.3, 0.3 )
-texture_normal = ExtResource( 27 )
-texture_pressed = ExtResource( 29 )
+[node name="PauseButton" type="TextureButton" parent="Control"]
+margin_left = 1613.0
+margin_top = 9.0
+margin_right = 2590.0
+margin_bottom = 986.0
+rect_scale = Vector2( 0.1, 0.1 )
+toggle_mode = true
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 27 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1069,4 +1070,4 @@ __meta__ = {
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/MoonTower" to="Control/BuildUI" method="_on_MoonTower_pressed"]
 [connection signal="pressed" from="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/EyeTower" to="Control/BuildUI" method="_on_EyeTower_pressed"]
 [connection signal="timeout" from="Control/GoldIndicator/Timer" to="Control/GoldIndicator" method="_on_Timer_timeout"]
-[connection signal="pressed" from="Control/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Control/PauseButton" to="." method="_on_PauseButton_pressed"]
