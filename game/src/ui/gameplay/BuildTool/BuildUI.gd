@@ -49,6 +49,7 @@ var hbox_prefix = "VBoxContainer/PanelContainer/PanelContainer/MarginContainer/H
 onready var all_inventories_slots = get_node(hbox_prefix + "ItemSlots")
 onready var gold_label = self.get_node(hbox_prefix + "Gold/Label")
 var tower_following_mouse
+export var gold_for_stage: int = 100
 
 var h_gate = preload("res://src/items/QuantumItems/H.tscn")
 var ry_gate = preload("res://src/items/QuantumItems/RY.tscn")
@@ -120,7 +121,7 @@ func _ready() -> void:
 	tileSelector.set_action(TileSelector.ACTION.INSPECTING, "smth")
 
 
-func set_up() -> void:
+func set_up(gold_start: int) -> void:
 	var initial_items = self.find_parent("Arena").level_map.initial_items
 	build_UI_items_held = {
 		"Slot1": null,
@@ -152,6 +153,7 @@ func set_up() -> void:
 		if item != null:
 			_pick_up_item(item)
 	gold_label.reset()
+	self.set_gold(gold_start)
 
 
 func _on_BuildMode_pressed():

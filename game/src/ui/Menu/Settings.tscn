@@ -14,6 +14,7 @@ var from_menu = true
 func _on_BgMusicVolumeSlider_value_changed(value: float) -> void:
 	$\"/root/Globals\".set_bg_vol(value)
 
+
 func _on_FxVolumeSlider_value_changed(value: float) -> void:
 	$\"/root/Globals\".set_fx_vol(value)
 
@@ -31,10 +32,10 @@ func _on_DoneButton_pressed() -> void:
 		self.queue_free()	
 
 
-
 func _toggle_reset_exit():
 	var reset_exit = $ResetExit
 	reset_exit.get_node(\"HBoxContainer\")._toggle_invis()
+
 
 func _toggle_origin():
 	if (from_menu):

@@ -21,6 +21,7 @@ func set_gold(gold_set: int):
 	if gold_set < 0:
 		return false
 	curr_gold = gold_set
+	update_gold()
 	return true
 
 
