@@ -3,12 +3,13 @@ extends AnimatedSprite
 var counter = 0
 const textArray: Array = [
 	"Add quantum items to the towers \nto allow enemies to change \nbetween colors",
-	"Hadamard(Orange) gives a \n50 50 chance",
-	"RY item(Green) gives a \n12.5 87.5 chance",
-	"And the classical X gate(Blue)\n is a 0 100 chance",
+	"Hadamard(Orange) gives a \n50/50 chance",
+	"RY item(Green) gives a \n12.5/87.5 chance",
+	"And the classical X gate(Blue)\n is a 0/100 chance",
 	"Enemies that change color\n are forced to walk to\n the new colors portal",
 	"This lengthens the time\n u can attack them",
-	"build towers to defend ur portal\n the gold of each \ntower is displayed at the top"
+	"Build towers to defend ur portal\n the gold of each \ntower is displayed at the top",
+	"However BEWARE Quantum towers\n do not do any damage!, they only\n change the color of enemies"
 ]
 
 onready var title = self.get_node("AllText/Title")
