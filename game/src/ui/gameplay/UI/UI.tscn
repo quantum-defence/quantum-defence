@@ -29,7 +29,7 @@
 [ext_resource path="res://assets/img/UI/PausePlayButton/Play.png" type="Texture" id=27]
 [ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/img/UI/PausePlayButton/PauseButton.png" type="Texture" id=29]
-[ext_resource path="res://GreyOut.tscn" type="PackedScene" id=30]
+[ext_resource path="res://src/ui/gameplay/UI/GreyOut.tscn" type="PackedScene" id=30]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
