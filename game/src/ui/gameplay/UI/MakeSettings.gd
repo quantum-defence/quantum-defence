@@ -12,23 +12,26 @@ onready var arena = self.find_parent("Arena")
 onready var pause_texture = preload("res://assets/img/UI/PausePlayButton/PauseButton.png")
 onready var play_texture = preload("res://assets/img/UI/PausePlayButton/Play.png")
 
+
 #Pause unpause node
-func set_pause_node(node : Node, pause : bool) -> void:
-	node.set_process(!pause)
-	node.set_process_input(!pause)
-	node.set_process_internal(!pause)
-	node.set_process_unhandled_input(!pause)
-	node.set_process_unhandled_key_input(!pause)
-	node.set_physics_process(!pause)
-	node.set_physics_process_internal(!pause)
-	
+func set_pause_node(node: Node, pause: bool) -> void:
+	node.set_process(! pause)
+	node.set_process_input(! pause)
+	node.set_process_internal(! pause)
+	node.set_process_unhandled_input(! pause)
+	node.set_process_unhandled_key_input(! pause)
+	node.set_physics_process(! pause)
+	node.set_physics_process_internal(! pause)
+
+
 #(Un)pauses a scene
 #Ignored childs is an optional argument, that contains the path of nodes whose state must not be altered by the function
-func set_pause_scene(rootNode : Node, pause : bool, ignoredChilds : PoolStringArray = [null]):
+func set_pause_scene(rootNode: Node, pause: bool, ignoredChilds: PoolStringArray = [null]):
 	set_pause_node(rootNode, pause)
 	for node in rootNode.get_children():
 		if not (String(node.get_path()) in ignoredChilds):
 			set_pause_scene(node, pause, ignoredChilds)
+
 
 func _input(event: InputEvent):
 	if event is InputEventKey:
@@ -49,8 +52,9 @@ func _input(event: InputEvent):
 				self.set_pause_scene(arena, false)
 				isPaused = false
 
+
 func _on_PauseButton_pressed():
-	if (!isPaused):
+	if ! isPaused:
 		self.set_pause_scene(arena, true)
 		self.set_pause_node($Control/PauseButton, false)
 		isPaused = true
