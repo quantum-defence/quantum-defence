@@ -1,5 +1,7 @@
 extends AnimatedSprite
 
+class_name prompt
+
 var counter = 0
 const textArray: Array = [
 	"Add quantum items to the towers \nto allow enemies to change \nbetween colors",
@@ -16,7 +18,7 @@ onready var title = self.get_node("AllText/Title")
 onready var text = self.get_node("AllText/Text")
 onready var arena = self.find_parent("Arena")
 onready var ui = arena.get_node("UI")
-
+onready var scoping = ui.get_node("Control/Scoping")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,6 +42,9 @@ func _input(event: InputEvent):
 			if counter > textArray.size() - 1:
 				ui.set_pause_scene(arena, false)
 				self.queue_free()
+				scoping.visible = true
+				ui.set_pause_scene(scoping, false)
+				
 			else:
 				text.text = textArray[counter]
 				counter += 1

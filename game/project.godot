@@ -93,6 +93,11 @@ _global_script_classes=[ {
 "class": "TowerInventorySlot",
 "language": "GDScript",
 "path": "res://src/ui/gameplay/towerInventory/TowerInventorySlot.gd"
+}, {
+"base": "AnimatedSprite",
+"class": "prompt",
+"language": "GDScript",
+"path": "res://src/ui/gameplay/Prompts/AnimatedSprite.gd"
 } ]
 _global_script_class_icons={
 "Arena": "",
@@ -111,7 +116,8 @@ _global_script_class_icons={
 "TileSelector": "",
 "Tower": "",
 "TowerInventory": "",
-"TowerInventorySlot": ""
+"TowerInventorySlot": "",
+"prompt": ""
 }
 
 [application]

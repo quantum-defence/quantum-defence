@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Scope/RectangleScope.gd" type="Script" id=1]
+[ext_resource path="res://assets/img/Scope/RectangleScope.png" type="Texture" id=2]
+
+[node name="RectangleScope" type="Sprite"]
+position = Vector2( 1335.43, 602.524 )
+scale = Vector2( 14.714, 8.98697 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
