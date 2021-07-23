@@ -10,7 +10,10 @@
 [ext_resource path="res://assets/img/UI/pngs/blue/meter_bar_center-repeating_blue.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
+size = 44
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 2
 font_data = ExtResource( 7 )
 
 [node name="HealthBar" type="Node2D"]
@@ -55,10 +58,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Red"]
-margin_left = 713.8
-margin_top = 32.9819
-margin_right = 900.8
-margin_bottom = 73.9819
+anchor_left = -0.00142023
+anchor_top = -6.93583e-08
+anchor_right = -0.00142023
+margin_left = 700.0
+margin_top = 32.7937
+margin_right = 950.84
+margin_bottom = 77.7937
 custom_fonts/font = SubResource( 1 )
 text = "Health           "
 __meta__ = {
@@ -80,12 +86,12 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Blue"]
-margin_left = 701.795
-margin_top = 36.9819
+margin_left = 700.0
+margin_top = 32.0
 margin_right = 882.795
 margin_bottom = 77.9819
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.117647, 0.0745098, 0.0745098, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Health"
 __meta__ = {
 "_edit_use_anchors_": false
