@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://assets/img/UI/PausePlayButton/Play.png" type="Texture" id=27]
 [ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/img/UI/PausePlayButton/PauseButton.png" type="Texture" id=29]
+[ext_resource path="res://GreyOut.tscn" type="PackedScene" id=30]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -84,10 +85,10 @@ script = ExtResource( 26 )
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.49829
-margin_top = -2.37842
-margin_right = -1.49829
-margin_bottom = -2.37842
+margin_left = 16.1406
+margin_top = 23.0949
+margin_right = 16.1406
+margin_bottom = 23.0948
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1013,6 +1014,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PanelContainer" type="PanelContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer"]
+margin_left = 1610.0
+margin_right = 1624.0
+margin_bottom = 160.0
+
 [node name="Timer" type="Timer" parent="Control/BuildUI"]
 wait_time = 0.2
 
@@ -1041,6 +1047,8 @@ one_shot = true
 [node name="HealthBar" parent="Control" instance=ExtResource( 25 )]
 position = Vector2( 362.542, 7.27487 )
 scale = Vector2( 0.6, 0.5 )
+
+[node name="GreyOut" parent="Control" instance=ExtResource( 30 )]
 
 [node name="PauseButton" type="TextureButton" parent="Control"]
 margin_left = 1613.0

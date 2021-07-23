@@ -254,11 +254,13 @@ func _toggle_build_sprites_colors():
 
 func make_buildUI_visible():
 	self.scale = Vector2(1, 1)
+	self.get_parent().get_node("GreyOut").make_visible()
 	is_visible = true
 
 
 func make_buildUI_invisible():
 	self.scale = Vector2.ZERO
+	self.get_parent().get_node("GreyOut").make_invis()
 	is_visible = false
 
 
