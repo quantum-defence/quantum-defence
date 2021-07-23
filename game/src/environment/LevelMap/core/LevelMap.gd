@@ -14,6 +14,8 @@ onready var blue_portal = $BluePortal
 onready var red_portal = $RedPortal
 onready var tile_skeleton: TileMap = $TileMapSkeleton
 onready var initial_items: Array = ['h', 'x', 'ry']
+onready var gold_start: int = 0
+
 var prebuilt_towers: Array = [
 	{
 		'tower_res_string': "res://src/environment/towers/pixelTowers/obelisk/Obelisk.tscn",
@@ -148,3 +150,11 @@ func _on_max_cycle_reached() -> void:
 func _on_new_spawn_cycle(cycle_number, duration) -> void:
 	_cycle_number = cycle_number
 	emit_signal("on_spawn_cycle", cycle_number, duration)
+
+
+func set_up_paramenters(red_portal_health, blue_portal_health, gold):
+	var health_bar = self.find_parent("Arena").get_node("UI/Control/HealthBar")
+	blue_portal.set_up(blue_portal_health)
+	red_portal.set_up(red_portal_health)
+	gold_start = gold
+	health_bar.set_max_portal_health(max(blue_portal.health, red_portal.health))

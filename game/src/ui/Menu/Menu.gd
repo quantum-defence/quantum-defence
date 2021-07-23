@@ -8,22 +8,27 @@ const levels_info: Array = [
 	},
 	{
 		"name": "Level One",
-		"src": "res://src/environment/LevelMap/L1-1/L1-1_main.tscn",
+		"src": "res://src/environment/LevelMap/L1/L1_main.tscn",
 		"description": "Border incursions..."
 	},
 	{
 		"name": "Level Two",
-		"src": "res://src/environment/LevelMap/L1-2/L1-2_main.tscn",
+		"src": "res://src/environment/LevelMap/L2/L2_main.tscn",
 		"description": "Two ways in, no way out."
 	},
 	{
 		"name": "Level Three",
-		"src": "res://src/environment/LevelMap/L1-3/L1-3_main.tscn",
+		"src": "res://src/environment/LevelMap/L3/L3_main.tscn",
 		"description": "A bit of a twist."
 	},
 	{
-		"name": "Level Four",
-		"src": "res://src/environment/LevelMap/L1-4/L1-4_main.tscn",
+		"name": "Unused - A",
+		"src": "res://src/environment/LevelMap/L1-2/L1-2_main.tscn",
+		"description": "Make your stand"
+	},
+	{
+		"name": "Unused - B",
+		"src": "res://src/environment/LevelMap/L1-3/L1-3_main.tscn",
 		"description": "Make your stand"
 	},
 ]

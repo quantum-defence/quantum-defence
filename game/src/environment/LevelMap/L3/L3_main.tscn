@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://src/environment/LevelMap/L1-1/L1-1_pretty.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/environment/LevelMap/L3/L3_pretty.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/LevelMap/core/LevelMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/environment/Fog/LightFog.tscn" type="PackedScene" id=3]
 
@@ -8,7 +8,9 @@
 script/source = "extends LevelMap
 
 func _ready() -> void:
-	level_name = \"L1-1\"
+	#Set up portal health and gold start
+	set_up_paramenters(200,100,40)
+	level_name = \"L3\"
 	$Navigator/NavPolyInstance.set_enabled(false)
 	$Navigator/NavPolyInstance.queue_free()
 	$Navigator/NavigationPolygonInstance.set_enabled(true)
@@ -28,7 +30,7 @@ vertices = PoolVector2Array( 1848, 248, 1848, 656, 1744, 640, 1744, 336, 1656, 1
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5, 6 ), PoolIntArray( 7, 4, 6, 8, 9 ), PoolIntArray( 10, 11, 2 ), PoolIntArray( 12, 13, 14, 15 ), PoolIntArray( 16, 17, 18, 19, 20 ), PoolIntArray( 21, 22, 23, 24, 25 ), PoolIntArray( 24, 26, 27, 28, 29, 30, 25 ), PoolIntArray( 31, 32, 33, 20 ), PoolIntArray( 2, 1, 15, 14, 31, 20, 10 ), PoolIntArray( 19, 10, 20 ), PoolIntArray( 16, 20, 34, 35 ), PoolIntArray( 36, 37, 35, 34, 38, 39, 40 ), PoolIntArray( 40, 39, 41, 42 ), PoolIntArray( 42, 41, 22, 43 ), PoolIntArray( 44, 45, 46, 47, 48 ), PoolIntArray( 49, 50, 51, 52, 53, 54, 55, 56 ), PoolIntArray( 49, 56, 57, 58 ), PoolIntArray( 59, 60, 58, 57, 9 ), PoolIntArray( 9, 57, 61, 62, 7 ), PoolIntArray( 44, 9, 8, 63, 45 ), PoolIntArray( 21, 44, 48, 64 ), PoolIntArray( 21, 64, 43, 22 ), PoolIntArray( 25, 30, 65, 66 ) ]
 outlines = [ PoolVector2Array( 120, 312, 384, 328, 432, 264, 584, 256, 640, 328, 832, 328, 904, 256, 912, 440, 496, 864, 432, 896, 440, 760, 384, 712, 120, 712, 72, 768, 72, 960, 112, 1032, 432, 1032, 464, 960, 552, 992, 760, 776, 896, 904, 976, 904, 1024, 944, 1352, 960, 1536, 776, 1736, 960, 1792, 944, 1800, 904, 1824, 880, 1856, 896, 1912, 832, 1912, 712, 1848, 656, 1848, 248, 1656, 144, 952, 136, 904, 80, 776, 72, 720, 128, 400, 144, 312, 80, 136, 80, 80, 128, 80, 256 ), PoolVector2Array( 1432, 792, 1408, 776, 1016.18, 782.755, 968, 792, 936, 792, 832, 688, 840, 664, 864, 648, 896, 648, 1040, 496, 1032, 464, 1072, 424, 1064, 264, 1608, 264, 1664, 320, 1744, 336, 1744, 640, 1592, 656, 1593.87, 683.789, 1552, 696, 1512, 680, 1456, 744, 1464, 776 ) ]
 
-[node name="LevelMap" instance=ExtResource( 2 )]
+[node name="LevelMap2" instance=ExtResource( 2 )]
 script = SubResource( 1 )
 
 [node name="PrettyTileMap" parent="." index="0" instance=ExtResource( 1 )]
