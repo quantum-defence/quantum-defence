@@ -14,10 +14,11 @@ const textArray: Array = [
 
 onready var title = self.get_node("AllText/Title")
 onready var text = self.get_node("AllText/Text")
-
-
+onready var arena = self.find_parent("Arena")
+onready var ui = arena.get_node("UI")
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Used to pause the game
 	print("Works")
 	self.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
 	self.play("Idle")
@@ -26,13 +27,15 @@ func _ready():
 func _on_AnimatedSprite_animation_finished():
 	if self.animation == "Idle":
 		print("Comes here")
+		ui.set_pause_scene(arena, true)
+		ui.set_pause_scene(self, false)
 		self.play("Temp")
-
 
 func _input(event: InputEvent):
 	if event is InputEventKey:
-		if event.pressed:
+		if event.pressed and !event.is_action_pressed("Settings"):
 			if counter > textArray.size() - 1:
+				ui.set_pause_scene(arena, false)
 				self.queue_free()
 			else:
 				text.text = textArray[counter]
