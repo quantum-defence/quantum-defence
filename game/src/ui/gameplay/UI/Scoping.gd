@@ -18,10 +18,10 @@ func next():
 		child.visible = false
 		next_child.visible = true
 		counter += 1
+	else:
+		self.queue_free()
 		
 func _input(event: InputEvent):
 	if event is InputEventKey:
 		if event.pressed and ! event.is_action_pressed("Settings"):
-			print("Comes here")
-
 			next()
