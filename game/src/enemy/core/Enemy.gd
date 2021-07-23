@@ -14,7 +14,7 @@ var _health := 100.0
 var _target  # : Portal
 var _red_target  # : Portal
 var _blue_target  # : Portal
-export var drop_rate = 100
+export var drop_rate = 10
 
 export var gold_dropped_min: int = 0
 export var gold_dropped_max: int = 5
