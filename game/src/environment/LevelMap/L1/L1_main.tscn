@@ -69,19 +69,7 @@ __meta__ = {
 }
 
 [node name="RedPortal" parent="." index="3"]
-position = Vector2( 127, 541 )
-
-[node name="Trap2" parent="RedPortal" index="2" instance=ExtResource( 5 )]
-position = Vector2( 172, -3 )
-
-[node name="Trap3" parent="RedPortal/Trap2" index="2" instance=ExtResource( 5 )]
-position = Vector2( 399, 2 )
-
-[node name="Trap" parent="RedPortal/Trap2" index="3" instance=ExtResource( 5 )]
-position = Vector2( 132, -1 )
-
-[node name="Trap2" parent="RedPortal/Trap2" index="4" instance=ExtResource( 5 )]
-position = Vector2( 267, 0 )
+position = Vector2( 120, 520 )
 
 [node name="BluePortal" parent="." index="4"]
 position = Vector2( 1506, 162.716 )
@@ -94,5 +82,17 @@ visible = false
 position = Vector2( 992, 568 )
 scale = Vector2( 64.3437, 42.5 )
 
-[node name="BgMusicPlayer" parent="." index="7"]
+[node name="Traps" parent="." index="7" instance=ExtResource( 5 )]
+position = Vector2( 320, 520 )
+
+[node name="Trap3" parent="Traps" index="2" instance=ExtResource( 5 )]
+position = Vector2( 399, 2 )
+
+[node name="Trap" parent="Traps" index="3" instance=ExtResource( 5 )]
+position = Vector2( 132, -1 )
+
+[node name="Trap2" parent="Traps" index="4" instance=ExtResource( 5 )]
+position = Vector2( 267, 0 )
+
+[node name="BgMusicPlayer" parent="." index="8"]
 choice = 18
