@@ -12,9 +12,11 @@ onready var arena = self.find_parent("Arena")
 onready var pause_texture = preload("res://assets/img/UI/PausePlayButton/PauseButton.png")
 onready var play_texture = preload("res://assets/img/UI/PausePlayButton/Play.png")
 
+
 func _ready():
 	var scoping = self.get_node("Control/Scoping")
 	set_pause_scene(scoping, true)
+
 
 #Pause unpause node
 func set_pause_node(node: Node, pause: bool) -> void:
@@ -64,4 +66,3 @@ func _on_PauseButton_pressed():
 	else:
 		self.set_pause_scene(arena, false)
 		isPaused = false
-

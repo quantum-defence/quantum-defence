@@ -22,6 +22,7 @@ onready var ui = arena.get_node("UI")
 onready var scoping = ui.get_node("Control/Scoping")
 onready var page_number = self.get_node("AllText/Page")
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Used to pause the game
@@ -30,8 +31,9 @@ func _ready():
 	self.play("Idle")
 	text.text = textArray[counter]
 
+
 func _next() -> bool:
-	if (counter < textArray.size() - 1):
+	if counter < textArray.size() - 1:
 		counter += 1
 		text.text = textArray[counter]
 		page_number.text = str(counter + 1)
@@ -39,13 +41,15 @@ func _next() -> bool:
 	else:
 		return false
 
+
 func _prev():
-	if (counter == 0):
+	if counter == 0:
 		return false
 	else:
 		counter -= 1
 		text.text = textArray[counter]
 		page_number.text = str(counter + 1)
+
 
 func _on_AnimatedSprite_animation_finished():
 	if self.animation == "Idle":
@@ -61,11 +65,15 @@ func _input(event: InputEvent):
 		if event.pressed and event.is_action_pressed("back_key"):
 			print("Reaches here")
 			print(counter)
-			if !_prev():
+			if ! _prev():
 				pass
 		#Go forward
-		if event.pressed and ! event.is_action_pressed("Settings") and ! event.is_action_pressed("back_key"):
-			if !_next():
+		if (
+			event.pressed
+			and ! event.is_action_pressed("Settings")
+			and ! event.is_action_pressed("back_key")
+		):
+			if ! _next():
 				ui.set_pause_scene(arena, false)
 				self.queue_free()
 				scoping.visible = true
