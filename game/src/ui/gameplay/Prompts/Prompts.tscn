@@ -43,14 +43,14 @@ region = Rect2( 0, 0, 457, 548 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "Temp",
-"speed": 22.0
-}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 18 ), ExtResource( 4 ), ExtResource( 16 ), ExtResource( 6 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "Idle",
+"speed": 22.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Temp",
 "speed": 22.0
 } ]
 
@@ -58,15 +58,15 @@ animations = [ {
 size = 80
 font_data = ExtResource( 25 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 30
 font_data = ExtResource( 25 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=7]
 size = 50
 font_data = ExtResource( 25 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=8]
 size = 60
 font_data = ExtResource( 25 )
 
@@ -105,7 +105,7 @@ margin_left = 528.359
 margin_top = 721.502
 margin_right = 1308.36
 margin_bottom = 842.502
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.615686, 0.160784, 0.160784, 1 )
 text = "Press any Key to continue. Back Arrow to go back to previous"
 __meta__ = {
@@ -119,7 +119,7 @@ margin_left = 896.679
 margin_top = 648.991
 margin_right = 945.679
 margin_bottom = 769.991
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.615686, 0.160784, 0.160784, 1 )
 text = "1"
 __meta__ = {
@@ -131,7 +131,7 @@ margin_left = 477.604
 margin_top = 160.892
 margin_right = 1276.6
 margin_bottom = 637.892
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.615686, 0.160784, 0.160784, 1 )
 text = "Protect your portals! 
 Red enemies go to red portal

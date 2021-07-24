@@ -10,8 +10,8 @@ const textArray: Array = [
 	"RY item(Green) gives a \n12.5/87.5 chance",
 	"And the classical X gate(Blue)\n is a 0/100 chance",
 	"Enemies that change color\n are forced to walk to\n the new colors portal",
-	"This lengthens the time\n u can attack them",
-	"Build towers to defend ur portal\n the gold of each \ntower is displayed at the top",
+	"This lengthens the time\n you can attack them",
+	"Build towers to defend your portal\n the gold of each \ntower is displayed at the top",
 	"However BEWARE Quantum towers\n do not do any damage!, they only\n change the color of enemies"
 ]
 
