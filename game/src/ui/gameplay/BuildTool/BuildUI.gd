@@ -282,4 +282,3 @@ func change_gold(gold_added: int) -> bool:
 
 func set_gold(gold_set: int) -> bool:
 	return gold_label.set_gold(gold_set)
-	

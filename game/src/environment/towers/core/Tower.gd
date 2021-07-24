@@ -208,5 +208,6 @@ func _drop_item(slot: String):
 func _set_tower_dmg(damage: int) -> void:
 	tower_damage = damage
 
+
 func toggle_range_visible():
-	$Circle.visible = !$Circle.visible
+	$Circle.visible = ! $Circle.visible
