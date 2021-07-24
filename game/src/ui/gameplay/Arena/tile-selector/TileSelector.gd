@@ -43,7 +43,6 @@ func _process(_delta: float) -> void:
 			# is not valid tile		
 			mouse_tower.modulate = Color(0, 0, 0, 1)
 			self.get_node("Cancel").visible = true
-			
 
 
 func _is_valid_tile() -> bool:
@@ -110,7 +109,7 @@ func take_action():
 				# If its the same tower that is inspected
 				if tower_inventory.tower_to_be_built == inspected_tower:
 					tower_inventory.toggle_tower_inventory_visible()
-				
+
 				#If its not the same tower inspected
 				else:
 					tower_inventory.make_tower_inventory_visible()
