@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://assets/img/UI/Papyrus Animated Scrolls/01. Animated Papyrus/01. Long Scrolls_frames/Papyrus Scroll 2_frames/Papyrus Scroll 2_02.png" type="Texture" id=1]
 [ext_resource path="res://src/ui/gameplay/Prompts/AnimatedSprite.gd" type="Script" id=2]
@@ -58,6 +58,14 @@ animations = [ {
 size = 80
 font_data = ExtResource( 25 )
 
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 25 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 50
+font_data = ExtResource( 25 )
+
 [sub_resource type="DynamicFont" id=6]
 size = 60
 font_data = ExtResource( 25 )
@@ -70,7 +78,7 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 937.94, 458.846 )
+position = Vector2( 935.27, 456.176 )
 scale = Vector2( 3.07206, 1.69033 )
 frames = SubResource( 4 )
 animation = "Temp"
@@ -81,10 +89,10 @@ script = ExtResource( 2 )
 [node name="AllText" type="Node" parent="AnimatedSprite"]
 
 [node name="Title" type="Label" parent="AnimatedSprite/AllText"]
-margin_left = 466.957
-margin_top = 107.476
-margin_right = 994.957
-margin_bottom = 228.476
+margin_left = 456.278
+margin_top = 30.0553
+margin_right = 984.278
+margin_bottom = 151.055
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.615686, 0.160784, 0.160784, 1 )
 text = "Instructions:"
@@ -92,17 +100,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PressArrowKey" type="Label" parent="AnimatedSprite/AllText"]
+margin_left = 528.359
+margin_top = 721.502
+margin_right = 1308.36
+margin_bottom = 842.502
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.615686, 0.160784, 0.160784, 1 )
+text = "Press any Key to continue. Back Arrow to go back to previous"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Page" type="Label" parent="AnimatedSprite/AllText"]
+anchor_top = -0.00247192
+anchor_bottom = -0.00247192
+margin_left = 896.679
+margin_top = 648.991
+margin_right = 945.679
+margin_bottom = 769.991
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.615686, 0.160784, 0.160784, 1 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Text" type="Label" parent="AnimatedSprite/AllText"]
-margin_left = 493.622
-margin_top = 257.0
-margin_right = 1292.62
-margin_bottom = 638.0
+margin_left = 477.604
+margin_top = 160.892
+margin_right = 1276.6
+margin_bottom = 637.892
 custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.615686, 0.160784, 0.160784, 1 )
-text = "Protect your Portals! 
-Red Enemies go to red portal
+text = "Protect your portals! 
+Red enemies go to red portal
 and blue enemies go
- to blue portal.Each tower
+ to blue portal. Each tower
  can only hit enemies 
 of the same color"
 __meta__ = {

@@ -10,6 +10,15 @@ var counter = 0
 func _ready():
 	pass # Replace with function body.
 
+func _prev():
+	if (counter == 0):
+		pass
+	else:
+		var child = self.get_child(counter)
+		var prev_child = self.get_child(counter - 1)
+		child.visible = false
+		prev_child.visible = true
+		counter -= 1
 
 func next():
 	if (counter < self.get_child_count() -1):
@@ -23,5 +32,7 @@ func next():
 		
 func _input(event: InputEvent):
 	if event is InputEventKey:
-		if event.pressed and ! event.is_action_pressed("Settings"):
+		if event.pressed and event.is_action_pressed("back_key"):
+			_prev()
+		elif event.pressed and ! event.is_action_pressed("Settings") and ! event.is_action_pressed("back_key"):
 			next()
