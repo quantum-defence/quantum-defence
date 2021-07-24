@@ -38,10 +38,12 @@ func _process(_delta: float) -> void:
 		if _is_valid_tile():
 			mouse_tower.modulate = Color(1, 0.1, 0, 1) if build_ui.isRed else Color(0, 0.7, 1, 1)
 			self.modulate = Color(1, 0.1, 0, 0.5) if build_ui.isRed else Color(0, 0.7, 1, 0.8)
+			self.get_node("Cancel").visible = false
 		else:
 			# is not valid tile		
 			mouse_tower.modulate = Color(0, 0, 0, 1)
-			self.modulate = Color(0, 0, 0, 1)
+			self.get_node("Cancel").visible = true
+			
 
 
 func _is_valid_tile() -> bool:
