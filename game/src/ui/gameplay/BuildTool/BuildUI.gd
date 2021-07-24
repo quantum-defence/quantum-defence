@@ -177,6 +177,7 @@ func _helper_mouse_tower(tower_type: int) -> void:
 		make_buildUI_invisible()
 	# Make the instance of the tower always follow the mouse
 	tower_following_mouse = load(RESOURCE[tower_type]).instance()
+	tower_following_mouse.toggle_range_visible()
 	if tileSelector.get_node("Tower") == null:
 		tileSelector.add_child(tower_following_mouse)
 		tower_following_mouse.position = Vector2(
@@ -281,3 +282,4 @@ func change_gold(gold_added: int) -> bool:
 
 func set_gold(gold_set: int) -> bool:
 	return gold_label.set_gold(gold_set)
+	

@@ -105,11 +105,15 @@ func take_action():
 			if inspected_tower == null:
 				return 0
 			else:
+				# If its the same tower that is inspected
 				if tower_inventory.tower_to_be_built == inspected_tower:
 					tower_inventory.toggle_tower_inventory_visible()
+				
+				#If its not the same tower inspected
 				else:
 					tower_inventory.make_tower_inventory_visible()
 				tower_inventory.change_tower_to_be_build(inspected_tower)
+				inspected_tower.toggle_range_visible()
 				return 0
 		ACTION.IDLE:
 			tower_inventory.make_tower_inventory_invisible()

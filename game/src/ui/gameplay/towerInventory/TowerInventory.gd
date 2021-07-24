@@ -68,6 +68,9 @@ func change_tower_to_be_build(tower: Tower):
 		tower = null
 		make_tower_inventory_invisible()
 		return
+	tower_to_be_built.toggle_range_visible()
+	
+	#Change tower
 	tower_to_be_built = tower
 	tower_inventory_items_held = tower_to_be_built.tower_items_held
 	tower_inventory_items_held = tower_inventory_items_held.duplicate(true)
@@ -106,6 +109,7 @@ func make_tower_inventory_visible():
 func make_tower_inventory_invisible():
 	self.scale = Vector2.ZERO
 	is_visible = false
+
 
 
 func _ready():
