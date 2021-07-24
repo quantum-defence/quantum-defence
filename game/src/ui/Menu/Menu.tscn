@@ -59,7 +59,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Temp" type="Sprite" parent="."]
+[node name="Logo" type="Sprite" parent="."]
 modulate = Color( 0.466667, 0.235294, 0.235294, 1 )
 position = Vector2( 1591.16, 242.655 )
 scale = Vector2( 2.3, 2.3 )

@@ -1,6 +1,6 @@
 extends AnimatedSprite
 
-class_name prompt
+class_name Prompt
 
 var counter = 0
 const textArray: Array = [
@@ -28,7 +28,7 @@ func _ready():
 	# Used to pause the game
 	print("Works")
 	self.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
-	self.play("Idle")
+	self.play("Rolling")
 	text.text = textArray[counter]
 
 
@@ -52,11 +52,11 @@ func _prev():
 
 
 func _on_AnimatedSprite_animation_finished():
-	if self.animation == "Idle":
+	if self.animation == "Rolling":
 		print("Comes here")
 		ui.set_pause_scene(arena, true)
 		ui.set_pause_scene(self, false)
-		self.play("Temp")
+		self.play("Static")
 
 
 func _input(event: InputEvent):

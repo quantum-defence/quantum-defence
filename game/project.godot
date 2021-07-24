@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/projectile/core/Projectile.gd"
 }, {
+"base": "AnimatedSprite",
+"class": "Prompt",
+"language": "GDScript",
+"path": "res://src/ui/gameplay/Prompts/Prompts.gd"
+}, {
 "base": "Node",
 "class": "QuantumCircuit",
 "language": "GDScript",
@@ -93,11 +98,6 @@ _global_script_classes=[ {
 "class": "TowerInventorySlot",
 "language": "GDScript",
 "path": "res://src/ui/gameplay/towerInventory/TowerInventorySlot.gd"
-}, {
-"base": "AnimatedSprite",
-"class": "prompt",
-"language": "GDScript",
-"path": "res://src/ui/gameplay/Prompts/AnimatedSprite.gd"
 } ]
 _global_script_class_icons={
 "Arena": "",
@@ -110,14 +110,14 @@ _global_script_class_icons={
 "LevelMap": "",
 "Portal": "",
 "Projectile": "",
+"Prompt": "",
 "QuantumCircuit": "",
 "QuantumNode": "",
 "QuantumSimulator": "",
 "TileSelector": "",
 "Tower": "",
 "TowerInventory": "",
-"TowerInventorySlot": "",
-"prompt": ""
+"TowerInventorySlot": ""
 }
 
 [application]
