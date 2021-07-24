@@ -1014,11 +1014,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer"]
-margin_left = 1610.0
-margin_right = 1624.0
-margin_bottom = 160.0
-
 [node name="Timer" type="Timer" parent="Control/BuildUI"]
 wait_time = 0.2
 
