@@ -17,12 +17,8 @@ If you would like to help [report bugs](https://github.com/bharathcs/quantum-def
 
 ## Overview of Game Source Code
 
-Programming in our code is largely split into 2:
 
-- Arena: in charge of dealing with all the tiles, enemy, home base and towers
-- Build Tool UI: takes in user interaction to build / upgrade / destroy and passes it on to the Arena to execute
-
-The Arena itself has multiple important nodes, but here are some clarifications on the most inscrutable parts:
+The entire game itself has multiple important nodes, but here are some clarifications on the most inscrutable parts:
 
 **Navigation**
 
