@@ -1,10 +1,10 @@
 extends Label
 
 var instructions = (
-	"This is the health bar"
-	+ "The red bar indicates the health\n of the red portal "
-	+ "And the blue health\n indicates the health of the blue portal\n"
-	+ "If any reaches zero, GAMEOVER"
+	"This is the health bar."
+	+ "The red bar indicates the health of the red portal "
+	+ "and the blue health indicates the health of the blue portal."
+	+ "If any reaches zero, GAME OVER"
 )
 
 

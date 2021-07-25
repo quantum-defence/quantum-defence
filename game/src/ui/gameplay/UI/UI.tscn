@@ -90,7 +90,7 @@ font_data = ExtResource( 22 )
 size = 100
 font_data = ExtResource( 22 )
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=12]
 shader = ExtResource( 33 )
 shader_param/color = Plane( 0, 0, 0, 1 )
 
@@ -1088,7 +1088,7 @@ scale = Vector2( 4.94662, 1 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope" type="Sprite" parent="Control/Scoping/HealthBar/HealthBarScope"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( -31.8975, 672 )
 scale = Vector2( 1, 1.26667 )
 texture = ExtResource( 32 )
@@ -1103,6 +1103,7 @@ margin_right = 1318.0
 margin_bottom = 760.0
 custom_fonts/font = ExtResource( 35 )
 text = "This is the helath bar. The red \\n indi"
+autowrap = true
 script = ExtResource( 34 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1120,21 +1121,21 @@ scale = Vector2( 0.576577, 0.703704 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope" type="Sprite" parent="Control/Scoping/PauseButton/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 1368, 856 )
 scale = Vector2( 1.7009, 2.12222 )
 texture = ExtResource( 32 )
 offset = Vector2( -555, -90.4712 )
 
 [node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/PauseButton/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 2512, 1152 )
 scale = Vector2( 1.7009, 2.12222 )
 texture = ExtResource( 32 )
 offset = Vector2( -555, -90.4712 )
 
 [node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/PauseButton/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 3824, 144 )
 scale = Vector2( 1.7009, 2.12222 )
 texture = ExtResource( 32 )
@@ -1147,6 +1148,7 @@ margin_right = 1318.0
 margin_bottom = 760.0
 custom_fonts/font = ExtResource( 35 )
 text = "This is the helath bar. The red \\n indi"
+autowrap = true
 script = ExtResource( 36 )
 __meta__ = {
 "_edit_lock_": true,
@@ -1165,27 +1167,27 @@ scale = Vector2( 0.691892, 0.888889 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/QuantumButton/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 1208, 1128 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/QuantumButton/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 704.928, 56 )
 scale = Vector2( 2.06105, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="Label" type="Label" parent="Control/Scoping/QuantumButton"]
-margin_left = 64.0
-margin_top = 288.0
-margin_right = 1318.0
-margin_bottom = 760.0
+margin_left = 114.912
+margin_top = 56.0689
+margin_right = 1368.91
+margin_bottom = 528.069
 custom_fonts/font = ExtResource( 35 )
 text = "This is the helath bar. The red \\n indi"
+autowrap = true
 script = ExtResource( 37 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -1201,13 +1203,13 @@ scale = Vector2( 3.86306, 1.01852 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/TowerButtons/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 2192, 1432 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/TowerButtons/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 688, -16 )
 scale = Vector2( 2.06105, 2.12222 )
 texture = ExtResource( 32 )
@@ -1219,6 +1221,7 @@ margin_right = 1382.0
 margin_bottom = 552.0
 custom_fonts/font = ExtResource( 35 )
 text = "This is the helath bar. The red \\n indi"
+autowrap = true
 script = ExtResource( 38 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1236,19 +1239,19 @@ scale = Vector2( 1.48468, 1.01852 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/ItemSlots/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 2656, 1504 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope4" type="Sprite" parent="Control/Scoping/ItemSlots/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 88, 1464 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/ItemSlots/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 688, -16 )
 scale = Vector2( 2.06105, 2.12222 )
 texture = ExtResource( 32 )
@@ -1260,6 +1263,7 @@ margin_right = 1382.0
 margin_bottom = 552.0
 custom_fonts/font = ExtResource( 35 )
 text = "This is the helath bar. The red \\n indi"
+autowrap = true
 script = ExtResource( 39 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1277,25 +1281,25 @@ scale = Vector2( 0.893694, 0.87963 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 1544, 1824 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope5" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 2800, 1152 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope4" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 504, 1208 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 688, -16 )
 scale = Vector2( 2.06105, 2.12222 )
 texture = ExtResource( 32 )
@@ -1307,6 +1311,7 @@ margin_right = 1382.0
 margin_bottom = 552.0
 custom_fonts/font = ExtResource( 35 )
 text = "This is the helath bar. The red \\n indi"
+autowrap = true
 script = ExtResource( 40 )
 __meta__ = {
 "_edit_use_anchors_": false

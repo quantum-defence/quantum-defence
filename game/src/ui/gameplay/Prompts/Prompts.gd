@@ -4,15 +4,21 @@ class_name Prompt
 
 var counter = 0
 const textArray: Array = [
-	"Protect your portals!\n Red enemies go to red portal\nand blue enemies go\nto blue portal. Each tower\ncan only hit enemies \nof the same color",
-	"Add quantum items to the towers \nto allow enemies to change \nbetween colors",
-	"Hadamard(Orange) gives a \n50/50 chance",
-	"RY item(Green) gives a \n12.5/87.5 chance",
-	"And the classical X gate(Blue)\n is a 0/100 chance",
-	"Enemies that change color\n are forced to walk to\n the new colors portal",
-	"This lengthens the time\n you can attack them",
-	"Build towers to defend your portal\n the gold of each \ntower is displayed at the top",
-	"However BEWARE Quantum towers\n do not do any damage!, they only\n change the color of enemies"
+	"Protect your portals! Red enemies attack through the red portals " \
+	+ "and blue enemies attack through the blue portal.",
+	"Enemy colour is set by the qubit " \
+	+ "they contain, and each tower only hits enemies of the same colour.",
+	"Add quantum items to the towers force an enemy into a colour" \
+	+ "based on the quantum circuitry in the item.",
+	"If it flips them into the " \
+	+ "opposite colour, the enemy is forced to turn around and go to its new target, which lets you rack up more hits along its path.",
+	"However, BEWARE that these quantum towers do not do any damage, and they only affect the qubit (colour) of the enemy.",
+	"Hadamard (Orange) will put the enemy back into equal superposition before the weapon collapses it.",
+	"A red tower equipped with Hadamard will turn on average 50% of the red enemies it hits to blue.",
+	"RY item (Green) puts an enemy into a state of superposition that skews towards " \
+	+ "collapsing into red: 87.5% chance of switching to red to be precise.",
+	"The classical X gate (Blue) will simply flip the qubit 100% of the time, turning all enemies it hits into the opposite colour.",
+	"Build towers to defend your portal! The cost of each tower is displayed on the right."
 ]
 
 onready var title = self.get_node("AllText/Title")
@@ -74,7 +80,8 @@ func _input(event: InputEvent):
 			and ! event.is_action_pressed("back_key")
 		):
 			if ! _next():
-				ui.set_pause_scene(arena, false)
 				self.queue_free()
-				scoping.visible = true
 				ui.set_pause_scene(scoping, false)
+				scoping.visible = true
+				var grey_out = ui.get_node("Control/GreyOut")
+				grey_out.make_invis()

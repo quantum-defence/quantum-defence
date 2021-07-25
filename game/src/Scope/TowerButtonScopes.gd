@@ -1,10 +1,10 @@
 extends Label
 
 var instructions = (
-	"These are the tower buttons\n. "
-	+ "Click here\n to choose the tower built\n "
-	+ "Currently only the first tower is available\n"
-	+ "Alternatively you can press Q on your keyboard"
+	"These are the tower buttons. "
+	+ "Click here to choose the tower built. "
+	+ "Currently only the first tower is available. "
+	+ "Alternatively you can press 1 on your keyboard"
 )
 
 

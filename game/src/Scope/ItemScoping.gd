@@ -1,10 +1,9 @@
 extends Label
 
 var instructions = (
-	"These are the items. Items dropped by enemies\n "
-	+ "can be clicked on and will appear here\n"
-	+ "Open a tower inventory by clicking on a tower\n"
-	+ "and equip an item by dragging and dropping"
+	"These are the item slots. Click on the items dropped by enemies to have them appear hear. " \
+	+ "Open a tower inventory by clicking on a tower "
+	+ "and equip an item by dragging and dropping into the tower slot"
 )
 
 

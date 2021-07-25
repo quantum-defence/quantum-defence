@@ -1,10 +1,10 @@
 extends Label
 
 var instructions = (
-	"This is gold you have\n "
-	+ "Killing enemies drop gold and\n"
-	+ "Build Towers cost gold.\n "
-	+ "Thats all for now.Have Fun!"
+	"This is the gold you have:"
+	+ "Killing enemies drop gold and"
+	+ "Build towers cost gold."
+	+ "Thats all for now. Have Fun!"
 )
 
 
