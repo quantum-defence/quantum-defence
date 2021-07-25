@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
@@ -30,10 +30,11 @@
 [ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/img/UI/PausePlayButton/PauseButton.png" type="Texture" id=29]
 [ext_resource path="res://src/ui/gameplay/UI/GreyOut.tscn" type="PackedScene" id=30]
+[ext_resource path="res://assets/font/SourceSansPro-SemiBold.ttf" type="DynamicFontData" id=31]
 
 [sub_resource type="DynamicFont" id=1]
-size = 22
-font_data = ExtResource( 22 )
+size = 20
+font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -127,58 +128,45 @@ __meta__ = {
 margin_left = 220.0
 margin_top = 82.0
 margin_right = 413.0
-margin_bottom = 239.0
+margin_bottom = 206.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Attack" type="HBoxContainer" parent="Control/TowerInventory/TextureRect/TowerStats"]
 margin_right = 193.0
-margin_bottom = 23.0
+margin_bottom = 26.0
 
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Attack"]
-margin_right = 72.0
-margin_bottom = 23.0
+margin_right = 96.0
+margin_bottom = 26.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
-text = "Attack"
+text = "Attack:    20"
 
 [node name="AttackSpeed" type="HBoxContainer" parent="Control/TowerInventory/TextureRect/TowerStats"]
-margin_top = 27.0
+margin_top = 30.0
 margin_right = 193.0
-margin_bottom = 50.0
+margin_bottom = 56.0
 
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/AttackSpeed"]
-margin_right = 72.0
-margin_bottom = 23.0
+margin_right = 105.0
+margin_bottom = 26.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
-text = "AtkSpd"
+text = "AtkSpd:   1/s"
 
 [node name="Range" type="HBoxContainer" parent="Control/TowerInventory/TextureRect/TowerStats"]
-margin_top = 54.0
+margin_top = 60.0
 margin_right = 193.0
-margin_bottom = 77.0
+margin_bottom = 86.0
 
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Range"]
-margin_right = 60.0
-margin_bottom = 23.0
+margin_right = 109.0
+margin_bottom = 26.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
-text = "Range"
-
-[node name="Color" type="HBoxContainer" parent="Control/TowerInventory/TextureRect/TowerStats"]
-margin_top = 81.0
-margin_right = 193.0
-margin_bottom = 130.0
-
-[node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Color"]
-margin_right = 60.0
-margin_bottom = 49.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
-text = "Color
-"
+text = "Range:     500"
 
 [node name="ItemLabel" type="Label" parent="Control/TowerInventory/TextureRect"]
 margin_left = 43.0

@@ -27,10 +27,11 @@ and vice versa.
 - Path: Navigable surface for the enemy. This is usually the stone tiles in the lava maps. 
 Towers cannot be built in these paths. This is indicated when trying to build a tower when hovering over a path.
 - Base: Red and blue planets (More obvious markers for dimensions tbc) with health bar in the top of the screen.
-![Health Bar](./Images/HealthBar)
+
+![Health Bar](./assets/HealthBar.png)
 As shown above, the red bar indicates the health of the red portal and vice versa.
 If the portal's start at different health, the health of the portal with higher health will completely fill the bar.
-The health of the portal with lower health will be relative to that.
+The health of the portal with lower health will be relative to that. If any portal's health reaches zero, the game is over.
 
 
 ![Enemy Navigation](./assets/enemy-navigation.png)
@@ -41,9 +42,16 @@ The health of the portal with lower health will be relative to that.
 
 ![Tower Sprites](./assets/tower-sprites.png)
 
-- 6 Towers have been made in both blue and red modes each.
-- All towers extend from the same class and attacks their enemies
-- They have their own instance and set of attributes that can be upgraded with items
+** Towers **
+
+- 6 Towers have been made in both blue and red modes each. Each tower has a different range and damage. However,
+just for the intial release, only the first tower is available. The rest of the towers will be rolled out
+in subsequent updates.
+![TowerToBeRelease](./assets/tower-to-be-released.png) 
+- All towers extend from the same class and attacks their enemies periodically. 
+- They have their own instance and set of attributes that can be upgraded with items by dragging the items into the tower inventory.
+- The tower inventory of a tower can be opened by clicking on a tower. This would also show the range of the tower.
+
 
 ### Build
 
