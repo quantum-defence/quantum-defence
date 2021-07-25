@@ -108,7 +108,7 @@ we set this angle to pi/4. This gives us the approximate probabiltiy of 87.5 per
 ![Impact of gate](./assets/x-gate.png)
 - Unlike the previous two quantum gate, the X gate is a classical gate that completely changes the current bit. Gameplaywise, this has a 100 percent chance of converting a color to another color and is thus also the strongest gate. This gate's drop rate will also be the lowest.
 
-![X circuit](./x.png)
-![X stats](x-stats.png)
+![X circuit](./assets/x.png)
+![X gate](./assets/x-stats.png)
 
 
