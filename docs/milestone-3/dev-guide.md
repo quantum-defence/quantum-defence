@@ -29,7 +29,7 @@ The Arena itself has multiple important nodes, but here are some clarifications 
 - When requested by an enemy instance, plots a valid path across navigable tiles (see Skeleton Tile Map)
 - Is not aware of other future enemy positions when calculating for a particular enemy, so it cannot plot around non tile obstacles. Depends on enemy to manage collisions itself.
 
-**Tower & Enemy & Home**
+**Enemy & Home**
 
 - Enemies will ask navigator for map and proceed along the route, barring any collisions. For every collision it will stagger randomly for a predetermined period of time and then request a new path.
 - As enemies enter / leave tower range, the tower will add to memory / forget these instances. Towers will continuously fire at the nearest enemy in memory.
@@ -66,7 +66,7 @@ controls all the gold the player gets from the enemies. Change_gold takes in an 
 Lastly, the build tool also handles items, containing item slots which can be moved from one item slot to another.
 The drag and drop function of each slot has its own script and will be elaborated further subsequently.
 
-** Drag and Drop **
+**Drag and Drop**
 The drag and drop function is done using godots in-built drag and drop function. Each control node will have to
 have both the can_drop_data() as well as the drop_data() functions to be allowed to get the data. If not, when an 
 item is dragged onto the control node, the item will disappear. 
@@ -74,11 +74,57 @@ item is dragged onto the control node, the item will disappear.
 Most of the drag and drop implementation is found three files. UI.gd which acts as a generic UI script that prevents 
 any item from being dropped into an unwanted place. Any control node that has this script will not have an item
 dissapear when dragged onto them. The other files would be both towerInventorySlot.gd and buildUISlot.gd. Both these scripts handle the main functionality of allowing an item to be dragged from the buildUI to the tower inventory.
-QyantumCircuitSlot.gd is a script that extends TowerInventorySlot.gd and only applies to quantum slots in the
+QuantumCircuitSlot.gd is a script that extends TowerInventorySlot.gd and only applies to quantum slots in the
 tower inventory. When an item is picked up, from either the tower inventory slot or the buildUI slot, a dictionary ois created with the starting information. These are grouped under the term "Origin" with some of the dictionary keys refering to the origin slots items and the origin slots name for reference to know where the item comes from. When dropped into another slot, the dictionary then creates more information, grouped under the term "Targer". These store information such as the target slots name and item(if there is an item in the slot) and act accordingly.
 
 
+**Gold**
+The main logic of the gold is done in a goldLabel.gd. BuildUI's change_gold() and set_gold() functions all interact
+with this. Calling reset() is to reset all the gold of the stage.
 
+
+**Prompts and Instructions**
+These are handled by both the prompt scene (Prompt.tscn) and script(Prompt.gd) as well as the scoping nodes in UI.
+The scoping nodes do no have their own scene and are simply part of UI. Thus any changing of information or scripts of scoping requires it to be done through UI.tscn. 
+
+**Tower Inventory**
+The tower inventory is a canvas item material which contains many control nodes for organisation.
+There is only one instance of tower inventory and it is part of UI. Clicking on another tower and changing the
+tower displayed in tower inventory is a mere swapping of sprites in the tower inventory. Tower inventory has a
+main field known as tower_to_be_built. This is intended to align with the build_UI tower to be build. This tower
+to be built is the tower inspected at the current moment. 
+
+**Items**
+
+Items are split into normal items and droppable items.
+The normal items are normal node2d that contain a textureRect.
+These normal items are the ones that contain the information
+of the item and are dragged around from slot to slot.
+The droppable items contain the normal items and are intended
+for user input(when a player clicks them, it appears in the buildUI). Thus, a control node is required to detect
+user input.
+
+
+**Projectile**
+The projectile class is a kinematicBody2d node that has a collision shape and tile. Its intended effect is
+to be shot by the tower and collide with the enemy. 
+
+The projectile class have the contain the homing functionality and the inflict damage functionalioty
+
+
+**UI**
+The UI is a canvas_material that contains the tower inventory, buildUI and some other functionality which will
+be elaborated. To allow for interactions between the buildUI and the towerInventory, the scenes were merged and
+thus any changes that the developer wants to implement to either the buildUI or the towerInventory has to be done
+through this instead. 
+
+Refer to the above for the functionality of both the buildUI and the towerInventory.
+
+Other main functionalities of the UI is the health bar. The health bar is a no
+
+
+**Arena and Level Map**
+The arena is a node2d that contains the level map, level selector and the UI.
 
 A diagram summarising these interactions can be seen below:
 
