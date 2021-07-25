@@ -42,7 +42,7 @@ The health of the portal with lower health will be relative to that. If any port
 
 ![Tower Sprites](./assets/tower-sprites.png)
 
-** Towers **
+**Towers**
 
 - 6 Towers have been made in both blue and red modes each. Each tower has a different range and damage. However,
 just for the intial release, only the first tower is available. The rest of the towers will be rolled out
