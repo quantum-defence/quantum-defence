@@ -28,7 +28,7 @@ and vice versa.
 Towers cannot be built in these paths. This is indicated when trying to build a tower when hovering over a path.
 - Base: Red and blue planets (More obvious markers for dimensions tbc) with health bar in the top of the screen.
 
-![Health Bar](./assets/HealthBar.png)
+![Health Bar](./assets/health-bar.png)
 As shown above, the red bar indicates the health of the red portal and vice versa.
 If the portal's start at different health, the health of the portal with higher health will completely fill the bar.
 The health of the portal with lower health will be relative to that. If any portal's health reaches zero, the game is over.
@@ -55,32 +55,62 @@ in subsequent updates.
 
 ### Build
 
-![Building Towers](./assets/arena-build.png)
+![Building Towers](./assets/arena.png)
 
-- Select build mode by hitting '+'
-- Colour selector allows user to switch between creating red or blue towers
-- Click on your chosen tower and then place it on the map. (Using the green / red tile selector as a guide for valid placements)
-- Tower is only built on valid tiles, and will begin attacking the available enemies of its colours
+- To build towers, simply click on the tower of choice in the UI below as shown here.
+
+![Tower buttons](./assets/tower-to-be-released.png)
+- Alternatively, you can press the numbers 1 to 6 for each corresponding tower slot, starting from the left.
+
+- After chosing a tower, a temporary tower will follow the user's mouse to show how the tower will be displayed
+when build. This temporary tower will be red with a red range indicator if the chosen tower is red and vice versa.
+
+![Red tower building](./assets/red-building.png)  ![Blue tower building](./assets/blue-building.png)
+
+- If the tower hovers over a path, the temporary tower will turn black and a cancel symbol will appear. This 
+indicates that the tower cannot be built.
+
+![Cancel tower](./assets/no-building.png)
 
 ### Inspect
 
 ![Inspecting Towers](./assets/tower-inspector.png)
 
-- Select inspect mode by hitting 'i'
 - Choose towers to see a graphical visualisation of the current attributes of this tower
-- At this point, quantum towers can be added in to change the probability of enemy states after hit. (Default is always 100% red or blue to indicate no change to enemy)
+- Items held by the towers are also displayed in the tower inventory. This is classified into normal items and quantum items. Quantum item can only be dropped into quantum item slots and vice versa. For this release, only quantum items are implemented. 
+- To close the tower inspector, simply press the X at the top of the tower inspector or click on the same tower again. If another tower is clicked while the tower inspector is opened, the new tower's information will be displayed by the tower inspector instead.
+- The tower inspector has a probability bar right below the tower attributes. This gives a visual representation 
+of the probabilties the enemies can turn into when shot.
 
 **H Gate**
 
 ![Impact of gate](./assets/h-gate.png)
 
+- The H gate is a quantum gate that puts a classical bit in superposition. This is collapse straight away and results in a 50 percent chance of a qubit collapsing into either a 0 or a 1. Likewise, this gives a 50 percent probability of converting an enemie's color (qubit) into red(0) or blue(1), which is visually represented in the probability
+bar as shown below.
+
+- This is demostrated with IBM Quantum Experience's circuit builder tool shown below.
+![H circuit](./assets/hadamard.png)
+![H stats](./assets/hadamard-stats.png)
+
 **RY Gate**
 
 ![Impact of gate](./assets/ry-gate.png)
+- Similar to the H gate, the Ry gate is a quantum gate that takes in an input angle. For the sake of the game, 
+we set this angle to pi/4. This gives us the approximate probabiltiy of 87.5 percent.
+
+![Ry circuit](./assets/ry.png)
+![Ry stats](./assets/ry-stats.png)
+
 
 **X Gate**
 
 ![Impact of gate](./assets/x-gate.png)
+- Unlike the previous two quantum gate, the X gate is a classical gate that completely changes the current bit. Gameplaywise, this has a 100 percent chance of converting a color to another color and is thus also the strongest gate. This gate's drop rate will also be the lowest.
+
+![X circuit](./x.png)
+![X stats](x-stats.png)
+
 
 ### Tutorial Level (Not ready)
 
