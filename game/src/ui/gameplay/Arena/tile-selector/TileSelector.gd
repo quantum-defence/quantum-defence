@@ -89,7 +89,6 @@ func take_action():
 			var enough_gold = build_ui.change_gold(negative_tower_cost)
 
 			build_ui.make_buildUI_visible()
-			print(enough_gold)
 			if ! enough_gold:
 				var show_rejection = arena.get_node("UI/Control/GoldIndicator")
 				show_rejection._make_visible()
