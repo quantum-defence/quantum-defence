@@ -7,6 +7,7 @@ var counter = 0
 onready var arena = self.find_parent("Arena")
 onready var ui = arena.get_node("UI")
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass  # Replace with function body.
