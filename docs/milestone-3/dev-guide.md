@@ -34,6 +34,7 @@ The Arena itself has multiple important nodes, but here are some clarifications 
 - Enemies will ask navigator for map and proceed along the route, barring any collisions. For every collision it will stagger randomly for a predetermined period of time and then request a new path.
 - As enemies enter / leave tower range, the tower will add to memory / forget these instances. Towers will continuously fire at the nearest enemy in memory.
 - Enemies and home have specific behaviour and animation for different behaviours to show satisfying feedback and for game mechanics (taking damage takes priority over all other behaviour, attacks require a brief cool down, etc)
+- Enemies also have the items before they are dropped. When killed, they drop gold which immediately added to the buildUI. Hence the buildUi's add gold function is called here. They also have a chance to drop items that can be clicked to be added to the buildUI.
 
 **Internal Representation**
 
@@ -45,6 +46,7 @@ The Arena itself has multiple important nodes, but here are some clarifications 
 - Square that flashes Green / Red based on if the tile is a valid position for user action (based on whether they are in build mode)
 - follows user interaction and is continually updated by `tower_at` and `tile_at`.
 - On the user taking action, the TileSelector provides the BuildTool the tile location or the tower if applicable for further action (building / dismantling / inspection / upgrade by user)
+- When tile selector trying to build a tower over an invalid tile, a cancel icon shows up which indicates that a tower cannot be built there.
 
 **Tile Map**
 
@@ -52,11 +54,31 @@ The Arena itself has multiple important nodes, but here are some clarifications 
 - Tile Map (Skeleton): 64x64 bare tiles that provides an easy way for level designer to communicate the position of paths to the map's internal representation
 
 **Build Tool**
+- The build tool aka the build UI is the UI bar at the bottom of the screen. The build UI has many responsiblities,
+the major one would be to select the tower to be built. When the button below is pressed, a function is called to add a temporary instance of that tower that is unable to fire to follow the mouse.
 
-- Primarily contains build and inspect buttons that set user mode.
-- In build mode, shows an otherwise hidden list of tower buttons to set type of tower to be built
-- (Disabled in v0.7-alpha release) In inspect mode, selecting a tower will show a tower inspector window that displays attributes and items as well as provide upgrade and dismantle options
-- (Disabled in v0.7-alpha release) Contains an item pack that can be consumed by towers to upgrade their attributes
+The build tool also handles the input for the number buttons in the _input(event) function. This provides hotkeys for the user when chosing the towers to be build. Toggling the button also toggles all the color of the sprites in the
+build tool as well as the tower to be built
+
+Another factor the build tool handles is the gold. Change_gold and set gold are the two functions of buildUI which
+controls all the gold the player gets from the enemies. Change_gold takes in an input and changes the gold by that amount.
+
+Lastly, the build tool also handles items, containing item slots which can be moved from one item slot to another.
+The drag and drop function of each slot has its own script and will be elaborated further subsequently.
+
+** Drag and Drop **
+The drag and drop function is done using godots in-built drag and drop function. Each control node will have to
+have both the can_drop_data() as well as the drop_data() functions to be allowed to get the data. If not, when an 
+item is dragged onto the control node, the item will disappear. 
+
+Most of the drag and drop implementation is found three files. UI.gd which acts as a generic UI script that prevents 
+any item from being dropped into an unwanted place. Any control node that has this script will not have an item
+dissapear when dragged onto them. The other files would be both towerInventorySlot.gd and buildUISlot.gd. Both these scripts handle the main functionality of allowing an item to be dragged from the buildUI to the tower inventory.
+QyantumCircuitSlot.gd is a script that extends TowerInventorySlot.gd and only applies to quantum slots in the
+tower inventory. When an item is picked up, from either the tower inventory slot or the buildUI slot, a dictionary ois created with the starting information. These are grouped under the term "Origin" with some of the dictionary keys refering to the origin slots items and the origin slots name for reference to know where the item comes from. When dropped into another slot, the dictionary then creates more information, grouped under the term "Targer". These store information such as the target slots name and item(if there is an item in the slot) and act accordingly.
+
+
+
 
 A diagram summarising these interactions can be seen below:
 
@@ -68,6 +90,20 @@ In quantum computing, qubits replace the traditional 0s or 1s of bits in classic
 Where a bit can only be 0 or 1, qubits appear to be in a coherent superposition (in _both_ states of 0 and 1 simultaneously).
 Qubits will however collapse to just holding 1 bit of information (turn into a typical bit in either 0 or 1 state) when measured.
 Our enemies can be either blue or red, but their state is represented as a qubit.
+For the sake of the game, the measurement of the qubits (which is the action that collapses them) is automatic.
+This, firing at an enemy to put it into superposition will also immediately collapse them thereafter, turning them
+either red or blue. 
+
+
+The entire native godot qiskit library is authored by bhcs and co-authored by Bluntsord. This is split into three
+main files.
+
+**QuantumCircuit**
+
+The file QuantumCircuit.gd handles the building of the circuit. This allows for building of all kinds of quantum
+circuits by calling each each of the functions in succession to build the circuit of choice.
+
+
 
 As such, quantum powered (tensor) weapons or classical (quodite) weapons can be employed against them:
 

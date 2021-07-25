@@ -112,3 +112,4 @@ we set this angle to pi/4. This gives us the approximate probabiltiy of 87.5 per
 ![X gate](./assets/x-stats.png)
 
 
+With that, this marks the end of the user guide. Have fun playing the game and do let us know any feedback. Thank you!
