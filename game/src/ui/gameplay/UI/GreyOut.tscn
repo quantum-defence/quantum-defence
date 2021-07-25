@@ -39,7 +39,7 @@ margin_top = 122.069
 margin_right = 776.189
 margin_bottom = 223.069
 custom_fonts/font = SubResource( 2 )
-text = "Will Be released in the future"
+text = "Will be released in the future"
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false

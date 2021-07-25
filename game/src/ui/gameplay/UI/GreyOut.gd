@@ -12,7 +12,6 @@ func can_drop_data(position, data):
 	return false
 	
 func drop_data(position, data):
-	print("item dropped here")
 	data["target_slot"] = data["origin_slot"]
 	data["target_item"] = data["origin_item"]
 	data["origin_slot"].texture = data["origin_texture"]

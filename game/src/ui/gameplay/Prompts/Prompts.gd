@@ -7,8 +7,8 @@ const textArray: Array = [
 	"Protect your portals! Red enemies attack through the red portals " \
 	+ "and blue enemies attack through the blue portal.",
 	"Enemy colour is set by the qubit " \
-	+ "they contain, and each tower only hits enemies of the same colour.",
-	"Add quantum items to the towers force an enemy into a colour" \
+	+ "they contain, and each tower only hits enemies of the same colour ",
+	"Add quantum items to the towers force an enemy into a colour " \
 	+ "based on the quantum circuitry in the item.",
 	"If it flips them into the " \
 	+ "opposite colour, the enemy is forced to turn around and go to its new target, which lets you rack up more hits along its path.",
@@ -32,7 +32,6 @@ onready var page_number = self.get_node("AllText/Page")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Used to pause the game
-	print("Works")
 	self.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
 	self.play("Rolling")
 	text.text = textArray[counter]
@@ -59,7 +58,6 @@ func _prev():
 
 func _on_AnimatedSprite_animation_finished():
 	if self.animation == "Rolling":
-		print("Comes here")
 		ui.set_pause_scene(arena, true)
 		ui.set_pause_scene(self, false)
 		self.play("Static")
@@ -69,8 +67,6 @@ func _input(event: InputEvent):
 	if event is InputEventKey:
 		#Go back 
 		if event.pressed and event.is_action_pressed("back_key"):
-			print("Reaches here")
-			print(counter)
 			if ! _prev():
 				pass
 		#Go forward
