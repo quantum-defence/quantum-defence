@@ -112,18 +112,3 @@ we set this angle to pi/4. This gives us the approximate probabiltiy of 87.5 per
 ![X stats](x-stats.png)
 
 
-### Tutorial Level (Not ready)
-
-Currently this is very light and not ready at all for milestone 2.
-
-1. Basic game idea (Mostly intuitive)
-   - Enemies swarm behaviour, targetting base
-   - Bases and Map
-   - Aim of protecting bases
-1. Tower Defence Mechanisms (With labelled directions)
-   - Drop towers
-   - Pick up items
-   - Upgrade Towers
-1. Quantum Items and strategy
-   - Directions to try specific upgrades in specific places to try basic strategies
-   - Labels and guides to focus on the probability bar
