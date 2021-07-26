@@ -72,7 +72,6 @@ in subsequent updates.
 - After chosing a tower, a temporary tower will follow the user's mouse to show how the tower will be displayed
 when build. This temporary tower will be red with a red range indicator if the chosen tower is red and vice versa.
 
-![3-pick-towers](https://user-images.githubusercontent.com/64136922/126944868-b912ede4-c59f-45d0-ad74-1baaf53c4fe7.gif)
 
 ![3-pick-towers](https://user-images.githubusercontent.com/64136922/126944739-066f46b8-a476-4fdd-97fb-3411da454e39.gif)
 
