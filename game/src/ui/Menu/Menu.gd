@@ -19,15 +19,15 @@ const levels_info: Array = [
 	{
 		"name": "Level Three",
 		"src": "res://src/environment/LevelMap/L3/L3_main.tscn",
-		"description": "A bit of a twist."
+		"description": "Forked Path"
 	},
 	{
-		"name": "Unused - A",
+		"name": "Level Four",
 		"src": "res://src/environment/LevelMap/L1-2/L1-2_main.tscn",
-		"description": "Make your stand"
+		"description": "A winding road"
 	},
 	{
-		"name": "Unused - B",
+		"name": "Level Five",
 		"src": "res://src/environment/LevelMap/L1-3/L1-3_main.tscn",
 		"description": "Make your stand"
 	},

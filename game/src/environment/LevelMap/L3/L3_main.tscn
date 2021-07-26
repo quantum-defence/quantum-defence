@@ -9,7 +9,7 @@ script/source = "extends LevelMap
 
 func _ready() -> void:
 	#Set up portal health and gold start
-	set_up_paramenters(200,100,40)
+	set_up_paramenters(200,100,50)
 	level_name = \"L3\"
 	$Navigator/NavPolyInstance.set_enabled(false)
 	$Navigator/NavPolyInstance.queue_free()
@@ -18,9 +18,41 @@ func _ready() -> void:
 	prebuilt_towers = []
 	spawn_config = [ 
 		{
+			#First wave
 			'duration': 5.0, 
 			\"enemy_queue\": ['core', 'core', 'sabre', 'sabre' ] 
 		},
+		#Second wave
+		{ 'duration': 5.0, \"enemy_queue\": [
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'sabre', 'core',
+		 ] },
+		#Third wave
+		{ 'duration': 5.0, \"enemy_queue\": [] },
+				{ 'duration': 5.0, \"enemy_queue\": [
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'sabre', 'core',
+			'sabre', 'core',
+			'sabre', 'core',
+			'sabre', 'core',
+		 ] },
+		#Forth wave
+		{ 'duration': 5.0, \"enemy_queue\": [] },
+				{ 'duration': 5.0, \"enemy_queue\": [
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'sabre', 'core',
+			'sabre', 'core',
+			'sabre', 'core',
+			'sabre', 'core',
+			'sabre', 'core',
+			'sabre', 'core',
+		 ] },
 	]
 "
 

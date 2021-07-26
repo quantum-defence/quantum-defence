@@ -45,6 +45,9 @@ margin_top = -198.812
 margin_right = 97.0139
 margin_bottom = -134.812
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot1" type="Panel" parent="TextureRect/GridContainer" groups=[
 "TowerInventorySlots",

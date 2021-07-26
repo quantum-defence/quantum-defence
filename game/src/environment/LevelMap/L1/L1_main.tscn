@@ -21,6 +21,7 @@ func _ready() -> void:
 	prebuilt_towers = []
 	spawn_config = [ 
 		{
+		#First wave
 		'duration': 5.0, 
 		\"enemy_queue\": [ ] 
 		},
@@ -29,6 +30,7 @@ func _ready() -> void:
 		\"enemy_queue\": ['core', 'core', 'sabre', 'sabre' ] 
 		},
 		{
+		#Second wave
 		'duration': 5.0, 
 		\"enemy_queue\": [ ] 
 		},
@@ -37,12 +39,52 @@ func _ready() -> void:
 		\"enemy_queue\": ['core', 'core', 'sabre', 'sabre' ] 
 		},
 		{
-		'duration': 5.0, 
+		#Third wave
+		'duration': 3.0, 
 		\"enemy_queue\": [ ] 
 		},
 		{
 		'duration': 5.0, 
 		\"enemy_queue\": ['core', 'core', 'sabre', 'sabre' ] 
+		},
+		{
+		#Fourth wave
+		'duration': 3.0, 
+		\"enemy_queue\": [ ] 
+		},
+		{
+		'duration': 5.0, 
+		\"enemy_queue\": ['core', 'core', 'sabre', 'sabre' ] 
+		},
+		{
+		# Fifth wave	
+		'duration': 3.0, 
+		\"enemy_queue\": [ ] 
+		},
+		{
+		'duration': 5.0, 
+		\"enemy_queue\": ['core', 'core','core', 'core','sabre', 'sabre' ] 
+		},
+		{
+		#6th wave 
+		'duration': 3.0, 
+		\"enemy_queue\": [ ] 
+		},
+		{
+		'duration': 5.0, 
+		\"enemy_queue\": ['core', 'core', 'core', 'core','sabre', 'sabre' ] 
+		},
+		{
+		#Final wave
+		'duration': 8.0, 
+		\"enemy_queue\": [ ] 
+		},
+		{
+		'duration': 5.0, 
+		\"enemy_queue\": ['core', 'core', 'core', 'core',
+		'core', 'core', 'core', 'core','sabre', 'sabre',
+		'core', 'core', 'core', 'core','sabre', 'sabre',
+		 ] 
 		},
 		]
 "
