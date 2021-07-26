@@ -38,26 +38,16 @@
 | 2021-05-31 |     2021-06-27      |                           Tee Chin                            | Creating quantum towers and their logic             | Connected towers with the tower inventory and quantum node. Made sure all the probability was correct |  10   |
 | 2021-05-31 |     2021-06-27      |                            Bharath                            | Milestone 2 Team meeting and submission             | Submission Documents                                                                                  |   4   |
 | 2021-05-31 |     2021-06-27      |                           Tee Chin                            | Milestone 2 Team meeting and submission             | Submission Documents                                                                                  |   4   |
-| 2021-06-27 |     2021-07-07    |                            Bharath                            | Improve Navigator
-  | Change navigator poly instance for maps                                                                  |   2   |
-| 2021-06-27 |     2021-07-07     |                            Bharath                            | Build new maps for the game
- | build 2 tile map skeletons for the base game                                                                  |  10 |
-|2021-06-27 |     2021-07-07     |                            Bharath                            | Correct scaling of window 
- | build 2 tile map skeletons for the base game                                                                  |   4  |
-|2021-06-27 |     2021-07-07     |                            Tee Chin                           | Made tile map pretty version 
- | Used the tile set to make tile map pretty for game design purposed                                 |   6  |
-|2021-06-27|     2021-07-07     |                            Tee Chin                           | Made some instructions for users 
- | These instructions will play during the tutorial and made it auto display the instructions when tutorial begins |  10  |
-|2021-07-07 |     2021-07-14    |                            Bharath                          | Audio 
- | Reformatted all the audo and made a settings page to toggle audio volume |  20 |
-|2021-07-07 |     2021-07-14    |                            Tee Chin                         | Made some instructions for users 
- | These instructions will play during the tutorial and made it auto display the instructions when tutorial begins |  10  |
-|2021-07-07 |     2021-07-14    |                            Tee Chin                         | Tower range
- | Made a tower instance follow the mouse when button pressed and displayed its range| 20 |
-|2021-07-07 |     2021-07-14    |                            Bharath                        | Redesigned enemy to spawn in waves
- | Enemies come in waves and all their information can be adjusted easily | 20 |
-|2021-07-07 |     2021-07-14    |                            Bharath                        | Redesigned enemy to spawn in waves
- | Enemies come in waves and all their information can be adjusted easily | 20 |
+| 2021-06-27 |     2021-07-07    |                            Bharath                            | Improve Navigator|  Change navigator poly instance for maps                                                                  |   2   |
+| 2021-06-27 |     2021-07-07     |                            Bharath                            | Build new maps for the game | build 2 tile map skeletons for the base game                                                                  |  10 |
+|2021-06-27 |     2021-07-07     |                            Bharath                            | Correct scaling of window | build 2 tile map skeletons for the base game                                                                  |   4  |
+|2021-06-27 |     2021-07-07     |                            Tee Chin                           | Made tile map pretty version  | Used the tile set to make tile map pretty for game design purposed                                 |   6  |
+|2021-06-27|     2021-07-07     |                            Tee Chin                           | Made some instructions for users | These instructions will play during the tutorial and made it auto display the instructions when tutorial begins |  10  |
+|2021-07-07 |     2021-07-14    |                            Bharath                          | Audio | Reformatted all the audo and made a settings page to toggle audio volume |  20 |
+|2021-07-07 |     2021-07-14    |                            Tee Chin                         | Made some instructions for users | These instructions will play during the tutorial and made it auto display the instructions when tutorial begins |  10  |
+|2021-07-07 |     2021-07-14    |                            Tee Chin                         | Tower range | Made a tower instance follow the mouse when button pressed and displayed its range| 20 |
+|2021-07-07 |     2021-07-14    |                            Bharath                        | Redesigned enemy to spawn in waves | Enemies come in waves and all their information can be adjusted easily | 20 |
+|2021-07-07 |     2021-07-14    |                            Bharath                        | Redesigned enemy to spawn in waves| Enemies come in waves and all their information can be adjusted easily | 20 |
 
 
 
