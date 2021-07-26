@@ -93,8 +93,11 @@ func _toggle_origin():
 
 	
 func _input(event: InputEvent):
-	if event is InputEventKey:
-		if event.is_pressed() and event.is_action_pressed(\"Settings\"):
+	if event is InputEventKey and event.is_pressed() and event.is_action_pressed(\"Settings\"):
+		if from_menu:
+			_on_DoneButton_pressed()
+			return
+		else:
 			self.set_pause_scene(arena, false, [self.get_path()])
 			make_settings.setting_present = false
 			self.queue_free()
