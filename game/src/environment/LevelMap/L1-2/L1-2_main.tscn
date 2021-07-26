@@ -3,14 +3,14 @@
 [ext_resource path="res://src/environment/Fog/LightFog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/LevelMap/core/LevelMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/environment/LevelMap/L1-2/L1-2_pretty.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/ui/gameplay/Prompts/Prompts.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/environment/traps/Trap.tscn" type="PackedScene" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends LevelMap
 
 func _ready() -> void:
 	#Set up portal health and gold start
-	set_up_paramenters(140,140,10)
+	set_up_paramenters(140,140,35)
 	
 	level_name = \"L2\"
 	$Navigator/NavPolyInstance.set_enabled(false)
@@ -18,10 +18,45 @@ func _ready() -> void:
 	$Navigator/NavigationPolygonInstance.set_enabled(true)
 	initial_items = [ 'h', 'r', 'x']
 	prebuilt_towers = []
-	spawn_config = [ {
-		'duration': 5.0, 
-		\"enemy_queue\": ['core', 'core', 'sabre', 'sabre' ] 
-		} ]
+	spawn_config = [ 
+		{ 'duration': 5.0, \"enemy_queue\": [] },
+		{ 'duration': 5.0, \"enemy_queue\": [
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+		 ] },
+		#Second wave
+		{ 'duration': 5.0, \"enemy_queue\": [] },
+		{ 'duration': 5.0, \"enemy_queue\": [
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+		 ] },
+		#Final wave
+		{ 'duration': 5.0, \"enemy_queue\": [] },
+		{ 'duration': 5.0, \"enemy_queue\": [] },
+		{ 'duration': 5.0, \"enemy_queue\": [
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+			'core', 'core',
+		 ] },
+		{ 'duration': 5.0, \"enemy_queue\": [] },
+	]
 "
 
 [sub_resource type="NavigationPolygon" id=2]
@@ -61,8 +96,11 @@ scale = Vector2( 70.1875, 42.5 )
 [node name="BgMusicPlayer" parent="." index="7"]
 choice = 1
 
-[node name="Prompt" parent="." index="8" instance=ExtResource( 4 )]
-margin_left = -15.7214
-margin_top = 4.49951
-margin_right = -15.7214
-margin_bottom = 4.49951
+[node name="Traps" parent="." index="8" instance=ExtResource( 4 )]
+position = Vector2( 818.373, 172.037 )
+
+[node name="Trap" parent="Traps" index="2" instance=ExtResource( 4 )]
+position = Vector2( -296.78, 730.845 )
+
+[node name="Trap2" parent="Traps" index="3" instance=ExtResource( 4 )]
+position = Vector2( 448.534, 735.335 )

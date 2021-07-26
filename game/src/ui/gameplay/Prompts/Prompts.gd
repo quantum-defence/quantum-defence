@@ -21,13 +21,13 @@ const textArray: Array = [
 		+ "opposite colour, the enemy is forced to turn around and go to its new target, which lets you rack up more hits along its path."
 	),
 	"However, BEWARE that these quantum towers do not do any damage, and they only affect the qubit (colour) of the enemy.",
-	"Hadamard (Orange) will put the enemy back into equal superposition before the weapon collapses it.",
+	"Hadamard (Red) will put the enemy back into equal superposition before the weapon collapses it.",
 	"A red tower equipped with Hadamard will turn on average 50% of the red enemies it hits to blue.",
 	(
-		"RY item (Green) puts an enemy into a state of superposition that skews towards "
+		"RY item (Purple) puts an enemy into a state of superposition that skews towards "
 		+ "collapsing into red: 87.5% chance of switching to red to be precise."
 	),
-	"The classical X gate (Blue) will simply flip the qubit 100% of the time, turning all enemies it hits into the opposite colour.",
+	"The classical X gate (Orange) will simply flip the qubit 100% of the time, turning all enemies it hits into the opposite colour.",
 	"Build towers to defend your portal! The cost of each tower is displayed on the right."
 ]
 

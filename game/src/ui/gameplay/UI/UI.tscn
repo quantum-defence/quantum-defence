@@ -1,5 +1,4 @@
-[gd_scene load_steps=54 format=2]
-
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
@@ -31,8 +30,6 @@
 [ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/img/coloured-squares/play.png" type="Texture" id=29]
 [ext_resource path="res://src/ui/gameplay/UI/GreyOut.tscn" type="PackedScene" id=30]
-
-
 [ext_resource path="res://assets/img/Scope/RectangleScope.png" type="Texture" id=31]
 [ext_resource path="res://assets/img/Scope/CircularBlurScope.jpeg" type="Texture" id=32]
 [ext_resource path="res://src/environment/Fog/Black.shader" type="Shader" id=33]
@@ -44,11 +41,19 @@
 [ext_resource path="res://src/Scope/ItemScoping.gd" type="Script" id=39]
 [ext_resource path="res://src/Scope/GoldScoping.gd" type="Script" id=40]
 [ext_resource path="res://src/ui/gameplay/UI/Scoping.gd" type="Script" id=41]
+[ext_resource path="res://assets/font/SourceSansPro-SemiBold.ttf" type="DynamicFontData" id=42]
 
-
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=13]
 size = 20
-font_data = ExtResource( 31 )
+font_data = ExtResource( 42 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 20
+font_data = ExtResource( 42 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 20
+font_data = ExtResource( 42 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -140,10 +145,10 @@ __meta__ = {
 }
 
 [node name="TowerStats" type="VBoxContainer" parent="Control/TowerInventory/TextureRect"]
-margin_left = 220.0
-margin_top = 82.0
-margin_right = 413.0
-margin_bottom = 206.0
+margin_left = 226.37
+margin_top = 116.0
+margin_right = 419.37
+margin_bottom = 240.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -155,7 +160,7 @@ margin_bottom = 26.0
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Attack"]
 margin_right = 96.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Attack:    20"
 
@@ -167,7 +172,7 @@ margin_bottom = 56.0
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/AttackSpeed"]
 margin_right = 105.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "AtkSpd:   1/s"
 
@@ -179,7 +184,7 @@ margin_bottom = 86.0
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Range"]
 margin_right = 109.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 15 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Range:     500"
 
@@ -575,12 +580,12 @@ hframes = 14
 position = Vector2( 133.893, 12.6612 )
 
 [node name="CostLabel" type="Label" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ObeliskTower/Node2D"]
-margin_left = -72.7138
-margin_top = -59.2449
-margin_right = 47.2862
-margin_bottom = 73.7551
+margin_left = -123.786
+margin_top = -65.3224
+margin_right = -3.78601
+margin_bottom = 67.6776
 custom_fonts/font = SubResource( 7 )
-text = "3"
+text = "10"
 __meta__ = {
 "_edit_use_anchors_": false
 }

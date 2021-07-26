@@ -36,6 +36,7 @@ var probs: Dictionary
 var is_tensor := false
 
 export var isRed := true
+var range_visible = false
 
 
 func _ready() -> void:

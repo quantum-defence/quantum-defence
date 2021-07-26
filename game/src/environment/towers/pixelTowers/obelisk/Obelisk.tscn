@@ -158,11 +158,11 @@ animations = [ {
 } ]
 
 [node name="Tower" instance=ExtResource( 2 )]
-gold_cost = 3
+gold_cost = 10
 
 [node name="AnimatedSprite" parent="." index="4"]
 position = Vector2( 2.22699, -48 )
 scale = Vector2( 1.11842, 1.05225 )
 frames = SubResource( 29 )
 animation = "IdleBlue(Level 1)"
-frame = 5
+frame = 7
