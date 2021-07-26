@@ -36,7 +36,7 @@ var probs: Dictionary
 var is_tensor := false
 
 export var isRed := true
-
+var range_visible = false
 
 func _ready() -> void:
 	_reset()
@@ -210,4 +210,4 @@ func _set_tower_dmg(damage: int) -> void:
 
 
 func toggle_range_visible():
-	$Circle.visible = ! $Circle.visible
+	$Circle.visible = !$Circle.visible
