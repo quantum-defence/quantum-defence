@@ -45,7 +45,7 @@ The health of the portal with lower health will be relative to that. If any port
 **Towers**
 
 ![4-tower-firing](https://user-images.githubusercontent.com/64136922/126944633-ea58bef3-7e85-4b17-bfe1-26167dccf142.gif)
-![image](https://user-images.githubusercontent.com/64136922/126944955-11628c2f-2984-4f36-b213-ad0e5a498c0b.png)
+![image](./assets/tower-sprites.png)
 
 - 6 Towers have been made in both blue and red modes each. Each tower has a different range and damage. However,
 just for the intial release, only the first tower is available. The rest of the towers will be rolled out
