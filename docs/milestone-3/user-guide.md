@@ -56,6 +56,10 @@ in subsequent updates.
 - The tower inventory of a tower can be opened by clicking on a tower. This would also show the range of the tower.
 
 
+
+
+
+
 ### Build
 
 ![Building Towers](./assets/arena.png)
