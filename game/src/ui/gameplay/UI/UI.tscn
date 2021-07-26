@@ -1,4 +1,5 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=54 format=2]
+
 
 [ext_resource path="res://src/ui/gameplay/BuildTool/BuildUI.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/gameplay/towerInventory/TowerInventory.gd" type="Script" id=2]
@@ -30,7 +31,20 @@
 [ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/img/UI/PausePlayButton/PauseButton.png" type="Texture" id=29]
 [ext_resource path="res://src/ui/gameplay/UI/GreyOut.tscn" type="PackedScene" id=30]
-[ext_resource path="res://assets/font/SourceSansPro-SemiBold.ttf" type="DynamicFontData" id=31]
+
+
+[ext_resource path="res://assets/img/Scope/RectangleScope.png" type="Texture" id=31]
+[ext_resource path="res://assets/img/Scope/CircularBlurScope.jpeg" type="Texture" id=32]
+[ext_resource path="res://src/environment/Fog/Black.shader" type="Shader" id=33]
+[ext_resource path="res://src/Scope/HealthBarScopeLabel.gd" type="Script" id=34]
+[ext_resource path="res://src/Fonts/SemiBoldSourceSansPro60.tres" type="DynamicFont" id=35]
+[ext_resource path="res://src/Scope/PauseButtonScope.gd" type="Script" id=36]
+[ext_resource path="res://src/Scope/QuantumButton.gd" type="Script" id=37]
+[ext_resource path="res://src/Scope/TowerButtonScopes.gd" type="Script" id=38]
+[ext_resource path="res://src/Scope/ItemScoping.gd" type="Script" id=39]
+[ext_resource path="res://src/Scope/GoldScoping.gd" type="Script" id=40]
+[ext_resource path="res://src/ui/gameplay/UI/Scoping.gd" type="Script" id=41]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -80,18 +94,19 @@ font_data = ExtResource( 22 )
 size = 100
 font_data = ExtResource( 22 )
 
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 33 )
+shader_param/color = Plane( 0, 0, 0, 1 )
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource( 26 )
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 16.1406
-margin_top = 23.0949
-margin_right = 16.1406
-margin_bottom = 23.0948
 script = ExtResource( 19 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -1042,6 +1057,248 @@ rect_scale = Vector2( 0.1, 0.1 )
 toggle_mode = true
 texture_normal = ExtResource( 29 )
 texture_pressed = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scoping" type="Node2D" parent="Control"]
+visible = false
+script = ExtResource( 41 )
+
+[node name="HealthBar" type="Node2D" parent="Control/Scoping"]
+
+[node name="HealthBarScope" type="Sprite" parent="Control/Scoping/HealthBar"]
+modulate = Color( 1, 1, 1, 0.984314 )
+position = Vector2( 925.785, 88 )
+scale = Vector2( 4.94662, 1 )
+texture = ExtResource( 31 )
+
+[node name="CircularBlurScope" type="Sprite" parent="Control/Scoping/HealthBar/HealthBarScope"]
+material = SubResource( 12 )
+position = Vector2( -31.8975, 672 )
+scale = Vector2( 1, 1.26667 )
+texture = ExtResource( 32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Control/Scoping/HealthBar"]
+margin_left = 64.0
+margin_top = 288.0
+margin_right = 1318.0
+margin_bottom = 760.0
+custom_fonts/font = ExtResource( 35 )
+text = "This is the helath bar. The red \\n indi"
+autowrap = true
+script = ExtResource( 34 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseButton" type="Node2D" parent="Control/Scoping"]
+visible = false
+
+[node name="Node2D" type="Node2D" parent="Control/Scoping/PauseButton"]
+
+[node name="HealthBarScope" type="Sprite" parent="Control/Scoping/PauseButton/Node2D"]
+modulate = Color( 1, 1, 1, 0.984314 )
+position = Vector2( 1664, 64 )
+scale = Vector2( 0.576577, 0.703704 )
+texture = ExtResource( 31 )
+
+[node name="CircularBlurScope" type="Sprite" parent="Control/Scoping/PauseButton/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 1368, 856 )
+scale = Vector2( 1.7009, 2.12222 )
+texture = ExtResource( 32 )
+offset = Vector2( -555, -90.4712 )
+
+[node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/PauseButton/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 2512, 1152 )
+scale = Vector2( 1.7009, 2.12222 )
+texture = ExtResource( 32 )
+offset = Vector2( -555, -90.4712 )
+
+[node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/PauseButton/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 3824, 144 )
+scale = Vector2( 1.7009, 2.12222 )
+texture = ExtResource( 32 )
+offset = Vector2( -555, -90.4712 )
+
+[node name="Label" type="Label" parent="Control/Scoping/PauseButton"]
+margin_left = 64.0
+margin_top = 288.0
+margin_right = 1318.0
+margin_bottom = 760.0
+custom_fonts/font = ExtResource( 35 )
+text = "This is the helath bar. The red \\n indi"
+autowrap = true
+script = ExtResource( 36 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="QuantumButton" type="Node2D" parent="Control/Scoping"]
+visible = false
+
+[node name="Node2D" type="Node2D" parent="Control/Scoping/QuantumButton"]
+
+[node name="HealthBarScope" type="Sprite" parent="Control/Scoping/QuantumButton/Node2D"]
+modulate = Color( 1, 1, 1, 0.984314 )
+position = Vector2( 112, 936 )
+scale = Vector2( 0.691892, 0.888889 )
+texture = ExtResource( 31 )
+
+[node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/QuantumButton/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 1208, 1128 )
+scale = Vector2( 1.4471, 2.12222 )
+texture = ExtResource( 32 )
+
+[node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/QuantumButton/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 704.928, 56 )
+scale = Vector2( 2.06105, 2.12222 )
+texture = ExtResource( 32 )
+
+[node name="Label" type="Label" parent="Control/Scoping/QuantumButton"]
+margin_left = 114.912
+margin_top = 56.0689
+margin_right = 1368.91
+margin_bottom = 528.069
+custom_fonts/font = ExtResource( 35 )
+text = "This is the helath bar. The red \\n indi"
+autowrap = true
+script = ExtResource( 37 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TowerButtons" type="Node2D" parent="Control/Scoping"]
+visible = false
+
+[node name="Node2D" type="Node2D" parent="Control/Scoping/TowerButtons"]
+
+[node name="HealthBarScope" type="Sprite" parent="Control/Scoping/TowerButtons/Node2D"]
+modulate = Color( 1, 1, 1, 0.984314 )
+position = Vector2( 705.932, 948 )
+scale = Vector2( 3.86306, 1.01852 )
+texture = ExtResource( 31 )
+
+[node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/TowerButtons/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 2192, 1432 )
+scale = Vector2( 1.4471, 2.12222 )
+texture = ExtResource( 32 )
+
+[node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/TowerButtons/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 688, -16 )
+scale = Vector2( 2.06105, 2.12222 )
+texture = ExtResource( 32 )
+
+[node name="Label" type="Label" parent="Control/Scoping/TowerButtons"]
+margin_left = 128.0
+margin_top = 80.0
+margin_right = 1382.0
+margin_bottom = 552.0
+custom_fonts/font = ExtResource( 35 )
+text = "This is the helath bar. The red \\n indi"
+autowrap = true
+script = ExtResource( 38 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlots" type="Node2D" parent="Control/Scoping"]
+visible = false
+
+[node name="Node2D" type="Node2D" parent="Control/Scoping/ItemSlots"]
+
+[node name="HealthBarScope" type="Sprite" parent="Control/Scoping/ItemSlots/Node2D"]
+modulate = Color( 1, 1, 1, 0.984314 )
+position = Vector2( 1388.74, 936 )
+scale = Vector2( 1.48468, 1.01852 )
+texture = ExtResource( 31 )
+
+[node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/ItemSlots/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 2656, 1504 )
+scale = Vector2( 1.4471, 2.12222 )
+texture = ExtResource( 32 )
+
+[node name="CircularBlurScope4" type="Sprite" parent="Control/Scoping/ItemSlots/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 88, 1464 )
+scale = Vector2( 1.4471, 2.12222 )
+texture = ExtResource( 32 )
+
+[node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/ItemSlots/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 688, -16 )
+scale = Vector2( 2.06105, 2.12222 )
+texture = ExtResource( 32 )
+
+[node name="Label" type="Label" parent="Control/Scoping/ItemSlots"]
+margin_left = 128.0
+margin_top = 80.0
+margin_right = 1382.0
+margin_bottom = 552.0
+custom_fonts/font = ExtResource( 35 )
+text = "This is the helath bar. The red \\n indi"
+autowrap = true
+script = ExtResource( 39 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gold" type="Node2D" parent="Control/Scoping"]
+visible = false
+
+[node name="Node2D" type="Node2D" parent="Control/Scoping/Gold"]
+
+[node name="HealthBarScope" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
+modulate = Color( 1, 1, 1, 0.984314 )
+position = Vector2( 1648.45, 898 )
+scale = Vector2( 0.893694, 0.87963 )
+texture = ExtResource( 31 )
+
+[node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 1544, 1824 )
+scale = Vector2( 1.4471, 2.12222 )
+texture = ExtResource( 32 )
+
+[node name="CircularBlurScope5" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 2800, 1152 )
+scale = Vector2( 1.4471, 2.12222 )
+texture = ExtResource( 32 )
+
+[node name="CircularBlurScope4" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 504, 1208 )
+scale = Vector2( 1.4471, 2.12222 )
+texture = ExtResource( 32 )
+
+[node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
+material = SubResource( 12 )
+position = Vector2( 688, -16 )
+scale = Vector2( 2.06105, 2.12222 )
+texture = ExtResource( 32 )
+
+[node name="Label" type="Label" parent="Control/Scoping/Gold"]
+margin_left = 128.0
+margin_top = 80.0
+margin_right = 1382.0
+margin_bottom = 552.0
+custom_fonts/font = ExtResource( 35 )
+text = "This is the helath bar. The red \\n indi"
+autowrap = true
+script = ExtResource( 40 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

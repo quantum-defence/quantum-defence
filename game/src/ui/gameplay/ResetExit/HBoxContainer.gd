@@ -32,7 +32,6 @@ func _on_ExitButton_pressed():
 
 
 func _make_visible():
-	print("make vis")
 	self.rect_scale = Vector2(0.5, 0.5)
 	isVisible = true
 
