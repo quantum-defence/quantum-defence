@@ -39,9 +39,7 @@ func _process(_delta: float) -> void:
 			mouse_tower.modulate = Color(1, 0.1, 0, 1) if build_ui.isRed else Color(0, 0.7, 1, 1)
 			self.modulate = Color(1, 0.1, 0, 0.5) if build_ui.isRed else Color(0, 0.7, 1, 0.8)
 			self
-			
-			
-			
+
 			get_node("Cancel").visible = false
 		else:
 			# is not valid tile		
@@ -117,7 +115,7 @@ func take_action():
 				else:
 					tower_inventory.make_tower_inventory_visible()
 				var change = tower_inventory.change_tower_to_be_build(inspected_tower)
-				if (!change):
+				if ! change:
 					inspected_tower.toggle_range_visible()
 				return 0
 		ACTION.IDLE:
