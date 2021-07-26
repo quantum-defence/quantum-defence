@@ -42,7 +42,7 @@ Each level in the game is an inherits from level map.
 
 **Tile map pretty and tile map skeleton**
 
-![Level map pretty](./assets/dev/level-map-l1-pretty) ![Level map skeleton](./assets/dev/level-map-l1-skeleton)
+![Level map pretty](./assets/dev/level-map-l1-pretty.png) ![Level map skeleton](./assets/dev/level-map-l1-skeleton.png)
 
 - Each level in the game(E.g tutorial or level one) all extends from level map and have an additional tilemap pretty instance. This tile map pretty instance gives the illusion of a different map.
 - The tile map skeleton is then updated to indicate the valid tiles in the map.
