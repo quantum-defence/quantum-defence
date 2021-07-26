@@ -44,6 +44,8 @@ The health of the portal with lower health will be relative to that. If any port
 
 **Towers**
 
+![4-tower-firing](https://user-images.githubusercontent.com/64136922/126944633-ea58bef3-7e85-4b17-bfe1-26167dccf142.gif)
+
 - 6 Towers have been made in both blue and red modes each. Each tower has a different range and damage. However,
 just for the intial release, only the first tower is available. The rest of the towers will be rolled out
 in subsequent updates.
@@ -65,6 +67,11 @@ in subsequent updates.
 - After chosing a tower, a temporary tower will follow the user's mouse to show how the tower will be displayed
 when build. This temporary tower will be red with a red range indicator if the chosen tower is red and vice versa.
 
+![3-pick-towers](https://user-images.githubusercontent.com/64136922/126944868-b912ede4-c59f-45d0-ad74-1baaf53c4fe7.gif)
+
+![3-pick-towers](https://user-images.githubusercontent.com/64136922/126944739-066f46b8-a476-4fdd-97fb-3411da454e39.gif)
+
+
 ![Red tower building](./assets/red-building.png)  ![Blue tower building](./assets/blue-building.png)
 
 - If the tower hovers over a path, the temporary tower will turn black and a cancel symbol will appear. This 
@@ -83,7 +90,6 @@ indicates that the tower cannot be built.
 of the probabilties the enemies can turn into when shot.
 
 **H Gate**
-
 ![Impact of gate](./assets/h-gate.png)
 
 - The H gate is a quantum gate that puts a classical bit in superposition. This is collapse straight away and results in a 50 percent chance of a qubit collapsing into either a 0 or a 1. Likewise, this gives a 50 percent probability of converting an enemie's color (qubit) into red(0) or blue(1), which is visually represented in the probability
