@@ -4,7 +4,7 @@ A tower defence game that uses quantum computing principles to put a twist on th
 
 ## How to install the game
 
-Download the latest [release](https://github.com/quantum-defence/quantum-defence/releases) from the sidebar. Choose the right one for your platform and run it (You may have to bypass security if your computer does not trust unsigned programs).
+Download the latest [release](https://github.com/quantum-defence/quantum-defence/releases/latest) from the sidebar. Choose the right one for your platform and run it (You may have to bypass security if your computer does not trust unsigned programs).
 
 
 https://user-images.githubusercontent.com/7360964/126990840-0e1ea1f5-8301-4d4a-b707-30ce1073ea44.mov
