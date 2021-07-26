@@ -1,11 +1,23 @@
-# Quantum Defence (Orbital Project)
+# Quantum Defence
 
-_Defend the base against waves of attacks by enemies with turrets, gates, borders and strategy.
-Along the way, learn more about how these mechanisms are inspired by real life quantum computing applications._
+A tower defence game that uses quantum computing principles to put a twist on the game. Enemies have qubits (seen as the colours red or blue) and they attack either red or blue portals based on its value. Normal towers will only get you so far. Power your towers with quantum circuits to play the odds and tear down your enemies.
 
-A tower defence game with enemies, defences and structures in superposition or in their measured state. 
-The enemies and items can be in one of 4 states, visually coded as red, green, blue or yellow.
-When they spawn, they appear in superposition until their state is measured, which happens when they take damage.
+## How to install the game
 
-Some of the structures and game mechanics will be simplifications of techniques used in real life quantum computing, such as entanglement and quantum state manipulation (e.g. with Hadamard gates).
-Over the course of the gameplay, gamers should be able to learn these concepts and be more comfortable with them, even if they do not understand quantum mechanics.
+Download the latest [release](https://github.com/quantum-defence/quantum-defence/releases) from the sidebar. Choose the right one for your platform and run it (You may have to bypass security if your computer does not trust unsigned programs).
+
+
+https://user-images.githubusercontent.com/7360964/126990840-0e1ea1f5-8301-4d4a-b707-30ce1073ea44.mov
+
+https://user-images.githubusercontent.com/7360964/126990844-c9a09103-cbc5-4410-b1b1-0cd824edbdbb.mov
+
+https://user-images.githubusercontent.com/7360964/126990850-9af93d3a-a983-4253-9660-adfc34614264.mov
+
+https://user-images.githubusercontent.com/7360964/126990860-4c3611a6-001f-4b6d-9b0e-26b696461d18.mov
+
+https://user-images.githubusercontent.com/7360964/126990862-bc5faeaf-1635-44e4-a903-7b715291fb6d.mov
+
+https://user-images.githubusercontent.com/7360964/126990868-d3f0a734-1995-4279-aa00-7827c54fa795.mov
+
+https://user-images.githubusercontent.com/7360964/126990882-36f5d754-cb27-4dc2-9d43-ceba208db3a2.mov
+
