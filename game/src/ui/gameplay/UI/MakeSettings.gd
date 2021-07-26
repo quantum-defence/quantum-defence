@@ -9,8 +9,8 @@ var setting_instance
 var setting_present: bool = false
 var isPaused = false
 onready var arena = self.find_parent("Arena")
-onready var pause_texture = preload("res://assets/img/UI/PausePlayButton/PauseButton.png")
-onready var play_texture = preload("res://assets/img/UI/PausePlayButton/Play.png")
+onready var pause_texture = preload("res://assets/img/coloured-squares/pause.png")
+onready var play_texture = preload("res://assets/img/coloured-squares/play.png")
 
 
 func _ready():

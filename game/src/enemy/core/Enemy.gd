@@ -211,10 +211,10 @@ func _drop_item(percentage: int):
 	else:
 		var pos = self.position
 		var item_dropper = $DroppableItem
-		var dropppable_item = item_dropper._get_random_quantum_item()
+		var droppable_item = item_dropper._get_random_quantum_item()
 		var arena = self.find_parent("Arena").get_node("UI")
-		arena.add_child(dropppable_item)
-		dropppable_item.rect_position = pos
+		arena.add_child(droppable_item)
+		droppable_item.rect_position = pos
 
 
 func drop_gold() -> int:

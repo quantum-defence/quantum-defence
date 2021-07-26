@@ -23,11 +23,11 @@ func _get_quantum_items_instance(item: int) -> Item:
 func _get_random_quantum_item():
 	#X 10 percent chance, Ry 30 percent chance H 60 percent chance
 	var roll = rng.randf_range(0, 100)
-	if roll < 10:
+	if roll < 5:
 		return _get_quantum_items_instance(2)
-	elif roll >= 10 and roll < 40:
+	elif roll >= 5 and roll < 30:
 		return _get_quantum_items_instance(1)
-	elif roll >= 40:
+	elif roll >= 30:
 		return _get_quantum_items_instance(0)
 
 
