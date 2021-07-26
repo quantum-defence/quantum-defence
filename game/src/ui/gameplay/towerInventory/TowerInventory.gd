@@ -68,10 +68,10 @@ func change_tower_to_be_build(tower: Tower) -> bool:
 		tower = null
 		make_tower_inventory_invisible()
 		return false
-	
-	tower_to_be_built.get_node("Circle").visible = false	
+
+	tower_to_be_built.get_node("Circle").visible = false
 	tower.get_node("Circle").visible = true
-	
+
 	#Change tower
 	tower_to_be_built = tower
 	tower_inventory_items_held = tower_to_be_built.tower_items_held
@@ -89,6 +89,7 @@ func change_tower_to_be_build(tower: Tower) -> bool:
 	tower_display.add_child(other_animated_sprite)
 	update_tower_inventory_textures()
 	return true
+
 
 #Function to make tower visible/invisible. Realised that 
 # canvas layer has no property for visiblilty. Also, if i put it under
