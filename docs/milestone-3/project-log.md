@@ -47,15 +47,15 @@
 |2021-07-07 |     2021-07-14    |                            Tee Chin                         | Made some instructions for users | These instructions will play during the tutorial and made it auto display the instructions when tutorial begins |  10  |
 |2021-07-07 |     2021-07-14    |                            Tee Chin                         | Tower range | Made a tower instance follow the mouse when button pressed and displayed its range| 20 |
 |2021-07-07 |     2021-07-14    |                            Bharath                        | Redesigned enemy to spawn in waves | Enemies come in waves and all their information can be adjusted easily | 20 |
-|2021-07-07 |     2021-07-14    |                            Bharath                        | Redesigned enemy to spawn in waves| Enemies come in waves and all their information can be adjusted easily | 20 |
+2021-07-14 |     2021-07-21   |                            Bharath                        | Assets | Removed all the unused assets and created v0.12 alpha |  20 |
+|2021-07-14 |     2021-07-21   |                            Tee Chin                       | Pilot survey | Rolled out v0.11 alpha to some players, teaching them and getting feedback |  20 |
+|2021-07-14  |     2021-07-21   |                            Bharath                       | Drop rate | Reduced drop rate of items|  20 |
+| 2021-07-14 |     2021-07-21   |                            Tee Chin                       | Gold | Redesigned gold resource system of the game |  20 |
+|2021-07-14  |     2021-07-21   |                            Tee Chin                      | Health bar | Added health bar to the game as part of UI |   5  |
+|2021-07-14  |     2021-07-21   |                            Bharath                      | Adjust traps | Adjust damage and make it damage over time |    5  |
+|2021-07-21 |     2021-07-26  |                            Bharath                      | Meeting and release of v0.12| Rolled out a new alpha version for testing |  15  |
 
-
-
-
-
-
-
-
+|2021-07-21 |     2021-07-26  |                            Tee Chin                     | Meeting and release of v0.12| Rolled out a new alpha version for testing |  15  |
 
 
 |
