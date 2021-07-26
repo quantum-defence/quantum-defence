@@ -18,12 +18,41 @@ If you would like to help [report bugs](https://github.com/bharathcs/quantum-def
 ## Overview of Game Source Code
 
 
-The entire game itself has multiple important nodes, but here are some clarifications on the most inscrutable parts:
+The entire game itself has multiple important nodes, but here are some clarifications on the most inscrutable parts below:
+
+![Arena and UI](./assets/dev/arena-and-ui-interaction.png)
+
+
+
+
+###Arena
+
+![Arena scene](./assets/dev/just-arena.png) ![Arena godot](./assets/dev/arena-godot)
+
+- The arena is a node2d that contains the level map, level selector and the UI.
+- Arena also has the build_tower function which stores a tower's information(position etc.) when they are built.
+- The arena is the scene that the player sees when he/she enters the game. Any change of map(different levels) would simply be a change of level selector, with the arena still being the main scene.
+
+###Level Map
+
+![Level map scene](./asssets/dev/level-map.png) ![Level map godot](./assets/dev/level-map-godot.png)
+
+The level map is a node2d scene that contains the tile map skeleton and tile map pretty, the navigator, the portals, the enemy spawn point and the background music player.
+Each level in the game is an inherits from level map.
+
+**Tile map pretty and tile map skeleton**
+
+![Level map pretty](./assets/dev/level-map-l1-pretty) ![Level map skeleton](./assets/dev/level-map-l1-skeleton)
+
+- Each level in the game(E.g tutorial or level one) all extends from level map and have an additional tilemap pretty instance. This tile map pretty instance gives the illusion of a different map.
+- The tile map skeleton is then updated to indicate the valid tiles in the map.
+
 
 **Navigation**
 
 - When requested by an enemy instance, plots a valid path across navigable tiles (see Skeleton Tile Map)
-- Is not aware of other future enemy positions when calculating for a particular enemy, so it cannot plot around non tile obstacles. Depends on enemy to manage collisions itself.
+- Is not aware f other future enemy positions when calculating for a particular enemy, so it cannot plot around non tile obstacles. Depends on enemy to manage collisions itself.
+- Like the tile map skeleton, navigation is different for different maps.
 
 **Enemy & Home**
 
@@ -112,17 +141,6 @@ through this instead.
 
 - Other main functionalities of the UI is the health bar. The health bar is a node2d that contains both the red
 and blue bar. If either ones reaches zero, the game ends.
-
-
-**Arena and Level Map**
-
-- The arena is a node2d that contains the level map, level selector and the UI.
-- The arena contains all the logic and information of where to build the towers at and the switching map is done by
-changing the levelMap in arena.
-- Arena also has the build_tower function which stores a tower's information(position etc.) when they are built.
-A diagram summarising these interactions can be seen below:
-
-![Arena and UI](./assets/arena-and-ui-interaction.png)
 
 ## Overview of Enemy Quantum Logic
 
