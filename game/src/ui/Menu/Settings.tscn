@@ -98,6 +98,8 @@ func _input(event: InputEvent):
 			self.set_pause_scene(arena, false, [self.get_path()])
 			make_settings.setting_present = false
 			self.queue_free()
+			var ui = arena.get_node(\"UI\")
+			ui.get_node(\"Control/GreyOut\").make_visible()
 "
 
 [sub_resource type="DynamicFont" id=2]
