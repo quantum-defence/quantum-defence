@@ -43,27 +43,27 @@
 [ext_resource path="res://src/ui/gameplay/UI/Scoping.gd" type="Script" id=41]
 [ext_resource path="res://assets/font/SourceSansPro-SemiBold.ttf" type="DynamicFontData" id=42]
 
-[sub_resource type="DynamicFont" id=13]
-size = 20
-font_data = ExtResource( 42 )
-
-[sub_resource type="DynamicFont" id=14]
-size = 20
-font_data = ExtResource( 42 )
-
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = ExtResource( 42 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 30
-font_data = ExtResource( 22 )
+size = 20
+font_data = ExtResource( 42 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 20
+font_data = ExtResource( 42 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
 font_data = ExtResource( 22 )
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 22 )
+
+[sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 160, 160 )
 margin_left = 13.2964
@@ -71,17 +71,17 @@ margin_right = 12.1884
 margin_top = 13.5051
 margin_bottom = 14.4044
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxEmpty" id=7]
 
-[sub_resource type="StyleBoxEmpty" id=6]
+[sub_resource type="StyleBoxEmpty" id=8]
 content_margin_top = 60.0
 content_margin_bottom = 60.0
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=9]
 size = 100
 font_data = ExtResource( 22 )
 
-[sub_resource type="StyleBoxTexture" id=8]
+[sub_resource type="StyleBoxTexture" id=10]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 160, 160 )
 margin_left = 13.2964
@@ -89,17 +89,17 @@ margin_right = 12.1884
 margin_top = 13.5051
 margin_bottom = 14.4044
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=11]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=12]
 size = 40
 font_data = ExtResource( 22 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=13]
 size = 100
 font_data = ExtResource( 22 )
 
-[sub_resource type="ShaderMaterial" id=12]
+[sub_resource type="ShaderMaterial" id=14]
 shader = ExtResource( 33 )
 shader_param/color = Plane( 0, 0, 0, 1 )
 
@@ -160,7 +160,7 @@ margin_bottom = 26.0
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Attack"]
 margin_right = 96.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Attack:    20"
 
@@ -172,7 +172,7 @@ margin_bottom = 56.0
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/AttackSpeed"]
 margin_right = 105.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "AtkSpd:   1/s"
 
@@ -184,7 +184,7 @@ margin_bottom = 86.0
 [node name="Label" type="Label" parent="Control/TowerInventory/TextureRect/TowerStats/Range"]
 margin_right = 109.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Range:     500"
 
@@ -193,7 +193,7 @@ margin_left = 43.0
 margin_top = 308.0
 margin_right = 128.0
 margin_bottom = 373.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Items
 "
@@ -206,7 +206,7 @@ margin_left = 42.5455
 margin_top = 280.127
 margin_right = 164.546
 margin_bottom = 310.127
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Probability"
 __meta__ = {
@@ -236,7 +236,7 @@ __meta__ = {
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 6 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot1"]
@@ -259,7 +259,7 @@ margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 6 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot2"]
@@ -282,7 +282,7 @@ margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 6 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot3"]
@@ -305,7 +305,7 @@ margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 6 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/GridContainer/Slot4"]
@@ -338,7 +338,7 @@ margin_left = 41.8108
 margin_top = 420.682
 margin_right = 160.811
 margin_bottom = 485.682
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.545098, 0.270588, 0.0745098, 1 )
 text = "Quantum
 "
@@ -365,7 +365,7 @@ __meta__ = {
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 6 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot1"]
@@ -388,7 +388,7 @@ margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 6 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot2"]
@@ -411,7 +411,7 @@ margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 6 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot3"]
@@ -434,7 +434,7 @@ margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 6 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot4"]
@@ -457,7 +457,7 @@ margin_left = 272.0
 margin_right = 336.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 6 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/TowerInventory/TextureRect/QuantumLabel/QuantumCircuit/QuantumSlot5"]
@@ -498,7 +498,7 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="Control/BuildUI/VBoxContainer"]
 margin_right = 1920.0
 margin_bottom = 280.0
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 7 )
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -520,7 +520,7 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer"]
 margin_right = 1920.0
 margin_bottom = 280.0
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 19 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer"]
@@ -584,7 +584,7 @@ margin_left = -123.786
 margin_top = -65.3224
 margin_right = -3.78601
 margin_bottom = 67.6776
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 text = "10"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -613,7 +613,7 @@ margin_left = -72.7138
 margin_top = -59.2449
 margin_right = 47.2862
 margin_bottom = 73.7551
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 text = "5"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -643,7 +643,7 @@ margin_left = -72.7138
 margin_top = -59.2449
 margin_right = 47.2862
 margin_bottom = 73.7551
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 text = "8"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -673,7 +673,7 @@ margin_left = -133.035
 margin_top = -56.8665
 margin_right = -13.035
 margin_bottom = 76.1335
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 text = "20"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -702,7 +702,7 @@ margin_left = -72.7138
 margin_top = -59.2449
 margin_right = 47.2862
 margin_bottom = 73.7551
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 text = "6"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -731,7 +731,7 @@ margin_left = -72.7138
 margin_top = -59.2449
 margin_right = 47.2862
 margin_bottom = 73.7551
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 text = "7"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -750,7 +750,7 @@ script = ExtResource( 19 )
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot1"]
@@ -775,7 +775,7 @@ margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot2"]
@@ -800,7 +800,7 @@ margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot3"]
@@ -825,7 +825,7 @@ margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot4"]
@@ -848,7 +848,7 @@ margin_left = 272.0
 margin_right = 336.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot5"]
@@ -871,7 +871,7 @@ margin_top = 68.0
 margin_right = 64.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot6"]
@@ -895,7 +895,7 @@ margin_top = 68.0
 margin_right = 132.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot7"]
@@ -919,7 +919,7 @@ margin_top = 68.0
 margin_right = 200.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot8"]
@@ -943,7 +943,7 @@ margin_top = 68.0
 margin_right = 268.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot9"]
@@ -967,7 +967,7 @@ margin_top = 68.0
 margin_right = 336.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 19 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/BuildUI/VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer/ItemSlots/Slot10"]
@@ -988,7 +988,7 @@ margin_left = 1536.0
 margin_right = 1600.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 11 )
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1015,7 +1015,7 @@ margin_left = 97.515
 margin_top = 23.7841
 margin_right = 243.515
 margin_bottom = 64.7841
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 12 )
 text = "0"
 script = ExtResource( 17 )
 __meta__ = {
@@ -1035,7 +1035,7 @@ margin_left = -359.65
 margin_top = -113.54
 margin_right = 381.35
 margin_bottom = 66.4604
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0.945098, 0.898039, 0.898039, 1 )
 text = "NOT ENOUGH GOLD"
 script = ExtResource( 21 )
@@ -1079,7 +1079,7 @@ scale = Vector2( 4.94662, 1 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope" type="Sprite" parent="Control/Scoping/HealthBar/HealthBarScope"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( -31.8975, 672 )
 scale = Vector2( 1, 1.26667 )
 texture = ExtResource( 32 )
@@ -1112,21 +1112,21 @@ scale = Vector2( 0.576577, 0.703704 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope" type="Sprite" parent="Control/Scoping/PauseButton/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 1368, 856 )
 scale = Vector2( 1.7009, 2.12222 )
 texture = ExtResource( 32 )
 offset = Vector2( -555, -90.4712 )
 
 [node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/PauseButton/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 2512, 1152 )
 scale = Vector2( 1.7009, 2.12222 )
 texture = ExtResource( 32 )
 offset = Vector2( -555, -90.4712 )
 
 [node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/PauseButton/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 3824, 144 )
 scale = Vector2( 1.7009, 2.12222 )
 texture = ExtResource( 32 )
@@ -1158,13 +1158,13 @@ scale = Vector2( 0.691892, 0.888889 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/QuantumButton/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 1208, 1128 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/QuantumButton/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 704.928, 56 )
 scale = Vector2( 2.06105, 2.12222 )
 texture = ExtResource( 32 )
@@ -1194,13 +1194,13 @@ scale = Vector2( 3.86306, 1.01852 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/TowerButtons/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 2192, 1432 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/TowerButtons/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 688, -16 )
 scale = Vector2( 2.06105, 2.12222 )
 texture = ExtResource( 32 )
@@ -1230,19 +1230,19 @@ scale = Vector2( 1.48468, 1.01852 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/ItemSlots/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 2656, 1504 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope4" type="Sprite" parent="Control/Scoping/ItemSlots/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 88, 1464 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/ItemSlots/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 688, -16 )
 scale = Vector2( 2.06105, 2.12222 )
 texture = ExtResource( 32 )
@@ -1272,25 +1272,25 @@ scale = Vector2( 0.893694, 0.87963 )
 texture = ExtResource( 31 )
 
 [node name="CircularBlurScope2" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 1544, 1824 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope5" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 2800, 1152 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope4" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 504, 1208 )
 scale = Vector2( 1.4471, 2.12222 )
 texture = ExtResource( 32 )
 
 [node name="CircularBlurScope3" type="Sprite" parent="Control/Scoping/Gold/Node2D"]
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 688, -16 )
 scale = Vector2( 2.06105, 2.12222 )
 texture = ExtResource( 32 )
