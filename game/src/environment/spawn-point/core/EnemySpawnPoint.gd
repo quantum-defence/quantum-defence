@@ -89,6 +89,8 @@ func spawn_enemy(enemy_type: String) -> void:
 func register_kia() -> void:
 	living_enemy_count -= 1
 	emit_signal("on_enemy_kia")
+	if living_enemy_count == 0 and _max_spawn_cycle == cycle_number:
+		emit_signal("on_last_enemy_dead")
 
 
 func register_teleported() -> void:
