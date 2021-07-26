@@ -44,7 +44,7 @@ The entire game itself has multiple important nodes, but here are some clarifica
 ![Level map scene](./assets/dev/level-map.png) ![Level map godot](./assets/dev/level-map-godot.png)
 
 The level map is a node2d scene that contains the tile map skeleton and tile map pretty, the navigator, the portals, the enemy spawn point and the background music player.
-Each level in the game is an inherits from level map.
+Each level in the game is a scene that inherits from level map.
 
 **Tile map pretty and tile map skeleton**
 
@@ -61,8 +61,8 @@ Each level in the game is an inherits from level map.
 ![NavPolygon](./assets/dev/nav-polygon.png)
 ![Navigator](./assets/dev/navigation.png)
 
-- Navigation is an inbuilt godot node that helps for navigation. To change the path of the enemies, edit NavPolygon
-in navigator.
+- Navigation is an inbuilt godot node that helps in navigation. To change the path of the enemies, edit 
+NavigatorPolygon in navigator.
 
 - When requested by an enemy instance, plots a valid path across navigable tiles (see Skeleton Tile Map)
 - Is not aware f other future enemy positions when calculating for a particular enemy, so it cannot plot around non tile obstacles. Depends on enemy to manage collisions itself.
@@ -131,6 +131,9 @@ actually built.
 
 **Gold**
 
+![Gold](./assets/dev/gold.png)
+
+- Gold does not have its own scene but is simply under goldlabel in buildUI.
 - The main logic of the gold is done in a goldLabel.gd. BuildUI's change_gold() and set_gold() functions all interact
 with this. Calling reset() is to reset all the gold of the stage.
 
