@@ -140,7 +140,8 @@ with this. Calling reset() is to reset all the gold of the stage.
 
 **Items**
 
-![Items](./assets/dev/item.png) ![Hadamard gate](./assets/dev/hadamard-item.png) ![Hadamard godot](./assets/dev/hada,ard-item-godot.png)
+![Items](./assets/dev/item.png) ![Hadamard gate](./assets/dev/hadamard-item.png) 
+![Hadamard godot](./assets/dev/hada,ard-item-godot.png)
 
 - Items are split into normal items and droppable items.
 - The normal items are normal node2d that contain a textureRect.
