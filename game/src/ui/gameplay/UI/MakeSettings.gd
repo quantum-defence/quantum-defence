@@ -46,7 +46,6 @@ func _input(event: InputEvent):
 				setting_instance = settings.instance()
 				setting_instance._toggle_origin()
 				self.add_child(setting_instance)
-				setting_instance._toggle_reset_exit()
 				setting_present = true
 				self.set_pause_scene(arena, true)
 				self.set_pause_node(setting_instance, false)

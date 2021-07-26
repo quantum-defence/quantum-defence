@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/font/arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://src/Audio/BgMusicPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/img/Screens/04(1).jpg" type="Texture" id=3]
-[ext_resource path="res://src/ui/gameplay/ResetExit/Reset.tscn" type="PackedScene" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
@@ -20,6 +19,14 @@ func _ready():
 		x.stop()
 		remove_child(x)
 		x.queue_free()
+		
+	var restart_button = $VBoxContainer/DoneBtnContainer/RestartButton
+	var exit_button = $VBoxContainer/DoneBtnContainer/ExitButton
+	var done_button = $VBoxContainer/DoneBtnContainer/DoneButton
+	restart_button.visible = ! from_menu
+	exit_button.visible = ! from_menu
+	done_button.text = \"DONE\" if from_menu else \"RESUME\"
+	
 
 
 #(Un)pauses a single node
@@ -63,9 +70,19 @@ func _on_DoneButton_pressed() -> void:
 		make_settings.setting_present = false
 		self.queue_free()
 
-func _toggle_reset_exit():
-	var reset_exit = $ResetExit
-	reset_exit.get_node(\"HBoxContainer\")._toggle_invis()
+
+func _on_RestartButton_pressed() -> void:
+	get_tree().get_root().get_node(\"Arena\").set_up(null)
+	_on_DoneButton_pressed()
+
+
+func _on_ExitButton_pressed() -> void:
+	var menu = load(\"res://src/ui/Menu/Menu.tscn\").instance()
+	var arena = get_tree().get_root().get_node(\"Arena\")
+	var root = get_tree().get_root()
+	root.add_child(menu)
+	root.remove_child(arena)
+	arena.queue_free()
 
 
 func _toggle_origin():
@@ -191,14 +208,43 @@ margin_top = 18.0
 margin_right = 376.0
 margin_bottom = 45.0
 grow_vertical = 0
+rect_min_size = Vector2( 78, 27 )
 custom_fonts/font = SubResource( 5 )
-text = "DONE"
+text = "Done"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResetExit" parent="." instance=ExtResource( 4 )]
+[node name="RestartButton" type="Button" parent="VBoxContainer/DoneBtnContainer"]
+visible = false
+margin_left = 200.0
+margin_top = 18.0
+margin_right = 289.0
+margin_bottom = 45.0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 48, 20 )
+custom_fonts/font = SubResource( 5 )
+text = "RESTART"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/DoneBtnContainer"]
+visible = false
+margin_left = 112.0
+margin_top = 18.0
+margin_right = 184.0
+margin_bottom = 45.0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 48, 20 )
+custom_fonts/font = SubResource( 5 )
+text = "EXIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="value_changed" from="VBoxContainer/BgMusicVolumeSlider" to="." method="_on_BgMusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/FxVolumeSlider" to="." method="_on_FxVolumeSlider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/DoneBtnContainer/DoneButton" to="." method="_on_DoneButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/DoneBtnContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/DoneBtnContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
