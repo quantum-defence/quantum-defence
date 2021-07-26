@@ -25,9 +25,9 @@ The entire game itself has multiple important nodes, but here are some clarifica
 
 
 
-###Arena
+### Arena
 
-![Arena scene](./assets/dev/just-arena.png) ![Arena godot](./assets/dev/arena-godot)
+![Arena scene](./assets/dev/just-arena.png) ![Arena godot](./assets/dev/arena-godot.png)
 
 - The arena is a node2d that contains the level map, level selector and the UI.
 - Arena also has the build_tower function which stores a tower's information(position etc.) when they are built.
@@ -35,7 +35,7 @@ The entire game itself has multiple important nodes, but here are some clarifica
 
 ###Level Map
 
-![Level map scene](./asssets/dev/level-map.png) ![Level map godot](./assets/dev/level-map-godot.png)
+![Level map scene](./assets/dev/level-map.png) ![Level map godot](./assets/dev/level-map-godot.png)
 
 The level map is a node2d scene that contains the tile map skeleton and tile map pretty, the navigator, the portals, the enemy spawn point and the background music player.
 Each level in the game is an inherits from level map.
