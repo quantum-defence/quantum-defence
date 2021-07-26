@@ -57,8 +57,8 @@
 |2021-07-21 |     2021-07-26  |                            Tee Chin                     | Meeting and release of v0.12| Rolled out a new alpha version for testing |  15  |
 
 
-|
+
 |  Member  | Hours |
 | :------: | :---: |
-| Bharath  |  106  |
-| Tee Chin |  114  |
+| Bharath  |  222  |
+| Tee Chin |  221  |
