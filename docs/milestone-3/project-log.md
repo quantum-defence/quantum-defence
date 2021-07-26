@@ -54,7 +54,6 @@
 |2021-07-14  |     2021-07-21   |                            Tee Chin                      | Health bar | Added health bar to the game as part of UI |   5  |
 |2021-07-14  |     2021-07-21   |                            Bharath                      | Adjust traps | Adjust damage and make it damage over time |    5  |
 |2021-07-21 |     2021-07-26  |                            Bharath                      | Meeting and release of v0.12| Rolled out a new alpha version for testing |  15  |
-
 |2021-07-21 |     2021-07-26  |                            Tee Chin                     | Meeting and release of v0.12| Rolled out a new alpha version for testing |  15  |
 
 
