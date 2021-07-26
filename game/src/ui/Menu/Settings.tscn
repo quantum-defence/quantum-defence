@@ -16,7 +16,12 @@ var make_settings
 func _ready():
 	if (!from_menu):
 		make_settings = arena.get_node(\"UI\")
-		
+		var x : AudioStreamPlayer = $BgMusicPlayer
+		x.stop()
+		remove_child(x)
+		x.queue_free()
+
+
 #(Un)pauses a single node
 func set_pause_node(node : Node, pause : bool) -> void:
 	node.set_process(!pause)
