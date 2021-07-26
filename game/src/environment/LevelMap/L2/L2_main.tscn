@@ -9,7 +9,7 @@ script/source = "extends LevelMap
 
 func _ready() -> void:
 	#Set up portal health and gold start
-	set_up_paramenters(140,10,10)
+	set_up_paramenters(140,80,10)
 	prebuilt_towers = [
 
 	]
