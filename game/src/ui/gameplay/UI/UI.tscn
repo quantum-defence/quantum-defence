@@ -26,9 +26,9 @@
 [ext_resource path="res://src/ui/gameplay/towerInventory/QuantumCircuitSlot.gd" type="Script" id=24]
 [ext_resource path="res://src/ui/gameplay/HealthBar/HealthBar.tscn" type="PackedScene" id=25]
 [ext_resource path="res://src/ui/gameplay/UI/MakeSettings.gd" type="Script" id=26]
-[ext_resource path="res://assets/img/UI/PausePlayButton/Play.png" type="Texture" id=27]
+[ext_resource path="res://assets/img/coloured-squares/pause.png" type="Texture" id=27]
 [ext_resource path="res://src/ui/gameplay/towerInventory/ProbabilityBar.tscn" type="PackedScene" id=28]
-[ext_resource path="res://assets/img/UI/PausePlayButton/PauseButton.png" type="Texture" id=29]
+[ext_resource path="res://assets/img/coloured-squares/play.png" type="Texture" id=29]
 [ext_resource path="res://src/ui/gameplay/UI/GreyOut.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/img/Scope/RectangleScope.png" type="Texture" id=31]
 [ext_resource path="res://assets/img/Scope/CircularBlurScope.jpeg" type="Texture" id=32]
@@ -1060,12 +1060,12 @@ scale = Vector2( 0.6, 0.5 )
 [node name="PauseButton" type="TextureButton" parent="Control"]
 margin_left = 1613.0
 margin_top = 9.0
-margin_right = 2590.0
-margin_bottom = 986.0
-rect_scale = Vector2( 0.1, 0.1 )
+margin_right = 1741.0
+margin_bottom = 137.0
+rect_scale = Vector2( 0.8, 0.8 )
 toggle_mode = true
-texture_normal = ExtResource( 29 )
-texture_pressed = ExtResource( 27 )
+texture_normal = ExtResource( 27 )
+texture_pressed = ExtResource( 29 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -122,7 +122,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Tower Defence"
+config/name="Quantum Defence"
+config/description="A tower defence game that uses quantum computing principles to put a twist on the game. Enemies have qubits (seen as the colours red or blue) and they attack either red or blue portals based on its value. Normal towers will only get you so far. Power your towers with quantum circuits to play the odds and tear down your enemies."
 run/main_scene="res://src/ui/Menu/Menu.tscn"
 config/icon="res://assets/img/logo.png"
 config/windows_native_icon="res://assets/img/logo.ico"
