@@ -46,11 +46,12 @@ func _input(event: InputEvent):
 				setting_instance = settings.instance()
 				setting_instance._toggle_origin()
 				self.add_child(setting_instance)
-				setting_instance._toggle_reset_exit()
 				setting_present = true
 				self.set_pause_scene(arena, true)
 				self.set_pause_node(setting_instance, false)
 				isPaused = true
+				var ui = arena.get_node("UI")
+				ui.get_node("Control/GreyOut").make_invis()
 			# Tbh dun really think the else statement below cos we cant access
 			# When the scene itself is paused. Hence the paused statement in Settings.tscn
 			elif setting_present:
