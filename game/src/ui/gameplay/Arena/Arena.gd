@@ -73,8 +73,8 @@ func on_game_end(
 ):
 	var dict = {
 		"result": "won" if is_win else "lost",
-		"blue_health": blue_health,
-		"red_health": red_health,
+		"blue_health": int(max(blue_health, 0)),
+		"red_health": int(max(red_health, 0)),
 		"current_cycle": cycle_number + 1,
 		"enemy_spawn_count": enemy_spawn_count,
 		"enemy_kill_count": enemy_kill_count

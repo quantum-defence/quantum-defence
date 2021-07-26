@@ -11,25 +11,25 @@ func _ready():
 	red_health_display = self.get_node("Red")
 	blue_health_display = self.get_node("Blue")
 	set_max_portal_health(max_portal_health)
-	update_health()
+	_update_health()
 
 
 func set_max_portal_health(health: int):
 	max_portal_health = health
 	red_health_display.set_max(max_portal_health)
 	blue_health_display.set_max(max_portal_health)
-	update_health()
+	_update_health()
 
 
 func set_portal_health(health: int, isRed: bool):
 	if isRed:
-		red_portal_health = health
+		red_portal_health = int(max(health, 0))
 	else:
-		blue_portal_health = health
-	update_health()
+		blue_portal_health = int(max(health, 0))
+	_update_health()
 
 
-func update_health():
+func _update_health():
 	#Update the health bar texture
 	if red_health_display == null or blue_health_display == null:
 		return
