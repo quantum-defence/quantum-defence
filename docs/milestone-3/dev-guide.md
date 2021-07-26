@@ -39,7 +39,7 @@ The entire game itself has multiple important nodes, but here are some clarifica
 - `tile_at` - an array of enum values representing the content of the tile
 
 
-###Level Map
+### Level Map
 
 ![Level map scene](./assets/dev/level-map.png) ![Level map godot](./assets/dev/level-map-godot.png)
 
@@ -88,7 +88,7 @@ a signal that changes the health of the health bar as well as the portal.
 
 
 
-###UI
+### UI
 
 **UI**
 
@@ -167,7 +167,7 @@ the text to the previous text.
 The scoping nodes do no have their own scene and are simply part of UI. Thus any changing of information or scripts of scoping requires it to be done through UI.tscn. 
 
 
-###TileSelector
+### TileSelector
 
 **TileSelector**
 - Square that flashes Green / Red based on if the tile is a valid position for user action (based on whether they are in build mode)
